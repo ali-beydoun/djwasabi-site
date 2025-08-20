@@ -301,7 +301,7 @@ body {
 /* Expertise Section */
 .expertise {
     padding: 80px 0;
-    background: var(--secondary-black);
+    background: #ffffff;
 }
 
 .expertise-grid {
@@ -319,17 +319,25 @@ body {
     font-size: 3rem;
     color: var(--lime-green);
     margin-bottom: 1rem;
+    background: rgba(139, 195, 74, 0.1);
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
 }
 
 .expertise-item h3 {
-    color: var(--text-light);
+    color: var(--primary-black);
     margin-bottom: 1rem;
     font-size: 1.5rem;
     text-transform: uppercase;
 }
 
 .expertise-item p {
-    color: var(--text-gray);
+    color: #666;
     line-height: 1.8;
 }
 
@@ -396,14 +404,14 @@ body {
 /* Services Section */
 .services {
     padding: 80px 0;
-    background: var(--secondary-black);
+    background: #f8f8f8;
 }
 
 .section-title {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: var(--text-light);
+    color: var(--primary-black);
     text-transform: uppercase;
 }
 
@@ -421,18 +429,19 @@ body {
 }
 
 .service-card {
-    background: var(--card-bg);
+    background: #ffffff;
     border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.3s;
-    border: 1px solid var(--border-color);
-    scroll-margin-top: 100px; /* Offset for fixed navbar */
+    transition: all 0.3s;
+    border: 1px solid #e0e0e0;
+    scroll-margin-top: 100px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .service-card:hover {
     transform: translateY(-10px);
     border-color: var(--lime-green);
-    box-shadow: 0 10px 30px rgba(139, 195, 74, 0.2);
+    box-shadow: 0 15px 40px rgba(139, 195, 74, 0.25);
 }
 
 .service-image {
@@ -445,6 +454,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: top center;
     transition: transform 0.3s;
 }
 
@@ -454,18 +464,19 @@ body {
 
 .service-card h3 {
     padding: 1.5rem 1.5rem 0.5rem;
-    color: var(--lime-green);
+    color: var(--primary-black);
+    font-weight: 600;
 }
 
 .service-card p {
     padding: 0 1.5rem 1.5rem;
-    color: var(--text-gray);
+    color: #666;
 }
 
 /* Gallery Section */
 .gallery {
     padding: 80px 0;
-    background: var(--primary-black);
+    background: #ffffff;
 }
 
 .gallery-grid {
@@ -495,7 +506,7 @@ body {
 /* Reviews Section */
 .reviews {
     padding: 80px 0;
-    background: var(--secondary-black);
+    background: #f8f8f8;
 }
 
 .reviews-grid {
@@ -505,11 +516,12 @@ body {
 }
 
 .review-card {
-    background: var(--card-bg);
+    background: #ffffff;
     padding: 2rem;
     border-radius: 10px;
-    border: 1px solid var(--border-color);
+    border: 1px solid #e0e0e0;
     transition: all 0.3s;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
 .review-card:hover {
@@ -524,19 +536,19 @@ body {
 }
 
 .review-card p {
-    color: var(--text-gray);
+    color: #555;
     line-height: 1.8;
     margin-bottom: 1rem;
     font-style: italic;
 }
 
 .reviewer {
-    color: var(--lime-green);
+    color: var(--primary-black);
     font-weight: 600;
 }
 
 .review-event {
-    color: var(--text-gray);
+    color: var(--lime-green);
     font-size: 0.9rem;
 }
 
