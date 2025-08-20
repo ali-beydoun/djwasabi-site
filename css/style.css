@@ -49,61 +49,15 @@ body {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background: linear-gradient(90deg, 
-        transparent, 
-        var(--lime-green), 
-        transparent
+        transparent 0%,
+        rgba(139, 195, 74, 0.3) 25%,
+        rgba(139, 195, 74, 0.5) 50%,
+        rgba(139, 195, 74, 0.3) 75%,
+        transparent 100%
     );
-    background-size: 200% 100%;
-    animation: pulse-border 3s ease-in-out infinite;
-}
-
-@keyframes pulse-border {
-    0% {
-        background-position: -200% 0;
-        opacity: 0.3;
-    }
-    50% {
-        background-position: 0% 0;
-        opacity: 1;
-    }
-    100% {
-        background-position: 200% 0;
-        opacity: 0.3;
-    }
-}
-
-/* Alternative heartbeat animation for navbar */
-.navbar::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0;
-    height: 2px;
-    background: var(--lime-green);
-    animation: heartbeat-line 2s ease-in-out infinite;
-}
-
-@keyframes heartbeat-line {
-    0%, 100% {
-        width: 0;
-        opacity: 0;
-    }
-    25% {
-        width: 30%;
-        opacity: 1;
-    }
-    50% {
-        width: 0;
-        opacity: 0;
-    }
-    75% {
-        width: 30%;
-        opacity: 1;
-    }
+    opacity: 0.6;
 }
 
 .navbar.scroll-down {
@@ -235,7 +189,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 70px;
+    padding-top: 70px;
     position: relative;
     overflow: hidden;
 }
@@ -948,12 +902,9 @@ a.service-card {
 
     /* Fix header overlap on mobile */
     .hero {
-        margin-top: 75px;
+        padding-top: 75px;
     }
     
-    section:first-of-type {
-        padding-top: 85px;
-    }
 
     .nav-menu {
         position: fixed;
