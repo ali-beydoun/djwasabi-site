@@ -426,6 +426,7 @@ body {
     overflow: hidden;
     transition: transform 0.3s;
     border: 1px solid var(--border-color);
+    scroll-margin-top: 100px; /* Offset for fixed navbar */
 }
 
 .service-card:hover {
