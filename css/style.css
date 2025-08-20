@@ -204,12 +204,12 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: url('../images/466969011_569795192340981_656555707320999613_n-1536x1024.webp');
+    background-image: url('../images/668a49a06b249-1720338848-1499x2048.webp');
     background-size: cover;
-    background-position: center;
-    opacity: 0.25;
+    background-position: center top;
+    opacity: 0.2;
     z-index: 1;
-    filter: blur(1px) brightness(0.7);
+    filter: blur(2px) brightness(0.8);
 }
 
 .hero-svg-bg {
