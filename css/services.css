@@ -6,7 +6,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin-top: 70px;
+    padding-top: 82px;
     background: var(--primary-black);
 }
 
@@ -490,7 +490,7 @@
 /* Responsive Updates */
 @media (max-width: 768px) {
     .service-hero {
-        margin-top: 75px;
+        padding-top: 75px;
         min-height: 70vh;
     }
     
