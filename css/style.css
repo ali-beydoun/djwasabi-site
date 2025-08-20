@@ -707,11 +707,11 @@ body {
 
     /* Fix header overlap on mobile */
     .hero {
-        margin-top: 90px;
+        margin-top: 75px;
     }
     
     section:first-of-type {
-        padding-top: 100px;
+        padding-top: 85px;
     }
 
     .nav-menu {
