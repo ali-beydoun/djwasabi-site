@@ -25,8 +25,7 @@
                     <span></span>
                 </button>
                 <ul class="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li class="dropdown">
                         <a href="#services">Services</a>
                         <ul class="dropdown-menu">
@@ -35,13 +34,11 @@
                             <li><a href="corporate.html">Corporate Events</a></li>
                             <li><a href="formals.html">Formals & School Discos</a></li>
                             <li><a href="karaoke.html">Karaoke</a></li>
-                            <li><a href="other.html">Other Functions</a></li>
                         </ul>
                     </li>
-                    <li><a href="#gallery">Gallery</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="#contact" class="get-quote-btn">Get a Quote</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#contact" class="get-quote-btn">Get a Quote</a></li>
                 </ul>
             </div>
         </div>
@@ -50,9 +47,27 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bg"></div>
+        <!-- Animated SVG Background -->
+        <svg class="hero-svg-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+            <path fill="#8BC34A" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,96C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+                <animate attributeName="d" 
+                    values="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,96C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;
+                            M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,90.7C672,85,768,107,864,101.3C960,96,1056,64,1152,64C1248,64,1344,96,1392,112L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;
+                            M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,133.3C960,128,1056,96,1152,96C1248,96,1344,128,1392,144L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+                    dur="10s"
+                    repeatCount="indefinite"/>
+            </path>
+        </svg>
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="music-visualizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
                     <p class="hero-tagline">Making Your Next Event Memorable</p>
                     <h1 class="hero-title">Creating the Atmosphere for Your Event</h1>
                     <p class="hero-description">Plan and book your wedding or any other type of event with DJ Wasabi.</p>
@@ -69,6 +84,23 @@
                 </div>
                 <div class="hero-image">
                     <img src="images/668a499c0124e-1720338844.webp" alt="DJ Wasabi Professional DJ">
+                    <!-- Floating Vinyl Record -->
+                    <svg class="floating-vinyl" width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -20px; right: -20px; z-index: 2;">
+                        <defs>
+                            <radialGradient id="vinylGrad">
+                                <stop offset="0%" style="stop-color:#1a1a1a"/>
+                                <stop offset="50%" style="stop-color:#2a2a2a"/>
+                                <stop offset="100%" style="stop-color:#0a0a0a"/>
+                            </radialGradient>
+                        </defs>
+                        <circle cx="60" cy="60" r="55" fill="url(#vinylGrad)"/>
+                        <circle cx="60" cy="60" r="45" fill="none" stroke="#333" stroke-width="0.5"/>
+                        <circle cx="60" cy="60" r="35" fill="none" stroke="#333" stroke-width="0.5"/>
+                        <circle cx="60" cy="60" r="25" fill="none" stroke="#333" stroke-width="0.5"/>
+                        <circle cx="60" cy="60" r="20" fill="#8BC34A"/>
+                        <circle cx="60" cy="60" r="3" fill="#000"/>
+                        <animateTransform attributeName="transform" attributeType="XML" type="rotate" from="0 60 60" to="360 60 60" dur="4s" repeatCount="indefinite"/>
+                    </svg>
                 </div>
             </div>
         </div>
@@ -79,20 +111,28 @@
         <div class="container">
             <div class="trust-items">
                 <div class="trust-item">
-                    <div class="trust-number">500+</div>
-                    <div class="trust-label">Events Completed</div>
+                    <div class="trust-number">
+                        <svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="30" cy="30" r="28" stroke="#8BC34A" stroke-width="2" fill="none" opacity="0.3"/>
+                            <path d="M20 35 Q25 25, 30 30 T40 35" stroke="#8BC34A" stroke-width="2" fill="none">
+                                <animate attributeName="d" values="M20 35 Q25 25, 30 30 T40 35;M20 30 Q25 35, 30 25 T40 30;M20 35 Q25 25, 30 30 T40 35" dur="2s" repeatCount="indefinite"/>
+                            </path>
+                            <text x="30" y="35" text-anchor="middle" fill="#8BC34A" font-size="20">🎵</text>
+                        </svg>
+                    </div>
+                    <div class="trust-label">Professional DJ</div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-number">5★</div>
-                    <div class="trust-label">Google Rating</div>
+                    <div class="trust-number">🎤</div>
+                    <div class="trust-label">MC Services</div>
                 </div>
                 <div class="trust-item">
                     <div class="trust-number">5+</div>
                     <div class="trust-label">Years Experience</div>
                 </div>
                 <div class="trust-item">
-                    <div class="trust-number">24hr</div>
-                    <div class="trust-label">Response Time</div>
+                    <div class="trust-number">💬</div>
+                    <div class="trust-label">Quick Response</div>
                 </div>
             </div>
         </div>
@@ -150,42 +190,76 @@
         <div class="container">
             <h2 class="section-title">I Specialise in All Events</h2>
             <p class="section-subtitle">Professional DJ & MC Services for Sydney</p>
+            <!-- Animated Sound Wave -->
+            <div class="sound-wave" style="text-align: center; margin: 2rem 0;">
+                <svg width="200" height="40" viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="15" width="3" height="10" fill="#8BC34A">
+                        <animate attributeName="height" values="10;25;10" dur="0.8s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="15;7.5;15" dur="0.8s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="20" y="10" width="3" height="20" fill="#8BC34A">
+                        <animate attributeName="height" values="20;30;20" dur="0.8s" begin="0.1s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="10;5;10" dur="0.8s" begin="0.1s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="30" y="12" width="3" height="16" fill="#8BC34A">
+                        <animate attributeName="height" values="16;28;16" dur="0.8s" begin="0.2s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="12;6;12" dur="0.8s" begin="0.2s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="40" y="8" width="3" height="24" fill="#8BC34A">
+                        <animate attributeName="height" values="24;32;24" dur="0.8s" begin="0.3s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="8;4;8" dur="0.8s" begin="0.3s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="50" y="10" width="3" height="20" fill="#8BC34A">
+                        <animate attributeName="height" values="20;30;20" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="10;5;10" dur="0.8s" begin="0.4s" repeatCount="indefinite"/>
+                    </rect>
+                    <!-- Repeat pattern -->
+                    <rect x="60" y="15" width="3" height="10" fill="#8BC34A">
+                        <animate attributeName="height" values="10;25;10" dur="0.8s" begin="0.5s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="15;7.5;15" dur="0.8s" begin="0.5s" repeatCount="indefinite"/>
+                    </rect>
+                    <rect x="70" y="10" width="3" height="20" fill="#8BC34A">
+                        <animate attributeName="height" values="20;30;20" dur="0.8s" begin="0.6s" repeatCount="indefinite"/>
+                        <animate attributeName="y" values="10;5;10" dur="0.8s" begin="0.6s" repeatCount="indefinite"/>
+                    </rect>
+                </svg>
+            </div>
             <div class="services-grid">
-                <div class="service-card" id="weddings">
+                <a href="weddings.html" class="service-card" id="weddings">
                     <div class="service-image">
                         <img src="images/Osama-and-Noor-Wedding-1152x1536.webp" alt="Wedding DJ Services">
                     </div>
                     <h3>Weddings & Engagements</h3>
                     <p>Making your big day unforgettable with the perfect soundtrack to your love story. Professional wedding DJ & MC services.</p>
-                </div>
-                <div class="service-card" id="birthdays">
+                </a>
+                <a href="birthdays.html" class="service-card" id="birthdays">
                     <div class="service-image">
                         <img src="images/IMG_8253-1536x2048.webp" alt="Birthday DJ">
                     </div>
                     <h3>Birthdays</h3>
                     <p>Make your birthday party unforgettable with professional DJ services tailored to your style and music preferences.</p>
-                </div>
-                <div class="service-card" id="corporate">
+                </a>
+                <a href="corporate.html" class="service-card" id="corporate">
                     <div class="service-image">
                         <img src="images/Group-62.webp" alt="Corporate Events DJ">
                     </div>
                     <h3>Corporate Events</h3>
                     <p>Elevate your corporate event and impress clients and colleagues with professional entertainment.</p>
-                </div>
-                <div class="service-card" id="formals">
+                </a>
+                <a href="formals.html" class="service-card" id="formals">
                     <div class="service-image">
                         <img src="images/Group-63.webp" alt="School Disco DJ">
                     </div>
                     <h3>Formals & School Discos</h3>
                     <p>Creating memorable experiences for students of all ages with safe, fun, and age-appropriate entertainment.</p>
-                </div>
-                <div class="service-card" id="karaoke">
+                </a>
+                <a href="karaoke.html" class="service-card" id="karaoke">
                     <div class="service-image">
                         <img src="images/1000072549-768x960.webp" alt="Karaoke Services">
                     </div>
                     <h3>Karaoke</h3>
                     <p>Bring the fun and excitement of karaoke to your event with professional equipment and extensive song library.</p>
-                </div>
+                </a>
                 <div class="service-card" id="other">
                     <div class="service-image">
                         <img src="images/IMG_8361-1536x2048.webp" alt="Other Functions DJ">

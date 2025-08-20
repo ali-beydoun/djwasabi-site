@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Gallery | DJ WASABI - Sydney DJ Portfolio & Event Photos</title>
+    <meta name="description" content="Browse DJ Wasabi's event gallery showcasing weddings, corporate events, birthdays, and parties across Sydney. See the energy and atmosphere we bring to every event.">
+    <meta name="keywords" content="DJ Gallery Sydney, Event Photos, Wedding DJ Photos, Party DJ Portfolio, DJ Wasabi Events">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="DJ WASABI Event Gallery - Sydney DJ Portfolio">
+    <meta property="og:description" content="Experience the energy of DJ Wasabi events through our photo gallery.">
+    <meta property="og:image" content="images/DJ-Wasabi-1463x2048.webp">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="images/Logo-3.webp" alt="DJ WASABI">
+                    </a>
+                </div>
+                <button class="mobile-toggle" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="weddings.html">Weddings</a></li>
+                            <li><a href="birthdays.html">Birthdays</a></li>
+                            <li><a href="corporate.html">Corporate Events</a></li>
+                            <li><a href="formals.html">Formals & School Discos</a></li>
+                            <li><a href="karaoke.html">Karaoke</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="gallery.html" class="active">Gallery</a></li>
+                    <li><a href="index.html#reviews">Reviews</a></li>
+                    <li><a href="index.html#contact" class="get-quote-btn">Get a Quote</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content-center">
+                <h1 class="hero-title">Event Gallery</h1>
+                <p class="hero-subtitle">Capturing the Energy & Atmosphere of Every Event</p>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Events</button>
+                    <button class="filter-btn" data-filter="wedding">Weddings</button>
+                    <button class="filter-btn" data-filter="party">Parties</button>
+                    <button class="filter-btn" data-filter="corporate">Corporate</button>
+                    <button class="filter-btn" data-filter="setup">DJ Setup</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+        <div class="container">
+            <div class="gallery-grid">
+                <!-- Wedding Photos -->
+                <div class="gallery-item" data-category="wedding">
+                    <img src="images/Osama-and-Noor-Wedding-1152x1536.webp" alt="Wedding Reception DJ">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Wedding Reception</h3>
+                            <p>Creating magical moments</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item" data-category="wedding">
+                    <img src="images/462566902_1263069494969799_5436200823142266671_n-1025x1536.webp" alt="Wedding Dance Floor">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Dance Floor Energy</h3>
+                            <p>Packed dance floors all night</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Party Photos -->
+                <div class="gallery-item" data-category="party">
+                    <img src="images/IMG_8253-1536x2048.webp" alt="Birthday Party DJ">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Birthday Celebration</h3>
+                            <p>Making birthdays unforgettable</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="images/IMG_8361-1536x2048.webp" alt="Party Atmosphere">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Party Vibes</h3>
+                            <p>Creating the perfect atmosphere</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Corporate Events -->
+                <div class="gallery-item" data-category="corporate">
+                    <img src="images/Group-62.webp" alt="Corporate Event DJ">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corporate Function</h3>
+                            <p>Professional entertainment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="corporate">
+                    <img src="images/466969011_569795192340981_656555707320999613_n-1536x1024.webp" alt="Corporate Party">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Company Event</h3>
+                            <p>Elevating corporate celebrations</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DJ Setup Photos -->
+                <div class="gallery-item large" data-category="setup">
+                    <img src="images/DJ-Wasabi-1463x2048.webp" alt="DJ Wasabi Setup">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Professional DJ Setup</h3>
+                            <p>State-of-the-art equipment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="setup">
+                    <img src="images/Setup-2-1536x2048.webp" alt="DJ Equipment">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Premium Equipment</h3>
+                            <p>Quality sound & lighting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Event Photos -->
+                <div class="gallery-item" data-category="party">
+                    <img src="images/1000028134-1536x2048.webp" alt="Event Celebration">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Celebration Time</h3>
+                            <p>Making memories</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="images/1000039189-1536x2048.webp" alt="Party DJ">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Party Energy</h3>
+                            <p>Keeping the energy high</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="wedding">
+                    <img src="images/1000060300-683x1024.webp" alt="Wedding Party">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Wedding Celebration</h3>
+                            <p>Special moments</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="wedding">
+                    <img src="images/1000060301-683x1024.webp" alt="Wedding Dancing">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Dance Floor Magic</h3>
+                            <p>Everyone dancing</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="images/1000072549-768x960.webp" alt="Karaoke Night">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Karaoke Fun</h3>
+                            <p>Interactive entertainment</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="setup">
+                    <img src="images/668a499c0124e-1720338844.webp" alt="DJ Wasabi">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>DJ Wasabi</h3>
+                            <p>Your professional DJ</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="party">
+                    <img src="images/668a499bf11f5-1720338843-1152x1536.webp" alt="Event MC">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>MC Services</h3>
+                            <p>Professional hosting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item large" data-category="party">
+                    <img src="images/668a49a06b249-1720338848-1499x2048.webp" alt="Party Atmosphere">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Amazing Atmosphere</h3>
+                            <p>Creating unforgettable nights</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="corporate">
+                    <img src="images/Group-1.webp" alt="Event Lighting">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Professional Lighting</h3>
+                            <p>Setting the mood</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-category="corporate">
+                    <img src="images/Group-2.webp" alt="Corporate Function">
+                    <div class="gallery-overlay">
+                        <div class="overlay-content">
+                            <h3>Corporate Excellence</h3>
+                            <p>Professional service</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Create Your Own Memories?</h2>
+                <p>Let's make your event unforgettable</p>
+                <div class="cta-buttons">
+                    <a href="tel:0414441773" class="btn btn-primary btn-large">
+                        <span class="btn-icon">📞</span> Call Now: 0414 441 773
+                    </a>
+                    <a href="https://wa.me/61414441773?text=Hi%20DJ%20Wasabi,%20I%20saw%20your%20gallery" class="btn btn-secondary btn-large">
+                        <span class="btn-icon">💬</span> WhatsApp Chat
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/Logo-3.webp" alt="DJ WASABI">
+                </div>
+                <div class="footer-social">
+                    <a href="https://facebook.com" aria-label="Facebook">📘</a>
+                    <a href="https://instagram.com" aria-label="Instagram">📷</a>
+                    <a href="https://soundcloud.com" aria-label="SoundCloud">☁️</a>
+                    <a href="https://wa.me/61414441773" aria-label="WhatsApp">💬</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DJ Wasabi. Professional DJ & MC Services Sydney</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.gallery-item');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    button.classList.add('active');
+
+                    const filter = button.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filter === 'all') {
+                            item.style.display = 'block';
+                        } else {
+                            if (item.getAttribute('data-category') === filter) {
+                                item.style.display = 'block';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+
+            // Mobile menu toggle
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
