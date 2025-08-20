@@ -39,8 +39,6 @@ body {
     top: 0;
     z-index: 1000;
     transition: transform 0.3s ease-in-out;
-    position: relative;
-    overflow: hidden;
 }
 
 .navbar::after {
@@ -172,6 +170,8 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 1001;
+    position: relative;
 }
 
 .mobile-toggle span {
@@ -917,6 +917,7 @@ a.service-card {
         transition: 0.3s;
         box-shadow: 0 10px 27px rgba(0,0,0,0.05);
         padding: 2rem 0;
+        z-index: 999;
     }
 
     .nav-menu.active {
