@@ -705,6 +705,15 @@ body {
         display: flex;
     }
 
+    /* Fix header overlap on mobile */
+    .hero {
+        margin-top: 90px;
+    }
+    
+    section:first-of-type {
+        padding-top: 100px;
+    }
+
     .nav-menu {
         position: fixed;
         left: -100%;
