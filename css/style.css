@@ -240,12 +240,21 @@ body {
     height: 200px;
     overflow: hidden;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .service-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.service-icon {
+    font-size: 4rem;
+    filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
 }
 
 .service-card h3 {
@@ -375,68 +384,146 @@ body {
 /* Contact Section */
 .contact {
     padding: 80px 0;
+    background: var(--secondary-color);
 }
 
-.contact-content {
+.contact-cta {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.contact-intro {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+}
+
+.contact-content-centered {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-info-main {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-.contact-info h3,
-.contact-form h3 {
-    margin-bottom: 1.5rem;
+.contact-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.contact-link {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.contact-link:hover {
     color: var(--primary-color);
 }
 
-.info-item {
-    margin-bottom: 1rem;
+.contact-text {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.contact-note {
+    font-size: 0.9rem;
     color: var(--text-light);
 }
 
-.info-item strong {
+.booking-info {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.booking-info h3 {
     color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.booking-steps {
+    list-style: none;
+    counter-reset: step-counter;
+    padding: 0;
+}
+
+.booking-steps li {
+    counter-increment: step-counter;
+    position: relative;
+    padding-left: 3rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+    line-height: 1.8;
+}
+
+.booking-steps li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: var(--accent-color);
+    color: var(--white);
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.social-section {
+    text-align: center;
+}
+
+.social-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
 }
 
 .social-links {
-    margin-top: 2rem;
     display: flex;
     gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .social-links a {
-    padding: 8px 16px;
+    padding: 10px 20px;
     background: var(--primary-color);
     color: var(--white);
     text-decoration: none;
     border-radius: 5px;
-    transition: background 0.3s;
+    transition: all 0.3s;
 }
 
 .social-links a:hover {
     background: var(--accent-color);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 5px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    outline: none;
-    border-color: var(--accent-color);
+    transform: translateY(-2px);
 }
 
 /* Footer */
