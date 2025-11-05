@@ -955,6 +955,71 @@ a.service-card {
 }
 
 /* Responsive Design */
+
+/* Tablet/Medium screens (1024px and below) - keep side-by-side but scale proportionally */
+@media (max-width: 1024px) {
+    .hero {
+        min-height: 75vh;
+        padding: 90px 0 40px;
+    }
+
+    .hero-content {
+        gap: 2rem;
+        max-width: 100%;
+        padding-left: 20px;
+    }
+
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+        line-height: 1.15;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+    }
+
+    .hero-image {
+        margin: -100px 0 -60px 0;
+    }
+
+    .hero-image img {
+        max-height: 70vh;
+    }
+
+    .hero-graphic {
+        width: 300px;
+        opacity: 0.2;
+    }
+}
+
+/* Small tablet (900px and below) - further scale down while keeping side-by-side */
+@media (max-width: 900px) {
+    .hero-title {
+        font-size: 2.3rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-content {
+        gap: 1.5rem;
+    }
+
+    .hero-image img {
+        max-height: 60vh;
+    }
+}
+
+/* Mobile (768px and below) - stacking layout with overlap */
 @media (max-width: 768px) {
     .mobile-toggle {
         display: flex !important;
