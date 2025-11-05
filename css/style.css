@@ -1150,6 +1150,34 @@ a.service-card {
     .hero-buttons {
         justify-content: center;
     }
+
+    .trust-bar {
+        padding: 1.5rem 0;
+    }
+
+    .trust-items {
+        gap: 1rem;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .trust-item {
+        padding: 0.5rem;
+    }
+
+    .trust-number {
+        font-size: 1.75rem;
+        margin-bottom: 0.25rem;
+    }
+
+    .trust-number svg {
+        width: 40px;
+        height: 40px;
+        display: none;
+    }
+
+    .trust-label {
+        font-size: 0.75rem;
+    }
 }
 
 /* Extra small devices (iPhone SE, etc.) */
@@ -1164,6 +1192,18 @@ a.service-card {
 
     .hero-image img {
         max-height: 40vh;
+    }
+
+    .trust-bar {
+        padding: 1rem 0;
+    }
+
+    .trust-number {
+        font-size: 1.5rem;
+    }
+
+    .trust-label {
+        font-size: 0.7rem;
     }
 
     .logo img {
