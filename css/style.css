@@ -1017,13 +1017,45 @@ a.service-card {
         margin-top: 0;
     }
 
+    .hero {
+        min-height: auto;
+        padding: 80px 0 40px;
+    }
+
+    .hero .container {
+        padding: 0 20px;
+    }
+
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        padding-left: 0;
+        gap: 2rem;
+    }
+
+    .hero-tagline {
+        font-size: 1rem;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        margin: 0;
+        max-width: 100%;
+        order: -1;
+    }
+
+    .hero-image img {
+        max-height: 50vh;
+        width: 90%;
+        margin: 0 auto;
     }
 
     .why-choose-content {
@@ -1041,11 +1073,23 @@ a.service-card {
 
 /* Extra small devices (iPhone SE, etc.) */
 @media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.75rem;
+    }
+
+    .hero-tagline {
+        font-size: 0.9rem;
+    }
+
+    .hero-image img {
+        max-height: 40vh;
+    }
+
     .logo img {
         height: 35px;
         max-width: 100px;
     }
-    
+
     .nav-wrapper {
         padding: 0.6rem 0;
     }
