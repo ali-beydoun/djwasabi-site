@@ -21,6 +21,10 @@ body {
     line-height: 1.6;
     color: var(--text-light);
     background-color: var(--primary-black);
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -195,8 +199,7 @@ body {
     justify-content: center;
     padding: 100px 0 40px;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
 }
 
 .hero .container {
@@ -1084,7 +1087,8 @@ a.service-card {
 
     .hero {
         min-height: auto;
-        padding: 80px 0 40px;
+        padding: 80px 0 60px;
+        overflow: visible;
     }
 
     .hero .container {
@@ -1098,6 +1102,7 @@ a.service-card {
         gap: 0;
         display: flex;
         flex-direction: column;
+        position: relative;
     }
 
     .hero-tagline {
@@ -1114,10 +1119,11 @@ a.service-card {
     }
 
     .hero-image {
-        margin: 0 0 -100px 0;
+        margin: 0 0 -80px 0;
         max-width: 100%;
         order: -1;
         z-index: 1;
+        position: relative;
     }
 
     .hero-image img {
@@ -1130,6 +1136,7 @@ a.service-card {
         position: relative;
         z-index: 2;
         padding: 0 20px;
+        margin-bottom: 0;
     }
 
     .why-choose-content {
