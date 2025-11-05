@@ -109,7 +109,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
+    object-position: center 35%;
     transition: transform 0.5s, filter 0.5s;
 }
 
@@ -252,8 +252,12 @@
     .gallery-grid {
         grid-template-columns: 1fr;
     }
-    
+
     .gallery-item {
-        height: 250px;
+        height: 280px;
+    }
+
+    .gallery-item img {
+        object-position: center 30%;
     }
 }
