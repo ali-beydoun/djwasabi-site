@@ -237,18 +237,6 @@ body {
     50% { opacity: 0.7; }
 }
 
-.hero-graphic {
-    position: absolute;
-    bottom: -5%;
-    right: 5%;
-    width: 400px;
-    opacity: 0.25;
-    transform: rotate(-15deg);
-    pointer-events: none;
-    z-index: 1;
-    animation: float 6s ease-in-out infinite;
-}
-
 .hero-svg-bg {
     position: absolute;
     bottom: 0;
@@ -993,10 +981,6 @@ a.service-card {
         max-height: 70vh;
     }
 
-    .hero-graphic {
-        width: 300px;
-        opacity: 0.2;
-    }
 }
 
 /* Small tablet (900px and below) - further scale down while keeping side-by-side */
@@ -1043,12 +1027,6 @@ a.service-card {
         padding-top: 75px;
     }
 
-    .hero-graphic {
-        width: 250px;
-        opacity: 0.2;
-        bottom: -10%;
-        right: 0;
-    }
 
     .nav-menu {
         position: fixed;
