@@ -1085,6 +1085,9 @@ a.service-card {
 
     .hero-tagline {
         font-size: 1rem;
+        order: -2;
+        margin-bottom: 1.5rem;
+        padding: 0 20px;
     }
 
     .hero-title {
@@ -1115,6 +1118,10 @@ a.service-card {
         z-index: 2;
         padding: 0 20px;
         margin-bottom: 0;
+    }
+
+    .hero-text .hero-tagline {
+        display: none;
     }
 
     .why-choose-content {
