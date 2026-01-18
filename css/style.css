@@ -1077,42 +1077,6 @@ a.service-card {
     height: 40px;
 }
 
-/* Animated logo - abstract edge-to-edge glass */
-.footer-logo {
-    flex: 1;
-    max-width: 500px;
-}
-
-.footer-animated-logo {
-    width: 100% !important;
-    height: auto !important;
-    max-height: 180px;
-    object-fit: contain;
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(
-        135deg,
-        rgba(139, 195, 74, 0.08) 0%,
-        rgba(255, 255, 255, 0.03) 50%,
-        rgba(139, 195, 74, 0.05) 100%
-    );
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border-radius: 12px;
-    border: 1px solid rgba(139, 195, 74, 0.15);
-    box-shadow:
-        0 0 60px rgba(139, 195, 74, 0.2),
-        inset 0 0 30px rgba(139, 195, 74, 0.05);
-    transition: all 0.4s ease;
-}
-
-.footer-animated-logo:hover {
-    box-shadow:
-        0 0 80px rgba(139, 195, 74, 0.3),
-        inset 0 0 40px rgba(139, 195, 74, 0.08);
-    border-color: rgba(139, 195, 74, 0.25);
-}
-
 .footer-social {
     display: flex;
     gap: 1rem;
