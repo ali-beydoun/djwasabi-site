@@ -615,10 +615,34 @@ body {
 
 /* Trust Bar */
 .trust-bar {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 100%);
+    background: linear-gradient(
+        180deg,
+        rgba(20, 20, 20, 0.95) 0%,
+        rgba(10, 10, 10, 0.98) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 3rem 0;
-    border-bottom: 2px solid var(--lime-green);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    border-bottom: 1px solid rgba(139, 195, 74, 0.3);
+    box-shadow:
+        0 5px 30px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+/* Subtle top edge glow */
+.trust-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(139, 195, 74, 0.3),
+        transparent
+    );
 }
 
 .trust-items {
@@ -629,12 +653,47 @@ body {
 }
 
 .trust-item {
-    padding: 1rem;
-    transition: transform 0.3s;
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+}
+
+/* Subtle lime accent on hover */
+.trust-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    right: 30%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(139, 195, 74, 0.5),
+        transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .trust-item:hover {
     transform: translateY(-5px);
+    background: linear-gradient(
+        135deg,
+        rgba(139, 195, 74, 0.08) 0%,
+        rgba(139, 195, 74, 0.02) 100%
+    );
+    border-color: rgba(139, 195, 74, 0.15);
+}
+
+.trust-item:hover::after {
+    opacity: 1;
 }
 
 .trust-number {
@@ -650,7 +709,7 @@ body {
 }
 
 .trust-label {
-    color: #333;
+    color: var(--text-light);
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 1px;
