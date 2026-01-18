@@ -171,33 +171,35 @@ body {
     position: absolute;
     top: 0;
     left: -100%;
-    width: 50%;
+    width: 60%;
     height: 100%;
     background: linear-gradient(
-        120deg,
+        110deg,
         transparent 0%,
-        rgba(255, 255, 255, 0) 30%,
-        rgba(255, 255, 255, 0.15) 50%,
-        rgba(255, 255, 255, 0) 70%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.4) 45%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.4) 55%,
+        rgba(255, 255, 255, 0) 80%,
         transparent 100%
     );
     pointer-events: none;
-    animation: logoGlisten 6s ease-in-out infinite;
+    animation: logoGlisten 4s ease-in-out infinite;
 }
 
 @keyframes logoGlisten {
-    0%, 100% {
+    0% {
         left: -100%;
         opacity: 0;
     }
-    10% {
+    5% {
         opacity: 1;
     }
-    40% {
+    35% {
         left: 150%;
         opacity: 1;
     }
-    50%, 100% {
+    40%, 100% {
         left: 150%;
         opacity: 0;
     }
@@ -1159,19 +1161,21 @@ a.service-card {
     position: absolute;
     top: 0;
     left: -100%;
-    width: 50%;
+    width: 60%;
     height: 100%;
     background: linear-gradient(
-        120deg,
+        110deg,
         transparent 0%,
-        rgba(255, 255, 255, 0) 30%,
-        rgba(255, 255, 255, 0.12) 50%,
-        rgba(255, 255, 255, 0) 70%,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.35) 45%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0.35) 55%,
+        rgba(255, 255, 255, 0) 80%,
         transparent 100%
     );
     pointer-events: none;
-    animation: logoGlisten 6s ease-in-out infinite;
-    animation-delay: 3s;
+    animation: logoGlisten 4s ease-in-out infinite;
+    animation-delay: 2s;
 }
 
 .footer-cta {
