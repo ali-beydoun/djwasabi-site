@@ -1317,7 +1317,7 @@ a.service-card {
     left: -5%;
     right: -5%;
     bottom: -10%;
-    background: url('../images/footer-bg.png') center center / 120% auto no-repeat;
+    background: url('../images/footer-bg.webp') center center / 120% auto no-repeat;
     opacity: 0.08;
     z-index: 0;
 }
