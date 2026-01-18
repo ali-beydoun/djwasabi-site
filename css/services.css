@@ -31,8 +31,8 @@
     background-position: top center;
 }
 
-.school-hero {
-    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(139, 195, 74, 0.15)), 
+.other-hero {
+    background-image: linear-gradient(135deg, rgba(0, 0, 0, 0.75), rgba(139, 195, 74, 0.1)),
                       url('../images/Group-63.webp');
     background-size: cover;
     background-position: center;
