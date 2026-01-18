@@ -487,31 +487,355 @@
     color: var(--lime-green);
 }
 
+/* Section with Image Integration */
+.section-with-image {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.section-with-image .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.section-image-accent {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.section-image-accent img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Experience Card with Image */
+.experience-card-with-image {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.experience-card-with-image .experience-image {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(139, 195, 74, 0.25);
+}
+
+.experience-card-with-image .experience-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Testimonials with Image */
+.testimonials-with-image {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 2.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.testimonials-featured-image {
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--lime-green);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1;
+}
+
+.testimonials-featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Wedding Experience Section */
+.experience-section {
+    padding: 80px 0;
+    background: var(--primary-black);
+    position: relative;
+    z-index: 2;
+}
+
+.experience-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.experience-title {
+    font-size: 2.5rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.experience-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: var(--lime-green);
+    border-radius: 2px;
+}
+
+.experience-lead {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.experience-note {
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-style: italic;
+}
+
+.experience-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2.5rem;
+    transition: all 0.3s;
+}
+
+.experience-card:hover {
+    border-color: var(--lime-green);
+    box-shadow: 0 10px 40px rgba(139, 195, 74, 0.15);
+}
+
+.experience-card h3 {
+    color: var(--lime-green);
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.experience-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.experience-features li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.experience-features li:last-child {
+    border-bottom: none;
+}
+
+.feature-icon {
+    font-size: 1.3rem;
+    width: 30px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    color: var(--text-gray);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Enhancements Section */
+.enhancements-section {
+    padding: 80px 0;
+    background: #f9f9f9;
+    position: relative;
+    z-index: 3;
+}
+
+.enhancements-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.enhancement-item {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.enhancement-item:hover {
+    transform: translateY(-5px);
+    border-color: var(--lime-green);
+    box-shadow: 0 10px 30px rgba(139, 195, 74, 0.15);
+}
+
+.enhancement-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.enhancement-item h3 {
+    color: var(--primary-black);
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+}
+
+.enhancement-item p {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.enhancements-cta {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.enhancements-cta p {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+}
+
 /* Responsive Updates */
+@media (max-width: 992px) {
+    .experience-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+
+    .experience-title {
+        font-size: 2rem;
+    }
+
+    .experience-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .experience-text {
+        text-align: center;
+    }
+
+    .enhancements-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .section-with-image {
+        grid-template-columns: 320px 1fr;
+        gap: 2.5rem;
+    }
+
+    .testimonials-with-image {
+        grid-template-columns: 300px 1fr;
+        gap: 2.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     .service-hero {
         padding-top: 75px;
         min-height: 70vh;
     }
-    
+
     .service-hero .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
     }
-    
+
     .process-timeline::before {
         display: none;
     }
-    
+
     .faq-grid {
         grid-template-columns: 1fr;
     }
-    
-    .packages-grid {
+
+    .experience-section {
+        padding: 60px 0;
+    }
+
+    .experience-title {
+        font-size: 1.75rem;
+    }
+
+    .experience-lead {
+        font-size: 1.1rem;
+    }
+
+    .experience-card {
+        padding: 1.5rem;
+    }
+
+    .experience-image {
+        margin-top: 2rem;
+    }
+
+    .enhancements-section {
+        padding: 60px 0;
+    }
+
+    .enhancements-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .enhancement-item {
+        padding: 1.5rem;
+    }
+
+    .section-with-image {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .section-with-image .section-image-accent {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .section-with-image .benefits-grid {
         grid-template-columns: 1fr;
     }
-    
-    .package-card.featured {
-        transform: scale(1);
+
+    .testimonials-with-image {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .testimonials-with-image .testimonials-featured-image {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .testimonials-with-image .testimonials-grid {
+        grid-template-columns: 1fr;
     }
 }
