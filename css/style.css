@@ -94,10 +94,17 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 65px;
     width: auto;
-    max-width: 150px;
+    max-width: 200px;
     object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(139, 195, 74, 0.15));
+    transition: all 0.3s ease;
+}
+
+.logo:hover img {
+    filter: drop-shadow(0 4px 12px rgba(139, 195, 74, 0.25));
+    transform: scale(1.02);
 }
 
 .logo a {
@@ -1134,12 +1141,12 @@ a.service-card {
     }
     
     .logo img {
-        height: 40px;
-        max-width: 120px;
+        height: 55px;
+        max-width: 170px;
     }
-    
+
     .nav-wrapper {
-        padding: 0.75rem 0;
+        padding: 0.6rem 0;
         gap: 1rem;
     }
 
@@ -1354,8 +1361,8 @@ a.service-card {
     }
 
     .logo img {
-        height: 35px;
-        max-width: 100px;
+        height: 45px;
+        max-width: 140px;
     }
 
     .nav-wrapper {
