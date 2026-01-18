@@ -834,6 +834,61 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+    position: relative;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        inset 4px 0 15px -5px rgba(139, 195, 74, 0.2),
+        inset -4px 0 15px -5px rgba(139, 195, 74, 0.2);
+    overflow: hidden;
+}
+
+/* Green sheen overlay for why-choose glass */
+.why-choose-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(139, 195, 74, 0.12) 0%,
+            transparent 12%,
+            transparent 88%,
+            rgba(139, 195, 74, 0.12) 100%
+        ),
+        linear-gradient(180deg,
+            rgba(139, 195, 74, 0.08) 0%,
+            transparent 35%
+        );
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.7;
+}
+
+/* Bottom accent glow line */
+.why-choose-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(139, 195, 74, 0.4) 30%,
+        rgba(139, 195, 74, 0.6) 50%,
+        rgba(139, 195, 74, 0.4) 70%,
+        transparent 100%
+    );
+    pointer-events: none;
 }
 
 .why-text h2 {
@@ -849,6 +904,11 @@ body {
     line-height: 1.8;
 }
 
+.why-text {
+    position: relative;
+    z-index: 1;
+}
+
 .values-list {
     display: flex;
     flex-direction: column;
@@ -856,18 +916,57 @@ body {
 }
 
 .value-item {
-    background: var(--lime-green);
+    position: relative;
+    background: linear-gradient(135deg, rgba(139, 195, 74, 0.95) 0%, rgba(139, 195, 74, 0.85) 100%);
     color: var(--primary-black);
     padding: 1rem 2rem;
     border-radius: 25px;
     font-weight: 600;
     text-align: center;
     transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 4px 15px rgba(139, 195, 74, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+}
+
+/* Glass glisten effect on value items */
+.value-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        110deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.5) 48%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.5) 52%,
+        rgba(255, 255, 255, 0) 70%,
+        transparent 100%
+    );
+    pointer-events: none;
+    transition: left 0.5s ease;
+}
+
+.value-item:hover::before {
+    left: 150%;
 }
 
 .value-item:hover {
     transform: translateX(10px);
-    box-shadow: 0 5px 15px rgba(139, 195, 74, 0.3);
+    box-shadow:
+        0 8px 25px rgba(139, 195, 74, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, rgba(139, 195, 74, 1) 0%, rgba(139, 195, 74, 0.9) 100%);
 }
 
 .why-images {
@@ -875,6 +974,7 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     position: relative;
+    z-index: 1;
 }
 
 .why-images img {
@@ -882,14 +982,21 @@ body {
     height: 400px;
     object-fit: cover;
     object-position: top center;
-    border-radius: 10px;
-    border: 2px solid var(--lime-green);
-    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 14px;
+    border: 1px solid rgba(139, 195, 74, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
 }
 
 .why-images img:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(139, 195, 74, 0.4);
+    border-color: rgba(139, 195, 74, 0.7);
+    box-shadow:
+        0 15px 40px rgba(139, 195, 74, 0.25),
+        0 5px 15px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
 
 /* Services Section */
