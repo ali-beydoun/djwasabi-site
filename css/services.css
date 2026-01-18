@@ -11,127 +11,119 @@
     overflow: hidden;
 }
 
-/* Wedding Hero - Diagonal Lines Pattern */
+/* Wedding Hero - Elegant Diagonal Lines Pattern */
 .wedding-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
         135deg,
-        rgba(139, 195, 74, 0.03),
-        rgba(139, 195, 74, 0.03) 1px,
+        rgba(139, 195, 74, 0.04),
+        rgba(139, 195, 74, 0.04) 1px,
         transparent 1px,
-        transparent 40px
+        transparent 50px
     );
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
 }
 
 .wedding-hero::after {
     content: '';
     position: absolute;
-    top: -20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.12) 0%, transparent 70%);
-    z-index: 0;
+    top: -100px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.15) 0%, transparent 60%);
+    z-index: 1;
     pointer-events: none;
 }
 
-/* Birthday Hero - Dot/Confetti Pattern */
+/* Birthday Hero - Celebratory Dot Pattern */
 .birthday-hero::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: radial-gradient(
-        circle at center,
-        rgba(139, 195, 74, 0.08) 1px,
-        transparent 1px
+    background-image: radial-gradient(
+        rgba(139, 195, 74, 0.06) 1.5px,
+        transparent 1.5px
     );
-    background-size: 30px 30px;
-    z-index: 0;
+    background-size: 24px 24px;
+    z-index: 1;
     pointer-events: none;
 }
 
 .birthday-hero::after {
     content: '';
     position: absolute;
-    top: -15%;
-    right: -5%;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.10) 0%, transparent 70%);
-    z-index: 0;
+    top: -80px;
+    right: -60px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.12) 0%, transparent 60%);
+    z-index: 1;
     pointer-events: none;
 }
 
-/* Birthday second glow (bottom-left) */
-.birthday-hero .hero-content::before {
-    content: '';
-    position: absolute;
-    bottom: -20%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.08) 0%, transparent 70%);
-    z-index: 0;
-    pointer-events: none;
+/* Birthday second glow (bottom-left) - using box-shadow on section */
+.birthday-hero {
+    box-shadow: inset -300px -200px 300px -200px rgba(139, 195, 74, 0.06);
 }
 
-/* Corporate Hero - Grid Pattern */
+/* Corporate Hero - Professional Grid Pattern */
 .corporate-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(rgba(139, 195, 74, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 195, 74, 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    z-index: 0;
+        linear-gradient(rgba(139, 195, 74, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 195, 74, 0.035) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 1;
     pointer-events: none;
 }
 
 .corporate-hero::after {
     content: '';
     position: absolute;
-    top: -15%;
-    right: -8%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.08) 0%, transparent 70%);
-    z-index: 0;
+    top: -80px;
+    right: -80px;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.10) 0%, transparent 60%);
+    z-index: 1;
     pointer-events: none;
 }
 
-/* Other Events Hero - Diagonal Lines (similar to wedding) */
+/* Other Events Hero - Subtle Diagonal Lines */
 .other-hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background: repeating-linear-gradient(
-        -135deg,
-        rgba(139, 195, 74, 0.03),
-        rgba(139, 195, 74, 0.03) 1px,
+        -45deg,
+        rgba(139, 195, 74, 0.04),
+        rgba(139, 195, 74, 0.04) 1px,
         transparent 1px,
-        transparent 45px
+        transparent 55px
     );
-    z-index: 0;
+    z-index: 1;
     pointer-events: none;
 }
 
 .other-hero::after {
     content: '';
     position: absolute;
-    top: -10%;
-    right: -5%;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.10) 0%, transparent 70%);
-    z-index: 0;
+    top: -60px;
+    right: -40px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.12) 0%, transparent 60%);
+    z-index: 1;
     pointer-events: none;
 }
 
+/* Hero Content Layout */
 .service-hero .hero-content {
     position: relative;
     z-index: 2;
@@ -139,6 +131,55 @@
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+/* Hero Text Styling */
+.service-hero .hero-text {
+    position: relative;
+    z-index: 2;
+}
+
+.service-hero .hero-title {
+    color: var(--white);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+.service-hero .hero-subtitle {
+    color: var(--text-gray);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Hero Image Styling */
+.service-hero .hero-image {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 0; /* Reset negative margins from main style.css */
+    height: auto;
+}
+
+.service-hero .hero-image img {
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    object-fit: cover;
+    max-height: none; /* Reset from main style.css */
+}
+
+/* Hero Buttons */
+.service-hero .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
 }
 
 .hero-features {
@@ -810,6 +851,27 @@
 
 /* Responsive Updates */
 @media (max-width: 992px) {
+    .service-hero .hero-content {
+        gap: 2.5rem;
+    }
+
+    .service-hero .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .service-hero .hero-image img {
+        max-width: 380px;
+    }
+
+    /* Slightly reduce glow on tablets */
+    .wedding-hero::after,
+    .birthday-hero::after,
+    .corporate-hero::after,
+    .other-hero::after {
+        width: 450px;
+        height: 450px;
+    }
+
     .experience-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -846,28 +908,55 @@
 @media (max-width: 768px) {
     .service-hero {
         padding-top: 75px;
-        min-height: 70vh;
+        min-height: auto;
+        padding-bottom: 3rem;
     }
 
     .service-hero .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2.5rem;
     }
 
-    /* Reduce glow intensity on mobile */
+    .service-hero .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .service-hero .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .service-hero .hero-image {
+        order: -1;
+    }
+
+    .service-hero .hero-image img {
+        max-width: 280px;
+        margin: 0 auto;
+    }
+
+    .service-hero .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-features {
+        justify-content: center;
+    }
+
+    /* Reduce glow size and intensity on mobile */
     .wedding-hero::after,
     .birthday-hero::after,
     .corporate-hero::after,
     .other-hero::after {
         width: 300px;
         height: 300px;
-        opacity: 0.7;
+        top: -50px;
+        right: -50px;
+        opacity: 0.6;
     }
 
-    .birthday-hero .hero-content::before {
-        width: 250px;
-        height: 250px;
-        opacity: 0.6;
+    .birthday-hero {
+        box-shadow: inset -150px -100px 150px -100px rgba(139, 195, 74, 0.04);
     }
 
     .process-timeline::before {
