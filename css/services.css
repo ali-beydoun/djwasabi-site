@@ -865,6 +865,19 @@
     font-style: italic;
 }
 
+/* Fix button legibility on light backgrounds */
+.enhancements-section .btn-secondary {
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--primary-black);
+    border: 2px solid var(--primary-black);
+}
+
+.enhancements-section .btn-secondary:hover {
+    background: var(--lime-green);
+    border-color: var(--lime-green);
+    color: var(--primary-black);
+}
+
 /* Responsive Updates */
 @media (max-width: 992px) {
     .service-hero .hero-content {
