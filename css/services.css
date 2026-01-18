@@ -11,114 +11,44 @@
     overflow: hidden;
 }
 
-/* Wedding Hero - Elegant Diagonal Lines Pattern */
-.wedding-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        135deg,
-        rgba(139, 195, 74, 0.04),
-        rgba(139, 195, 74, 0.04) 1px,
-        transparent 1px,
-        transparent 50px
-    );
-    z-index: 1;
-    pointer-events: none;
+/* ============================================
+   ANIMATED SVG WAVE BACKGROUNDS
+   ============================================ */
+
+/* Horizontal wave flow animation */
+@keyframes waveFlow {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-25px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
-.wedding-hero::after {
+/* SVG Wave positioned at bottom of hero */
+.service-hero .hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 110%;
+    height: auto;
+    z-index: 1;
+    pointer-events: none;
+    animation: waveFlow 8s ease-in-out infinite;
+}
+
+/* Radial glow in top-right corner */
+.service-hero::after {
     content: '';
     position: absolute;
     top: -100px;
     right: -100px;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.15) 0%, transparent 60%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Birthday Hero - Celebratory Dot Pattern */
-.birthday-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(
-        rgba(139, 195, 74, 0.06) 1.5px,
-        transparent 1.5px
-    );
-    background-size: 24px 24px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.birthday-hero::after {
-    content: '';
-    position: absolute;
-    top: -80px;
-    right: -60px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.12) 0%, transparent 60%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Birthday second glow (bottom-left) - using box-shadow on section */
-.birthday-hero {
-    box-shadow: inset -300px -200px 300px -200px rgba(139, 195, 74, 0.06);
-}
-
-/* Corporate Hero - Professional Grid Pattern */
-.corporate-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(rgba(139, 195, 74, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(139, 195, 74, 0.035) 1px, transparent 1px);
-    background-size: 60px 60px;
-    z-index: 1;
-    pointer-events: none;
-}
-
-.corporate-hero::after {
-    content: '';
-    position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 450px;
-    height: 450px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.10) 0%, transparent 60%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-/* Other Events Hero - Subtle Diagonal Lines */
-.other-hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-        -45deg,
-        rgba(139, 195, 74, 0.04),
-        rgba(139, 195, 74, 0.04) 1px,
-        transparent 1px,
-        transparent 55px
-    );
-    z-index: 1;
-    pointer-events: none;
-}
-
-.other-hero::after {
-    content: '';
-    position: absolute;
-    top: -60px;
-    right: -40px;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(139, 195, 74, 0.12) 0%, transparent 60%);
+    background: radial-gradient(circle, rgba(139, 195, 74, 0.18) 0%, transparent 55%);
     z-index: 1;
     pointer-events: none;
 }
@@ -863,11 +793,8 @@
         max-width: 380px;
     }
 
-    /* Slightly reduce glow on tablets */
-    .wedding-hero::after,
-    .birthday-hero::after,
-    .corporate-hero::after,
-    .other-hero::after {
+    /* Adjust glow on tablets */
+    .service-hero::after {
         width: 450px;
         height: 450px;
     }
@@ -945,20 +872,13 @@
         justify-content: center;
     }
 
-    /* Reduce glow size and intensity on mobile */
-    .wedding-hero::after,
-    .birthday-hero::after,
-    .corporate-hero::after,
-    .other-hero::after {
+    /* Adjust glow on mobile */
+    .service-hero::after {
         width: 300px;
         height: 300px;
         top: -50px;
         right: -50px;
-        opacity: 0.6;
-    }
-
-    .birthday-hero {
-        box-shadow: inset -150px -100px 150px -100px rgba(139, 195, 74, 0.04);
+        opacity: 0.7;
     }
 
     .process-timeline::before {

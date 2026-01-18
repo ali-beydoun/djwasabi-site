@@ -785,6 +785,9 @@ a.service-card {
     text-align: center;
     border: 1px solid var(--border-color);
     transition: all 0.3s;
+    overflow: hidden;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-card:hover {
@@ -805,6 +808,8 @@ a.service-card {
     display: block;
     margin-bottom: 0.5rem;
     transition: color 0.3s;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .contact-link:hover {
@@ -1130,6 +1135,15 @@ a.service-card {
 
     .contact-content {
         grid-template-columns: 1fr;
+    }
+
+    .contact-info-main {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .contact-link {
+        font-size: 1.1rem;
     }
 
     .hero-buttons {
