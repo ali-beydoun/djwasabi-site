@@ -801,15 +801,15 @@ a.service-card {
 }
 
 .contact-link {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     color: var(--text-light);
     text-decoration: none;
     font-weight: 600;
     display: block;
     margin-bottom: 0.5rem;
     transition: color 0.3s;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 }
 
 .contact-link:hover {
@@ -1143,7 +1143,7 @@ a.service-card {
     }
 
     .contact-link {
-        font-size: 1.1rem;
+        font-size: 0.95rem;
     }
 
     .hero-buttons {
