@@ -47,8 +47,8 @@ body {
     box-shadow:
         0 4px 30px rgba(0, 0, 0, 0.3),
         inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        inset 3px 0 15px -5px rgba(139, 195, 74, 0.15),
-        inset -3px 0 15px -5px rgba(139, 195, 74, 0.15);
+        inset 4px 0 20px -5px rgba(139, 195, 74, 0.25),
+        inset -4px 0 20px -5px rgba(139, 195, 74, 0.25);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     position: fixed;
     width: 100%;
@@ -57,7 +57,7 @@ body {
     transition: transform 0.3s ease-in-out, background 0.3s ease;
 }
 
-/* Edge shimmer reflection effect */
+/* Edge shimmer reflection effect - sits above background but below content */
 .navbar::before {
     content: '';
     position: absolute;
@@ -67,32 +67,31 @@ body {
     bottom: 0;
     background:
         linear-gradient(90deg,
-            rgba(139, 195, 74, 0.08) 0%,
-            transparent 3%,
-            transparent 97%,
-            rgba(139, 195, 74, 0.08) 100%
+            rgba(139, 195, 74, 0.15) 0%,
+            rgba(139, 195, 74, 0.05) 5%,
+            transparent 15%,
+            transparent 85%,
+            rgba(139, 195, 74, 0.05) 95%,
+            rgba(139, 195, 74, 0.15) 100%
         ),
         linear-gradient(180deg,
-            rgba(139, 195, 74, 0.06) 0%,
-            transparent 40%
+            rgba(139, 195, 74, 0.1) 0%,
+            transparent 50%
         );
     pointer-events: none;
-    z-index: 0;
-    animation: navbarEdgeFlicker 8s ease-in-out infinite;
+    z-index: 1;
+    animation: navbarEdgeFlicker 6s ease-in-out infinite;
 }
 
 @keyframes navbarEdgeFlicker {
     0%, 100% {
-        opacity: 0.6;
+        opacity: 0.5;
     }
-    25% {
+    30% {
         opacity: 1;
     }
-    50% {
-        opacity: 0.4;
-    }
-    75% {
-        opacity: 0.9;
+    60% {
+        opacity: 0.7;
     }
 }
 
@@ -101,24 +100,24 @@ body {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 10%;
-    right: 10%;
+    left: 5%;
+    right: 5%;
     height: 1px;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(139, 195, 74, 0.4) 25%,
-        rgba(139, 195, 74, 0.6) 50%,
-        rgba(139, 195, 74, 0.4) 75%,
+        rgba(139, 195, 74, 0.5) 20%,
+        rgba(139, 195, 74, 0.8) 50%,
+        rgba(139, 195, 74, 0.5) 80%,
         transparent 100%
     );
     pointer-events: none;
-    z-index: 1;
+    z-index: 2;
     animation: navbarGlowPulse 4s ease-in-out infinite;
 }
 
 @keyframes navbarGlowPulse {
     0%, 100% {
-        opacity: 0.7;
+        opacity: 0.6;
     }
     50% {
         opacity: 1;
@@ -138,6 +137,8 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0;
+    position: relative;
+    z-index: 3;
 }
 
 .logo {
