@@ -925,20 +925,52 @@ a.service-card {
 }
 
 .contact-card {
-    background: var(--card-bg);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 18px;
     text-align: center;
-    border: 1px solid var(--border-color);
-    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
     overflow: hidden;
     word-wrap: break-word;
     overflow-wrap: break-word;
+    position: relative;
+}
+
+/* Lime glow accent on top edge */
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(139, 195, 74, 0.4),
+        transparent
+    );
+    border-radius: 18px 18px 0 0;
 }
 
 .contact-card:hover {
-    border-color: var(--lime-green);
+    border-color: rgba(139, 195, 74, 0.3);
     transform: translateY(-5px);
+    box-shadow:
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(139, 195, 74, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .contact-card h3 {
