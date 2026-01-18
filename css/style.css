@@ -136,7 +136,7 @@ body {
     position: relative;
 }
 
-.nav-menu a:hover {
+.nav-menu a:hover:not(.get-quote-btn) {
     color: var(--lime-green);
     background: rgba(139, 195, 74, 0.1);
 }
@@ -170,6 +170,7 @@ body {
         var(--lime-hover) 0%,
         var(--lime-green) 100%
     );
+    color: var(--primary-black) !important;
     transform: translateY(-2px);
     box-shadow:
         0 8px 25px rgba(139, 195, 74, 0.4),
