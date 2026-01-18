@@ -46,13 +46,54 @@ body {
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     box-shadow:
         0 4px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        inset 3px 0 15px -5px rgba(139, 195, 74, 0.15),
+        inset -3px 0 15px -5px rgba(139, 195, 74, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
     transition: transform 0.3s ease-in-out, background 0.3s ease;
+}
+
+/* Edge shimmer reflection effect */
+.navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        linear-gradient(90deg,
+            rgba(139, 195, 74, 0.08) 0%,
+            transparent 3%,
+            transparent 97%,
+            rgba(139, 195, 74, 0.08) 100%
+        ),
+        linear-gradient(180deg,
+            rgba(139, 195, 74, 0.06) 0%,
+            transparent 40%
+        );
+    pointer-events: none;
+    z-index: 0;
+    animation: navbarEdgeFlicker 8s ease-in-out infinite;
+}
+
+@keyframes navbarEdgeFlicker {
+    0%, 100% {
+        opacity: 0.6;
+    }
+    25% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    75% {
+        opacity: 0.9;
+    }
 }
 
 /* Lime green glow line at bottom */
@@ -72,6 +113,16 @@ body {
     );
     pointer-events: none;
     z-index: 1;
+    animation: navbarGlowPulse 4s ease-in-out infinite;
+}
+
+@keyframes navbarGlowPulse {
+    0%, 100% {
+        opacity: 0.7;
+    }
+    50% {
+        opacity: 1;
+    }
 }
 
 .navbar.scroll-down {
