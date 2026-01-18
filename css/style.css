@@ -1498,6 +1498,26 @@ a.service-card {
         border-color: rgba(139, 195, 74, 0.2);
     }
 
+    /* Preserve get-quote-btn styling in mobile menu */
+    .nav-menu .get-quote-btn {
+        background: linear-gradient(
+            135deg,
+            var(--lime-green) 0%,
+            var(--lime-hover) 100%
+        ) !important;
+        color: var(--primary-black) !important;
+        border: none !important;
+        box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
+    }
+
+    .nav-menu .get-quote-btn:hover {
+        background: linear-gradient(
+            135deg,
+            var(--lime-hover) 0%,
+            var(--lime-green) 100%
+        ) !important;
+    }
+
     .dropdown-menu {
         position: static;
         opacity: 1;
