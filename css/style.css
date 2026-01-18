@@ -1079,31 +1079,36 @@ a.service-card {
 
 /* Animated logo with glass effect */
 .footer-animated-logo {
-    height: 60px !important;
+    height: 120px !important;
     width: auto;
-    padding: 0.75rem 1.5rem;
+    max-width: 280px;
+    padding: 1.25rem 2rem;
     background: linear-gradient(
         135deg,
-        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(139, 195, 74, 0.03) 50%,
         rgba(255, 255, 255, 0.02) 100%
     );
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
-    border: 1px solid rgba(139, 195, 74, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(139, 195, 74, 0.2);
     box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        0 0 20px rgba(139, 195, 74, 0.1);
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+        0 0 40px rgba(139, 195, 74, 0.15);
     transition: all 0.3s ease;
 }
 
 .footer-animated-logo:hover {
+    transform: scale(1.02);
     box-shadow:
-        0 6px 25px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 0 30px rgba(139, 195, 74, 0.2);
-    border-color: rgba(139, 195, 74, 0.25);
+        0 12px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.1),
+        0 0 60px rgba(139, 195, 74, 0.25);
+    border-color: rgba(139, 195, 74, 0.35);
 }
 
 .footer-social {
