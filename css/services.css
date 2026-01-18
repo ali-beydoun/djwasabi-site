@@ -18,8 +18,8 @@
 }
 
 .corporate-hero {
-    background-image: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(30, 30, 30, 0.6)), 
-                      url('../images/Group-62.webp');
+    background-image: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(30, 30, 30, 0.6)),
+                      url('../images/IMG_8361-scaled.jpg');
     background-size: cover;
     background-position: center;
 }
