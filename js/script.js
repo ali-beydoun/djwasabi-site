@@ -9,10 +9,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Close mobile menu when any nav link is clicked
+    // Close mobile menu when nav links are clicked (except dropdown parent)
     const allNavLinks = document.querySelectorAll('.nav-menu a');
     allNavLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            // Check if this is a dropdown parent link on mobile
+            const isDropdownParent = this.parentElement.classList.contains('dropdown');
+            const isMobile = window.innerWidth <= 768;
+
+            if (isDropdownParent && isMobile) {
+                // Prevent navigation and menu close - it's just a category label
+                e.preventDefault();
+                e.stopPropagation();
+                return;
+            }
+
             navMenu.classList.remove('active');
         });
     });

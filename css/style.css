@@ -34,6 +34,40 @@ body {
 }
 
 /* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+/* Crop 20% from top and bottom - focuses on center of image */
+.crop-vertical-20 {
+    object-fit: cover !important;
+    object-position: center center !important;
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* Glass frame container for cropped images - controls visible area */
+.hero-image:has(.crop-vertical-20) {
+    overflow: hidden;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.04) 0%,
+        rgba(255, 255, 255, 0.01) 100%
+    );
+    /* Container height controls the crop - shows 60% of image height */
+    max-height: 70vh;
+    aspect-ratio: 3 / 4;
+}
+
+/* ============================================
    NAVIGATION - LIQUID GLASS MORPHISM
    ============================================ */
 .navbar {
@@ -185,6 +219,21 @@ body {
     );
     pointer-events: none;
     animation: logoGlisten 4s ease-in-out infinite;
+    /* Soften top and bottom edges */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 100%
+    );
 }
 
 @keyframes logoGlisten {
@@ -284,24 +333,24 @@ body {
     left: -10px;
     background: linear-gradient(
         135deg,
-        rgba(15, 15, 15, 0.85) 0%,
-        rgba(5, 5, 5, 0.8) 100%
+        rgba(12, 12, 12, 0.95) 0%,
+        rgba(8, 8, 8, 0.92) 100%
     );
-    backdrop-filter: blur(40px) saturate(180%);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    backdrop-filter: blur(30px) saturate(150%);
+    -webkit-backdrop-filter: blur(30px) saturate(150%);
     box-shadow:
-        0 15px 50px rgba(0, 0, 0, 0.6),
+        0 20px 60px rgba(0, 0, 0, 0.75),
         0 0 0 1px rgba(255, 255, 255, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        inset 0 -1px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 18px;
+        inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    border-radius: 14px;
     list-style: none;
-    padding: 0.75rem;
+    padding: 0.6rem;
     min-width: 220px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     transform: translateY(-10px);
     z-index: 100;
 }
@@ -330,19 +379,59 @@ body {
 
 .dropdown-menu li {
     padding: 0;
-    margin: 0.25rem 0;
+    margin: 0.2rem 0;
 }
 
 .dropdown-menu li a {
     display: block;
-    padding: 0.75rem 1rem;
-    border-radius: 10px;
-    transition: all 0.2s ease;
+    padding: 0.7rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Glass shard light reflection */
+.dropdown-menu li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(139, 195, 74, 0.15) 30%,
+        rgba(255, 255, 255, 0.25) 50%,
+        rgba(139, 195, 74, 0.15) 70%,
+        transparent 100%
+    );
+    transform: skewX(-25deg);
+    transition: left 0.5s ease;
+    pointer-events: none;
+}
+
+.dropdown-menu li a:hover::before {
+    left: 150%;
 }
 
 .dropdown-menu li a:hover {
-    background: rgba(139, 195, 74, 0.15);
+    background: linear-gradient(
+        135deg,
+        rgba(139, 195, 74, 0.18) 0%,
+        rgba(139, 195, 74, 0.12) 50%,
+        rgba(139, 195, 74, 0.2) 100%
+    );
     color: var(--lime-green);
+    box-shadow:
+        0 0 20px rgba(139, 195, 74, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        inset 0 -1px 0 rgba(139, 195, 74, 0.2);
+    border: 1px solid rgba(139, 195, 74, 0.25);
+    text-shadow: 0 0 10px rgba(139, 195, 74, 0.4);
 }
 
 /* Glass morphism mobile toggle */
@@ -577,6 +666,30 @@ body {
     object-fit: contain;
     object-position: right center;
     max-height: 100vh;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Subtle lime glow on top edge of hero image */
+.hero-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 25%;
+    right: 25%;
+    height: 1px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(139, 195, 74, 0.35),
+        transparent
+    );
+    border-radius: 24px 24px 0 0;
+    z-index: 1;
 }
 
 .floating-vinyl {
@@ -1121,7 +1234,7 @@ a.service-card {
     width: 100%;
     height: 250px;
     object-fit: cover;
-    object-position: center center;
+    object-position: center top;
     transition: transform 0.3s, filter 0.3s;
 }
 
@@ -1396,6 +1509,21 @@ a.service-card {
     pointer-events: none;
     animation: logoGlisten 4s ease-in-out infinite;
     animation-delay: 2s;
+    /* Soften top and bottom edges */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 20%,
+        black 80%,
+        transparent 100%
+    );
 }
 
 .footer-cta {
@@ -1670,7 +1798,7 @@ a.service-card {
     }
 
 
-    /* Glass morphism mobile menu */
+    /* Glass morphism mobile menu - high legibility */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1678,17 +1806,19 @@ a.service-card {
         flex-direction: column;
         background: linear-gradient(
             180deg,
-            rgba(5, 5, 5, 0.97) 0%,
-            rgba(0, 0, 0, 0.95) 100%
+            rgba(8, 8, 8, 0.97) 0%,
+            rgba(5, 5, 5, 0.95) 100%
         );
-        backdrop-filter: blur(30px) saturate(180%);
-        -webkit-backdrop-filter: blur(30px) saturate(180%);
+        backdrop-filter: blur(40px) saturate(150%);
+        -webkit-backdrop-filter: blur(40px) saturate(150%);
         width: 100%;
         text-align: center;
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow:
-            0 10px 40px rgba(0, 0, 0, 0.6),
-            inset 1px 0 0 rgba(255, 255, 255, 0.05);
+            0 10px 50px rgba(0, 0, 0, 0.8),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding: 2rem 1.5rem;
         z-index: 998;
         display: flex !important;
@@ -1706,16 +1836,58 @@ a.service-card {
         display: block;
         padding: 1rem 1.5rem;
         margin: 0.25rem 0;
-        border-radius: 12px;
-        background: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.3s ease;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 500;
+        font-size: 1.05rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Glass shard light sweep for mobile */
+    .nav-menu > li > a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(139, 195, 74, 0.12) 30%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(139, 195, 74, 0.12) 70%,
+            transparent 100%
+        );
+        transform: skewX(-25deg);
+        transition: left 0.5s ease;
+        pointer-events: none;
+    }
+
+    .nav-menu > li > a:hover::before,
+    .nav-menu > li > a:active::before {
+        left: 150%;
     }
 
     .nav-menu > li > a:hover,
     .nav-menu > li > a.active {
-        background: rgba(139, 195, 74, 0.1);
-        border-color: rgba(139, 195, 74, 0.2);
+        background: linear-gradient(
+            135deg,
+            rgba(139, 195, 74, 0.18) 0%,
+            rgba(139, 195, 74, 0.1) 50%,
+            rgba(139, 195, 74, 0.2) 100%
+        );
+        border-color: rgba(139, 195, 74, 0.3);
+        color: var(--lime-green);
+        box-shadow:
+            0 0 25px rgba(139, 195, 74, 0.15),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(139, 195, 74, 0.2);
+        text-shadow: 0 0 12px rgba(139, 195, 74, 0.4);
     }
 
     /* Preserve get-quote-btn styling in mobile menu */
@@ -1738,21 +1910,96 @@ a.service-card {
         ) !important;
     }
 
+    /* Style dropdown parent as category label, not a button */
+    .dropdown > a {
+        background: transparent !important;
+        border: none !important;
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-size: 0.8rem !important;
+        font-weight: 600 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        padding: 0.6rem 1rem 0.3rem !important;
+        margin-bottom: 0 !important;
+        cursor: default !important;
+        pointer-events: none;
+    }
+
+    /* Remove hover effects from category label */
+    .dropdown > a:hover,
+    .dropdown > a::before {
+        display: none !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+
     .dropdown-menu {
         position: static;
         opacity: 1;
         visibility: visible;
-        background: rgba(255, 255, 255, 0.02);
-        border-radius: 12px;
-        box-shadow: none;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
         padding: 0.5rem;
-        margin-top: 0.5rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
+        margin-top: 0.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.04);
         transform: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
-    
+
     .dropdown:hover .dropdown-menu {
-        margin-top: 0;
+        margin-top: 0.25rem;
+    }
+
+    /* Mobile dropdown links with glass shard effect */
+    .dropdown-menu li a {
+        color: rgba(255, 255, 255, 0.88);
+        font-weight: 500;
+        padding: 0.85rem 1.2rem;
+        border-radius: 8px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .dropdown-menu li a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            120deg,
+            transparent 0%,
+            rgba(139, 195, 74, 0.12) 30%,
+            rgba(255, 255, 255, 0.18) 50%,
+            rgba(139, 195, 74, 0.12) 70%,
+            transparent 100%
+        );
+        transform: skewX(-25deg);
+        transition: left 0.5s ease;
+        pointer-events: none;
+    }
+
+    .dropdown-menu li a:hover::before,
+    .dropdown-menu li a:active::before {
+        left: 150%;
+    }
+
+    .dropdown-menu li a:hover {
+        background: linear-gradient(
+            135deg,
+            rgba(139, 195, 74, 0.15) 0%,
+            rgba(139, 195, 74, 0.08) 50%,
+            rgba(139, 195, 74, 0.18) 100%
+        );
+        color: var(--lime-green);
+        border: 1px solid rgba(139, 195, 74, 0.25);
+        box-shadow:
+            0 0 20px rgba(139, 195, 74, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        text-shadow: 0 0 10px rgba(139, 195, 74, 0.35);
     }
 
     .hero {
@@ -1791,9 +2038,10 @@ a.service-card {
         font-size: 1rem;
     }
 
+    /* Mobile hero image */
     .hero-image {
-        margin: 0 0 -80px 0;
-        max-width: 100%;
+        margin: 0 10px -80px 10px;
+        max-width: calc(100% - 20px);
         order: -1;
         z-index: 1;
         position: relative;
@@ -1803,6 +2051,20 @@ a.service-card {
         max-height: 55vh;
         width: 100%;
         margin: 0 auto;
+        border-radius: 18px;
+    }
+
+    /* Mobile glass frame for cropped images */
+    .hero-image:has(.crop-vertical-20) {
+        border-radius: 18px;
+        max-height: 45vh;
+        aspect-ratio: 4 / 3;
+        width: 100%;
+        margin: 0 auto -80px auto;
+    }
+
+    .hero-image:has(.crop-vertical-20) img {
+        border-radius: 0;
     }
 
     /* Mobile glass container adjustments */
@@ -1880,6 +2142,12 @@ a.service-card {
 
     .hero-image img {
         max-height: 40vh;
+    }
+
+    /* Small mobile glass frame for cropped images */
+    .hero-image:has(.crop-vertical-20) {
+        max-height: 35vh;
+        border-radius: 14px;
     }
 
     .trust-bar {
