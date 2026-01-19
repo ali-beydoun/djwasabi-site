@@ -138,48 +138,58 @@
     box-shadow: 0 5px 15px rgba(139, 195, 74, 0.3);
 }
 
-/* Gallery Section */
+/* Gallery Section - Google Photos-like dark interface */
 .gallery-section {
-    padding: 80px 0;
-    background: #f8f8f8;
+    padding: 20px 0 60px;
+    background: #1a1a1a;
     min-height: 60vh;
 }
 
-/* Gallery Grid */
+.gallery-section .container {
+    max-width: 1600px;
+    padding: 0 8px;
+}
+
+/* Google Photos-style masonry grid using CSS columns */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    animation: fadeInUp 1s ease;
+    column-count: 4;
+    column-gap: 4px;
+    animation: fadeInUp 0.6s ease;
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    background: #000;
+    border-radius: 4px;
+    background: #2a2a2a;
     cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    height: 350px;
-}
-
-.gallery-item.large {
-    grid-column: span 2;
-    grid-row: span 2;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 4px;
+    break-inside: avoid;
+    /* Remove fixed height - let photos breathe */
     height: auto;
 }
 
+/* Large class no longer needed for masonry */
+.gallery-item.large {
+    /* Photos naturally take their aspect ratio */
+}
+
+/* Subtle Google Photos-like hover */
 .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    transform: scale(1.02);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    z-index: 10;
+    border-radius: 8px;
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%;
+    height: auto;
+    display: block;
     object-fit: cover;
     object-position: center top;
-    transition: transform 0.5s, filter 0.5s;
+    transition: filter 0.2s ease;
 }
 
 /* Utility class to crop bottom 20% - shows more of the top */
@@ -188,23 +198,26 @@
 }
 
 .gallery-item:hover img {
-    transform: scale(1.1);
-    filter: brightness(0.7);
+    filter: brightness(0.92);
 }
 
-/* Gallery Overlay */
+/* Minimal overlay - appears on hover */
 .gallery-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    background: linear-gradient(
+        to top,
+        rgba(0, 0, 0, 0.7) 0%,
+        transparent 40%
+    );
     display: flex;
     align-items: flex-end;
-    padding: 2rem;
+    padding: 1rem;
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s ease;
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -212,14 +225,34 @@
 }
 
 .overlay-content h3 {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
 }
 
 .overlay-content p {
-    color: var(--lime-green);
-    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+/* Responsive column counts */
+@media (max-width: 1400px) {
+    .gallery-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 1024px) {
+    .gallery-grid {
+        column-count: 3;
+    }
+
+    .gallery-section .container {
+        padding: 0 4px;
+    }
 }
 
 /* CTA Section */
@@ -259,15 +292,7 @@
     font-size: 1.2rem;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .gallery-item.large {
-        grid-column: span 1;
-        grid-row: span 1;
-        height: 350px;
-    }
-}
-
+/* Mobile Responsive Design */
 @media (max-width: 768px) {
     /* Smooth scroll for app-like feel */
     .gallery-section {
@@ -315,8 +340,9 @@
         max-width: 100%;
     }
 
-    /* Instagram-style tight grid */
+    /* Instagram-style tight grid - override desktop columns */
     .gallery-grid {
+        column-count: unset;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 3px;
@@ -328,6 +354,7 @@
         aspect-ratio: 3 / 4;
         border-radius: 0;
         background: #111;
+        margin-bottom: 0;
     }
 
     .gallery-item.large {
