@@ -1798,7 +1798,7 @@ a.service-card {
     }
 
 
-    /* Glass morphism mobile menu - high legibility */
+    /* Glass morphism mobile menu - frosted diffused glass */
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -1806,19 +1806,20 @@ a.service-card {
         flex-direction: column;
         background: linear-gradient(
             180deg,
-            rgba(8, 8, 8, 0.97) 0%,
-            rgba(5, 5, 5, 0.95) 100%
+            rgba(5, 5, 5, 0.985) 0%,
+            rgba(8, 8, 8, 0.98) 50%,
+            rgba(5, 5, 5, 0.985) 100%
         );
-        backdrop-filter: blur(40px) saturate(150%);
-        -webkit-backdrop-filter: blur(40px) saturate(150%);
+        backdrop-filter: blur(60px) saturate(120%);
+        -webkit-backdrop-filter: blur(60px) saturate(120%);
         width: 100%;
         text-align: center;
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow:
-            0 10px 50px rgba(0, 0, 0, 0.8),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.5);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            0 10px 60px rgba(0, 0, 0, 0.9),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.6);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
         padding: 2rem 1.5rem;
         z-index: 998;
         display: flex !important;
