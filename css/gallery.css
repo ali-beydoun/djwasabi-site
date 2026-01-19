@@ -269,15 +269,21 @@
 }
 
 @media (max-width: 768px) {
+    /* Smooth scroll for app-like feel */
+    .gallery-section {
+        -webkit-overflow-scrolling: touch;
+    }
+
     .gallery-hero {
-        padding: 95px 0 15px;
+        padding: 90px 0 12px;
+        background: #000;
     }
 
     /* Adjust glass container for mobile */
     .hero-content-center {
-        padding: 1rem 0.75rem;
-        border-radius: 12px;
-        margin: 0 0.5rem;
+        padding: 0.85rem 0.75rem;
+        border-radius: 10px;
+        margin: 0 0.75rem;
     }
 
     /* Adjust radial glow for mobile */
@@ -297,49 +303,103 @@
     .hero-subtitle {
         font-size: 0.85rem;
     }
-    
+
+    /* App-like gallery section - minimal padding */
+    .gallery-section {
+        padding: 3px 0 40px;
+        background: #000;
+    }
+
+    .gallery-section .container {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    /* Instagram-style tight grid */
     .gallery-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 15px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3px;
     }
-    
+
+    /* Portrait-optimized items */
     .gallery-item {
-        height: 300px;
+        height: auto;
+        aspect-ratio: 3 / 4;
+        border-radius: 0;
+        background: #111;
     }
-    
-    .overlay-content h3 {
-        font-size: 1.2rem;
+
+    .gallery-item.large {
+        grid-column: span 2;
+        grid-row: span 1;
+        aspect-ratio: 4 / 3;
     }
-    
-    .overlay-content p {
-        font-size: 0.9rem;
+
+    /* No hover transform on mobile */
+    .gallery-item:hover {
+        transform: none;
+        box-shadow: none;
     }
-    
+
+    .gallery-item:hover img {
+        transform: none;
+        filter: none;
+    }
+
+    .gallery-item img {
+        object-position: center center;
+    }
+
+    /* Hide overlay on mobile for clean app-like look */
+    .gallery-overlay {
+        display: none;
+    }
+
+    /* Tap feedback */
+    .gallery-item:active {
+        opacity: 0.85;
+        transition: opacity 0.1s ease;
+    }
+
     .cta-content h2 {
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .btn-large {
         width: 100%;
         max-width: 300px;
     }
+
+    /* CTA section tighter on mobile */
+    .cta-section {
+        padding: 50px 20px;
+    }
+
+    .cta-content p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
-@media (max-width: 480px) {
+/* Extra small screens - single column for very narrow devices */
+@media (max-width: 360px) {
     .gallery-grid {
         grid-template-columns: 1fr;
+        gap: 3px;
     }
 
     .gallery-item {
-        height: 280px;
+        aspect-ratio: 3 / 4;
     }
 
-    .gallery-item img {
-        object-position: center top;
+    .gallery-item.large {
+        grid-column: span 1;
+        aspect-ratio: 3 / 4;
     }
 }
