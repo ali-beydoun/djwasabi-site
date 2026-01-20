@@ -1105,11 +1105,11 @@
         overflow: hidden;
     }
 
-    /* Vary texture position for depth */
-    .trust-item:nth-child(1) { background-position: center, 0% 20%; }
-    .trust-item:nth-child(2) { background-position: center, 100% 60%; }
-    .trust-item:nth-child(3) { background-position: center, 30% 80%; }
-    .trust-item:nth-child(4) { background-position: center, 70% 40%; }
+    /* Consistent texture position for all cards */
+    .trust-item:nth-child(1),
+    .trust-item:nth-child(2),
+    .trust-item:nth-child(3),
+    .trust-item:nth-child(4) { background-position: center, 100% 50%; }
 
     /* Shimmer effect on scroll */
     .trust-item::after {

@@ -793,11 +793,11 @@ body {
         inset -2px 0 8px -4px rgba(139, 195, 74, 0.15);
 }
 
-/* Vary texture position for each card - subtle depth */
-.trust-item:nth-child(1) { background-position: center, 0% 20%; }
-.trust-item:nth-child(2) { background-position: center, 100% 50%; }
-.trust-item:nth-child(3) { background-position: center, 20% 80%; }
-.trust-item:nth-child(4) { background-position: center, 80% 30%; }
+/* Consistent texture position for all cards */
+.trust-item:nth-child(1),
+.trust-item:nth-child(2),
+.trust-item:nth-child(3),
+.trust-item:nth-child(4) { background-position: center, 100% 50%; }
 
 /* Green edge sheen reflection */
 .trust-item::before {
