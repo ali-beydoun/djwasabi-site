@@ -1201,7 +1201,7 @@
     .trust-number svg {
         width: 36px;
         height: 36px;
-        stroke: rgba(255, 255, 255, 0.8);
+        stroke: var(--lime-green);
         stroke-width: 1.5;
     }
 

@@ -886,14 +886,14 @@ body {
 .trust-number svg {
     width: 38px;
     height: 38px;
-    stroke: rgba(255, 255, 255, 0.8);
+    stroke: var(--lime-green);
     stroke-width: 1.5;
     transition: all 0.3s ease;
 }
 
 .trust-item:hover .trust-number svg {
-    stroke: var(--lime-green);
-    filter: drop-shadow(0 0 8px rgba(139, 195, 74, 0.5));
+    filter: drop-shadow(0 0 12px rgba(139, 195, 74, 0.7));
+    transform: scale(1.05);
 }
 
 .trust-label {
@@ -2311,7 +2311,7 @@ a.service-card {
     .trust-number svg {
         width: 36px;
         height: 36px;
-        stroke: rgba(255, 255, 255, 0.8);
+        stroke: var(--lime-green);
         stroke-width: 1.5;
     }
 
