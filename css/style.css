@@ -777,14 +777,12 @@ body {
 .trust-item {
     padding: 1.25rem;
     transition: all 0.3s ease;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(30, 30, 32, 0.85) 0%,
-            rgba(20, 20, 22, 0.9) 50%,
-            rgba(25, 25, 27, 0.85) 100%
-        ),
-        url('../images/footer-bg.webp') center center / 600% auto no-repeat;
+    background: linear-gradient(
+        135deg,
+        rgba(30, 30, 32, 0.85) 0%,
+        rgba(20, 20, 22, 0.9) 50%,
+        rgba(25, 25, 27, 0.85) 100%
+    );
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     position: relative;
@@ -804,11 +802,6 @@ body {
         inset 0 0 20px -10px rgba(139, 195, 74, 0.15);
 }
 
-/* Consistent texture position for all cards */
-.trust-item:nth-child(1),
-.trust-item:nth-child(2),
-.trust-item:nth-child(3),
-.trust-item:nth-child(4) { background-position: center, 100% 50%; }
 
 /* Apple glass edge warp - highlight at top, shadow at bottom */
 .trust-item::before {

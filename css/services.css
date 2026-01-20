@@ -1092,14 +1092,12 @@
 
     .trust-item {
         padding: 1rem 0.75rem;
-        background:
-            linear-gradient(
-                135deg,
-                rgba(30, 30, 32, 0.85) 0%,
-                rgba(20, 20, 22, 0.9) 50%,
-                rgba(25, 25, 27, 0.85) 100%
-            ),
-            url('../images/footer-bg.webp') center center / 800% auto no-repeat;
+        background: linear-gradient(
+            135deg,
+            rgba(30, 30, 32, 0.85) 0%,
+            rgba(20, 20, 22, 0.9) 50%,
+            rgba(25, 25, 27, 0.85) 100%
+        );
         border-radius: 18px;
         border: 1px solid rgba(255, 255, 255, 0.12);
         transition: all 0.25s ease;
@@ -1139,11 +1137,6 @@
         pointer-events: none;
     }
 
-    /* Consistent texture position for all cards */
-    .trust-item:nth-child(1),
-    .trust-item:nth-child(2),
-    .trust-item:nth-child(3),
-    .trust-item:nth-child(4) { background-position: center, 100% 50%; }
 
     /* Shimmer effect on scroll */
     .trust-item::after {
