@@ -1123,18 +1123,19 @@
         background: var(--lime-green);
     }
 
-    /* Featured image in why section */
+    /* Featured image in why section - portrait ratio */
     .section-with-image .section-image-accent {
-        max-width: 100%;
-        margin: 0 0 1.5rem 0;
-        border-radius: 12px;
+        max-width: 280px;
+        margin: 0 auto 1.5rem;
+        border-radius: 16px;
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
     }
 
     .section-with-image .section-image-accent img {
-        border-radius: 12px;
-        max-height: 280px;
+        border-radius: 16px;
         width: 100%;
+        aspect-ratio: 3 / 4;
         object-fit: cover;
         object-position: top;
     }
@@ -1220,17 +1221,19 @@
         margin: 1.5rem auto 0;
     }
 
-    /* Experience image */
+    /* Experience image - portrait ratio */
     .experience-card-with-image .experience-image {
-        border-radius: 14px;
+        max-width: 260px;
+        margin: 0 auto 1.5rem;
+        border-radius: 16px;
         box-shadow: 0 8px 30px rgba(139, 195, 74, 0.2);
-        margin-bottom: 1rem;
+        overflow: hidden;
     }
 
     .experience-card-with-image .experience-image img {
-        border-radius: 14px;
-        max-height: 220px;
+        border-radius: 16px;
         width: 100%;
+        aspect-ratio: 3 / 4;
         object-fit: cover;
         object-position: top;
     }
