@@ -73,17 +73,15 @@ body {
 .navbar {
     background: linear-gradient(
         180deg,
-        rgba(0, 0, 0, 0.85) 0%,
-        rgba(0, 0, 0, 0.75) 100%
+        rgba(20, 20, 22, 0.9) 0%,
+        rgba(12, 12, 14, 0.92) 100%
     );
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    backdrop-filter: blur(25px) saturate(180%);
+    -webkit-backdrop-filter: blur(25px) saturate(180%);
     box-shadow:
-        0 4px 30px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05),
-        inset 4px 0 20px -5px rgba(139, 195, 74, 0.25),
-        inset -4px 0 20px -5px rgba(139, 195, 74, 0.25);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        0 4px 30px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     position: fixed;
     width: 100%;
     top: 0;
@@ -99,19 +97,10 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background:
-        linear-gradient(90deg,
-            rgba(139, 195, 74, 0.15) 0%,
-            rgba(139, 195, 74, 0.05) 5%,
-            transparent 15%,
-            transparent 85%,
-            rgba(139, 195, 74, 0.05) 95%,
-            rgba(139, 195, 74, 0.15) 100%
-        ),
-        linear-gradient(180deg,
-            rgba(139, 195, 74, 0.1) 0%,
-            transparent 50%
-        );
+    background: linear-gradient(180deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        transparent 50%
+    );
     pointer-events: none;
     z-index: 1;
     animation: navbarEdgeFlicker 6s ease-in-out infinite;
@@ -134,19 +123,18 @@ body {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 5%;
-    right: 5%;
+    left: 0;
+    right: 0;
     height: 1px;
     background: linear-gradient(90deg,
         transparent 0%,
-        rgba(139, 195, 74, 0.5) 20%,
-        rgba(139, 195, 74, 0.8) 50%,
-        rgba(139, 195, 74, 0.5) 80%,
+        rgba(255, 255, 255, 0.1) 20%,
+        rgba(255, 255, 255, 0.15) 50%,
+        rgba(255, 255, 255, 0.1) 80%,
         transparent 100%
     );
     pointer-events: none;
     z-index: 2;
-    animation: navbarGlowPulse 4s ease-in-out infinite;
 }
 
 @keyframes navbarGlowPulse {
@@ -461,14 +449,14 @@ body {
 }
 
 .mobile-toggle:hover {
-    background: rgba(139, 195, 74, 0.1);
-    border-color: rgba(139, 195, 74, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .mobile-toggle span {
     width: 22px;
     height: 2px;
-    background: var(--lime-green);
+    background: rgba(255, 255, 255, 0.9);
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
@@ -1824,75 +1812,62 @@ a.service-card {
     .navbar {
         background: linear-gradient(
             180deg,
-            rgba(10, 10, 10, 0.92) 0%,
-            rgba(5, 5, 5, 0.95) 100%
+            rgba(22, 22, 24, 0.92) 0%,
+            rgba(12, 12, 14, 0.95) 100%
         );
-        backdrop-filter: blur(30px) saturate(200%);
-        -webkit-backdrop-filter: blur(30px) saturate(200%);
+        backdrop-filter: blur(30px) saturate(180%);
+        -webkit-backdrop-filter: blur(30px) saturate(180%);
         box-shadow:
-            0 4px 30px rgba(0, 0, 0, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.3),
-            inset 6px 0 30px -10px rgba(139, 195, 74, 0.2),
-            inset -6px 0 30px -10px rgba(139, 195, 74, 0.2);
-        border-bottom: 1px solid rgba(139, 195, 74, 0.25);
+            0 4px 30px rgba(0, 0, 0, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Enhanced top edge light catch */
+    /* Subtle top edge highlight */
     .navbar::before {
-        background:
-            linear-gradient(90deg,
-                rgba(139, 195, 74, 0.25) 0%,
-                rgba(139, 195, 74, 0.08) 10%,
-                transparent 25%,
-                transparent 75%,
-                rgba(139, 195, 74, 0.08) 90%,
-                rgba(139, 195, 74, 0.25) 100%
-            ),
-            linear-gradient(180deg,
-                rgba(255, 255, 255, 0.12) 0%,
-                rgba(255, 255, 255, 0.03) 30%,
-                transparent 60%
-            );
+        background: linear-gradient(180deg,
+            rgba(255, 255, 255, 0.06) 0%,
+            transparent 40%
+        );
     }
 
-    /* Brighter bottom glow line */
+    /* Clean bottom edge line */
     .navbar::after {
-        left: 10%;
-        right: 10%;
-        height: 2px;
+        left: 0;
+        right: 0;
+        height: 1px;
         background: linear-gradient(90deg,
             transparent 0%,
-            rgba(139, 195, 74, 0.4) 15%,
-            rgba(139, 195, 74, 0.9) 50%,
-            rgba(139, 195, 74, 0.4) 85%,
+            rgba(255, 255, 255, 0.12) 20%,
+            rgba(255, 255, 255, 0.18) 50%,
+            rgba(255, 255, 255, 0.12) 80%,
             transparent 100%
         );
-        box-shadow: 0 0 15px rgba(139, 195, 74, 0.4);
+        box-shadow: none;
     }
 
-    /* Premium hamburger button - lifted glass pill */
+    /* Premium hamburger button - clean glass */
     .mobile-toggle {
         display: flex !important;
         background: linear-gradient(
             145deg,
-            rgba(30, 30, 30, 0.95) 0%,
-            rgba(20, 20, 20, 0.98) 100%
+            rgba(35, 35, 38, 0.95) 0%,
+            rgba(25, 25, 28, 0.98) 100%
         );
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
-        border: 1px solid rgba(139, 195, 74, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.15);
         border-radius: 11px;
         padding: 10px 11px;
         box-shadow:
-            0 4px 20px rgba(0, 0, 0, 0.5),
-            0 0 20px rgba(139, 195, 74, 0.15),
-            inset 0 1px 0 rgba(255, 255, 255, 0.12),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+            0 4px 20px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.2);
         position: relative;
     }
 
-    /* Subtle inner glow */
+    /* Subtle inner highlight */
     .mobile-toggle::before {
         content: '';
         position: absolute;
@@ -1900,7 +1875,7 @@ a.service-card {
         border-radius: 10px;
         background: radial-gradient(
             ellipse at 50% 0%,
-            rgba(139, 195, 74, 0.12) 0%,
+            rgba(255, 255, 255, 0.08) 0%,
             transparent 60%
         );
         pointer-events: none;
@@ -1910,26 +1885,23 @@ a.service-card {
         transform: scale(0.95);
         background: linear-gradient(
             145deg,
-            rgba(139, 195, 74, 0.25) 0%,
-            rgba(139, 195, 74, 0.15) 100%
+            rgba(45, 45, 48, 0.98) 0%,
+            rgba(35, 35, 38, 0.98) 100%
         );
-        border-color: rgba(139, 195, 74, 0.6);
+        border-color: rgba(255, 255, 255, 0.2);
         box-shadow:
             0 2px 15px rgba(0, 0, 0, 0.4),
-            0 0 25px rgba(139, 195, 74, 0.35),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
-    /* Hamburger lines - bright and glowing */
+    /* Hamburger lines - clean white */
     .mobile-toggle span {
         width: 20px;
         height: 2.5px;
-        background: var(--lime-green);
+        background: rgba(255, 255, 255, 0.9);
         margin: 2.5px 0;
         border-radius: 3px;
-        box-shadow:
-            0 0 8px rgba(139, 195, 74, 0.6),
-            0 0 3px rgba(139, 195, 74, 0.8);
+        box-shadow: none;
         transition: all 0.3s ease;
         position: relative;
         z-index: 1;
