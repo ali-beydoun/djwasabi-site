@@ -1095,13 +1095,14 @@
         background:
             linear-gradient(
                 135deg,
-                rgba(25, 25, 25, 0.88) 0%,
-                rgba(18, 18, 18, 0.92) 100%
+                rgba(20, 20, 20, 0.93) 0%,
+                rgba(15, 15, 15, 0.96) 100%
             ),
             url('../images/footer-bg.webp') center center / 800% auto no-repeat;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.06);
         transition: all 0.25s ease;
+        overflow: hidden;
     }
 
     /* Vary texture position for depth */
@@ -1110,25 +1111,60 @@
     .trust-item:nth-child(3) { background-position: center, 30% 80%; }
     .trust-item:nth-child(4) { background-position: center, 70% 40%; }
 
+    /* Shimmer effect on scroll */
+    .trust-item::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.08),
+            transparent
+        );
+        pointer-events: none;
+    }
+
+    .trust-item.shimmer::after {
+        animation: trustShimmer 0.8s ease-out forwards;
+    }
+
+    @keyframes trustShimmer {
+        0% { left: -100%; }
+        100% { left: 200%; }
+    }
+
+    /* Stagger shimmer for each card */
+    .trust-item:nth-child(1).shimmer::after { animation-delay: 0s; }
+    .trust-item:nth-child(2).shimmer::after { animation-delay: 0.1s; }
+    .trust-item:nth-child(3).shimmer::after { animation-delay: 0.2s; }
+    .trust-item:nth-child(4).shimmer::after { animation-delay: 0.3s; }
+
     .trust-item:active {
         transform: scale(0.98);
-        background:
-            linear-gradient(
-                135deg,
-                rgba(139, 195, 74, 0.15) 0%,
-                rgba(139, 195, 74, 0.08) 100%
-            ),
-            url('../images/footer-bg.webp') center center / 800% auto no-repeat;
     }
 
     .trust-number {
         font-size: 1.75rem;
-        margin-bottom: 0.25rem;
-        color: var(--lime-green);
+        margin-bottom: 0.4rem;
+        color: rgba(255, 255, 255, 0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .trust-number svg {
+        width: 32px;
+        height: 32px;
+        stroke: rgba(255, 255, 255, 0.8);
+        stroke-width: 1.5;
     }
 
     .trust-label {
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.7);
         font-size: 0.7rem;
         letter-spacing: 0.5px;
         text-transform: uppercase;

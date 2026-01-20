@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (mobileToggle) {
         mobileToggle.addEventListener('click', function() {
             navMenu.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
         });
     }
 
@@ -118,5 +119,26 @@ if ('IntersectionObserver' in window) {
 
     document.querySelectorAll('img[data-src]').forEach(img => {
         imageObserver.observe(img);
+    });
+
+    // Trust item shimmer effect on scroll (mobile)
+    const trustObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Add shimmer class to trigger animation
+                entry.target.classList.add('shimmer');
+                // Remove class after animation completes to allow re-trigger
+                setTimeout(() => {
+                    entry.target.classList.remove('shimmer');
+                }, 1200);
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px'
+    });
+
+    document.querySelectorAll('.trust-item').forEach(item => {
+        trustObserver.observe(item);
     });
 }
