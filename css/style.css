@@ -2298,9 +2298,10 @@ a.service-card {
     }
 
     .trust-number svg {
-        width: 40px;
-        height: 40px;
-        display: none;
+        width: 32px;
+        height: 32px;
+        stroke: rgba(255, 255, 255, 0.8);
+        stroke-width: 1.5;
     }
 
     .trust-label {
