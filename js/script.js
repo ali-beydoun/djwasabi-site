@@ -137,8 +137,8 @@ if ('IntersectionObserver' in window) {
         rootMargin: '0px'
     });
 
-    // Apply to various elements
-    document.querySelectorAll('.trust-item, .expertise-item, .value-item').forEach(item => {
+    // Apply to trust items and expertise items only
+    document.querySelectorAll('.trust-item, .expertise-item').forEach(item => {
         scrollAnimObserver.observe(item);
     });
 }

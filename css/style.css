@@ -2383,23 +2383,6 @@ a.service-card {
     .expertise-item:nth-child(2).scroll-animate .expertise-icon { animation-delay: 0.1s; }
     .expertise-item:nth-child(3).scroll-animate .expertise-icon { animation-delay: 0.2s; }
 
-    /* Value items - pop in on scroll */
-    .value-item.scroll-animate {
-        animation: valuePop 0.4s ease-out forwards;
-    }
-
-    @keyframes valuePop {
-        0% { transform: scale(0.95); opacity: 0.7; }
-        50% { transform: scale(1.03); }
-        100% { transform: scale(1); opacity: 1; }
-    }
-
-    /* Stagger value items */
-    .value-item:nth-child(1).scroll-animate { animation-delay: 0s; }
-    .value-item:nth-child(2).scroll-animate { animation-delay: 0.05s; }
-    .value-item:nth-child(3).scroll-animate { animation-delay: 0.1s; }
-    .value-item:nth-child(4).scroll-animate { animation-delay: 0.15s; }
-    .value-item:nth-child(5).scroll-animate { animation-delay: 0.2s; }
 }
 
 /* ============================================
