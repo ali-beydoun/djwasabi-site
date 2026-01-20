@@ -266,6 +266,15 @@ body {
     align-items: center;
 }
 
+/* Hide icons on desktop - only show on mobile */
+.nav-menu .nav-icon {
+    display: none;
+}
+
+.nav-menu .nav-label {
+    display: inline;
+}
+
 /* Nav links with glass hover effect */
 .nav-menu a {
     color: var(--text-light);
@@ -1798,145 +1807,196 @@ a.service-card {
     }
 
 
-    /* Glass morphism mobile menu - frosted diffused glass */
+    /* ============================================
+       iOS CONTROL CENTER STYLE MOBILE MENU
+       ============================================ */
+
     .nav-menu {
         position: fixed;
         left: -100%;
         top: 70px;
-        flex-direction: column;
+        width: 100%;
+        height: calc(100vh - 70px);
         background: linear-gradient(
             180deg,
-            rgba(5, 5, 5, 0.985) 0%,
-            rgba(8, 8, 8, 0.98) 50%,
-            rgba(5, 5, 5, 0.985) 100%
+            rgba(0, 0, 0, 0.97) 0%,
+            rgba(5, 5, 5, 0.98) 100%
         );
-        backdrop-filter: blur(60px) saturate(120%);
-        -webkit-backdrop-filter: blur(60px) saturate(120%);
-        width: 100%;
-        text-align: center;
-        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow:
-            0 10px 60px rgba(0, 0, 0, 0.9),
-            inset 0 1px 0 rgba(255, 255, 255, 0.06),
-            inset 0 -1px 0 rgba(0, 0, 0, 0.6);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        padding: 2rem 1.5rem;
+        backdrop-filter: blur(40px) saturate(150%);
+        -webkit-backdrop-filter: blur(40px) saturate(150%);
+        transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 998;
-        display: flex !important;
-        height: calc(100vh - 70px);
         overflow-y: auto;
-        gap: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+        padding: 1.5rem 1rem 2rem;
+        display: flex !important;
+        flex-direction: column;
     }
 
     .nav-menu.active {
         left: 0 !important;
     }
 
-    /* Staggered animation for menu items */
-    .nav-menu.active > li {
-        animation: slideInFromLeft 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-        opacity: 0;
+    /* Hide the default list structure, use CSS grid */
+    .nav-menu > li {
+        display: contents;
     }
 
-    .nav-menu.active > li:nth-child(1) { animation-delay: 0.05s; }
-    .nav-menu.active > li:nth-child(2) { animation-delay: 0.1s; }
-    .nav-menu.active > li:nth-child(3) { animation-delay: 0.15s; }
-    .nav-menu.active > li:nth-child(4) { animation-delay: 0.2s; }
-    .nav-menu.active > li:nth-child(5) { animation-delay: 0.25s; }
-    .nav-menu.active > li:nth-child(6) { animation-delay: 0.3s; }
-    .nav-menu.active > li:nth-child(7) { animation-delay: 0.35s; }
-
-    @keyframes slideInFromLeft {
-        from {
-            opacity: 0;
-            transform: translateX(-20px);
-        }
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
+    .nav-menu > li.dropdown {
+        display: contents;
     }
 
-    /* Mobile nav links - refined app-like styling */
-    .nav-menu > li > a {
-        display: flex;
+    /* Create the 2-column grid container */
+    .nav-menu::before {
+        content: '';
+        display: none;
+    }
+
+    /* Style for the grid wrapper effect - we'll use direct children */
+    .nav-menu {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+        align-content: start;
+    }
+
+    /* All nav links become grid cards */
+    .nav-menu a {
+        display: flex !important;
+        flex-direction: column;
         align-items: center;
-        padding: 1.1rem 1.25rem;
-        margin: 0.35rem 0;
-        border-radius: 14px;
-        background: rgba(255, 255, 255, 0.035);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        color: rgba(255, 255, 255, 0.88);
-        font-weight: 500;
-        font-size: 1.1rem;
-        letter-spacing: 0.3px;
+        justify-content: center;
+        padding: 1.25rem 0.75rem;
+        min-height: 95px;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.08) 0%,
+            rgba(255, 255, 255, 0.04) 100%
+        );
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.9);
+        text-decoration: none;
+        transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
         position: relative;
         overflow: hidden;
     }
 
-    /* Active page indicator - lime accent bar */
-    .nav-menu > li > a.active::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 20%;
-        bottom: 20%;
-        width: 3px;
-        background: var(--lime-green);
-        border-radius: 0 3px 3px 0;
-        box-shadow: 0 0 12px rgba(139, 195, 74, 0.6);
+    /* Nav icon styling */
+    .nav-menu .nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        margin-bottom: 0.5rem;
     }
 
-    /* Glass shard light sweep for mobile */
-    .nav-menu > li > a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(139, 195, 74, 0.1) 30%,
-            rgba(255, 255, 255, 0.15) 50%,
-            rgba(139, 195, 74, 0.1) 70%,
-            transparent 100%
-        );
-        transform: skewX(-25deg);
-        transition: left 0.5s ease;
-        pointer-events: none;
+    .nav-menu .nav-icon svg {
+        width: 28px;
+        height: 28px;
+        stroke: currentColor;
+        stroke-width: 1.75;
     }
 
-    .nav-menu > li > a:active::before {
-        left: 150%;
+    /* Nav label styling */
+    .nav-menu .nav-label {
+        font-size: 0.8rem;
+        font-weight: 500;
+        letter-spacing: 0.3px;
+        text-align: center;
     }
 
-    /* Touch feedback - scale down on press */
-    .nav-menu > li > a:active {
-        transform: scale(0.98);
-        background: rgba(255, 255, 255, 0.06);
-    }
-
-    .nav-menu > li > a:hover,
-    .nav-menu > li > a.active {
+    /* Active state - lime glow */
+    .nav-menu a.active {
         background: linear-gradient(
             135deg,
-            rgba(139, 195, 74, 0.12) 0%,
-            rgba(139, 195, 74, 0.06) 50%,
-            rgba(139, 195, 74, 0.14) 100%
+            rgba(139, 195, 74, 0.2) 0%,
+            rgba(139, 195, 74, 0.1) 100%
         );
-        border-color: rgba(139, 195, 74, 0.2);
+        border-color: rgba(139, 195, 74, 0.4);
         color: var(--lime-green);
         box-shadow:
-            0 0 20px rgba(139, 195, 74, 0.1),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        text-shadow: 0 0 10px rgba(139, 195, 74, 0.3);
+            0 4px 25px rgba(139, 195, 74, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15);
     }
 
-    /* Get Quote button - prominent CTA at bottom */
+    .nav-menu a.active .nav-icon svg {
+        stroke: var(--lime-green);
+        filter: drop-shadow(0 0 6px rgba(139, 195, 74, 0.5));
+    }
+
+    /* Touch feedback */
+    .nav-menu a:active {
+        transform: scale(0.95);
+        background: rgba(255, 255, 255, 0.12);
+    }
+
+    /* Staggered animation */
+    .nav-menu.active a {
+        animation: cardPopIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    @keyframes cardPopIn {
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    /* Stagger delays for main items */
+    .nav-menu.active > li:nth-child(1) a { animation-delay: 0.02s; }
+    .nav-menu.active > li:nth-child(2) a { animation-delay: 0.04s; }
+    .nav-menu.active > li:nth-child(4) a { animation-delay: 0.06s; }
+    .nav-menu.active > li:nth-child(5) a { animation-delay: 0.08s; }
+    .nav-menu.active > li:nth-child(6) a { animation-delay: 0.10s; }
+    .nav-menu.active > li:nth-child(7) a { animation-delay: 0.12s; }
+
+    /* Dropdown items stagger */
+    .nav-menu.active .dropdown-menu li:nth-child(1) a { animation-delay: 0.14s; }
+    .nav-menu.active .dropdown-menu li:nth-child(2) a { animation-delay: 0.16s; }
+    .nav-menu.active .dropdown-menu li:nth-child(3) a { animation-delay: 0.18s; }
+    .nav-menu.active .dropdown-menu li:nth-child(4) a { animation-delay: 0.20s; }
+
+    /* Hide the Services parent link on mobile */
+    .nav-menu > li.dropdown > a {
+        display: none !important;
+    }
+
+    /* Dropdown menu becomes part of the grid */
+    .dropdown-menu {
+        display: contents !important;
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
+        transform: none;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .dropdown-menu li {
+        display: contents;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        margin-top: 0;
+    }
+
+    /* Get Quote button - full width at bottom */
     .nav-menu .get-quote-btn {
+        grid-column: span 2;
         background: linear-gradient(
             135deg,
             var(--lime-green) 0%,
@@ -1945,108 +2005,30 @@ a.service-card {
         color: var(--primary-black) !important;
         border: none !important;
         box-shadow:
-            0 4px 20px rgba(139, 195, 74, 0.35),
-            inset 0 1px 0 rgba(255, 255, 255, 0.2);
-        font-weight: 600 !important;
-        margin-top: auto !important;
-        padding: 1.2rem 1.5rem !important;
+            0 6px 25px rgba(139, 195, 74, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        margin-top: 0.5rem;
+        min-height: 60px;
+    }
+
+    .nav-menu .get-quote-btn .nav-icon svg {
+        stroke: var(--primary-black);
+    }
+
+    .nav-menu .get-quote-btn .nav-label {
+        color: var(--primary-black);
+        font-weight: 600;
     }
 
     .nav-menu .get-quote-btn:active {
-        transform: scale(0.98);
-        box-shadow: 0 2px 10px rgba(139, 195, 74, 0.3);
+        transform: scale(0.97);
+        box-shadow: 0 3px 15px rgba(139, 195, 74, 0.3);
     }
 
-    /* Style dropdown parent as category label, not a button */
-    .dropdown > a {
-        background: transparent !important;
-        border: none !important;
-        color: rgba(255, 255, 255, 0.5) !important;
-        font-size: 0.8rem !important;
-        font-weight: 600 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 1.5px !important;
-        padding: 0.6rem 1rem 0.3rem !important;
-        margin-bottom: 0 !important;
-        cursor: default !important;
-        pointer-events: none;
-    }
-
-    /* Remove hover effects from category label */
-    .dropdown > a:hover,
-    .dropdown > a::before {
+    /* Section label for services (hidden since we show all items) */
+    .dropdown > a[href="#services"],
+    .dropdown > a[href="#"] {
         display: none !important;
-        background: transparent !important;
-        box-shadow: none !important;
-    }
-
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        background: rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
-        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05);
-        padding: 0.5rem;
-        margin-top: 0.25rem;
-        border: 1px solid rgba(255, 255, 255, 0.04);
-        transform: none;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        margin-top: 0.25rem;
-    }
-
-    /* Mobile dropdown links with glass shard effect */
-    .dropdown-menu li a {
-        color: rgba(255, 255, 255, 0.88);
-        font-weight: 500;
-        padding: 0.85rem 1.2rem;
-        border-radius: 8px;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .dropdown-menu li a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(
-            120deg,
-            transparent 0%,
-            rgba(139, 195, 74, 0.12) 30%,
-            rgba(255, 255, 255, 0.18) 50%,
-            rgba(139, 195, 74, 0.12) 70%,
-            transparent 100%
-        );
-        transform: skewX(-25deg);
-        transition: left 0.5s ease;
-        pointer-events: none;
-    }
-
-    .dropdown-menu li a:hover::before,
-    .dropdown-menu li a:active::before {
-        left: 150%;
-    }
-
-    .dropdown-menu li a:hover {
-        background: linear-gradient(
-            135deg,
-            rgba(139, 195, 74, 0.15) 0%,
-            rgba(139, 195, 74, 0.08) 50%,
-            rgba(139, 195, 74, 0.18) 100%
-        );
-        color: var(--lime-green);
-        border: 1px solid rgba(139, 195, 74, 0.25);
-        box-shadow:
-            0 0 20px rgba(139, 195, 74, 0.12),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08);
-        text-shadow: 0 0 10px rgba(139, 195, 74, 0.35);
     }
 
     .hero {
@@ -2177,14 +2159,550 @@ a.service-card {
     }
 }
 
+/* ============================================
+       MOBILE POLISH - LIGHT SECTIONS
+       ============================================ */
+
+    /* Smooth scroll for app-like feel */
+    html {
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Consistent section padding rhythm */
+    .expertise,
+    .services,
+    .gallery,
+    .reviews,
+    .contact {
+        padding: 50px 0;
+    }
+
+    .why-choose {
+        padding: 50px 0;
+    }
+
+    /* Section titles - refined mobile sizing */
+    .section-title {
+        font-size: 1.6rem;
+        margin-bottom: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+
+    .section-title::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+        padding: 0 10px;
+    }
+
+    /* ============================================
+       MOBILE EXPERTISE - LIGHT GLASS CARDS
+       ============================================ */
+    .expertise {
+        background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+    }
+
+    .expertise-grid {
+        gap: 1.25rem;
+        padding: 0 5px;
+    }
+
+    .expertise-item {
+        padding: 1.5rem 1.25rem;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.9) 0%,
+            rgba(255, 255, 255, 0.7) 100%
+        );
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.06),
+            0 1px 3px rgba(0, 0, 0, 0.04),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Subtle top accent */
+    .expertise-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20%;
+        right: 20%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(139, 195, 74, 0.4), transparent);
+        border-radius: 0 0 2px 2px;
+    }
+
+    /* Touch feedback */
+    .expertise-item:active {
+        transform: scale(0.98);
+        box-shadow:
+            0 2px 10px rgba(0, 0, 0, 0.08),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .expertise-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 0.75rem;
+    }
+
+    .expertise-icon img {
+        width: 32px;
+        height: 32px;
+    }
+
+    .expertise-item h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .expertise-item p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    /* ============================================
+       MOBILE SERVICES - POLISHED CARDS
+       ============================================ */
+    .services {
+        background: linear-gradient(180deg, #f8f8f8 0%, #f0f0f0 100%);
+        padding-bottom: 60px;
+    }
+
+    .services-grid {
+        gap: 1.25rem;
+        padding: 0 5px;
+    }
+
+    .service-card {
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.08),
+            0 1px 3px rgba(0, 0, 0, 0.04);
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    /* Touch feedback for service cards */
+    .service-card:active {
+        transform: scale(0.98);
+        box-shadow:
+            0 2px 12px rgba(0, 0, 0, 0.1),
+            0 1px 2px rgba(0, 0, 0, 0.06);
+    }
+
+    /* Remove desktop hover transforms on mobile */
+    .service-card:hover {
+        transform: none;
+        box-shadow:
+            0 4px 20px rgba(0, 0, 0, 0.08),
+            0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .service-image {
+        height: 220px;
+        position: relative;
+    }
+
+    /* Subtle gradient overlay on service images */
+    .service-image::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.15), transparent);
+        pointer-events: none;
+    }
+
+    .service-card h3 {
+        padding: 1.25rem 1.25rem 0.5rem;
+        font-size: 1.15rem;
+    }
+
+    .service-card p {
+        padding: 0 1.25rem 1.25rem;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: #555;
+    }
+
+    /* Sound wave animation - smaller on mobile */
+    .sound-wave {
+        margin: 1.5rem 0 !important;
+    }
+
+    .sound-wave svg {
+        width: 140px;
+        height: 30px;
+    }
+
+    /* ============================================
+       MOBILE WHY-CHOOSE - REFINED GLASS
+       ============================================ */
+    .why-choose-content {
+        padding: 1.5rem;
+        margin: 0 10px;
+        border-radius: 18px;
+        gap: 2rem;
+    }
+
+    .why-text h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .why-text p {
+        font-size: 0.95rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .values-list {
+        gap: 0.75rem;
+    }
+
+    .value-item {
+        padding: 0.9rem 1.5rem;
+        font-size: 0.95rem;
+        border-radius: 20px;
+    }
+
+    /* Touch feedback for value items */
+    .value-item:active {
+        transform: scale(0.98) !important;
+    }
+
+    .why-images {
+        gap: 0.75rem;
+    }
+
+    .why-images img {
+        height: 200px;
+        border-radius: 12px;
+    }
+
+    /* Center the Learn More button */
+    .why-text .btn {
+        display: block;
+        width: fit-content;
+        margin: 1.5rem auto 0;
+    }
+
+    /* ============================================
+       MOBILE GALLERY - iOS PHOTOS APP STYLE
+       ============================================ */
+    .gallery {
+        background: #000;
+        padding: 40px 0 50px;
+    }
+
+    .gallery .section-title {
+        color: var(--text-light);
+    }
+
+    .gallery .section-subtitle {
+        color: var(--text-gray);
+    }
+
+    .gallery .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    /* Keep title/subtitle centered with padding */
+    .gallery .section-title,
+    .gallery .section-subtitle {
+        padding: 0 20px;
+    }
+
+    /* iOS Photos-style tight grid */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        padding: 0;
+        margin-top: 1.5rem;
+    }
+
+    .gallery-item {
+        border-radius: 0;
+        background: #1a1a1a;
+        box-shadow: none;
+        transition: opacity 0.15s ease;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        border-radius: 0;
+    }
+
+    /* Touch feedback - subtle opacity */
+    .gallery-item:active {
+        opacity: 0.7;
+        transform: none;
+    }
+
+    /* Remove all desktop hover effects */
+    .gallery-item:hover {
+        box-shadow: none;
+    }
+
+    .gallery-item:hover img {
+        transform: none;
+        filter: none;
+    }
+
+    .gallery-item::after {
+        display: none;
+    }
+
+    /* ============================================
+       MOBILE REVIEWS - GLASS CARDS
+       ============================================ */
+    .reviews {
+        background: linear-gradient(180deg, #f8f8f8 0%, #f0f0f0 100%);
+    }
+
+    .reviews-grid {
+        gap: 1rem;
+        padding: 0 5px;
+    }
+
+    .review-card {
+        padding: 1.5rem;
+        border-radius: 16px;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 255, 255, 0.85) 100%
+        );
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.06),
+            inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Subtle accent line */
+    .review-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 15%;
+        right: 15%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(139, 195, 74, 0.35), transparent);
+    }
+
+    /* Touch feedback */
+    .review-card:active {
+        transform: scale(0.99);
+    }
+
+    /* Remove desktop hover */
+    .review-card:hover {
+        transform: none;
+        border-color: rgba(0, 0, 0, 0.05);
+    }
+
+    .stars {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+        /* Subtle glow on stars */
+        text-shadow: 0 0 10px rgba(139, 195, 74, 0.3);
+    }
+
+    .review-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+        /* Limit text for cleaner mobile view */
+        display: -webkit-box;
+        -webkit-line-clamp: 6;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .reviewer {
+        font-size: 0.95rem;
+    }
+
+    .review-event {
+        font-size: 0.8rem;
+    }
+
+    /* ============================================
+       MOBILE CONTACT - STREAMLINED
+       ============================================ */
+    .contact {
+        padding: 50px 0 60px;
+    }
+
+    .contact .section-title {
+        color: var(--text-light);
+    }
+
+    .contact-info-main {
+        gap: 0.75rem;
+        padding: 0 5px;
+    }
+
+    .contact-card {
+        padding: 1.5rem 1.25rem;
+        border-radius: 14px;
+        /* Larger touch targets */
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Touch feedback */
+    .contact-card:active {
+        transform: scale(0.98);
+    }
+
+    .contact-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .contact-link {
+        font-size: 1rem;
+        /* Make the whole area tappable */
+        padding: 0.25rem 0;
+    }
+
+    .contact-note {
+        font-size: 0.8rem;
+        margin-top: 0.25rem;
+    }
+
+    .contact-text {
+        font-size: 1rem;
+    }
+
+    /* ============================================
+       MOBILE FOOTER - REFINED
+       ============================================ */
+    .footer {
+        padding: 3rem 0 1.5rem;
+    }
+
+    .footer-logo img {
+        height: 50px;
+    }
+
+    .footer-cta {
+        padding: 0.9rem 2rem;
+        font-size: 0.85rem;
+    }
+
+    .footer-social {
+        gap: 1.5rem;
+    }
+
+    .footer-social svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .footer-trust {
+        font-size: 0.8rem;
+    }
+
+    .footer-nav a {
+        font-size: 0.75rem;
+        padding: 0.25rem 0;
+    }
+
+    .footer-contact p {
+        font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+        padding-top: 1.5rem;
+        margin-top: 0;
+    }
+
+    .footer-bottom p {
+        font-size: 0.75rem;
+    }
+
+    /* ============================================
+       MOBILE BUTTONS - TOUCH OPTIMIZED
+       ============================================ */
+    .btn {
+        padding: 14px 28px;
+        font-size: 0.9rem;
+        /* Minimum touch target */
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-primary:active,
+    .btn-secondary:active {
+        transform: scale(0.97);
+    }
+
+    /* Hero buttons side by side on mobile */
+    .hero-buttons {
+        gap: 0.75rem;
+    }
+
+    .hero-buttons .btn {
+        padding: 12px 20px;
+        font-size: 0.85rem;
+    }
+
+    /* Social links in hero - compact */
+    .social-links-hero {
+        justify-content: center;
+        gap: 0.6rem;
+        margin-top: 1rem;
+    }
+
+    .social-links-hero a {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+}
+
 /* Extra small devices (iPhone SE, etc.) */
 @media (max-width: 375px) {
     .hero-title {
-        font-size: 1.75rem;
+        font-size: 1.6rem;
+        line-height: 1.25;
     }
 
     .hero-tagline {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
     }
 
     .hero-image img {
@@ -2197,16 +2715,46 @@ a.service-card {
         border-radius: 14px;
     }
 
+    .hero-text {
+        padding: 1.25rem;
+        margin: 0 8px;
+        border-radius: 16px;
+    }
+
+    .hero-description {
+        font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 0.6rem;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        padding: 12px 20px;
+    }
+
     .trust-bar {
         padding: 1rem 0;
     }
 
+    .trust-items {
+        gap: 0.6rem;
+    }
+
+    .trust-item {
+        padding: 0.6rem 0.4rem;
+        border-radius: 12px;
+    }
+
     .trust-number {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 
     .trust-label {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.5px;
     }
 
     .logo img {
@@ -2217,8 +2765,289 @@ a.service-card {
     .nav-wrapper {
         padding: 0.6rem 0;
     }
-    
+
     .container {
-        padding: 0 15px;
+        padding: 0 12px;
+    }
+
+    /* Smaller section padding */
+    .expertise,
+    .services,
+    .gallery,
+    .reviews,
+    .contact,
+    .why-choose {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        font-size: 1.4rem;
+    }
+
+    .section-subtitle {
+        font-size: 0.85rem;
+    }
+
+    /* Expertise adjustments */
+    .expertise-grid {
+        gap: 1rem;
+    }
+
+    .expertise-item {
+        padding: 1.25rem 1rem;
+    }
+
+    .expertise-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .expertise-icon img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .expertise-item h3 {
+        font-size: 1rem;
+    }
+
+    .expertise-item p {
+        font-size: 0.85rem;
+    }
+
+    /* Services adjustments */
+    .services-grid {
+        gap: 1rem;
+    }
+
+    .service-image {
+        height: 180px;
+    }
+
+    .service-card h3 {
+        font-size: 1.05rem;
+        padding: 1rem 1rem 0.4rem;
+    }
+
+    .service-card p {
+        padding: 0 1rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    /* Why choose adjustments */
+    .why-choose-content {
+        padding: 1.25rem;
+        margin: 0 8px;
+    }
+
+    .why-text h2 {
+        font-size: 1.4rem;
+    }
+
+    .why-text p {
+        font-size: 0.9rem;
+    }
+
+    .value-item {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .why-images img {
+        height: 160px;
+    }
+
+    /* Gallery adjustments - maintain iOS Photos style */
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        padding: 0;
+    }
+
+    .gallery-item {
+        aspect-ratio: 1 / 1;
+    }
+
+    /* Reviews adjustments */
+    .reviews-grid {
+        gap: 0.75rem;
+    }
+
+    .review-card {
+        padding: 1.25rem;
+    }
+
+    .review-card p {
+        font-size: 0.85rem;
+        -webkit-line-clamp: 5;
+    }
+
+    /* Contact adjustments */
+    .contact-card {
+        padding: 1.25rem 1rem;
+        min-height: 90px;
+    }
+
+    .contact-card h3 {
+        font-size: 0.95rem;
+    }
+
+    .contact-link {
+        font-size: 0.9rem;
+    }
+
+    /* Footer adjustments */
+    .footer {
+        padding: 2.5rem 0 1.25rem;
+    }
+
+    .footer-logo img {
+        height: 45px;
+    }
+
+    .footer-cta {
+        padding: 0.8rem 1.75rem;
+        font-size: 0.8rem;
+    }
+
+    .footer-social {
+        gap: 1.25rem;
+    }
+
+    .footer-social svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .footer-nav a {
+        font-size: 0.7rem;
+    }
+
+    /* Buttons */
+    .btn {
+        padding: 12px 24px;
+        font-size: 0.85rem;
+        min-height: 44px;
+    }
+
+    .social-links-hero a {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* ============================================
+   MOBILE SECTION DIVIDERS - VISUAL FLOW
+   ============================================ */
+@media (max-width: 768px) {
+    /* Subtle gradient transitions between contrasting sections */
+
+    /* Dark to Light transition (after trust-bar) */
+    .trust-bar::after {
+        content: '';
+        position: absolute;
+        bottom: -20px;
+        left: 0;
+        right: 0;
+        height: 20px;
+        background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3), transparent);
+        pointer-events: none;
+        z-index: 10;
+    }
+
+    /* Light to Dark transition (before why-choose) */
+    .expertise::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent 10%,
+            rgba(139, 195, 74, 0.2) 50%,
+            transparent 90%
+        );
+    }
+
+    .expertise {
+        position: relative;
+    }
+
+    /* Dark sections - subtle lime accent at top */
+    .why-choose::before,
+    .contact::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 15%;
+        right: 15%;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(139, 195, 74, 0.3),
+            transparent
+        );
+        z-index: 1;
+    }
+
+    .why-choose,
+    .contact {
+        position: relative;
+    }
+
+    /* Light sections - subtle bottom border */
+    .services::after,
+    .reviews::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 10%;
+        right: 10%;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 0, 0, 0.08),
+            transparent
+        );
+    }
+
+    .services,
+    .reviews {
+        position: relative;
+    }
+
+    /* Gallery is dark on mobile - lime accent treatment */
+    .gallery {
+        position: relative;
+    }
+
+    .gallery::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 15%;
+        right: 15%;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(139, 195, 74, 0.25),
+            transparent
+        );
+        z-index: 1;
+    }
+
+    .gallery::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 15%;
+        right: 15%;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(139, 195, 74, 0.25),
+            transparent
+        );
     }
 }
