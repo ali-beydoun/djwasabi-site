@@ -1023,6 +1023,21 @@
             0 0 0 1px rgba(255, 255, 255, 0.1);
     }
 
+    /* Wedding hero - landscape image gets larger treatment */
+    .wedding-hero .hero-image {
+        max-width: 100%;
+        padding: 0 1rem;
+    }
+
+    .wedding-hero .hero-image img {
+        max-width: 100%;
+        max-height: none;
+        width: 100%;
+        aspect-ratio: 3 / 2;
+        object-position: center center;
+        border-radius: 14px;
+    }
+
     .service-hero .hero-buttons {
         justify-content: center;
         gap: 0.75rem;
