@@ -2336,8 +2336,13 @@ a.service-card {
         pointer-events: none;
     }
 
-    .trust-item.shimmer::after {
+    .trust-item.scroll-animate::after {
         animation: trustShimmer 0.8s ease-out forwards;
+    }
+
+    /* Trust item SVG pulse on scroll */
+    .trust-item.scroll-animate .trust-number svg {
+        animation: svgPulse 0.6s ease-out;
     }
 
     @keyframes trustShimmer {
@@ -2345,11 +2350,56 @@ a.service-card {
         100% { left: 200%; }
     }
 
-    /* Stagger shimmer for each card */
-    .trust-item:nth-child(1).shimmer::after { animation-delay: 0s; }
-    .trust-item:nth-child(2).shimmer::after { animation-delay: 0.1s; }
-    .trust-item:nth-child(3).shimmer::after { animation-delay: 0.2s; }
-    .trust-item:nth-child(4).shimmer::after { animation-delay: 0.3s; }
+    @keyframes svgPulse {
+        0% { transform: scale(1); opacity: 0.8; }
+        50% { transform: scale(1.15); opacity: 1; filter: drop-shadow(0 0 8px rgba(139, 195, 74, 0.6)); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Stagger animations for each card */
+    .trust-item:nth-child(1).scroll-animate::after,
+    .trust-item:nth-child(1).scroll-animate .trust-number svg { animation-delay: 0s; }
+    .trust-item:nth-child(2).scroll-animate::after,
+    .trust-item:nth-child(2).scroll-animate .trust-number svg { animation-delay: 0.1s; }
+    .trust-item:nth-child(3).scroll-animate::after,
+    .trust-item:nth-child(3).scroll-animate .trust-number svg { animation-delay: 0.15s; }
+    .trust-item:nth-child(4).scroll-animate::after,
+    .trust-item:nth-child(4).scroll-animate .trust-number svg { animation-delay: 0.2s; }
+
+    /* Expertise item - icon bounce on scroll */
+    .expertise-item.scroll-animate .expertise-icon {
+        animation: iconBounce 0.5s ease-out;
+    }
+
+    @keyframes iconBounce {
+        0% { transform: scale(1) translateY(0); }
+        40% { transform: scale(1.1) translateY(-5px); }
+        70% { transform: scale(0.95) translateY(2px); }
+        100% { transform: scale(1) translateY(0); }
+    }
+
+    /* Stagger expertise items */
+    .expertise-item:nth-child(1).scroll-animate .expertise-icon { animation-delay: 0s; }
+    .expertise-item:nth-child(2).scroll-animate .expertise-icon { animation-delay: 0.1s; }
+    .expertise-item:nth-child(3).scroll-animate .expertise-icon { animation-delay: 0.2s; }
+
+    /* Value items - pop in on scroll */
+    .value-item.scroll-animate {
+        animation: valuePop 0.4s ease-out forwards;
+    }
+
+    @keyframes valuePop {
+        0% { transform: scale(0.95); opacity: 0.7; }
+        50% { transform: scale(1.03); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* Stagger value items */
+    .value-item:nth-child(1).scroll-animate { animation-delay: 0s; }
+    .value-item:nth-child(2).scroll-animate { animation-delay: 0.05s; }
+    .value-item:nth-child(3).scroll-animate { animation-delay: 0.1s; }
+    .value-item:nth-child(4).scroll-animate { animation-delay: 0.15s; }
+    .value-item:nth-child(5).scroll-animate { animation-delay: 0.2s; }
 }
 
 /* ============================================

@@ -121,16 +121,15 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 
-    // Trust item shimmer effect on scroll (mobile)
-    const trustObserver = new IntersectionObserver((entries) => {
+    // Scroll-triggered animations for various elements
+    const scrollAnimObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Add shimmer class to trigger animation
-                entry.target.classList.add('shimmer');
-                // Remove class after animation completes to allow re-trigger
+                entry.target.classList.add('scroll-animate');
+                // Remove class after animation to allow re-trigger
                 setTimeout(() => {
-                    entry.target.classList.remove('shimmer');
-                }, 1200);
+                    entry.target.classList.remove('scroll-animate');
+                }, 1500);
             }
         });
     }, {
@@ -138,7 +137,8 @@ if ('IntersectionObserver' in window) {
         rootMargin: '0px'
     });
 
-    document.querySelectorAll('.trust-item').forEach(item => {
-        trustObserver.observe(item);
+    // Apply to various elements
+    document.querySelectorAll('.trust-item, .expertise-item, .value-item').forEach(item => {
+        scrollAnimObserver.observe(item);
     });
 }
