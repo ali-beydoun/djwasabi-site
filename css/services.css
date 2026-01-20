@@ -1092,19 +1092,33 @@
 
     .trust-item {
         padding: 1rem 0.75rem;
-        background: linear-gradient(
-            135deg,
-            rgba(255, 255, 255, 0.04) 0%,
-            rgba(255, 255, 255, 0.02) 100%
-        );
+        background:
+            linear-gradient(
+                135deg,
+                rgba(25, 25, 25, 0.88) 0%,
+                rgba(18, 18, 18, 0.92) 100%
+            ),
+            url('../images/footer-bg.webp') center center / 800% auto no-repeat;
         border-radius: 12px;
         border: 1px solid rgba(255, 255, 255, 0.06);
         transition: all 0.25s ease;
     }
 
+    /* Vary texture position for depth */
+    .trust-item:nth-child(1) { background-position: center, 0% 20%; }
+    .trust-item:nth-child(2) { background-position: center, 100% 60%; }
+    .trust-item:nth-child(3) { background-position: center, 30% 80%; }
+    .trust-item:nth-child(4) { background-position: center, 70% 40%; }
+
     .trust-item:active {
         transform: scale(0.98);
-        background: rgba(139, 195, 74, 0.08);
+        background:
+            linear-gradient(
+                135deg,
+                rgba(139, 195, 74, 0.15) 0%,
+                rgba(139, 195, 74, 0.08) 100%
+            ),
+            url('../images/footer-bg.webp') center center / 800% auto no-repeat;
     }
 
     .trust-number {
