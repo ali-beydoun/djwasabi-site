@@ -1136,6 +1136,7 @@
         max-height: 280px;
         width: 100%;
         object-fit: cover;
+        object-position: top;
     }
 
     .benefits-grid {
@@ -1231,6 +1232,7 @@
         max-height: 220px;
         width: 100%;
         object-fit: cover;
+        object-position: top;
     }
 
     /* Glass card for features */
