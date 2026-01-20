@@ -1058,12 +1058,16 @@
     }
 
     /* ============================================
-       TRUST BAR - LIGHT BACKGROUND
+       TRUST BAR - DARK GLASS (MATCHES HOMEPAGE)
        ============================================ */
     .trust-bar {
-        background: var(--white);
+        background: linear-gradient(
+            180deg,
+            rgba(20, 20, 20, 0.95) 0%,
+            rgba(10, 10, 10, 0.98) 100%
+        );
         padding: 1.5rem 0;
-        border-bottom: 1px solid #f0f0f0;
+        border-bottom: 1px solid rgba(139, 195, 74, 0.3);
     }
 
     .trust-items {
@@ -1073,15 +1077,19 @@
 
     .trust-item {
         padding: 1rem 0.75rem;
-        background: #f9f9f9;
-        border-radius: 10px;
-        border: none;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.04) 0%,
+            rgba(255, 255, 255, 0.02) 100%
+        );
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.06);
         transition: all 0.25s ease;
     }
 
     .trust-item:active {
         transform: scale(0.98);
-        background: #f0f0f0;
+        background: rgba(139, 195, 74, 0.08);
     }
 
     .trust-number {
@@ -1091,9 +1099,10 @@
     }
 
     .trust-label {
-        color: var(--text-dark);
+        color: rgba(255, 255, 255, 0.8);
         font-size: 0.7rem;
         letter-spacing: 0.5px;
+        text-transform: uppercase;
     }
 
     /* ============================================
