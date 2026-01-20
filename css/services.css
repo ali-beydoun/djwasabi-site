@@ -999,6 +999,14 @@
     .service-hero .hero-image {
         order: -1;
         justify-content: center;
+        /* Reset the large glass container on mobile */
+        max-height: none !important;
+        aspect-ratio: unset !important;
+        background: none !important;
+        border: none !important;
+        box-shadow: none !important;
+        overflow: visible !important;
+        border-radius: 0 !important;
     }
 
     .service-hero .hero-image img {
