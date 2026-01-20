@@ -1787,13 +1787,126 @@ a.service-card {
 
 /* Mobile (768px and below) - stacking layout with overlap */
 @media (max-width: 768px) {
+
+    /* ============================================
+       LIQUID GLASS NAVBAR - APPLE DESIGN
+       ============================================ */
+    .navbar {
+        background: linear-gradient(
+            180deg,
+            rgba(10, 10, 10, 0.92) 0%,
+            rgba(5, 5, 5, 0.95) 100%
+        );
+        backdrop-filter: blur(30px) saturate(200%);
+        -webkit-backdrop-filter: blur(30px) saturate(200%);
+        box-shadow:
+            0 4px 30px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.3),
+            inset 6px 0 30px -10px rgba(139, 195, 74, 0.2),
+            inset -6px 0 30px -10px rgba(139, 195, 74, 0.2);
+        border-bottom: 1px solid rgba(139, 195, 74, 0.25);
+    }
+
+    /* Enhanced top edge light catch */
+    .navbar::before {
+        background:
+            linear-gradient(90deg,
+                rgba(139, 195, 74, 0.25) 0%,
+                rgba(139, 195, 74, 0.08) 10%,
+                transparent 25%,
+                transparent 75%,
+                rgba(139, 195, 74, 0.08) 90%,
+                rgba(139, 195, 74, 0.25) 100%
+            ),
+            linear-gradient(180deg,
+                rgba(255, 255, 255, 0.12) 0%,
+                rgba(255, 255, 255, 0.03) 30%,
+                transparent 60%
+            );
+    }
+
+    /* Brighter bottom glow line */
+    .navbar::after {
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(139, 195, 74, 0.4) 15%,
+            rgba(139, 195, 74, 0.9) 50%,
+            rgba(139, 195, 74, 0.4) 85%,
+            transparent 100%
+        );
+        box-shadow: 0 0 15px rgba(139, 195, 74, 0.4);
+    }
+
+    /* Premium hamburger button - pill shape */
     .mobile-toggle {
         display: flex !important;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.1) 0%,
+            rgba(255, 255, 255, 0.05) 100%
+        );
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 12px;
+        padding: 11px 12px;
+        box-shadow:
+            0 2px 12px rgba(0, 0, 0, 0.2),
+            inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.1);
     }
-    
+
+    .mobile-toggle:active {
+        transform: scale(0.95);
+        background: linear-gradient(
+            135deg,
+            rgba(139, 195, 74, 0.2) 0%,
+            rgba(139, 195, 74, 0.1) 100%
+        );
+        border-color: rgba(139, 195, 74, 0.4);
+        box-shadow:
+            0 0 20px rgba(139, 195, 74, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Hamburger lines with glow */
+    .mobile-toggle span {
+        width: 20px;
+        height: 2px;
+        background: linear-gradient(90deg,
+            rgba(139, 195, 74, 0.8),
+            var(--lime-green),
+            rgba(139, 195, 74, 0.8)
+        );
+        margin: 2.5px 0;
+        border-radius: 2px;
+        box-shadow: 0 0 6px rgba(139, 195, 74, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    /* Animated X when menu is open */
+    .mobile-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .mobile-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+
+    .mobile-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
     .logo img {
         height: 55px;
         max-width: 170px;
+        /* Subtle glow on logo */
+        filter: drop-shadow(0 0 8px rgba(139, 195, 74, 0.15));
     }
 
     .nav-wrapper {
