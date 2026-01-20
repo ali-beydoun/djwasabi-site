@@ -1095,8 +1095,8 @@
         background:
             linear-gradient(
                 135deg,
-                rgba(20, 20, 20, 0.93) 0%,
-                rgba(15, 15, 15, 0.96) 100%
+                rgba(20, 20, 20, 0.97) 0%,
+                rgba(15, 15, 15, 0.99) 100%
             ),
             url('../images/footer-bg.webp') center center / 800% auto no-repeat;
         border-radius: 12px;
