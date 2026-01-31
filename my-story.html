@@ -3,6 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0VQJ6GN641"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0VQJ6GN641');
+    </script>
+
     <title>My Story | DJ WASABI - Meet Wassim, Sydney's Personal DJ</title>
     <meta name="description" content="Meet Wassim, the person behind DJ Wasabi. Over 5 years of experience bringing energy, emotion, and the perfect music to every celebration across Sydney.">
     <meta name="keywords" content="DJ Wasabi, Wassim DJ, Sydney DJ Story, About DJ Wasabi, Professional DJ Sydney, Multicultural DJ">
@@ -194,21 +204,44 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section id="quote" class="cta-section">
+    <!-- Contact Card Section -->
+    <section id="quote" class="contact-card-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Let's Create Something Amazing</h2>
-                <p>Ready to chat about your event? I'd love to hear what you're planning.</p>
-                <div class="cta-buttons">
-                    <a href="tel:0414441773" class="btn btn-primary btn-large">
-                        <span class="btn-icon">📞</span> Call: 0414 441 773
+            <div class="contact-card">
+                <div class="contact-card-header">
+                    <h2>Let's work together</h2>
+                    <p>I'd love to hear about what you're planning</p>
+                </div>
+
+                <!-- Primary CTA - Links to central form -->
+                <a href="index.html#contact" class="btn btn-primary btn-large contact-card-cta">
+                    Get Your Free Quote
+                </a>
+
+                <div class="contact-card-divider">
+                    <span>or reach out directly</span>
+                </div>
+
+                <!-- Direct Contact Options -->
+                <div class="contact-card-options">
+                    <a href="tel:0414441773" class="contact-option">
+                        <span class="contact-option-icon">📞</span>
+                        <span class="contact-option-label">Call</span>
+                        <span class="contact-option-value">0414 441 773</span>
                     </a>
-                    <a href="https://wa.me/61414441773?text=Hi%20Wassim,%20I%20found%20you%20through%20your%20website%20and%20would%20love%20to%20chat%20about%20my%20event" class="btn btn-secondary btn-large">
-                        <span class="btn-icon">💬</span> WhatsApp
+                    <a href="https://wa.me/61414441773?text=Hi%20Wassim%2C%20I%27d%20love%20to%20chat%20about%20my%20event" class="contact-option">
+                        <span class="contact-option-icon">💬</span>
+                        <span class="contact-option-label">WhatsApp</span>
+                        <span class="contact-option-value">Chat now</span>
+                    </a>
+                    <a href="mailto:djwasabi1@outlook.com?subject=DJ%20Inquiry" class="contact-option">
+                        <span class="contact-option-icon">✉️</span>
+                        <span class="contact-option-label">Email</span>
+                        <span class="contact-option-value">Send message</span>
                     </a>
                 </div>
-                <p class="cta-note">Free consultation • No obligation • Quick response</p>
+
+                <p class="contact-card-note">Free consultation • Response within 24 hours • No obligation</p>
             </div>
         </div>
     </section>

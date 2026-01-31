@@ -243,6 +243,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 const userNameSpan = successState ? successState.querySelector('.user-name') : null;
                 if (userNameSpan) userNameSpan.textContent = userName;
 
+                // Track form submission in Google Analytics
+                if (typeof gtag === 'function') {
+                    const eventType = document.getElementById('event-type')?.value || 'unknown';
+                    gtag('event', 'generate_lead', {
+                        event_category: 'Quote Form',
+                        event_label: eventType,
+                        value: 1
+                    });
+                }
+
                 steps.forEach(s => s.style.display = 'none');
                 if (progressContainer) progressContainer.style.display = 'none';
                 const formNote = quoteForm.querySelector('.form-note');
@@ -668,4 +678,51 @@ if ('IntersectionObserver' in window) {
     document.querySelectorAll('.trust-item, .expertise-item').forEach(item => {
         scrollAnimObserver.observe(item);
     });
+
+    // ===========================================
+    // GOOGLE ANALYTICS - CLICK TRACKING
+    // ===========================================
+    if (typeof gtag === 'function') {
+        // Track phone calls
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+            link.addEventListener('click', () => {
+                gtag('event', 'click', {
+                    event_category: 'Contact',
+                    event_label: 'Phone Call'
+                });
+            });
+        });
+
+        // Track WhatsApp clicks
+        document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
+            link.addEventListener('click', () => {
+                gtag('event', 'click', {
+                    event_category: 'Contact',
+                    event_label: 'WhatsApp'
+                });
+            });
+        });
+
+        // Track email clicks
+        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+            link.addEventListener('click', () => {
+                gtag('event', 'click', {
+                    event_category: 'Contact',
+                    event_label: 'Email'
+                });
+            });
+        });
+
+        // Track social media clicks
+        document.querySelectorAll('a[href*="facebook.com"], a[href*="instagram.com"], a[href*="soundcloud.com"]').forEach(link => {
+            link.addEventListener('click', () => {
+                const platform = link.href.includes('facebook') ? 'Facebook' :
+                                 link.href.includes('instagram') ? 'Instagram' : 'SoundCloud';
+                gtag('event', 'click', {
+                    event_category: 'Social',
+                    event_label: platform
+                });
+            });
+        });
+    }
 }
