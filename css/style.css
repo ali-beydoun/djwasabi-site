@@ -3741,7 +3741,7 @@ a.service-card {
 .crowd-size-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 8px;
+    gap: 10px;
     margin-top: 0.5rem;
 }
 
@@ -3755,43 +3755,47 @@ a.service-card {
 
 .crowd-size-option {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 10px 12px;
+    gap: 2px;
+    padding: 14px 12px;
     cursor: pointer;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
     transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
+    min-height: 64px;
 }
 
 .crowd-size-option:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.18);
+    background: rgba(163, 230, 53, 0.08);
+    border-color: rgba(163, 230, 53, 0.3);
 }
 
 .crowd-size-option:active {
-    transform: scale(0.98);
+    transform: scale(0.97);
 }
 
-.crowd-size-count {
+/* Primary label - the size name */
+.crowd-size-label {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--text-light);
     letter-spacing: -0.01em;
-    line-height: 1;
+    line-height: 1.2;
     transition: color 0.2s ease;
 }
 
-.crowd-size-label {
+/* Secondary detail - the guest count */
+.crowd-size-count {
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
-    font-size: 0.75rem;
-    font-weight: 400;
-    color: var(--text-gray);
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.45);
+    letter-spacing: 0.01em;
     transition: color 0.2s ease;
 }
 
@@ -3799,15 +3803,15 @@ a.service-card {
 .crowd-size-grid input[type="radio"]:checked + .crowd-size-option {
     background: var(--lime-green);
     border-color: var(--lime-green);
-    box-shadow: 0 2px 8px rgba(163, 230, 53, 0.2);
-}
-
-.crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-count {
-    color: var(--primary-black);
+    box-shadow: 0 4px 12px rgba(163, 230, 53, 0.25);
 }
 
 .crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-label {
-    color: rgba(0, 0, 0, 0.55);
+    color: var(--primary-black);
+}
+
+.crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-count {
+    color: rgba(0, 0, 0, 0.5);
 }
 
 /* Focus state for accessibility */
@@ -3819,36 +3823,40 @@ a.service-card {
 /* Mobile adjustments */
 @media (max-width: 480px) {
     .crowd-size-grid {
-        gap: 6px;
+        gap: 8px;
     }
 
     .crowd-size-option {
-        padding: 9px 10px;
-        border-radius: 8px;
-    }
-
-    .crowd-size-count {
-        font-size: 0.8rem;
+        padding: 12px 10px;
+        border-radius: 10px;
+        min-height: 58px;
     }
 
     .crowd-size-label {
-        font-size: 0.7rem;
+        font-size: 0.9rem;
+    }
+
+    .crowd-size-count {
+        font-size: 0.65rem;
     }
 }
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
     .crowd-size-option:hover {
-        background: rgba(255, 255, 255, 0.05);
-        border-color: rgba(255, 255, 255, 0.1);
+        background: rgba(255, 255, 255, 0.03);
+        border-color: rgba(255, 255, 255, 0.12);
     }
 
     .crowd-size-option:active {
+        background: rgba(163, 230, 53, 0.1);
+        border-color: rgba(163, 230, 53, 0.3);
         transform: scale(0.97);
-        transition: transform 0.1s ease;
+        transition: all 0.1s ease;
     }
 
-    .crowd-size-grid input[type="radio"]:checked + .crowd-size-option:hover {
+    .crowd-size-grid input[type="radio"]:checked + .crowd-size-option:hover,
+    .crowd-size-grid input[type="radio"]:checked + .crowd-size-option:active {
         background: var(--lime-green);
     }
 }
