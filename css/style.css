@@ -465,19 +465,20 @@ body {
 /* Hero Section */
 .hero {
     background: var(--primary-black);
-    min-height: 85vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 100px 0 40px;
+    padding: 100px 0 20px;
     position: relative;
     overflow: visible;
 }
 
 .hero .container {
     max-width: 100%;
-    padding-right: 0;
-    margin-right: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-bg {
@@ -522,12 +523,13 @@ body {
     position: relative;
     z-index: 2;
     display: grid;
-    grid-template-columns: minmax(auto, 800px) 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
     align-items: center;
     width: 100%;
-    padding-left: 40px;
-    padding-right: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 /* ============================================
@@ -536,6 +538,9 @@ body {
 .hero-text {
     animation: fadeInLeft 1s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background: linear-gradient(
         135deg,
         rgba(255, 255, 255, 0.04) 0%,
@@ -597,17 +602,25 @@ body {
 }
 
 .btn {
-    padding: 12px 30px;
+    padding: 14px 30px;
     border: none;
     border-radius: 25px;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s ease;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     text-transform: uppercase;
     letter-spacing: 1px;
+    /* Touch-friendly minimum height */
+    min-height: 48px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
 }
 
 /* Glass morphism buttons */
@@ -652,17 +665,16 @@ body {
     animation: fadeInRight 1s ease;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin: -140px 0 -80px 0;
-    height: 100%;
+    justify-content: center;
+    margin: 0;
 }
 
 .hero-image img {
-    width: 100%;
+    width: auto;
     height: auto;
+    max-width: 100%;
+    max-height: 420px;
     object-fit: contain;
-    object-position: right center;
-    max-height: 100vh;
     border-radius: 24px;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
@@ -1744,62 +1756,114 @@ a.service-card {
 
 /* Responsive Design */
 
+/* Large desktops (1200px+) */
+@media (min-width: 1200px) {
+    .hero-content {
+        max-width: 1140px;
+        gap: 3.5rem;
+    }
+}
+
+/* Extra large desktops (1400px+) */
+@media (min-width: 1400px) {
+    .hero-content {
+        max-width: 1280px;
+        gap: 4rem;
+        padding: 0 60px;
+    }
+
+    .hero-image img {
+        max-height: 480px;
+    }
+}
+
+/* Ultra wide desktops (1600px+) */
+@media (min-width: 1600px) {
+    .hero-content {
+        max-width: 1400px;
+    }
+}
+
 /* Tablet/Medium screens (1024px and below) - keep side-by-side but scale proportionally */
 @media (max-width: 1024px) {
     .hero {
-        min-height: 75vh;
-        padding: 90px 0 40px;
+        padding: 90px 0 20px;
     }
 
     .hero-content {
+        grid-template-columns: 1fr 1fr;
         gap: 2rem;
+        padding: 0 24px;
         max-width: 100%;
-        padding-left: 20px;
     }
 
     .hero-tagline {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .hero-title {
-        font-size: 2.8rem;
+        font-size: 2.2rem;
         line-height: 1.15;
     }
 
     .hero-description {
-        font-size: 1.05rem;
+        font-size: 0.95rem;
     }
 
-    .hero-image {
-        margin: -100px 0 -60px 0;
+    .hero-text {
+        padding: 1.75rem;
     }
 
     .hero-image img {
-        max-height: 70vh;
+        max-height: 340px;
     }
-
 }
 
-/* Small tablet (900px and below) - further scale down while keeping side-by-side */
-@media (max-width: 900px) {
-    .hero-title {
-        font-size: 2.3rem;
-    }
-
-    .hero-tagline {
-        font-size: 1rem;
-    }
-
-    .hero-description {
-        font-size: 1rem;
+/* Tablet portrait - transition to stacked layout */
+@media (max-width: 950px) {
+    .hero {
+        min-height: auto;
+        padding: 80px 0 20px;
     }
 
     .hero-content {
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-image {
+        order: -1;
+        margin: 0 20px -50px 20px;
+        max-width: calc(100% - 40px);
+        min-height: auto;
     }
 
     .hero-image img {
-        max-height: 60vh;
+        max-height: 42vh;
+        height: auto;
+        width: 100%;
+        object-fit: contain;
+        border-radius: 20px 20px 14px 14px;
+    }
+
+    .hero-text {
+        position: relative;
+        z-index: 2;
+        padding: 1.75rem 2rem 1.5rem;
+        margin: 0 20px;
+        border-radius: 14px 14px 20px 20px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .hero-buttons {
+        justify-content: center;
     }
 }
 
@@ -2165,7 +2229,7 @@ a.service-card {
 
     .hero {
         min-height: auto;
-        padding: 80px 0 60px;
+        padding: 75px 0 40px;
         overflow: visible;
     }
 
@@ -2201,18 +2265,18 @@ a.service-card {
 
     /* Mobile hero image */
     .hero-image {
-        margin: 0 10px -80px 10px;
-        max-width: calc(100% - 20px);
+        margin: 0 12px -70px 12px;
+        max-width: calc(100% - 24px);
         order: -1;
         z-index: 1;
         position: relative;
     }
 
     .hero-image img {
-        max-height: 55vh;
+        max-height: 50vh;
         width: 100%;
         margin: 0 auto;
-        border-radius: 18px;
+        border-radius: 20px 20px 14px 14px; /* Softer bottom corners */
     }
 
     /* Mobile glass frame for cropped images */
@@ -2232,9 +2296,13 @@ a.service-card {
     .hero-text {
         position: relative;
         z-index: 2;
-        padding: 1.5rem;
-        margin: 0 10px;
-        border-radius: 20px;
+        padding: 1.75rem 1.5rem 1.5rem;
+        margin: 0 12px;
+        border-radius: 14px 14px 20px 20px; /* Softer top corners */
+        box-shadow:
+            0 -4px 20px rgba(0, 0, 0, 0.25),
+            0 8px 32px rgba(0, 0, 0, 0.25),
+            inset 0 1px 0 rgba(255, 255, 255, 0.06);
     }
 
     .hero-text .hero-tagline {
@@ -3247,5 +3315,1075 @@ a.service-card {
             rgba(139, 195, 74, 0.25),
             transparent
         );
+    }
+}
+
+/* ===========================================
+   QUOTE FORM SECTION - Mobile First
+   ===========================================
+   Integration: Follows existing 768px breakpoint pattern
+   Matches: Glass morphism from .contact-card, .trust-item
+   =========================================== */
+
+.quote-section {
+    padding: 50px 0 60px;
+    background: var(--primary-black);
+}
+
+.quote-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.quote-header .section-title {
+    color: var(--text-light);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.quote-header .section-subtitle {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-weight: 400;
+}
+
+/* ===========================================
+   PROGRESS INDICATOR
+   =========================================== */
+
+.form-progress {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.step-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.progress-step.active .step-dot,
+.progress-step.completed .step-dot {
+    background: var(--lime-green);
+    border-color: var(--lime-green);
+    box-shadow: 0 0 12px rgba(139, 195, 74, 0.5);
+}
+
+.step-label {
+    font-size: 0.7rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.progress-step.active .step-label {
+    color: var(--lime-green);
+}
+
+.progress-line {
+    width: 60px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 0 0.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+}
+
+.progress-line::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0;
+    background: var(--lime-green);
+    transition: width 0.4s ease;
+}
+
+.form-progress.step-2 .progress-line:first-of-type::after {
+    width: 100%;
+}
+
+.form-progress.step-3 .progress-line::after {
+    width: 100%;
+}
+
+/* ===========================================
+   FORM STEPS & TRANSITIONS
+   =========================================== */
+
+.form-step {
+    display: none;
+    animation: fadeSlideIn 0.4s ease;
+}
+
+.form-step.active {
+    display: block;
+}
+
+@keyframes fadeSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.step-intro {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+}
+
+/* Form Container - Glass Morphism */
+.quote-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.quote-form {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    padding: 1.75rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top accent line */
+.quote-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--lime-green), transparent);
+    border-radius: 2px;
+}
+
+/* Form Layout - Mobile: Stacked */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.form-group-full {
+    width: 100%;
+}
+
+/* Form Groups - Touch-friendly spacing */
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Labels - Touch-friendly sizing */
+.form-group label {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    display: block;
+    /* Larger tap target for label */
+    padding: 0.15rem 0;
+}
+
+/* Inputs - Glass Style with Touch-Friendly Sizing */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 14px;
+    /* Touch-friendly: 48px+ height via padding */
+    padding: 15px 18px;
+    min-height: 52px;
+    color: var(--text-light);
+    font-family: 'Poppins', sans-serif;
+    /* 16px prevents iOS zoom on focus */
+    font-size: 16px;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    /* Better touch response */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* Select arrow */
+.form-group select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%238BC34A' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+}
+
+/* ===========================================
+   MICRO-INTERACTIONS & FEEDBACK
+   =========================================== */
+
+/* Focus States - 200ms transition for optimal feedback */
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--lime-green);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(139, 195, 74, 0.15);
+    transform: scale(1.01);
+}
+
+/* Valid field state */
+.form-group input:valid:not(:placeholder-shown),
+.form-group select:valid:not([value=""]) {
+    border-color: rgba(139, 195, 74, 0.4);
+}
+
+/* Error shake animation */
+.form-group.error input,
+.form-group.error select {
+    border-color: #ff6b6b;
+    animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-4px); }
+    40%, 80% { transform: translateX(4px); }
+}
+
+/* Field hints */
+.field-hint {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-top: 0.4rem;
+    opacity: 0.8;
+}
+
+/* Textarea */
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* ===========================================
+   TIME ROW - Side by Side
+   =========================================== */
+
+.form-row-times {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.form-row-times .form-group {
+    margin-bottom: 0;
+}
+
+.field-hint-centered {
+    text-align: center;
+    display: block;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* ===========================================
+   NATIVE DATE & TIME INPUTS
+   =========================================== */
+
+/* Style the native date/time inputs */
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+/* Webkit (Chrome, Safari, Edge) - style the calendar/clock icons */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.form-group input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.7);
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.2s ease;
+}
+
+.form-group input[type="date"]:hover::-webkit-calendar-picker-indicator,
+.form-group input[type="time"]:hover::-webkit-calendar-picker-indicator {
+    opacity: 1;
+}
+
+.form-group input[type="date"]:focus::-webkit-calendar-picker-indicator,
+.form-group input[type="time"]:focus::-webkit-calendar-picker-indicator {
+    filter: invert(0.6) sepia(1) saturate(5) hue-rotate(50deg);
+    opacity: 1;
+}
+
+/* ===========================================
+   VENUE AUTOCOMPLETE
+   =========================================== */
+
+.venue-input-wrapper {
+    position: relative;
+}
+
+.suburb-suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(20, 20, 22, 0.98) 0%,
+        rgba(12, 12, 14, 0.98) 100%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-top: none;
+    border-radius: 0 0 14px 14px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.suburb-suggestions.active {
+    display: block;
+}
+
+.suburb-suggestions li {
+    padding: 12px 18px;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.15s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.suburb-suggestions li:last-child {
+    border-bottom: none;
+}
+
+.suburb-suggestions li:hover,
+.suburb-suggestions li.highlighted {
+    background: rgba(139, 195, 74, 0.15);
+    color: var(--lime-green);
+}
+
+.suburb-suggestions li .suburb-region {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    margin-left: 0.5rem;
+}
+
+/* Adjust input border radius when suggestions are open */
+.venue-input-wrapper:has(.suburb-suggestions.active) input {
+    border-radius: 14px 14px 0 0;
+}
+
+/* ===========================================
+   GUEST COUNT - CROWD SIZE SELECTOR
+   =========================================== */
+
+.crowd-size-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    margin-top: 0.5rem;
+}
+
+.crowd-size-grid input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+}
+
+.crowd-size-option {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.crowd-size-option:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.crowd-size-option:active {
+    transform: scale(0.98);
+}
+
+.crowd-size-count {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    letter-spacing: -0.01em;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+
+.crowd-size-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-gray);
+    transition: color 0.2s ease;
+}
+
+/* Selected state */
+.crowd-size-grid input[type="radio"]:checked + .crowd-size-option {
+    background: var(--lime-green);
+    border-color: var(--lime-green);
+    box-shadow: 0 2px 8px rgba(163, 230, 53, 0.2);
+}
+
+.crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-count {
+    color: var(--primary-black);
+}
+
+.crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-label {
+    color: rgba(0, 0, 0, 0.55);
+}
+
+/* Focus state for accessibility */
+.crowd-size-grid input[type="radio"]:focus-visible + .crowd-size-option {
+    outline: 2px solid var(--lime-green);
+    outline-offset: 2px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 480px) {
+    .crowd-size-grid {
+        gap: 6px;
+    }
+
+    .crowd-size-option {
+        padding: 9px 10px;
+        border-radius: 8px;
+    }
+
+    .crowd-size-count {
+        font-size: 0.8rem;
+    }
+
+    .crowd-size-label {
+        font-size: 0.7rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    .crowd-size-option:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .crowd-size-option:active {
+        transform: scale(0.97);
+        transition: transform 0.1s ease;
+    }
+
+    .crowd-size-grid input[type="radio"]:checked + .crowd-size-option:hover {
+        background: var(--lime-green);
+    }
+}
+
+/* ===========================================
+   BUTTON INTERACTIONS
+   =========================================== */
+
+/* ===========================================
+   FORM BUTTONS - Touch-Optimized
+   =========================================== */
+
+.btn-next,
+.btn-back {
+    width: 100%;
+    margin-top: 0.75rem;
+    /* Touch-friendly: 48px+ min height */
+    min-height: 52px;
+    padding: 14px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 14px;
+    /* Better touch response */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.btn-arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    margin-left: 0.25rem;
+}
+
+.btn-next:hover .btn-arrow {
+    transform: translateX(4px);
+}
+
+.btn-back .btn-arrow {
+    margin-left: 0;
+    margin-right: 0.25rem;
+}
+
+.btn-back:hover .btn-arrow {
+    transform: translateX(-4px);
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: var(--text-gray);
+}
+
+.btn-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: var(--text-light);
+}
+
+/* Touch feedback - immediate response */
+.quote-form .btn:active {
+    transform: scale(0.97);
+    transition: transform 0.08s ease;
+}
+
+/* Touch states for inputs */
+.form-group input:active,
+.form-group select:active,
+.form-group textarea:active {
+    transform: scale(0.995);
+}
+
+.form-buttons {
+    display: flex;
+    gap: 0.85rem;
+    margin-top: 1.25rem;
+}
+
+.form-buttons .btn-back {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 100px;
+    padding: 14px 20px;
+}
+
+.form-buttons .btn-submit {
+    flex: 1;
+}
+
+/* ===========================================
+   SUCCESS STATE
+   =========================================== */
+
+.form-success {
+    text-align: center;
+    padding: 2rem 1rem;
+    animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes successPop {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+.success-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 1rem;
+    background: var(--lime-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    color: var(--primary-black);
+    box-shadow: 0 0 30px rgba(139, 195, 74, 0.5);
+}
+
+.form-success h3 {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.form-success p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+}
+
+.success-signature {
+    color: var(--lime-green);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* Submit Button - Touch-Optimized */
+.btn-submit {
+    width: 100%;
+    margin-top: 1.5rem;
+    /* Touch-friendly: 54px+ height */
+    min-height: 54px;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 14px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.btn-submit .btn-loading {
+    display: none;
+}
+
+.btn-submit.loading .btn-text {
+    display: none;
+}
+
+.btn-submit.loading .btn-loading {
+    display: inline;
+}
+
+/* Form Note */
+.form-note {
+    text-align: center;
+    color: var(--lime-green);
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+/* Alternative Contact - Mobile optimized */
+.quote-alternative {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.quote-alternative p {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+}
+
+/* Quick contact as 2-column grid on mobile */
+.quick-contact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.quick-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Touch-friendly: 75px+ height */
+    min-height: 78px;
+    padding: 0.85rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.quick-link span:first-child {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.quick-link:active {
+    transform: scale(0.95);
+    background: rgba(139, 195, 74, 0.15);
+    border-color: var(--lime-green);
+    transition: transform 0.08s ease;
+}
+
+/* Success State */
+.quote-form.success {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+}
+
+.success-message {
+    color: var(--text-light);
+}
+
+.success-message h3 {
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+    color: var(--lime-green);
+}
+
+/* ===========================================
+   TABLET/DESKTOP STYLES (768px+)
+   Matches site's main breakpoint
+   =========================================== */
+
+@media (min-width: 768px) {
+    .quote-section {
+        padding: 80px 0 100px;
+    }
+
+    .quote-header .section-title {
+        font-size: 2.5rem;
+    }
+
+    .quote-form-container {
+        max-width: 700px;
+    }
+
+    .quote-form {
+        padding: 2.5rem;
+    }
+
+    /* Side-by-side form rows */
+    .form-row {
+        flex-direction: row;
+        gap: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 16px 18px;
+    }
+
+    /* Centered submit button */
+    .btn-submit {
+        width: auto;
+        min-width: 220px;
+        margin: 1.5rem auto 0;
+        display: block;
+    }
+
+    /* Quick contact as inline row */
+    .quick-contact {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .quick-link {
+        flex-direction: row;
+        min-height: auto;
+        padding: 12px 24px;
+        border-radius: 25px;
+    }
+
+    .quick-link span:first-child {
+        margin-bottom: 0;
+        margin-right: 0.5rem;
+    }
+
+    .quick-link:hover {
+        border-color: var(--lime-green);
+        color: var(--lime-green);
+        background: rgba(139, 195, 74, 0.1);
+    }
+}
+
+/* ===========================================
+   CONTACT CARD COMPONENT - For Service Pages
+   ===========================================
+   Mobile-first, matches 768px breakpoint pattern
+   Used on: weddings, birthdays, corporate,
+            other-events, my-story pages
+   =========================================== */
+
+.contact-card-section {
+    padding: 50px 0 60px;
+    background: linear-gradient(180deg, var(--secondary-black) 0%, var(--primary-black) 100%);
+}
+
+.contact-card-section .contact-card {
+    max-width: calc(100% - 30px);
+    margin: 0 auto;
+    padding: 1.75rem 1.25rem;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.06) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+    );
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Top lime accent line */
+.contact-card-section .contact-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 15%;
+    right: 15%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--lime-green), transparent);
+}
+
+.contact-card-header h2 {
+    color: var(--text-light);
+    font-size: 1.35rem;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+}
+
+.contact-card-header p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+}
+
+/* Primary CTA Button - Full width on mobile, touch-optimized */
+.contact-card-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 18px 24px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
+    min-height: 56px;
+    border-radius: 14px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+}
+
+.contact-card-cta:active {
+    transform: scale(0.97);
+    transition: transform 0.08s ease;
+}
+
+/* Divider with text */
+.contact-card-divider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.contact-card-divider::before,
+.contact-card-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.contact-card-divider span {
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+/* Contact Options - 3-column grid */
+.contact-card-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+    margin-bottom: 1.25rem;
+}
+
+.contact-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Touch-friendly: 80px+ height */
+    min-height: 85px;
+    padding: 0.85rem 0.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    text-decoration: none;
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    /* Prevent text selection on tap */
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Touch feedback - immediate response */
+.contact-option:active {
+    transform: scale(0.95);
+    background: rgba(139, 195, 74, 0.15);
+    border-color: var(--lime-green);
+    transition: transform 0.08s ease;
+}
+
+.contact-option-icon {
+    font-size: 1.35rem;
+    margin-bottom: 0.35rem;
+}
+
+.contact-option-label {
+    color: var(--text-gray);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.15rem;
+}
+
+.contact-option-value {
+    color: var(--text-light);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.contact-card-note {
+    color: var(--lime-green);
+    font-size: 0.75rem;
+    opacity: 0.9;
+}
+
+/* ===========================================
+   CONTACT CARD - TABLET/DESKTOP (768px+)
+   =========================================== */
+
+@media (min-width: 768px) {
+    .contact-card-section {
+        padding: 80px 0 100px;
+    }
+
+    .contact-card-section .contact-card {
+        max-width: 550px;
+        padding: 2.5rem;
+        border-radius: 24px;
+    }
+
+    .contact-card-header h2 {
+        font-size: 2rem;
+    }
+
+    .contact-card-header p {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Inline button on desktop */
+    .contact-card-cta {
+        width: auto;
+        display: inline-block;
+        padding: 16px 40px;
+        font-size: 1.1rem;
+    }
+
+    .contact-card-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(139, 195, 74, 0.4);
+    }
+
+    .contact-option {
+        min-height: 90px;
+        padding: 1rem;
+    }
+
+    .contact-option:hover {
+        background: rgba(139, 195, 74, 0.1);
+        border-color: var(--lime-green);
+    }
+
+    .contact-option:hover .contact-option-value {
+        color: var(--lime-green);
+    }
+
+    .contact-option-icon {
+        font-size: 1.5rem;
+    }
+
+    .contact-option-label {
+        font-size: 0.7rem;
+    }
+
+    .contact-option-value {
+        font-size: 0.85rem;
+    }
+
+    .contact-card-note {
+        font-size: 0.85rem;
     }
 }

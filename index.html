@@ -358,29 +358,214 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <!-- Quote Form Section -->
+    <section id="contact" class="quote-section">
         <div class="container">
-            <h2 class="section-title">Leave Us A Message</h2>
-            <div class="contact-cta">
-                <p class="section-subtitle" style="text-transform: uppercase; letter-spacing: 2px; margin-top: 1rem;">Get In Touch / For More Information</p>
+            <div class="quote-header">
+                <h2 class="section-title">Let's Create Something Unforgettable</h2>
+                <p class="section-subtitle">I'd love to hear about your event</p>
             </div>
-            <div class="contact-content-centered">
-                <div class="contact-info-main">
-                    <div class="contact-card">
-                        <h3>📱 Call or Text</h3>
-                        <a href="tel:0414441773" class="contact-link">0414 441 773</a>
-                        <p class="contact-note">Available for calls 9am-9pm</p>
+
+            <div class="quote-form-container">
+                <form id="quoteForm" action="https://formsubmit.co/ajax/alibeydoun@me.com" method="POST" class="quote-form">
+
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New Quote Request - DJ Wasabi">
+                    <input type="hidden" name="_cc" value="djwasabi1@outlook.com">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I've received your message and will get back to you within 24 hours. - Wassim (DJ Wasabi)">
+
+                    <!-- Analytics fields -->
+                    <input type="hidden" name="_source" id="formSource" value="">
+                    <input type="hidden" name="_eventContext" id="eventContext" value="">
+
+                    <!-- Progress Indicator -->
+                    <div class="form-progress">
+                        <div class="progress-step active" data-step="1">
+                            <span class="step-dot"></span>
+                            <span class="step-label">You</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="2">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Event</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="3">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Details</span>
+                        </div>
                     </div>
-                    <div class="contact-card">
-                        <h3>✉️ Email</h3>
-                        <a href="mailto:djwasabi1@outlook.com" class="contact-link">djwasabi1@outlook.com</a>
-                        <p class="contact-note">Response within 24 hours</p>
+
+                    <!-- STEP 1: About You -->
+                    <div class="form-step active" data-step="1">
+                        <p class="step-intro">Let's get acquainted</p>
+
+                        <div class="form-group">
+                            <label for="name">What should I call you?</label>
+                            <input type="text" id="name" name="name" required
+                                   autocomplete="given-name"
+                                   placeholder="Your first name"
+                                   minlength="2">
+                            <span class="field-hint"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Best email to reach you</label>
+                            <input type="email" id="email" name="email" required
+                                   autocomplete="email"
+                                   placeholder="you@email.com">
+                            <span class="field-hint"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Your number</label>
+                            <input type="tel" id="phone" name="phone" required
+                                   autocomplete="tel"
+                                   placeholder="0400 000 000"
+                                   pattern="[0-9\s\-\+\(\)]{8,}">
+                            <span class="field-hint">For a quick chat if needed</span>
+                        </div>
+
+                        <button type="button" class="btn btn-secondary btn-next">
+                            Next <span class="btn-arrow">→</span>
+                        </button>
                     </div>
-                    <div class="contact-card">
-                        <h3>📍 Service Area</h3>
-                        <p class="contact-text">Sydney & Surrounding Areas</p>
-                        <p class="contact-note">Travel available upon request</p>
+
+                    <!-- STEP 2: About the Event -->
+                    <div class="form-step" data-step="2">
+                        <p class="step-intro">Tell me about your event</p>
+
+                        <div class="form-group">
+                            <label for="eventType">What are we celebrating?</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="" disabled selected>Choose one...</option>
+                                <option value="wedding">Wedding</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="school">School Formal / Disco</option>
+                                <option value="other">Something Else</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDate">When's the big day?</label>
+                            <input type="date" id="eventDate" name="eventDate">
+                            <span class="field-hint">Rough date is fine if you're not sure yet</span>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-ghost btn-back">
+                                <span class="btn-arrow">←</span> Back
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-next">
+                                Next <span class="btn-arrow">→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Event Details -->
+                    <div class="form-step" data-step="3">
+                        <p class="step-intro">A few more details</p>
+
+                        <!-- Venue -->
+                        <div class="form-group venue-group">
+                            <label for="venue">Where's the party at?</label>
+                            <div class="venue-input-wrapper">
+                                <input type="text" id="venue" name="venue"
+                                       placeholder="Venue name or suburb"
+                                       autocomplete="off">
+                                <ul class="suburb-suggestions" id="suburbSuggestions"></ul>
+                            </div>
+                            <span class="field-hint">We can sort out the exact address later</span>
+                        </div>
+
+                        <!-- Times Row -->
+                        <div class="form-row form-row-times">
+                            <div class="form-group">
+                                <label for="startTime">What time do we kick off?</label>
+                                <input type="time" id="startTime" name="startTime" value="18:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="endTime">When do we wrap up?</label>
+                                <input type="time" id="endTime" name="endTime" value="23:00">
+                            </div>
+                        </div>
+                        <span class="field-hint field-hint-centered">Rough times are fine</span>
+
+                        <!-- Guest Count - Crowd Size Selector -->
+                        <div class="form-group">
+                            <label>How big is the crowd?</label>
+                            <div class="crowd-size-grid" role="radiogroup" aria-label="Guest count selection">
+                                <input type="radio" name="guestCount" id="guests-intimate" value="Under 50">
+                                <label for="guests-intimate" class="crowd-size-option">
+                                    <span class="crowd-size-count">&lt;50</span>
+                                    <span class="crowd-size-label">Intimate</span>
+                                </label>
+
+                                <input type="radio" name="guestCount" id="guests-medium" value="50-100">
+                                <label for="guests-medium" class="crowd-size-option">
+                                    <span class="crowd-size-count">50–100</span>
+                                    <span class="crowd-size-label">Medium</span>
+                                </label>
+
+                                <input type="radio" name="guestCount" id="guests-large" value="100-200">
+                                <label for="guests-large" class="crowd-size-option">
+                                    <span class="crowd-size-count">100–200</span>
+                                    <span class="crowd-size-label">Large</span>
+                                </label>
+
+                                <input type="radio" name="guestCount" id="guests-massive" value="200+">
+                                <label for="guests-massive" class="crowd-size-option">
+                                    <span class="crowd-size-count">200+</span>
+                                    <span class="crowd-size-label">Massive</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message (moved from Step 2) -->
+                        <div class="form-group">
+                            <label for="message">Anything else I should know?</label>
+                            <textarea id="message" name="message" rows="3"
+                                      placeholder="Music style, special moments, the vibe..."></textarea>
+                            <span class="field-hint">No pressure - we can figure out details later</span>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-ghost btn-back">
+                                <span class="btn-arrow">←</span> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span class="btn-text">Let's Talk</span>
+                                <span class="btn-loading">Sending...</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- SUCCESS STATE (replaces form on submit) -->
+                    <div class="form-success" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Thanks <span class="user-name"></span>!</h3>
+                        <p>I've got your message and will be in touch within 24 hours.</p>
+                        <p class="success-signature">— Wassim</p>
+                    </div>
+
+                    <!-- Trust note -->
+                    <p class="form-note">Free quote • No obligation • I personally read every message</p>
+                </form>
+
+                <!-- Alternative contact -->
+                <div class="quote-alternative">
+                    <p>Prefer to chat directly?</p>
+                    <div class="quick-contact">
+                        <a href="tel:0414441773" class="quick-link">
+                            <span>📞</span> <span>0414 441 773</span>
+                        </a>
+                        <a href="https://wa.me/61414441773?text=Hi%20Wassim%2C%20I%27d%20like%20to%20chat%20about%20my%20event" class="quick-link">
+                            <span>💬</span> <span>WhatsApp</span>
+                        </a>
                     </div>
                 </div>
             </div>
