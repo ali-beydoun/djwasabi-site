@@ -3735,129 +3735,102 @@ a.service-card {
 }
 
 /* ===========================================
-   GUEST COUNT - CROWD SIZE SELECTOR (v2)
+   GUEST COUNT CHIPS - Fresh Implementation
    =========================================== */
 
-.crowd-size-grid {
+/* Container: 2x2 grid */
+.guest-chips {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 1fr;
     gap: 10px;
     margin-top: 0.5rem;
 }
 
-.crowd-size-grid input[type="radio"] {
+/* Hide native radio inputs */
+.guest-chips input[type="radio"] {
     position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    width: 0;
-    height: 0;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
-.crowd-size-option {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    padding: 14px 12px;
-    cursor: pointer;
+/* Chip label - clickable card */
+.guest-chip {
+    display: block;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
     border-radius: 12px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    text-align: center;
     transition: all 0.2s ease;
     -webkit-tap-highlight-color: transparent;
-    min-height: 64px;
 }
 
-.crowd-size-option:hover {
-    background: rgba(163, 230, 53, 0.08);
-    border-color: rgba(163, 230, 53, 0.3);
-}
-
-.crowd-size-option:active {
-    transform: scale(0.97);
-}
-
-/* Primary label - the size name */
-.crowd-size-label {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
-    font-size: 0.95rem;
+/* Primary text - size name */
+.guest-chip strong {
+    display: block;
+    font-size: 1rem;
     font-weight: 600;
-    color: var(--text-light);
-    letter-spacing: -0.01em;
-    line-height: 1.2;
-    transition: color 0.2s ease;
+    color: #ffffff;
+    margin-bottom: 4px;
 }
 
-/* Secondary detail - the guest count */
-.crowd-size-count {
-    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', system-ui, sans-serif;
-    font-size: 0.7rem;
-    font-weight: 500;
-    color: rgba(255, 255, 255, 0.45);
-    letter-spacing: 0.01em;
-    transition: color 0.2s ease;
+/* Secondary text - guest count */
+.guest-chip span {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hover state */
+.guest-chip:hover {
+    background: rgba(163, 230, 53, 0.1);
+    border-color: rgba(163, 230, 53, 0.4);
 }
 
 /* Selected state */
-.crowd-size-grid input[type="radio"]:checked + .crowd-size-option {
+.guest-chips input[type="radio"]:checked + .guest-chip {
     background: var(--lime-green);
     border-color: var(--lime-green);
-    box-shadow: 0 4px 12px rgba(163, 230, 53, 0.25);
+    box-shadow: 0 4px 14px rgba(163, 230, 53, 0.3);
 }
 
-.crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-label {
-    color: var(--primary-black);
+.guest-chips input[type="radio"]:checked + .guest-chip strong {
+    color: #0a0a0a;
 }
 
-.crowd-size-grid input[type="radio"]:checked + .crowd-size-option .crowd-size-count {
-    color: rgba(0, 0, 0, 0.5);
+.guest-chips input[type="radio"]:checked + .guest-chip span {
+    color: rgba(0, 0, 0, 0.6);
 }
 
 /* Focus state for accessibility */
-.crowd-size-grid input[type="radio"]:focus-visible + .crowd-size-option {
+.guest-chips input[type="radio"]:focus-visible + .guest-chip {
     outline: 2px solid var(--lime-green);
     outline-offset: 2px;
 }
 
-/* Mobile adjustments */
-@media (max-width: 480px) {
-    .crowd-size-grid {
-        gap: 8px;
+/* Touch devices - disable hover, enhance active */
+@media (hover: none) {
+    .guest-chip:hover {
+        background: rgba(255, 255, 255, 0.04);
+        border-color: rgba(255, 255, 255, 0.15);
     }
 
-    .crowd-size-option {
-        padding: 12px 10px;
-        border-radius: 10px;
-        min-height: 58px;
+    .guest-chip:active {
+        background: rgba(163, 230, 53, 0.15);
+        border-color: rgba(163, 230, 53, 0.5);
+        transform: scale(0.98);
     }
 
-    .crowd-size-label {
-        font-size: 0.9rem;
-    }
-
-    .crowd-size-count {
-        font-size: 0.65rem;
-    }
-}
-
-/* Touch device optimizations */
-@media (hover: none) and (pointer: coarse) {
-    .crowd-size-option:hover {
-        background: rgba(255, 255, 255, 0.03);
-        border-color: rgba(255, 255, 255, 0.12);
-    }
-
-    .crowd-size-option:active {
-        background: rgba(163, 230, 53, 0.1);
-        border-color: rgba(163, 230, 53, 0.3);
-        transform: scale(0.97);
-        transition: all 0.1s ease;
-    }
-
-    .crowd-size-grid input[type="radio"]:checked + .crowd-size-option:hover,
-    .crowd-size-grid input[type="radio"]:checked + .crowd-size-option:active {
+    .guest-chips input[type="radio"]:checked + .guest-chip:hover {
         background: var(--lime-green);
+        border-color: var(--lime-green);
     }
 }
 
