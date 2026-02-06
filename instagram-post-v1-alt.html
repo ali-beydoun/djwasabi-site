@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1080">
+    <title>DJ Wasabi - Instagram Post</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #000; }
+
+        .post { width: 1080px; height: 1080px; position: relative; overflow: hidden; background: #000; }
+
+        /* Subtle texture over black zones */
+        .texture {
+            position: absolute; top: 0; left: -20%; right: -20%; bottom: 0;
+            background: url('images/footer-bg.webp') center center / cover no-repeat;
+            opacity: 0.14; z-index: 1; pointer-events: none;
+        }
+
+        /* ===== FLOATING LOGO ===== */
+        .floating-logo {
+            position: absolute; top: 30px; left: 30px;
+            z-index: 20;
+            filter: drop-shadow(0 4px 20px rgba(0,0,0,0.7));
+        }
+        .floating-logo img { height: 56px; }
+
+        /* ===== HERO + HEADLINE ===== */
+        .hero {
+            position: absolute; top: 0; left: 0; right: 0; height: 920px;
+            z-index: 5;
+            display: flex; justify-content: center; align-items: flex-start;
+        }
+        .hero-glow {
+            position: absolute; top: 32%; left: 50%; transform: translate(-50%, -50%);
+            width: 880px; height: 880px;
+            background: radial-gradient(circle, rgba(139,195,74,0.25) 0%, rgba(139,195,74,0.06) 50%, transparent 70%);
+            z-index: 0;
+        }
+        .hero img {
+            width: 100%; height: auto;
+            margin-top: -117px;
+            filter: drop-shadow(0 25px 70px rgba(0,0,0,0.9));
+            position: relative; z-index: 2;
+        }
+        .hero .headline {
+            position: absolute; bottom: 30px; left: 0; right: 0;
+            text-align: center; z-index: 10;
+        }
+        .hero .headline h1 {
+            font-size: 90px; font-weight: 900; color: #fff;
+            line-height: 0.9; letter-spacing: -4px; text-transform: uppercase;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+        }
+        .hero .headline h1 span {
+            display: block; color: #8BC34A; font-size: 136px; letter-spacing: -6px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.7), 0 0 30px rgba(139,195,74,0.25);
+        }
+
+        /* ===== REVIEWS ===== */
+        .reviews {
+            position: absolute; top: 900px; left: 0; right: 0; height: 180px;
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 10px 0;
+        }
+        .reviews .stars {
+            font-size: 42px; color: #FFD700; letter-spacing: 8px;
+            text-shadow: 0 0 20px rgba(255,215,0,0.45), 0 3px 15px rgba(0,0,0,0.8);
+        }
+        .reviews .rev-main {
+            font-size: 28px; color: #fff; font-weight: 600; margin-top: 6px;
+            text-shadow: 0 3px 20px rgba(0,0,0,0.8);
+        }
+        .reviews .rev-sub {
+            font-size: 20px; color: rgba(255,255,255,0.7); letter-spacing: 4px;
+            text-transform: uppercase; margin-top: 4px; font-weight: 500;
+            text-shadow: 0 3px 20px rgba(0,0,0,0.8);
+        }
+    </style>
+</head>
+<body>
+    <div class="post">
+
+        <!-- Background texture -->
+        <div class="texture"></div>
+
+        <!-- FLOATING LOGO -->
+        <div class="floating-logo">
+            <img src="images/Logo-3.png" alt="DJ Wasabi">
+        </div>
+
+        <!-- HERO + HEADLINE -->
+        <div class="hero">
+            <div class="hero-glow"></div>
+            <img src="images/hero-enhanced.jpg" alt="DJ Wasabi">
+            <div class="headline">
+                <h1>Let's<br><span>Party</span></h1>
+            </div>
+        </div>
+
+        <!-- REVIEWS -->
+        <div class="reviews">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rev-main">40+ Five-Star Reviews</div>
+            <div class="rev-sub">Trusted on Bark</div>
+        </div>
+
+    </div>
+</body>
+</html>
