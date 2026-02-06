@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1080, height=1920">
+    <title>DJ Wasabi - Instagram Story Redesign V1</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: #000; }
+
+        .story { width: 1080px; height: 1920px; position: relative; overflow: hidden; background: #000; }
+
+        /* Subtle texture over black zones */
+        .texture {
+            position: absolute; top: 0; left: -20%; right: -20%; bottom: 0;
+            background: url('images/footer-bg.webp') center center / cover no-repeat;
+            opacity: 0.14; z-index: 1; pointer-events: none;
+        }
+
+        /* ===== ZONE 1: LIME HEADER  0–100 ===== */
+        .header {
+            position: absolute; top: 0; left: 0; right: 0; height: 100px;
+            background: #8BC34A; z-index: 20;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 50px;
+        }
+        .header .logo { height: 58px; filter: brightness(0); }
+        .header .sub { font-size: 24px; font-weight: 700; color: #000; letter-spacing: 4px; text-transform: uppercase; }
+
+        /* ===== ZONE 2: HERO + HEADLINE  100–980 ===== */
+        .hero {
+            position: absolute; top: 100px; left: 0; right: 0; height: 880px;
+            z-index: 5;
+            display: flex; justify-content: center; align-items: flex-start;
+        }
+        .hero-glow {
+            position: absolute; top: 32%; left: 50%; transform: translate(-50%, -50%);
+            width: 880px; height: 880px;
+            background: radial-gradient(circle, rgba(139,195,74,0.25) 0%, rgba(139,195,74,0.06) 50%, transparent 70%);
+            z-index: 0;
+        }
+        .hero img {
+            width: 100%; height: auto;
+            margin-top: -147px;
+            filter: drop-shadow(0 25px 70px rgba(0,0,0,0.9));
+            position: relative; z-index: 2;
+        }
+        .hero .headline {
+            position: absolute; bottom: 30px; left: 0; right: 0;
+            text-align: center; z-index: 10;
+        }
+        .hero .headline h1 {
+            font-size: 100px; font-weight: 900; color: #fff;
+            line-height: 0.9; letter-spacing: -4px; text-transform: uppercase;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.8);
+        }
+        .hero .headline h1 span {
+            display: block; color: #8BC34A; font-size: 150px; letter-spacing: -6px;
+            text-shadow: 0 4px 30px rgba(0,0,0,0.7), 0 0 30px rgba(139,195,74,0.25);
+        }
+
+        /* ===== ZONE 3: REVIEWS  950–1080 — shifted up near headline ===== */
+        .reviews {
+            position: absolute; top: 950px; left: 0; right: 0; height: 130px;
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 10px 0;
+        }
+        .reviews .stars {
+            font-size: 48px; color: #FFD700; letter-spacing: 10px;
+            text-shadow: 0 0 20px rgba(255,215,0,0.45), 0 3px 15px rgba(0,0,0,0.8);
+        }
+        .reviews .rev-main {
+            font-size: 32px; color: #fff; font-weight: 600; margin-top: 8px;
+            text-shadow: 0 3px 20px rgba(0,0,0,0.8);
+        }
+        .reviews .rev-sub {
+            font-size: 24px; color: rgba(255,255,255,0.7); letter-spacing: 4px;
+            text-transform: uppercase; margin-top: 6px; font-weight: 500;
+            text-shadow: 0 3px 20px rgba(0,0,0,0.8);
+        }
+
+        /* ===== ZONE 4: STATS — LIME  1120–1310 ===== */
+        .stats {
+            position: absolute; top: 1120px; left: 0; right: 0; height: 190px;
+            background: #8BC34A; z-index: 10;
+            display: flex; align-items: center; justify-content: center;
+            padding: 20px 0;
+        }
+        .stats-row { display: flex; width: 100%; }
+        .stat { flex: 1; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+        .stat-icon { width: 40px; height: 40px; color: #000; }
+        .stat-val { font-size: 46px; font-weight: 800; color: #000; line-height: 1; }
+        .stat-lbl { font-size: 16px; color: rgba(0,0,0,0.65); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* ===== ZONE 5: SERVICES  1310–1430 ===== */
+        .services {
+            position: absolute; top: 1310px; left: 0; right: 0; height: 120px;
+            z-index: 10;
+            display: flex; align-items: center; justify-content: center; gap: 40px;
+        }
+        .svc { font-size: 28px; color: #fff; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        .svc-dot { color: #8BC34A; font-size: 14px; }
+
+        /* ===== ZONE 6: THE 5 P'S  1430–1540 ===== */
+        .five-ps {
+            position: absolute; top: 1430px; left: 0; right: 0; height: 110px;
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            padding: 10px 40px; gap: 8px;
+        }
+        .five-ps-label {
+            font-size: 16px; font-weight: 700; color: rgba(255,255,255,0.4);
+            letter-spacing: 5px; text-transform: uppercase;
+        }
+        .five-ps-row {
+            display: flex; align-items: center; gap: 18px;
+        }
+        .five-ps-item {
+            font-size: 20px; font-weight: 700; color: #8BC34A;
+            letter-spacing: 2px; text-transform: uppercase;
+        }
+        .five-ps-dot { font-size: 6px; color: #8BC34A; opacity: 0.4; }
+
+        /* ===== ZONE 7: CTA — LIME  1540–1740 ===== */
+        .cta {
+            position: absolute; top: 1540px; left: 0; right: 0; height: 200px;
+            background: #8BC34A; z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 4px; padding: 20px 0;
+        }
+        .cta-title { font-size: 36px; font-weight: 900; color: #000; letter-spacing: 6px; text-transform: uppercase; }
+        .cta-web { font-size: 34px; font-weight: 700; color: #000; letter-spacing: 2px; }
+        .cta-phone-row { display: flex; align-items: center; gap: 10px; }
+        .cta-phone-icon { width: 26px; height: 26px; color: #000; }
+        .cta-phone { font-size: 28px; font-weight: 600; color: rgba(0,0,0,0.75); letter-spacing: 3px; }
+
+        /* ===== ZONE 8: FOOTER  1740–1920 ===== */
+        .footer {
+            position: absolute; top: 1740px; left: 0; right: 0; height: 180px;
+            z-index: 10;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 10px; padding: 20px 0;
+        }
+        .footer img { height: 50px; }
+        .footer .loc { font-size: 18px; color: rgba(255,255,255,0.45); font-weight: 600; letter-spacing: 6px; text-transform: uppercase; }
+        .footer .tag { font-size: 16px; color: rgba(255,255,255,0.3); letter-spacing: 3px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+    <div class="story">
+
+        <!-- Background texture -->
+        <div class="texture"></div>
+
+        <!-- ZONE 1: LIME HEADER -->
+        <div class="header">
+            <img src="images/Logo-3.png" alt="DJ Wasabi" class="logo">
+            <span class="sub">DJ & MC Services</span>
+        </div>
+
+        <!-- ZONE 2: HERO + HEADLINE -->
+        <div class="hero">
+            <div class="hero-glow"></div>
+            <img src="images/Group-59-e1755581216401.png" alt="DJ Wasabi">
+            <div class="headline">
+                <h1>Let's<br><span>Party</span></h1>
+            </div>
+        </div>
+
+        <!-- ZONE 3: REVIEWS -->
+        <div class="reviews">
+            <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <div class="rev-main">40+ Five-Star Reviews</div>
+            <div class="rev-sub">Trusted on Bark</div>
+        </div>
+
+        <!-- ZONE 4: STATS — LIME -->
+        <div class="stats">
+            <div class="stats-row">
+                <div class="stat">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    <div class="stat-val">5+</div>
+                    <div class="stat-lbl">Years Experience</div>
+                </div>
+                <div class="stat">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                    <div class="stat-val">100%</div>
+                    <div class="stat-lbl">Personalised</div>
+                </div>
+                <div class="stat">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 12 15 16 10"/></svg>
+                    <div class="stat-val">&#10003;</div>
+                    <div class="stat-lbl">Fully Insured</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ZONE 5: SERVICES -->
+        <div class="services">
+            <span class="svc">Weddings</span>
+            <span class="svc-dot">&#9679;</span>
+            <span class="svc">Birthdays</span>
+            <span class="svc-dot">&#9679;</span>
+            <span class="svc">Corporate</span>
+        </div>
+
+        <!-- ZONE 6: THE 5 P'S -->
+        <div class="five-ps">
+            <div class="five-ps-label">The 5 P's</div>
+            <div class="five-ps-row">
+                <span class="five-ps-item">Professionalism</span>
+                <span class="five-ps-dot">&#9679;</span>
+                <span class="five-ps-item">Preparation</span>
+                <span class="five-ps-dot">&#9679;</span>
+                <span class="five-ps-item">Punctuality</span>
+                <span class="five-ps-dot">&#9679;</span>
+                <span class="five-ps-item">Personalisation</span>
+                <span class="five-ps-dot">&#9679;</span>
+                <span class="five-ps-item">Passion</span>
+            </div>
+        </div>
+
+        <!-- ZONE 7: CTA — LIME -->
+        <div class="cta">
+            <div class="cta-title">Book Your Event</div>
+            <div class="cta-web">djwasabi.com.au</div>
+            <div class="cta-phone-row">
+                <svg class="cta-phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span class="cta-phone">0414 441 773</span>
+            </div>
+        </div>
+
+        <!-- ZONE 8: FOOTER -->
+        <div class="footer">
+            <img src="images/Logo-3.png" alt="DJ Wasabi">
+            <div class="loc">Sydney</div>
+            <div class="tag">Your Event, Your Way</div>
+        </div>
+
+    </div>
+</body>
+</html>
