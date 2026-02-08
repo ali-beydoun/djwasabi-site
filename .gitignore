@@ -34,3 +34,14 @@ build/
 # Temporary files
 *.tmp
 *.temp
+
+# Build tools
+optimize-images.js
+gen-favicon.js
+squirrel.toml
+package.json
+package-lock.json
+
+# Agent skills
+.agents/
+.claude/

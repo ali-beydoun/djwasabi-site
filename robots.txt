@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://djwasabi.com.au/sitemap.xml
