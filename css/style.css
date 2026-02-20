@@ -75,6 +75,24 @@ body {
 /* Spacing utilities */
 .mt-6 { margin-top: 32px }
 .mb-2 { margin-bottom: 8px }
+.text-center { text-align: center }
+
+/* Bark review link */
+.bark-link {
+    color: var(--lime-green);
+    text-decoration: underline;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.bark-logo {
+    height: 20px;
+    background: white;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+}
 
 /* Section variant */
 .why-choose--alt { background: var(--secondary-black) }

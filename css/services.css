@@ -37,7 +37,7 @@
     height: auto;
     z-index: 1;
     pointer-events: none;
-    animation: waveFlow 8s ease-in-out infinite;
+    /* Removed infinite animation per HIG — motion reserved for interaction */
 }
 
 /* Radial glow in top-right corner */
@@ -141,14 +141,13 @@
     width: 100%;
     max-width: 450px;
     height: auto;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     box-shadow:
         0 25px 50px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.1);
+        0 0 0 1px rgba(255, 255, 255, 0.05);
     object-fit: cover;
     max-height: none;
-    /* Subtle glass border effect */
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Hero Buttons */
@@ -220,7 +219,7 @@
 /* Trust Bar */
 .trust-bar {
     background: var(--white);
-    padding: 3rem 0;
+    padding: 48px 0;
     border-bottom: 1px solid #f0f0f0;
 }
 
@@ -610,7 +609,7 @@
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 .footer-section ul {
@@ -647,7 +646,7 @@
 }
 
 .section-image-accent {
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     position: relative;
@@ -668,7 +667,7 @@
 }
 
 .experience-card-with-image .experience-image {
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: 0 15px 40px rgba(139, 195, 74, 0.25);
 }
@@ -691,7 +690,7 @@
 }
 
 .testimonials-featured-image {
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     overflow: hidden;
     border: 3px solid var(--lime-green);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
@@ -983,7 +982,7 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.4),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
     }
 
     .service-hero .hero-title {
@@ -1022,7 +1021,7 @@
         object-position: center 20%;
         box-shadow:
             0 12px 40px rgba(0, 0, 0, 0.5),
-            0 0 0 1px rgba(255, 255, 255, 0.1);
+            0 0 0 1px rgba(255, 255, 255, 0.05);
     }
 
     /* Wedding hero - landscape image gets larger treatment */
@@ -1108,17 +1107,17 @@
             rgba(20, 20, 22, 0.9) 50%,
             rgba(25, 25, 27, 0.85) 100%
         );
-        border-radius: 18px;
+        border-radius: var(--radius-md);
         border: 1px solid rgba(255, 255, 255, 0.12);
-        transition: all 0.25s ease;
+        transition: all 0.25s var(--ease-interactive);
         overflow: hidden;
         backdrop-filter: blur(20px) saturate(180%);
         -webkit-backdrop-filter: blur(20px) saturate(180%);
         box-shadow:
             0 4px 20px -4px rgba(0, 0, 0, 0.5),
-            inset 0 1px 1px rgba(255, 255, 255, 0.1),
+            inset 0 1px 1px rgba(255, 255, 255, 0.05),
             inset 0 -1px 1px rgba(0, 0, 0, 0.2),
-            inset 0 0 20px -10px rgba(139, 195, 74, 0.15);
+            inset 0 0 20px -10px rgba(139, 195, 74, 0.08);
     }
 
     /* Apple glass edge warp effect */
@@ -1129,7 +1128,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        border-radius: 18px;
+        border-radius: var(--radius-md);
         background:
             linear-gradient(180deg,
                 rgba(255, 255, 255, 0.12) 0%,
@@ -1226,7 +1225,7 @@
        WHY SECTION - LIGHT BACKGROUND FOR CONTRAST
        ============================================ */
     .why-wedding {
-        padding: 50px 0;
+        padding: 48px 0;
         background: #f9f9f9;
     }
 
@@ -1266,10 +1265,10 @@
     .benefit-card {
         background: var(--white);
         padding: 1.5rem;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        border-radius: var(--radius-md);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
         text-align: center;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.25s var(--ease-interactive);
     }
 
     .benefit-card:active {
@@ -1279,7 +1278,7 @@
     /* Remove desktop hover on mobile */
     .benefit-card:hover {
         transform: none;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.04);
     }
 
     .benefit-icon {
@@ -1303,7 +1302,7 @@
        EXPERIENCE SECTION - POLISHED
        ============================================ */
     .experience-section {
-        padding: 50px 0;
+        padding: 48px 0;
         background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
     }
 
@@ -1400,7 +1399,7 @@
        ENHANCEMENTS - iOS GRID STYLE
        ============================================ */
     .enhancements-section {
-        padding: 50px 0;
+        padding: 48px 0;
         background: linear-gradient(180deg, #f8f8f8 0%, #f0f0f0 100%);
     }
 
@@ -1422,7 +1421,7 @@
 
     .enhancement-item {
         padding: 1.25rem 1rem;
-        border-radius: 14px;
+        border-radius: var(--radius-md);
         background: linear-gradient(
             135deg,
             rgba(255, 255, 255, 0.9) 0%,
@@ -1432,7 +1431,7 @@
         box-shadow:
             0 4px 16px rgba(0, 0, 0, 0.06),
             inset 0 1px 0 rgba(255, 255, 255, 0.8);
-        transition: all 0.25s ease;
+        transition: all 0.25s var(--ease-interactive);
     }
 
     .enhancement-item:active {
@@ -1477,7 +1476,7 @@
        PROCESS TIMELINE - ELEGANT MOBILE
        ============================================ */
     .process-section {
-        padding: 50px 0;
+        padding: 48px 0;
         background: linear-gradient(180deg, #f0f0f0 0%, #f8f8f8 100%);
     }
 
@@ -1501,14 +1500,14 @@
             rgba(255, 255, 255, 0.7) 100%
         );
         padding: 1.5rem 1.25rem;
-        border-radius: 14px;
+        border-radius: var(--radius-md);
         border: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow:
             0 4px 16px rgba(0, 0, 0, 0.06),
             inset 0 1px 0 rgba(255, 255, 255, 0.8);
         display: block;
         text-align: center;
-        transition: all 0.25s ease;
+        transition: all 0.25s var(--ease-interactive);
     }
 
     .process-step:active {
@@ -1539,7 +1538,7 @@
        TESTIMONIALS - CLEAN DARK SECTION
        ============================================ */
     .testimonials-section {
-        padding: 50px 0;
+        padding: 48px 0;
         background: linear-gradient(180deg, #0a0a0a 0%, #111111 100%);
     }
 
@@ -1551,7 +1550,7 @@
        VENUES - LIGHT BACKGROUND
        ============================================ */
     .venues-section {
-        padding: 50px 0;
+        padding: 48px 0;
         background: #f9f9f9;
     }
 
@@ -1579,13 +1578,13 @@
     .venue-logo {
         background: var(--white);
         padding: 1.25rem 1rem;
-        border-radius: 10px;
+        border-radius: var(--radius-md);
         font-size: 0.8rem;
         font-weight: 600;
         color: #333;
         border: none;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
-        transition: all 0.25s ease;
+        transition: all 0.25s var(--ease-interactive);
     }
 
     .venue-logo:hover {
@@ -1602,7 +1601,7 @@
        FAQ - LIGHT BACKGROUND FOR CONTRAST
        ============================================ */
     .faq-section {
-        padding: 50px 0;
+        padding: 48px 0;
         background: var(--white);
     }
 
@@ -1624,10 +1623,10 @@
     .faq-item {
         background: #f9f9f9;
         padding: 1.25rem;
-        border-radius: 10px;
+        border-radius: var(--radius-md);
         border-left: 4px solid var(--lime-green);
         box-shadow: none;
-        transition: all 0.25s ease;
+        transition: all 0.25s var(--ease-interactive);
     }
 
     .faq-item:active {
