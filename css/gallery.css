@@ -94,15 +94,16 @@
     font-size: 2.5rem;
     color: var(--text-light);
     margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    animation: fadeInUp 1s ease;
+    text-transform: none;
+    letter-spacing: -0.01em;
+    animation: fadeInUp 0.7s var(--ease-spring);
 }
 
 .hero-subtitle {
     font-size: 1.1rem;
     color: var(--lime-green);
     margin-bottom: 0;
-    animation: fadeInUp 1s ease 0.2s both;
+    animation: fadeInUp 0.7s var(--ease-spring) 0.2s both;
 }
 
 /* Filter Buttons - Glass effect */
@@ -111,7 +112,7 @@
     justify-content: center;
     gap: 1rem;
     flex-wrap: wrap;
-    animation: fadeInUp 1s ease 0.4s both;
+    animation: fadeInUp 0.7s var(--ease-spring) 0.4s both;
 }
 
 .filter-btn {
@@ -124,7 +125,7 @@
     border-radius: 25px;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(139, 195, 74, 0.1);
-    transition: all 0.3s;
+    transition: all 0.25s var(--ease-interactive);
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9rem;
@@ -154,7 +155,7 @@
 .gallery-grid {
     column-count: 4;
     column-gap: 4px;
-    animation: fadeInUp 0.6s ease;
+    animation: fadeInUp 0.6s var(--ease-spring);
 }
 
 .gallery-item {
@@ -263,10 +264,11 @@
 }
 
 .cta-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     color: var(--text-light);
     margin-bottom: 1rem;
-    text-transform: uppercase;
+    text-transform: none;
+    letter-spacing: -0.01em;
 }
 
 .cta-content p {
