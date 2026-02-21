@@ -201,7 +201,7 @@
     border: 1px solid rgba(139, 195, 74, 0.3);
     color: var(--lime-green);
     padding: 0.5rem 1.25rem;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     font-size: 0.85rem;
     font-weight: 500;
     box-shadow:
@@ -331,7 +331,7 @@
     background: var(--lime-green);
     color: var(--primary-black);
     padding: 0.5rem 1.5rem;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     font-weight: 600;
     font-size: 0.9rem;
 }
@@ -970,7 +970,7 @@
     /* Premium glass container */
     .service-hero .hero-text {
         padding: 1.5rem 1.25rem;
-        border-radius: 18px;
+        border-radius: var(--radius-md);
         margin: 0;
         background: linear-gradient(
             135deg,
@@ -1016,7 +1016,7 @@
         width: auto;
         height: auto;
         margin: 0 auto;
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         object-fit: cover;
         object-position: center 20%;
         box-shadow:
@@ -1036,7 +1036,7 @@
         width: 100%;
         aspect-ratio: 3 / 2;
         object-position: center center;
-        border-radius: 14px;
+        border-radius: var(--radius-md);
     }
 
     /* Contact hero - portrait image, compact on mobile */
@@ -1069,7 +1069,7 @@
     .feature-badge {
         padding: 0.4rem 0.9rem;
         font-size: 0.75rem;
-        border-radius: 20px;
+        border-radius: var(--radius-lg);
     }
 
     /* Adjust glow on mobile */
@@ -1243,13 +1243,13 @@
     .section-with-image .section-image-accent {
         max-width: 280px;
         margin: 0 auto 1.5rem;
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         overflow: hidden;
     }
 
     .section-with-image .section-image-accent img {
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         width: 100%;
         aspect-ratio: 3 / 4;
         object-fit: cover;
@@ -1341,13 +1341,13 @@
     .experience-card-with-image .experience-image {
         max-width: 260px;
         margin: 0 auto 1.5rem;
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         box-shadow: 0 8px 30px rgba(139, 195, 74, 0.2);
         overflow: hidden;
     }
 
     .experience-card-with-image .experience-image img {
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         width: 100%;
         aspect-ratio: 3 / 4;
         object-fit: cover;
@@ -1362,7 +1362,7 @@
             rgba(255, 255, 255, 0.02) 100%
         );
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         padding: 1.5rem 1.25rem;
         box-shadow:
             0 8px 32px rgba(0, 0, 0, 0.3),
@@ -1774,7 +1774,7 @@
 
     .service-hero .hero-text {
         padding: 1.25rem 1rem;
-        border-radius: 16px;
+        border-radius: var(--radius-md);
     }
 
     .service-hero .hero-title {

@@ -62,7 +62,7 @@
     );
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-radius: 16px;
+    border-radius: var(--radius-md);
     padding: 1.25rem 1.5rem;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
@@ -122,7 +122,7 @@
     -webkit-backdrop-filter: blur(8px);
     border: 2px solid var(--lime-green);
     color: var(--lime-green);
-    border-radius: 25px;
+    border-radius: var(--radius-full);
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(139, 195, 74, 0.1);
     transition: all 0.25s var(--ease-interactive);
@@ -181,7 +181,7 @@
     transform: scale(1.02);
     box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     z-index: 10;
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
 }
 
 .gallery-item img {
@@ -309,7 +309,7 @@
     /* Adjust glass container for mobile */
     .hero-content-center {
         padding: 0.85rem 0.75rem;
-        border-radius: 10px;
+        border-radius: var(--radius-sm);
         margin: 0 0.75rem;
     }
 

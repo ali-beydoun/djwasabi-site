@@ -221,7 +221,7 @@ body {
 /* Glass frame container for cropped images - controls visible area */
 .hero-image:has(.crop-vertical-20) {
     overflow: hidden;
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.25),
@@ -411,7 +411,7 @@ body {
     );
     color: var(--primary-black) !important;
     padding: 10px 25px;
-    border-radius: 50px;
+    border-radius: var(--radius-full);
     text-decoration: none;
     font-weight: 600;
     transition: all 0.3s;
@@ -529,7 +529,7 @@ body {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
     z-index: 1001;
     position: relative;
@@ -661,7 +661,7 @@ body {
         rgba(139, 195, 74, 0.4),
         transparent
     );
-    border-radius: 28px 28px 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
 }
 
 .hero-tagline {
@@ -766,7 +766,7 @@ body {
     max-width: 100%;
     max-height: 420px;
     object-fit: contain;
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.25),
@@ -788,7 +788,7 @@ body {
         rgba(139, 195, 74, 0.35),
         transparent
     );
-    border-radius: 24px 24px 0 0;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     z-index: 1;
 }
 
@@ -979,7 +979,7 @@ body {
     height: 38px;
     stroke: var(--lime-green);
     stroke-width: 1.5;
-    transition: all 0.3s ease;
+    transition: all 0.25s var(--ease-interactive);
 }
 
 .trust-item:hover .trust-number svg {
@@ -1082,7 +1082,7 @@ body {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-radius: 24px;
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.06);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.3),
@@ -1164,7 +1164,7 @@ body {
     background: linear-gradient(135deg, rgba(139, 195, 74, 0.95) 0%, rgba(139, 195, 74, 0.85) 100%);
     color: var(--primary-black);
     padding: 1rem 2rem;
-    border-radius: 25px;
+    border-radius: var(--radius-full);
     font-weight: 600;
     text-align: center;
     transition: all 0.25s var(--ease-interactive);
@@ -1200,9 +1200,9 @@ body {
     height: 400px;
     object-fit: cover;
     object-position: top center;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     border: 1px solid rgba(139, 195, 74, 0.4);
-    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    transition: transform 0.25s var(--ease-interactive), box-shadow 0.25s var(--ease-interactive), border-color 0.25s var(--ease-interactive);
     box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.3),
         inset 0 0 0 1px rgba(255, 255, 255, 0.05);
@@ -1449,7 +1449,7 @@ a.service-card {
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 2rem;
-    border-radius: 18px;
+    border-radius: var(--radius-md);
     text-align: center;
     border: 1px solid rgba(255, 255, 255, 0.08);
     box-shadow:
@@ -1477,7 +1477,7 @@ a.service-card {
         rgba(139, 195, 74, 0.4),
         transparent
     );
-    border-radius: 18px 18px 0 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 .contact-card:hover {
@@ -1975,7 +1975,7 @@ a.service-card {
         content: '';
         position: absolute;
         inset: 0;
-        border-radius: 10px;
+        border-radius: var(--radius-sm);
         background: radial-gradient(
             ellipse at 50% 0%,
             rgba(255, 255, 255, 0.08) 0%,
@@ -2005,7 +2005,7 @@ a.service-card {
         margin: 2.5px 0;
         border-radius: 3px;
         box-shadow: none;
-        transition: all 0.3s ease;
+        transition: all 0.25s var(--ease-interactive);
         position: relative;
         z-index: 1;
     }
@@ -2320,7 +2320,7 @@ a.service-card {
 
     /* Mobile glass frame for cropped images */
     .hero-image:has(.crop-vertical-20) {
-        border-radius: 18px;
+        border-radius: var(--radius-md);
         max-height: 45vh;
         aspect-ratio: 4 / 3;
         width: 100%;
@@ -2524,7 +2524,7 @@ a.service-card {
             rgba(255, 255, 255, 0.9) 0%,
             rgba(255, 255, 255, 0.7) 100%
         );
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         border: 1px solid rgba(0, 0, 0, 0.06);
         box-shadow:
             0 4px 20px rgba(0, 0, 0, 0.06),
@@ -2591,7 +2591,7 @@ a.service-card {
     }
 
     .service-card {
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         border: 1px solid rgba(0, 0, 0, 0.06);
         box-shadow:
             0 4px 20px rgba(0, 0, 0, 0.08),
@@ -2663,7 +2663,7 @@ a.service-card {
     .why-choose-content {
         padding: 1.5rem;
         margin: 0 10px;
-        border-radius: 18px;
+        border-radius: var(--radius-md);
         gap: 2rem;
     }
 
@@ -2686,7 +2686,7 @@ a.service-card {
     .value-item {
         padding: 0.9rem 1.5rem;
         font-size: 0.95rem;
-        border-radius: 20px;
+        border-radius: var(--radius-lg);
     }
 
     /* Touch feedback for value items */
@@ -2700,7 +2700,7 @@ a.service-card {
 
     .why-images img {
         height: 200px;
-        border-radius: 12px;
+        border-radius: var(--radius-md);
     }
 
     /* Center the Learn More button */
@@ -2797,7 +2797,7 @@ a.service-card {
 
     .review-card {
         padding: 1.5rem;
-        border-radius: 16px;
+        border-radius: var(--radius-md);
         background: linear-gradient(
             135deg,
             rgba(255, 255, 255, 0.95) 0%,
@@ -2878,7 +2878,7 @@ a.service-card {
 
     .contact-card {
         padding: 1.5rem 1.25rem;
-        border-radius: 14px;
+        border-radius: var(--radius-md);
         /* Larger touch targets */
         min-height: 100px;
         display: flex;
@@ -3019,13 +3019,13 @@ a.service-card {
     /* Small mobile glass frame for cropped images */
     .hero-image:has(.crop-vertical-20) {
         max-height: 35vh;
-        border-radius: 14px;
+        border-radius: var(--radius-md);
     }
 
     .hero-text {
         padding: 1.25rem;
         margin: 0 8px;
-        border-radius: 16px;
+        border-radius: var(--radius-md);
     }
 
     .hero-description {
@@ -3052,7 +3052,7 @@ a.service-card {
 
     .trust-item {
         padding: 0.6rem 0.4rem;
-        border-radius: 12px;
+        border-radius: var(--radius-md);
     }
 
     .trust-number {
@@ -3415,7 +3415,7 @@ a.service-card {
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.3);
-    transition: all 0.3s ease;
+    transition: all 0.25s var(--ease-interactive);
 }
 
 .progress-step.active .step-dot,
@@ -3511,11 +3511,11 @@ a.service-card {
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     padding: 1.75rem;
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     position: relative;
     overflow: hidden;
 }
@@ -3576,7 +3576,7 @@ a.service-card {
 .form-group textarea {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     /* Touch-friendly: 48px+ height via padding */
     padding: 15px 18px;
     min-height: 52px;
@@ -3773,7 +3773,7 @@ a.service-card {
 
 /* Adjust input border radius when suggestions are open */
 .venue-input-wrapper:has(.suburb-suggestions.active) input {
-    border-radius: 14px 14px 0 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
 }
 
 /* ===========================================
@@ -3806,10 +3806,10 @@ a.service-card {
     padding: 14px 16px;
     background: rgba(255, 255, 255, 0.04);
     border: 1.5px solid rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
+    border-radius: var(--radius-md);
     cursor: pointer;
     text-align: center;
-    transition: all 0.2s ease;
+    transition: all 0.25s var(--ease-interactive);
     -webkit-tap-highlight-color: transparent;
 }
 
@@ -3893,7 +3893,7 @@ a.service-card {
     padding: 14px 24px;
     font-size: 1rem;
     font-weight: 600;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     /* Better touch response */
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
@@ -4014,7 +4014,7 @@ a.service-card {
     padding: 16px 32px;
     font-size: 1.1rem;
     font-weight: 600;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     position: relative;
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
@@ -4072,7 +4072,7 @@ a.service-card {
     padding: 0.85rem;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     color: var(--text-light);
     text-decoration: none;
     font-size: 0.85rem;
@@ -4166,7 +4166,7 @@ a.service-card {
         flex-direction: row;
         min-height: auto;
         padding: 12px 24px;
-        border-radius: 25px;
+        border-radius: var(--radius-full);
     }
 
     .quick-link span:first-child {
@@ -4190,7 +4190,7 @@ a.service-card {
    =========================================== */
 
 .contact-card-section {
-    padding: 50px 0 60px;
+    padding: 48px 0 56px;
     background: linear-gradient(180deg, var(--secondary-black) 0%, var(--primary-black) 100%);
 }
 
@@ -4205,11 +4205,11 @@ a.service-card {
     );
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-radius: 20px;
+    border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, 0.3),
-        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -4250,7 +4250,7 @@ a.service-card {
     font-weight: 600;
     margin-bottom: 1.25rem;
     min-height: 56px;
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
 }
@@ -4300,9 +4300,9 @@ a.service-card {
     padding: 0.85rem 0.5rem;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 14px;
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.25s var(--ease-interactive);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
     /* Prevent text selection on tap */
@@ -4355,7 +4355,7 @@ a.service-card {
     .contact-card-section .contact-card {
         max-width: 550px;
         padding: 2.5rem;
-        border-radius: 24px;
+        border-radius: var(--radius-lg);
     }
 
     .contact-card-header h2 {
