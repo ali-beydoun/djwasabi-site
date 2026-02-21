@@ -1255,8 +1255,11 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .service-card {
@@ -1284,7 +1287,7 @@ a.service-card {
 }
 
 .service-image {
-    height: 320px;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
     position: relative;
 }
@@ -2467,6 +2470,7 @@ a.service-card {
 /* ============================================
        MOBILE POLISH - LIGHT SECTIONS
        ============================================ */
+@media (max-width: 768px) {
 
     /* Smooth scroll for app-like feel */
     html {
@@ -2588,6 +2592,9 @@ a.service-card {
         grid-template-columns: 1fr;
         gap: 1.25rem;
         padding: 0 5px;
+        max-width: 320px;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .service-card {
@@ -2618,7 +2625,6 @@ a.service-card {
     }
 
     .service-image {
-        height: auto;
         aspect-ratio: 3 / 4;
         position: relative;
     }
@@ -3128,7 +3134,6 @@ a.service-card {
     }
 
     .service-image {
-        height: auto;
         aspect-ratio: 3 / 4;
     }
 
