@@ -1,6 +1,6 @@
 /* Accessibility */
 .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
-.skip-link { position:absolute;top:-100%;left:0;background:var(--lime-green);color:var(--primary-black);padding:0.5rem 1rem;z-index:10000;font-weight:600;text-decoration:none; }
+.skip-link { position:absolute;top:-100%;left:0;background:var(--lime-green);color:var(--primary-black);padding:0.5rem 1rem;z-index:10000;font-weight:var(--font-weight-semibold);text-decoration:none; }
 .skip-link:focus { top:0; }
 
 /* Reset and Base Styles */
@@ -42,12 +42,51 @@
     --color-text-secondary: var(--text-gray);
     --color-glass-border: rgba(255, 255, 255, 0.08);
     --color-glass-bg: rgba(255, 255, 255, 0.04);
+
+    /* Typography — system stack */
+    --font-system: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                   "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+    /* Font weights */
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-heavy: 800;
+
+    /* Type scale — Apple HIG-adapted for web */
+    --font-size-display: 3rem;
+    --font-size-display-sm: 2.25rem;
+    --font-size-large-title: 2rem;
+    --font-size-title1: 1.75rem;
+    --font-size-title2: 1.5rem;
+    --font-size-title3: 1.25rem;
+    --font-size-headline: 1.0625rem;
+    --font-size-body: 1rem;
+    --font-size-callout: 0.9375rem;
+    --font-size-subhead: 0.875rem;
+    --font-size-footnote: 0.8125rem;
+    --font-size-caption1: 0.75rem;
+    --font-size-caption2: 0.6875rem;
+
+    /* Line heights */
+    --line-height-tight: 1.15;
+    --line-height-snug: 1.25;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.65;
+    --line-height-loose: 1.8;
+
+    /* Letter spacing (tracking) */
+    --tracking-tight: -0.02em;
+    --tracking-snug: -0.01em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.02em;
+    --tracking-caps: 0.06em;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
-                 "Segoe UI", Roboto, "Poppins", Helvetica, Arial, sans-serif;
-    line-height: 1.5;
+    font-family: var(--font-system);
+    line-height: var(--line-height-normal);
     color: var(--text-light);
     background-color: var(--primary-black);
     overflow-x: hidden;
@@ -82,7 +121,7 @@ body {
 .bark-link {
     color: var(--lime-green);
     text-decoration: underline;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
@@ -99,7 +138,7 @@ body {
 .contact-methods-section { padding: 64px 0 32px }
 .contact-methods-section h2 {
     text-align: center;
-    font-size: 1.5rem;
+    font-size: var(--font-size-title2);
     margin-bottom: 8px;
     color: #fff;
 }
@@ -131,10 +170,10 @@ body {
     border-color: var(--lime-green);
     transform: translateY(-2px);
 }
-.contact-method-card .method-icon { font-size: 2rem }
-.contact-method-card .method-label { color: var(--lime-green); font-weight: 600; font-size: 1.1rem }
-.contact-method-card .method-value { color: #fff; font-size: 1rem }
-.contact-method-card .method-hint { color: #e0e0e0; font-size: 0.85rem }
+.contact-method-card .method-icon { font-size: var(--font-size-large-title) }
+.contact-method-card .method-label { color: var(--lime-green); font-weight: var(--font-weight-semibold); font-size: var(--font-size-headline) }
+.contact-method-card .method-value { color: #fff; font-size: var(--font-size-body) }
+.contact-method-card .method-hint { color: #e0e0e0; font-size: var(--font-size-subhead) }
 
 /* Contact page divider */
 .contact-divider {
@@ -153,13 +192,13 @@ body {
     background: #000;
     padding: 0 24px;
     color: #e0e0e0;
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
 }
 
 /* Contact social section */
 .contact-social-section { padding: 48px 0 64px }
 .contact-social-section h2 {
-    font-size: 1.3rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 8px;
     color: #fff;
 }
@@ -187,16 +226,16 @@ body {
 }
 .gallery-intro p {
     color: #e0e0e0;
-    line-height: 1.8;
-    font-size: 1.05rem;
+    line-height: var(--line-height-loose);
+    font-size: var(--font-size-headline);
 }
 
 /* My Story intro */
 .story-grid { grid-template-columns: 1fr }
 .story-card { text-align: left }
 .story-card p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    font-size: var(--font-size-headline);
+    line-height: var(--line-height-loose);
     margin-bottom: 24px;
 }
 .story-card p:last-child { margin-bottom: 0 }
@@ -205,7 +244,7 @@ body {
 .why-choose--alt { background: var(--secondary-black) }
 
 /* Section subtitle label style */
-.section-subtitle--label { margin-bottom: 8px; text-transform: uppercase; letter-spacing: 2px }
+.section-subtitle--label { margin-bottom: 8px; text-transform: uppercase; letter-spacing: var(--tracking-caps) }
 
 /* Crop 20% from top and bottom - focuses on center of image */
 .crop-vertical-20 {
@@ -321,8 +360,8 @@ body {
     position: relative;
     display: inline-block;
     overflow: hidden;
-    font-size: 1.8rem;
-    font-weight: 700;
+    font-size: var(--font-size-title1);
+    font-weight: var(--font-weight-bold);
     color: var(--lime-green);
     text-decoration: none;
 }
@@ -383,11 +422,11 @@ body {
 .nav-menu a {
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     transition: all 0.25s var(--ease-interactive);
     text-transform: none;
-    font-size: 0.9rem;
-    letter-spacing: 0.3px;
+    font-size: var(--font-size-subhead);
+    letter-spacing: var(--tracking-wide);
     padding: 0.5rem 0.75rem;
     border-radius: var(--radius-sm);
     position: relative;
@@ -413,7 +452,7 @@ body {
     padding: 10px 25px;
     border-radius: var(--radius-full);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     transition: all 0.3s;
     box-shadow:
         0 4px 15px rgba(139, 195, 74, 0.3),
@@ -501,7 +540,7 @@ body {
     border-radius: var(--radius-sm);
     transition: all 0.25s var(--ease-interactive);
     color: rgba(255, 255, 255, 0.9);
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     position: relative;
     overflow: hidden;
 }
@@ -666,22 +705,22 @@ body {
 
 .hero-tagline {
     color: var(--lime-green);
-    font-size: 1.1rem;
+    font-size: var(--font-size-headline);
     margin-bottom: 0.8rem;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: var(--font-size-display);
     margin-bottom: 0.8rem;
-    font-weight: 700;
+    font-weight: var(--font-weight-bold);
     text-transform: none;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--line-height-tight);
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 1.5rem;
     color: var(--text-gray);
 }
@@ -696,8 +735,8 @@ body {
     padding: 12px 32px;
     border: none;
     border-radius: var(--radius-full);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
     cursor: pointer;
     transition: all 0.25s var(--ease-interactive);
     text-decoration: none;
@@ -705,7 +744,7 @@ body {
     align-items: center;
     justify-content: center;
     text-transform: none;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--tracking-wide);
     /* Touch-friendly minimum height */
     min-height: 48px;
     -webkit-tap-highlight-color: transparent;
@@ -965,8 +1004,8 @@ body {
 }
 
 .trust-number {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: var(--font-size-display-sm);
+    font-weight: var(--font-weight-heavy);
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 0.5rem;
     display: flex;
@@ -989,9 +1028,9 @@ body {
 
 .trust-label {
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: var(--tracking-caps);
 }
 
 /* Expertise Section */
@@ -1012,7 +1051,7 @@ body {
 }
 
 .expertise-icon {
-    font-size: 3rem;
+    font-size: var(--font-size-display);
     color: var(--lime-green);
     margin-bottom: 1rem;
     background: rgba(139, 195, 74, 0.1);
@@ -1057,13 +1096,13 @@ body {
 .expertise-item h3 {
     color: var(--primary-black);
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: var(--font-size-title2);
     text-transform: none;
 }
 
 .expertise-item p {
     color: #666;
-    line-height: 1.8;
+    line-height: var(--line-height-loose);
 }
 
 /* Why Choose Me Section */
@@ -1135,17 +1174,17 @@ body {
 }
 
 .why-text h2 {
-    font-size: 2.25rem;
+    font-size: var(--font-size-display-sm);
     margin-bottom: 1.5rem;
     color: var(--text-light);
     text-transform: none;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--tracking-snug);
 }
 
 .why-text p {
     color: var(--text-gray);
     margin-bottom: 2rem;
-    line-height: 1.8;
+    line-height: var(--line-height-loose);
 }
 
 .why-text {
@@ -1165,7 +1204,7 @@ body {
     color: var(--primary-black);
     padding: 1rem 2rem;
     border-radius: var(--radius-full);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     text-align: center;
     transition: all 0.25s var(--ease-interactive);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1225,11 +1264,11 @@ body {
 
 .section-title {
     text-align: center;
-    font-size: 2.25rem;
+    font-size: var(--font-size-display-sm);
     margin-bottom: 1rem;
     color: var(--primary-black);
     text-transform: none;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--tracking-snug);
     position: relative;
     padding-bottom: 1rem;
 }
@@ -1250,7 +1289,7 @@ body {
     text-align: center;
     color: var(--lime-green);
     margin-bottom: 3rem;
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
 }
 
 .services-grid {
@@ -1307,7 +1346,7 @@ a.service-card {
 .service-card h3 {
     padding: 1.5rem 1.5rem 0.5rem;
     color: var(--primary-black);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .service-card p {
@@ -1394,25 +1433,25 @@ a.service-card {
 
 .stars {
     color: var(--lime-green);
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 1rem;
 }
 
 .review-card p {
     color: #555;
-    line-height: 1.8;
+    line-height: var(--line-height-loose);
     margin-bottom: 1rem;
     font-style: italic;
 }
 
 .reviewer {
     color: var(--primary-black);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
 }
 
 .review-event {
     color: var(--lime-green);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
 }
 
 /* Contact Section */
@@ -1427,7 +1466,7 @@ a.service-card {
 }
 
 .contact-intro {
-    font-size: 1.3rem;
+    font-size: var(--font-size-title3);
     color: var(--text-light);
 }
 
@@ -1498,10 +1537,10 @@ a.service-card {
 }
 
 .contact-link {
-    font-size: 0.95rem;
+    font-size: var(--font-size-callout);
     color: var(--text-light);
     text-decoration: none;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     display: block;
     margin-bottom: 0.5rem;
     transition: color 0.3s;
@@ -1513,13 +1552,13 @@ a.service-card {
 }
 
 .contact-text {
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
     color: var(--text-light);
     margin-bottom: 0.5rem;
 }
 
 .contact-note {
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     color: var(--text-gray);
 }
 
@@ -1567,9 +1606,9 @@ a.service-card {
 .footer-nav a {
     color: var(--text-gray);
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    font-size: var(--font-size-subhead);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-wide);
     transition: color 0.25s var(--ease-interactive);
     min-height: 44px;
     display: inline-flex;
@@ -1608,9 +1647,9 @@ a.service-card {
     border: 1px solid var(--text-gray);
     color: var(--white);
     text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    letter-spacing: 0.5px;
+    font-size: var(--font-size-subhead);
+    font-weight: var(--font-weight-medium);
+    letter-spacing: var(--tracking-wide);
     border-radius: 4px;
     transition: all 0.3s;
 }
@@ -1649,8 +1688,8 @@ a.service-card {
 
 .footer-trust {
     color: var(--lime-green);
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: var(--font-size-subhead);
+    font-weight: var(--font-weight-medium);
     margin-top: 0.5rem;
 }
 
@@ -1664,14 +1703,14 @@ a.service-card {
 }
 
 .footer-contact p {
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     color: var(--text-gray);
     margin: 0;
 }
 
 .footer-contact span {
     color: var(--lime-green);
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     margin-right: 0.5rem;
 }
 
@@ -1683,7 +1722,7 @@ a.service-card {
 
 .footer-bottom p {
     color: var(--text-gray);
-    font-size: 0.85rem;
+    font-size: var(--font-size-subhead);
     opacity: 0.7;
 }
 
@@ -1840,16 +1879,16 @@ a.service-card {
     }
 
     .hero-tagline {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
     }
 
     .hero-title {
-        font-size: 2.2rem;
-        line-height: 1.15;
+        font-size: var(--font-size-display-sm);
+        line-height: var(--line-height-tight);
     }
 
     .hero-description {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
     }
 
     .hero-text {
@@ -1901,7 +1940,7 @@ a.service-card {
     }
 
     .hero-title {
-        font-size: 2.2rem;
+        font-size: var(--font-size-display-sm);
     }
 
     .hero-buttons {
@@ -2144,9 +2183,9 @@ a.service-card {
 
     /* Nav label styling */
     .nav-menu .nav-label {
-        font-size: 0.8rem;
-        font-weight: 500;
-        letter-spacing: 0.3px;
+        font-size: var(--font-size-footnote);
+        font-weight: var(--font-weight-medium);
+        letter-spacing: var(--tracking-wide);
         text-align: center;
     }
 
@@ -2255,7 +2294,7 @@ a.service-card {
 
     .nav-menu .get-quote-btn .nav-label {
         color: var(--primary-black);
-        font-weight: 600;
+        font-weight: var(--font-weight-semibold);
     }
 
     .nav-menu .get-quote-btn:active {
@@ -2290,19 +2329,19 @@ a.service-card {
     }
 
     .hero-tagline {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         order: -2;
         margin-bottom: 1.5rem;
         padding: 0 20px;
     }
 
     .hero-title {
-        font-size: 2rem;
-        line-height: 1.2;
+        font-size: var(--font-size-large-title);
+        line-height: var(--line-height-snug);
     }
 
     .hero-description {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
     }
 
     /* Mobile hero image */
@@ -2365,7 +2404,7 @@ a.service-card {
     }
 
     .contact-link {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     .hero-buttons {
@@ -2386,7 +2425,7 @@ a.service-card {
     }
 
     .trust-number {
-        font-size: 1.75rem;
+        font-size: var(--font-size-title1);
         margin-bottom: 0.25rem;
     }
 
@@ -2398,7 +2437,7 @@ a.service-card {
     }
 
     .trust-label {
-        font-size: 0.75rem;
+        font-size: var(--font-size-caption1);
     }
 
     /* Shimmer effect on scroll */
@@ -2493,7 +2532,7 @@ a.service-card {
 
     /* Section titles - refined mobile sizing */
     .section-title {
-        font-size: 1.6rem;
+        font-size: var(--font-size-title2);
         margin-bottom: 0.75rem;
         padding-bottom: 0.75rem;
     }
@@ -2504,7 +2543,7 @@ a.service-card {
     }
 
     .section-subtitle {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
         margin-bottom: 2rem;
         padding: 0 10px;
     }
@@ -2571,13 +2610,13 @@ a.service-card {
     }
 
     .expertise-item h3 {
-        font-size: 1.1rem;
+        font-size: var(--font-size-headline);
         margin-bottom: 0.5rem;
     }
 
     .expertise-item p {
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: var(--font-size-subhead);
+        line-height: var(--line-height-relaxed);
     }
 
     /* ============================================
@@ -2643,13 +2682,13 @@ a.service-card {
 
     .service-card h3 {
         padding: 1.25rem 1.25rem 0.5rem;
-        font-size: 1.15rem;
+        font-size: var(--font-size-headline);
     }
 
     .service-card p {
         padding: 0 1.25rem 1.25rem;
-        font-size: 0.9rem;
-        line-height: 1.5;
+        font-size: var(--font-size-subhead);
+        line-height: var(--line-height-normal);
         color: #555;
     }
 
@@ -2674,13 +2713,13 @@ a.service-card {
     }
 
     .why-text h2 {
-        font-size: 1.6rem;
+        font-size: var(--font-size-title2);
         margin-bottom: 1rem;
         text-align: center;
     }
 
     .why-text p {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
         text-align: center;
         margin-bottom: 1.5rem;
     }
@@ -2691,7 +2730,7 @@ a.service-card {
 
     .value-item {
         padding: 0.9rem 1.5rem;
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
         border-radius: var(--radius-lg);
     }
 
@@ -2841,15 +2880,15 @@ a.service-card {
     }
 
     .stars {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         margin-bottom: 0.75rem;
         /* Subtle glow on stars */
         text-shadow: 0 0 10px rgba(139, 195, 74, 0.3);
     }
 
     .review-card p {
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: var(--font-size-subhead);
+        line-height: var(--line-height-relaxed);
         margin-bottom: 0.75rem;
         /* Limit text for cleaner mobile view */
         display: -webkit-box;
@@ -2859,11 +2898,11 @@ a.service-card {
     }
 
     .reviewer {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
     }
 
     .review-event {
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
     }
 
     /* ============================================
@@ -2898,23 +2937,23 @@ a.service-card {
     }
 
     .contact-card h3 {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         margin-bottom: 0.5rem;
     }
 
     .contact-link {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         /* Make the whole area tappable */
         padding: 0.25rem 0;
     }
 
     .contact-note {
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
         margin-top: 0.25rem;
     }
 
     .contact-text {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
     }
 
     /* ============================================
@@ -2930,7 +2969,7 @@ a.service-card {
 
     .footer-cta {
         padding: 0.9rem 2rem;
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     .footer-social {
@@ -2943,16 +2982,16 @@ a.service-card {
     }
 
     .footer-trust {
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
     }
 
     .footer-nav a {
-        font-size: 0.75rem;
+        font-size: var(--font-size-caption1);
         padding: 0.25rem 0;
     }
 
     .footer-contact p {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     .footer-bottom {
@@ -2961,7 +3000,7 @@ a.service-card {
     }
 
     .footer-bottom p {
-        font-size: 0.75rem;
+        font-size: var(--font-size-caption1);
     }
 
     /* ============================================
@@ -2969,7 +3008,7 @@ a.service-card {
        ============================================ */
     .btn {
         padding: 14px 28px;
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
         /* Minimum touch target */
         min-height: 48px;
         display: inline-flex;
@@ -2989,7 +3028,7 @@ a.service-card {
 
     .hero-buttons .btn {
         padding: 12px 20px;
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* Social links in hero - compact */
@@ -3002,19 +3041,19 @@ a.service-card {
     .social-links-hero a {
         width: 38px;
         height: 38px;
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 }
 
 /* Extra small devices (iPhone SE, etc.) */
 @media (max-width: 375px) {
     .hero-title {
-        font-size: 1.6rem;
-        line-height: 1.25;
+        font-size: var(--font-size-title2);
+        line-height: var(--line-height-snug);
     }
 
     .hero-tagline {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
         margin-bottom: 1rem;
     }
 
@@ -3035,7 +3074,7 @@ a.service-card {
     }
 
     .hero-description {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .hero-buttons {
@@ -3062,12 +3101,12 @@ a.service-card {
     }
 
     .trust-number {
-        font-size: 1.4rem;
+        font-size: var(--font-size-title2);
     }
 
     .trust-label {
-        font-size: 0.65rem;
-        letter-spacing: 0.5px;
+        font-size: var(--font-size-caption2);
+        letter-spacing: var(--tracking-wide);
     }
 
     .logo img {
@@ -3094,11 +3133,11 @@ a.service-card {
     }
 
     .section-title {
-        font-size: 1.4rem;
+        font-size: var(--font-size-title2);
     }
 
     .section-subtitle {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* Expertise adjustments */
@@ -3121,11 +3160,11 @@ a.service-card {
     }
 
     .expertise-item h3 {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
     }
 
     .expertise-item p {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* Services adjustments */
@@ -3138,13 +3177,13 @@ a.service-card {
     }
 
     .service-card h3 {
-        font-size: 1.05rem;
+        font-size: var(--font-size-headline);
         padding: 1rem 1rem 0.4rem;
     }
 
     .service-card p {
         padding: 0 1rem 1rem;
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* Why choose adjustments */
@@ -3154,16 +3193,16 @@ a.service-card {
     }
 
     .why-text h2 {
-        font-size: 1.4rem;
+        font-size: var(--font-size-title2);
     }
 
     .why-text p {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .value-item {
         padding: 0.8rem 1.25rem;
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .why-images img {
@@ -3191,7 +3230,7 @@ a.service-card {
     }
 
     .review-card p {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
         -webkit-line-clamp: 5;
     }
 
@@ -3202,11 +3241,11 @@ a.service-card {
     }
 
     .contact-card h3 {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
     }
 
     .contact-link {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* Footer adjustments */
@@ -3220,7 +3259,7 @@ a.service-card {
 
     .footer-cta {
         padding: 0.8rem 1.75rem;
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
     }
 
     .footer-social {
@@ -3233,13 +3272,13 @@ a.service-card {
     }
 
     .footer-nav a {
-        font-size: 0.7rem;
+        font-size: var(--font-size-caption2);
     }
 
     /* Buttons */
     .btn {
         padding: 12px 24px;
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
         min-height: 44px;
     }
 
@@ -3384,14 +3423,14 @@ a.service-card {
 
 .quote-header .section-title {
     color: var(--text-light);
-    font-size: 1.75rem;
+    font-size: var(--font-size-title1);
     margin-bottom: 0.5rem;
 }
 
 .quote-header .section-subtitle {
     color: var(--text-gray);
-    font-size: 0.95rem;
-    font-weight: 400;
+    font-size: var(--font-size-callout);
+    font-weight: var(--font-weight-regular);
 }
 
 /* ===========================================
@@ -3431,10 +3470,10 @@ a.service-card {
 }
 
 .step-label {
-    font-size: 0.7rem;
+    font-size: var(--font-size-caption2);
     color: var(--text-gray);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: var(--tracking-caps);
 }
 
 .progress-step.active .step-label {
@@ -3495,7 +3534,7 @@ a.service-card {
 
 .step-intro {
     color: var(--text-gray);
-    font-size: 0.85rem;
+    font-size: var(--font-size-subhead);
     text-align: center;
     margin-bottom: 1.25rem;
 }
@@ -3567,9 +3606,9 @@ a.service-card {
 /* Labels - Touch-friendly sizing */
 .form-group label {
     color: var(--text-gray);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     margin-bottom: 0.6rem;
-    font-weight: 500;
+    font-weight: var(--font-weight-medium);
     display: block;
     /* Larger tap target for label */
     padding: 0.15rem 0;
@@ -3586,10 +3625,10 @@ a.service-card {
     padding: 15px 18px;
     min-height: 52px;
     color: var(--text-light);
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-system);
     /* 16px prevents iOS zoom on focus */
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: var(--font-size-body) /* >= 16px prevents iOS zoom */;
+    line-height: var(--line-height-normal);
     transition: all 0.2s ease;
     width: 100%;
     -webkit-appearance: none;
@@ -3649,7 +3688,7 @@ a.service-card {
 /* Field hints */
 .field-hint {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption1);
     color: var(--text-gray);
     margin-top: 0.4rem;
     opacity: 0.8;
@@ -3754,7 +3793,7 @@ a.service-card {
 .suburb-suggestions li {
     padding: 12px 18px;
     color: var(--text-light);
-    font-size: 0.95rem;
+    font-size: var(--font-size-callout);
     cursor: pointer;
     transition: background 0.15s ease;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -3771,7 +3810,7 @@ a.service-card {
 }
 
 .suburb-suggestions li .suburb-region {
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption1);
     color: var(--text-gray);
     margin-left: 0.5rem;
 }
@@ -3821,8 +3860,8 @@ a.service-card {
 /* Primary text - size name */
 .guest-chip strong {
     display: block;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
     color: #ffffff;
     margin-bottom: 4px;
 }
@@ -3830,8 +3869,8 @@ a.service-card {
 /* Secondary text - guest count */
 .guest-chip span {
     display: block;
-    font-size: 0.75rem;
-    font-weight: 400;
+    font-size: var(--font-size-caption1);
+    font-weight: var(--font-weight-regular);
     color: rgba(255, 255, 255, 0.5);
 }
 
@@ -3896,8 +3935,8 @@ a.service-card {
     /* Touch-friendly: 48px+ min height */
     min-height: 52px;
     padding: 14px 24px;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-semibold);
     border-radius: var(--radius-md);
     /* Better touch response */
     -webkit-tap-highlight-color: transparent;
@@ -3988,20 +4027,20 @@ a.service-card {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.75rem;
+    font-size: var(--font-size-title1);
     color: var(--primary-black);
     box-shadow: 0 0 30px rgba(139, 195, 74, 0.5);
 }
 
 .form-success h3 {
     color: var(--text-light);
-    font-size: 1.5rem;
+    font-size: var(--font-size-title2);
     margin-bottom: 0.5rem;
 }
 
 .form-success p {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: var(--font-size-callout);
 }
 
 .success-signature {
@@ -4017,8 +4056,8 @@ a.service-card {
     /* Touch-friendly: 54px+ height */
     min-height: 54px;
     padding: 16px 32px;
-    font-size: 1.1rem;
-    font-weight: 600;
+    font-size: var(--font-size-headline);
+    font-weight: var(--font-weight-semibold);
     border-radius: var(--radius-md);
     position: relative;
     -webkit-tap-highlight-color: transparent;
@@ -4041,7 +4080,7 @@ a.service-card {
 .form-note {
     text-align: center;
     color: var(--lime-green);
-    font-size: 0.8rem;
+    font-size: var(--font-size-footnote);
     margin-top: 1rem;
     opacity: 0.9;
 }
@@ -4056,7 +4095,7 @@ a.service-card {
 
 .quote-alternative p {
     color: var(--text-gray);
-    font-size: 0.85rem;
+    font-size: var(--font-size-subhead);
     margin-bottom: 0.75rem;
 }
 
@@ -4080,8 +4119,8 @@ a.service-card {
     border-radius: var(--radius-md);
     color: var(--text-light);
     text-decoration: none;
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: var(--font-size-subhead);
+    font-weight: var(--font-weight-medium);
     transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     -webkit-tap-highlight-color: transparent;
     touch-action: manipulation;
@@ -4090,7 +4129,7 @@ a.service-card {
 }
 
 .quick-link span:first-child {
-    font-size: 1.25rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 0.25rem;
 }
 
@@ -4112,7 +4151,7 @@ a.service-card {
 }
 
 .success-message h3 {
-    font-size: 1.35rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 0.5rem;
     color: var(--lime-green);
 }
@@ -4128,7 +4167,7 @@ a.service-card {
     }
 
     .quote-header .section-title {
-        font-size: 2.5rem;
+        font-size: var(--font-size-display-sm);
     }
 
     .quote-form-container {
@@ -4233,14 +4272,14 @@ a.service-card {
 
 .contact-card-header h2 {
     color: var(--text-light);
-    font-size: 1.35rem;
-    line-height: 1.3;
+    font-size: var(--font-size-title3);
+    line-height: var(--line-height-snug);
     margin-bottom: 0.5rem;
 }
 
 .contact-card-header p {
     color: var(--text-gray);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     margin-bottom: 1.25rem;
 }
 
@@ -4251,8 +4290,8 @@ a.service-card {
     justify-content: center;
     width: 100%;
     padding: 18px 24px;
-    font-size: 1.05rem;
-    font-weight: 600;
+    font-size: var(--font-size-headline);
+    font-weight: var(--font-weight-semibold);
     margin-bottom: 1.25rem;
     min-height: 56px;
     border-radius: var(--radius-md);
@@ -4283,7 +4322,7 @@ a.service-card {
 
 .contact-card-divider span {
     color: var(--text-gray);
-    font-size: 0.8rem;
+    font-size: var(--font-size-footnote);
     white-space: nowrap;
 }
 
@@ -4324,27 +4363,27 @@ a.service-card {
 }
 
 .contact-option-icon {
-    font-size: 1.35rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 0.35rem;
 }
 
 .contact-option-label {
     color: var(--text-gray);
-    font-size: 0.65rem;
+    font-size: var(--font-size-caption2);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--tracking-wide);
     margin-bottom: 0.15rem;
 }
 
 .contact-option-value {
     color: var(--text-light);
-    font-size: 0.75rem;
-    font-weight: 500;
+    font-size: var(--font-size-caption1);
+    font-weight: var(--font-weight-medium);
 }
 
 .contact-card-note {
     color: var(--lime-green);
-    font-size: 0.75rem;
+    font-size: var(--font-size-caption1);
     opacity: 0.9;
 }
 
@@ -4364,11 +4403,11 @@ a.service-card {
     }
 
     .contact-card-header h2 {
-        font-size: 2rem;
+        font-size: var(--font-size-large-title);
     }
 
     .contact-card-header p {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         margin-bottom: 1.5rem;
     }
 
@@ -4377,7 +4416,7 @@ a.service-card {
         width: auto;
         display: inline-block;
         padding: 16px 40px;
-        font-size: 1.1rem;
+        font-size: var(--font-size-headline);
     }
 
     .contact-card-cta:hover {
@@ -4400,18 +4439,30 @@ a.service-card {
     }
 
     .contact-option-icon {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .contact-option-label {
-        font-size: 0.7rem;
+        font-size: var(--font-size-caption2);
     }
 
     .contact-option-value {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     .contact-card-note {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 }
+
+/* Privacy Policy */
+.policy-section { padding: 8rem 0 4rem; }
+.policy-container { max-width: 800px; }
+.policy-title { margin-bottom: var(--space-8); }
+.policy-date { color: var(--color-text-secondary); margin-bottom: var(--space-8); }
+.policy-heading { margin: var(--space-8) 0 var(--space-4); font-size: var(--font-size-title3); }
+.policy-text { margin-bottom: var(--space-4); line-height: var(--line-height-loose); color: var(--color-text-secondary); }
+.policy-text-short { margin-bottom: 0.5rem; line-height: var(--line-height-loose); color: var(--color-text-secondary); }
+.policy-list { margin-bottom: var(--space-4); padding-left: 1.5rem; color: var(--color-text-secondary); line-height: 2; }
+.policy-link { color: var(--color-accent); }
+.policy-inline-label { color: var(--color-text-primary); }

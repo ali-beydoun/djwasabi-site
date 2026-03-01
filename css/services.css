@@ -114,15 +114,15 @@
 
 .service-hero .hero-title {
     color: var(--white);
-    font-size: 3rem;
-    font-weight: 700;
-    line-height: 1.2;
+    font-size: var(--font-size-display);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-snug);
     margin-bottom: 1rem;
 }
 
 .service-hero .hero-subtitle {
     color: var(--text-gray);
-    font-size: 1.25rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 1.5rem;
 }
 
@@ -202,8 +202,8 @@
     color: var(--lime-green);
     padding: 0.5rem 1.25rem;
     border-radius: var(--radius-full);
-    font-size: 0.85rem;
-    font-weight: 500;
+    font-size: var(--font-size-subhead);
+    font-weight: var(--font-weight-medium);
     box-shadow:
         0 2px 10px rgba(139, 195, 74, 0.15),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -235,17 +235,17 @@
 }
 
 .trust-number {
-    font-size: 2.5rem;
-    font-weight: 800;
+    font-size: var(--font-size-display-sm);
+    font-weight: var(--font-weight-heavy);
     color: var(--lime-green);
     margin-bottom: 0.5rem;
 }
 
 .trust-label {
     color: var(--text-dark);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: var(--tracking-caps);
 }
 
 /* Why Wedding Section */
@@ -276,19 +276,19 @@
 }
 
 .benefit-icon {
-    font-size: 3rem;
+    font-size: var(--font-size-display);
     margin-bottom: 1rem;
 }
 
 .benefit-card h3 {
     color: var(--primary-black);
     margin-bottom: 1rem;
-    font-size: 1.3rem;
+    font-size: var(--font-size-title3);
 }
 
 .benefit-card p {
     color: #666;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Packages Section */
@@ -332,8 +332,8 @@
     color: var(--primary-black);
     padding: 0.5rem 1.5rem;
     border-radius: var(--radius-lg);
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-subhead);
 }
 
 .package-header {
@@ -344,14 +344,14 @@
 
 .package-header h3 {
     color: var(--white);
-    font-size: 1.8rem;
+    font-size: var(--font-size-title1);
     margin-bottom: 1rem;
 }
 
 .package-price {
     color: var(--lime-green);
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: var(--font-size-title2);
+    font-weight: var(--font-weight-semibold);
 }
 
 .package-features {
@@ -414,8 +414,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 700;
+    font-size: var(--font-size-title2);
+    font-weight: var(--font-weight-bold);
     margin: 0 auto 1.5rem;
     box-shadow: 0 5px 20px rgba(139, 195, 74, 0.3);
 }
@@ -427,7 +427,7 @@
 
 .process-step p {
     color: #666;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
 }
 
 /* Testimonials Section */
@@ -462,16 +462,16 @@
 
 .testimonial-card .stars {
     color: var(--lime-green);
-    font-size: 1.3rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 1rem;
 }
 
 .testimonial-card p {
     color: var(--text-gray);
-    line-height: 1.8;
+    line-height: var(--line-height-loose);
     margin-bottom: 1.5rem;
     font-style: italic;
-    font-size: 1.05rem;
+    font-size: var(--font-size-headline);
 }
 
 .testimonial-author strong {
@@ -482,7 +482,7 @@
 
 .testimonial-author span {
     color: var(--lime-green);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
 }
 
 /* Venues Section */
@@ -503,7 +503,7 @@
     padding: 2rem;
     border-radius: var(--radius-md);
     text-align: center;
-    font-weight: 600;
+    font-weight: var(--font-weight-semibold);
     color: #333;
     box-shadow: 0 12px 40px rgba(0,0,0,0.04);
     transition: all 0.25s var(--ease-interactive);
@@ -537,12 +537,12 @@
 .faq-item h3 {
     color: var(--primary-black);
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
 }
 
 .faq-item p {
     color: #666;
-    line-height: 1.6;
+    line-height: var(--line-height-relaxed);
 }
 
 /* CTA Section */
@@ -554,14 +554,14 @@
 
 .cta-content h2 {
     color: var(--white);
-    font-size: 2.25rem;
+    font-size: var(--font-size-display-sm);
     margin-bottom: 1rem;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--tracking-snug);
 }
 
 .cta-content p {
     color: var(--text-gray);
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 2rem;
 }
 
@@ -575,17 +575,17 @@
 
 .btn-large {
     padding: 15px 35px;
-    font-size: 1.1rem;
+    font-size: var(--font-size-headline);
 }
 
 .btn-icon {
     margin-right: 0.5rem;
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
 }
 
 .cta-note {
     color: var(--lime-green);
-    font-size: 0.9rem;
+    font-size: var(--font-size-subhead);
     margin-top: 1rem;
 }
 
@@ -607,9 +607,9 @@
 .footer-section h4 {
     color: var(--lime-green);
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
+    font-size: var(--font-size-headline);
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: var(--tracking-wide);
 }
 
 .footer-section ul {
@@ -720,11 +720,11 @@
 }
 
 .experience-title {
-    font-size: 2.25rem;
+    font-size: var(--font-size-display-sm);
     color: var(--text-light);
     margin-bottom: 1.5rem;
     text-transform: none;
-    letter-spacing: -0.01em;
+    letter-spacing: var(--tracking-snug);
     position: relative;
     padding-bottom: 1rem;
 }
@@ -741,15 +741,15 @@
 }
 
 .experience-lead {
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
     color: var(--text-light);
-    line-height: 1.8;
+    line-height: var(--line-height-loose);
     margin-bottom: 1.5rem;
 }
 
 .experience-note {
     color: var(--text-gray);
-    line-height: 1.8;
+    line-height: var(--line-height-loose);
     margin-bottom: 2rem;
     font-style: italic;
 }
@@ -769,10 +769,10 @@
 
 .experience-card h3 {
     color: var(--lime-green);
-    font-size: 1.4rem;
+    font-size: var(--font-size-title2);
     margin-bottom: 1.5rem;
     text-transform: none;
-    letter-spacing: 0;
+    letter-spacing: var(--tracking-normal);
 }
 
 .experience-features {
@@ -794,7 +794,7 @@
 }
 
 .feature-icon {
-    font-size: 1.3rem;
+    font-size: var(--font-size-title3);
     width: 30px;
     text-align: center;
     flex-shrink: 0;
@@ -802,8 +802,8 @@
 
 .feature-text {
     color: var(--text-gray);
-    font-size: 1rem;
-    line-height: 1.5;
+    font-size: var(--font-size-body);
+    line-height: var(--line-height-normal);
 }
 
 /* Enhancements Section */
@@ -838,20 +838,20 @@
 }
 
 .enhancement-icon {
-    font-size: 2.5rem;
+    font-size: var(--font-size-display-sm);
     margin-bottom: 1rem;
 }
 
 .enhancement-item h3 {
     color: var(--primary-black);
-    font-size: 1.2rem;
+    font-size: var(--font-size-title3);
     margin-bottom: 0.75rem;
 }
 
 .enhancement-item p {
     color: #666;
-    font-size: 0.95rem;
-    line-height: 1.6;
+    font-size: var(--font-size-callout);
+    line-height: var(--line-height-relaxed);
 }
 
 .enhancements-cta {
@@ -863,7 +863,7 @@
 
 .enhancements-cta p {
     color: #666;
-    font-size: 1.1rem;
+    font-size: var(--font-size-headline);
     margin-bottom: 1.5rem;
     font-style: italic;
 }
@@ -888,7 +888,7 @@
     }
 
     .service-hero .hero-title {
-        font-size: 2.5rem;
+        font-size: var(--font-size-display-sm);
     }
 
     .service-hero .hero-image img {
@@ -907,7 +907,7 @@
     }
 
     .experience-title {
-        font-size: 2rem;
+        font-size: var(--font-size-large-title);
     }
 
     .experience-title::after {
@@ -986,13 +986,13 @@
     }
 
     .service-hero .hero-title {
-        font-size: 1.75rem;
-        line-height: 1.25;
+        font-size: var(--font-size-title1);
+        line-height: var(--line-height-snug);
         margin-bottom: 0.5rem;
     }
 
     .service-hero .hero-subtitle {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         margin-bottom: 1rem;
         color: rgba(255, 255, 255, 0.7);
     }
@@ -1055,7 +1055,7 @@
 
     .service-hero .btn {
         padding: 12px 24px;
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
         min-height: 46px;
     }
 
@@ -1068,7 +1068,7 @@
 
     .feature-badge {
         padding: 0.4rem 0.9rem;
-        font-size: 0.75rem;
+        font-size: var(--font-size-caption1);
         border-radius: var(--radius-lg);
     }
 
@@ -1199,7 +1199,7 @@
     }
 
     .trust-number {
-        font-size: 1.75rem;
+        font-size: var(--font-size-title1);
         margin-bottom: 0.4rem;
         color: rgba(255, 255, 255, 0.85);
         display: flex;
@@ -1216,8 +1216,8 @@
 
     .trust-label {
         color: rgba(255, 255, 255, 0.7);
-        font-size: 0.7rem;
-        letter-spacing: 0.5px;
+        font-size: var(--font-size-caption2);
+        letter-spacing: var(--tracking-wide);
         text-transform: uppercase;
     }
 
@@ -1231,7 +1231,7 @@
 
     .why-wedding .section-title {
         color: var(--primary-black);
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
         padding: 0 10px;
     }
 
@@ -1282,20 +1282,20 @@
     }
 
     .benefit-icon {
-        font-size: 2.5rem;
+        font-size: var(--font-size-display-sm);
         margin-bottom: 0.75rem;
     }
 
     .benefit-card h3 {
         color: var(--primary-black);
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         margin-bottom: 0.5rem;
     }
 
     .benefit-card p {
         color: #666;
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: var(--font-size-subhead);
+        line-height: var(--line-height-relaxed);
     }
 
     /* ============================================
@@ -1311,7 +1311,7 @@
     }
 
     .experience-title {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
         text-align: center;
     }
 
@@ -1322,12 +1322,12 @@
     }
 
     .experience-lead {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         text-align: center;
     }
 
     .experience-note {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
         text-align: center;
     }
 
@@ -1377,7 +1377,7 @@
     }
 
     .experience-card h3 {
-        font-size: 1.1rem;
+        font-size: var(--font-size-headline);
         margin-bottom: 1rem;
         text-align: center;
     }
@@ -1387,12 +1387,12 @@
     }
 
     .feature-icon {
-        font-size: 1.1rem;
+        font-size: var(--font-size-headline);
         width: 26px;
     }
 
     .feature-text {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* ============================================
@@ -1404,11 +1404,11 @@
     }
 
     .enhancements-section .section-title {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .enhancements-section .section-subtitle {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
         padding: 0 10px;
     }
 
@@ -1444,18 +1444,18 @@
     }
 
     .enhancement-icon {
-        font-size: 2rem;
+        font-size: var(--font-size-large-title);
         margin-bottom: 0.5rem;
     }
 
     .enhancement-item h3 {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
         margin-bottom: 0.4rem;
     }
 
     .enhancement-item p {
-        font-size: 0.8rem;
-        line-height: 1.5;
+        font-size: var(--font-size-footnote);
+        line-height: var(--line-height-normal);
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
@@ -1468,7 +1468,7 @@
     }
 
     .enhancements-cta p {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
         margin-bottom: 1rem;
     }
 
@@ -1481,7 +1481,7 @@
     }
 
     .process-section .section-title {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .process-timeline {
@@ -1517,20 +1517,20 @@
     .step-number {
         width: 50px;
         height: 50px;
-        font-size: 1.2rem;
+        font-size: var(--font-size-title3);
         margin: 0 auto 1rem;
         box-shadow: 0 4px 15px rgba(139, 195, 74, 0.3);
     }
 
     .process-step h3 {
-        font-size: 1.1rem;
+        font-size: var(--font-size-headline);
         margin-bottom: 0.5rem;
         color: var(--primary-black);
     }
 
     .process-step p {
-        font-size: 0.9rem;
-        line-height: 1.6;
+        font-size: var(--font-size-subhead);
+        line-height: var(--line-height-relaxed);
         color: #555;
     }
 
@@ -1543,7 +1543,7 @@
     }
 
     .testimonials-section .section-title {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     /* ============================================
@@ -1556,7 +1556,7 @@
 
     .venues-section .section-title {
         color: var(--primary-black);
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .venues-section .section-title::after {
@@ -1565,7 +1565,7 @@
 
     .venues-section .section-subtitle {
         color: #666;
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .venues-grid {
@@ -1579,8 +1579,8 @@
         background: var(--white);
         padding: 1.25rem 1rem;
         border-radius: var(--radius-md);
-        font-size: 0.8rem;
-        font-weight: 600;
+        font-size: var(--font-size-footnote);
+        font-weight: var(--font-weight-semibold);
         color: #333;
         border: none;
         box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
@@ -1607,7 +1607,7 @@
 
     .faq-section .section-title {
         color: var(--primary-black);
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .faq-section .section-title::after {
@@ -1635,14 +1635,14 @@
 
     .faq-item h3 {
         color: var(--primary-black);
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
         margin-bottom: 0.6rem;
     }
 
     .faq-item p {
         color: #666;
-        font-size: 0.85rem;
-        line-height: 1.6;
+        font-size: var(--font-size-subhead);
+        line-height: var(--line-height-relaxed);
     }
 
     /* ============================================
@@ -1670,12 +1670,12 @@
     }
 
     .cta-content h2 {
-        font-size: 1.6rem;
+        font-size: var(--font-size-title2);
         margin-bottom: 0.75rem;
     }
 
     .cta-content p {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         margin-bottom: 1.5rem;
     }
 
@@ -1689,12 +1689,12 @@
         width: 100%;
         max-width: 280px;
         padding: 14px 28px;
-        font-size: 1rem;
+        font-size: var(--font-size-body);
         justify-content: center;
     }
 
     .cta-note {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* ============================================
@@ -1778,11 +1778,11 @@
     }
 
     .service-hero .hero-title {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .service-hero .hero-subtitle {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .service-hero .hero-image img {
@@ -1792,12 +1792,12 @@
 
     .service-hero .btn {
         padding: 11px 20px;
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     .feature-badge {
         padding: 0.35rem 0.75rem;
-        font-size: 0.7rem;
+        font-size: var(--font-size-caption2);
     }
 
     /* Trust bar */
@@ -1810,11 +1810,11 @@
     }
 
     .trust-number {
-        font-size: 1.5rem;
+        font-size: var(--font-size-title2);
     }
 
     .trust-label {
-        font-size: 0.65rem;
+        font-size: var(--font-size-caption2);
     }
 
     /* Sections */
@@ -1835,7 +1835,7 @@
     .testimonials-section .section-title,
     .venues-section .section-title,
     .faq-section .section-title {
-        font-size: 1.35rem;
+        font-size: var(--font-size-title3);
     }
 
     /* Benefits */
@@ -1845,24 +1845,24 @@
     }
 
     .benefit-icon {
-        font-size: 1.75rem;
+        font-size: var(--font-size-title1);
     }
 
     .benefit-card h3 {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
     }
 
     .benefit-card p {
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
     }
 
     /* Experience */
     .experience-lead {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
     }
 
     .experience-note {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     .experience-card {
@@ -1870,11 +1870,11 @@
     }
 
     .experience-card h3 {
-        font-size: 1rem;
+        font-size: var(--font-size-body);
     }
 
     .feature-text {
-        font-size: 0.85rem;
+        font-size: var(--font-size-subhead);
     }
 
     /* Enhancements */
@@ -1887,15 +1887,15 @@
     }
 
     .enhancement-icon {
-        font-size: 1.75rem;
+        font-size: var(--font-size-title1);
     }
 
     .enhancement-item h3 {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .enhancement-item p {
-        font-size: 0.75rem;
+        font-size: var(--font-size-caption1);
     }
 
     /* Process */
@@ -1907,15 +1907,15 @@
     .step-number {
         width: 40px;
         height: 40px;
-        font-size: 1rem;
+        font-size: var(--font-size-body);
     }
 
     .process-step h3 {
-        font-size: 0.95rem;
+        font-size: var(--font-size-callout);
     }
 
     .process-step p {
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
     }
 
     /* Venues */
@@ -1925,7 +1925,7 @@
 
     .venue-logo {
         padding: 0.75rem 0.5rem;
-        font-size: 0.7rem;
+        font-size: var(--font-size-caption2);
     }
 
     /* FAQ */
@@ -1934,11 +1934,11 @@
     }
 
     .faq-item h3 {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .faq-item p {
-        font-size: 0.8rem;
+        font-size: var(--font-size-footnote);
     }
 
     /* CTA */
@@ -1947,15 +1947,15 @@
     }
 
     .cta-content h2 {
-        font-size: 1.4rem;
+        font-size: var(--font-size-title2);
     }
 
     .cta-content p {
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 
     .btn-large {
         padding: 12px 24px;
-        font-size: 0.9rem;
+        font-size: var(--font-size-subhead);
     }
 }
