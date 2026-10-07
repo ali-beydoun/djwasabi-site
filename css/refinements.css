@@ -165,12 +165,18 @@ html { scroll-padding-top: 88px; }
 .site-refined .experience-title { font-size: var(--font-size-large-title); padding: 0; margin-bottom: var(--space-5); }
 .site-refined .experience-lead, .site-refined .story-card p { font-size: var(--font-size-headline); line-height: var(--line-height-relaxed); }
 .site-refined .experience-note { font-size: var(--font-size-body); line-height: var(--line-height-relaxed); font-style: normal; }
+.site-refined .experience-text { text-align: left; }
+.site-refined .experience-text :is(.experience-title, .experience-lead, .experience-note) { text-align: left; }
+.site-refined .experience-text .btn { display: inline-flex; width: auto; margin: var(--space-5) 0 0; }
 .site-refined .experience-card { padding: var(--space-5); background: var(--color-surface-elevated); border: 1px solid var(--border-color); box-shadow: none; backdrop-filter: none; }
 .site-refined .experience-card h3 { text-align: left; font-size: var(--font-size-title3); margin-bottom: var(--space-4); }
 .site-refined .experience-features li { align-items: flex-start; gap: var(--space-3); padding: var(--space-3) 0; }
 .site-refined .feature-text { font-size: var(--font-size-callout); color: var(--color-text-secondary); }
-.site-refined .experience-card-with-image .experience-image { height: auto; max-height: 280px; margin: 0 0 var(--space-5); aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-sm); }
-.site-refined .experience-card-with-image .experience-image img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+.site-refined .experience-card-with-image { gap: var(--space-5); }
+.site-refined .experience-card-with-image .experience-image { width: 100%; max-width: none; height: auto; max-height: none; margin: 0; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--radius-md); box-shadow: none; }
+.site-refined .experience-card-with-image .experience-image img { display: block; width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center 40%; border-radius: 0; }
+.site-refined .experience-image img[src*="wedding-mc-announcements"] { object-position: center top; }
+.site-refined .experience-image img[src*="wedding-music-performance"] { object-position: center 70%; }
 .site-refined .enhancements-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); margin-top: var(--space-6); align-items: start; }
 .site-refined .enhancement-item { padding: 0; background: #fff; border: 1px solid #e1e4dc; box-shadow: none; text-align: left; transform: none; }
 .site-refined details > summary { cursor: pointer; }
@@ -195,10 +201,14 @@ html { scroll-padding-top: 88px; }
 .site-refined .faq-item { background: transparent; border: 0; border-bottom: 1px solid #d8ddd1; border-radius: 0; padding: 0; margin: 0; box-shadow: none; }
 .site-refined .faq-item summary { display: flex; align-items: center; gap: var(--space-5); min-height: 68px; padding: var(--space-5) 0; color: var(--color-text-dark); font-size: var(--font-size-headline); font-weight: var(--font-weight-medium); list-style: none; }
 .site-refined .faq-item p { padding: 0 var(--space-6) var(--space-5) 0; color: var(--color-text-muted-dark); font-size: var(--font-size-body); line-height: var(--line-height-relaxed); }
-.site-refined .reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: start; }
-.site-refined .review-card { padding: var(--space-5); background: var(--color-surface-elevated); border: 1px solid var(--border-color); box-shadow: none; transform: none; }
+.site-refined .reviews { background: var(--color-surface); }
+.site-refined .reviews-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); align-items: stretch; }
+.site-refined .review-card { display: flex; flex-direction: column; padding: var(--space-5); background: var(--color-surface-elevated); border: 1px solid var(--border-color); box-shadow: none; transform: none; }
+.site-refined .review-copy { flex: 1; }
 .site-refined .review-card p, .site-refined .review-excerpt { font-size: var(--font-size-callout); line-height: var(--line-height-relaxed); font-style: normal; color: var(--color-text-primary); }
 .site-refined .review-copy summary { list-style: none; }
+.site-refined .review-copy:not([open]) > summary { display: flex; flex-direction: column; height: 100%; }
+.site-refined .review-copy:not([open]) .review-more { margin-top: auto; padding-top: var(--space-4); }
 .site-refined .review-less { display: none; }
 .site-refined .review-copy[open] .review-more { display: none; }
 .site-refined .review-copy[open] .review-less { display: block; margin-bottom: var(--space-4); color: var(--color-accent); font-size: var(--font-size-subhead); text-decoration: underline; text-underline-offset: 4px; }
@@ -207,7 +217,7 @@ html { scroll-padding-top: 88px; }
 .site-refined .review-copy[open] .review-more { margin-top: 0; margin-bottom: var(--space-4); }
 .site-refined .reviews-more > summary { padding: var(--space-5) 0; font-size: var(--font-size-headline); color: var(--color-accent); }
 .site-refined .reviews-more .reviews-grid { margin-top: var(--space-4); }
-.site-refined .reviewer { margin-top: var(--space-5); }
+.site-refined .reviewer { margin-top: var(--space-5); color: var(--color-text-primary); }
 .site-refined .contact-card-section .contact-card { max-width: 800px; padding: var(--space-7); background: var(--color-surface-elevated); border: 1px solid var(--border-color); box-shadow: none; backdrop-filter: none; }
 .site-refined .contact-card-section .contact-card::before { display: none; }
 .site-refined .contact-card-header h2 { font-size: var(--font-size-title1); }
@@ -215,7 +225,10 @@ html { scroll-padding-top: 88px; }
 .site-refined .contact-methods-grid { gap: var(--space-4); }
 .site-refined .contact-method-card { padding: var(--space-5); box-shadow: none; transform: none; }
 .site-refined .quote-layout { gap: var(--space-7); }
-.site-refined .quote-form { box-shadow: none; padding: var(--space-6); }
+.site-refined .quote-form { background: var(--color-surface-elevated); border-color: var(--border-color); backdrop-filter: none; -webkit-backdrop-filter: none; box-shadow: none; padding: var(--space-6); }
+.site-refined .form-step { animation: none; }
+.site-refined .form-group input::placeholder, .site-refined .form-group textarea::placeholder { color: var(--color-text-secondary); opacity: 1; }
+.site-refined .field-hint { color: var(--color-text-secondary); opacity: 1; }
 .site-refined .quote-section .section-subtitle { font-size: var(--font-size-body); }
 .site-refined input, .site-refined select, .site-refined textarea { font-size: var(--font-size-body); }
 .site-refined .form-submit-notice, .site-refined .contact-card-note { font-size: var(--font-size-footnote); }
