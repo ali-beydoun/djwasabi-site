@@ -1,32 +1,48 @@
-// Mobile Navigation Toggle
+// Accessible navigation and shared page behaviour.
 document.addEventListener('DOMContentLoaded', function() {
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const servicesButton = document.querySelector('.nav-services');
+    const dropdown = servicesButton?.closest('.dropdown');
+    const mobileLayout = window.matchMedia('(max-width: 768px)');
 
-    if (mobileToggle) {
-        mobileToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
-        });
+    function setServices(open) {
+        dropdown?.classList.toggle('open', open);
+        servicesButton?.setAttribute('aria-expanded', String(open));
     }
-
-    // Close mobile menu when nav links are clicked (except dropdown parent)
-    const allNavLinks = document.querySelectorAll('.nav-menu a');
-    allNavLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            // Check if this is a dropdown parent link on mobile
-            const isDropdownParent = this.parentElement.classList.contains('dropdown');
-            const isMobile = window.innerWidth <= 768;
-
-            if (isDropdownParent && isMobile) {
-                // Prevent navigation and menu close - it's just a category label
-                e.preventDefault();
-                e.stopPropagation();
-                return;
-            }
-
-            navMenu.classList.remove('active');
-        });
+    function setMenu(open) {
+        if (!navMenu || !mobileToggle) return;
+        navMenu.classList.toggle('active', open);
+        mobileToggle.classList.toggle('active', open);
+        mobileToggle.setAttribute('aria-expanded', String(open));
+        mobileToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        navMenu.inert = mobileLayout.matches && !open;
+        if (!open) setServices(false);
+    }
+    mobileToggle?.addEventListener('click', () => setMenu(!navMenu.classList.contains('active')));
+    servicesButton?.addEventListener('click', () => setServices(servicesButton.getAttribute('aria-expanded') !== 'true'));
+    navMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('click', event => {
+        if (!event.target.closest('.navbar')) setMenu(false);
+        else if (dropdown && !dropdown.contains(event.target)) setServices(false);
+    });
+    document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        if (servicesButton?.getAttribute('aria-expanded') === 'true') {
+            setServices(false);
+            servicesButton.focus();
+        } else if (mobileToggle?.getAttribute('aria-expanded') === 'true') {
+            setMenu(false);
+            mobileToggle.focus();
+        }
+    });
+    dropdown?.addEventListener('focusout', event => {
+        if (!dropdown.contains(event.relatedTarget)) setServices(false);
+    });
+    mobileLayout.addEventListener('change', () => setMenu(false));
+    setMenu(false);
+    document.querySelectorAll('[data-current-year]').forEach(element => {
+        element.textContent = new Date().getFullYear();
     });
 
     // Smooth scrolling for same-page anchor links
@@ -40,7 +56,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (targetSection) {
                 e.preventDefault();
                 targetSection.scrollIntoView({
-                    behavior: 'smooth',
+                    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                     block: 'start'
                 });
             }
@@ -51,6 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.addEventListener('error', function() {
+            if (this.dataset.placeholder) return;
+            this.dataset.placeholder = 'true';
+            this.removeAttribute('srcset');
             this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjZGRkIi8+CiAgICA8dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE4IiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2UgUGxhY2Vob2xkZXI8L3RleHQ+Cjwvc3ZnPg==';
             this.alt = 'Image placeholder';
         });
@@ -183,15 +202,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 if (!fieldValid) {
                     if (group) group.classList.add('error');
+                    field.setAttribute('aria-invalid', 'true');
                     isValid = false;
                     if (!firstInvalidField) firstInvalidField = field;
 
                     // Remove error after user starts typing
                     field.addEventListener('input', () => {
                         if (group) group.classList.remove('error');
+                        field.removeAttribute('aria-invalid');
                     }, { once: true });
                 } else {
                     if (group) group.classList.remove('error');
+                    field.removeAttribute('aria-invalid');
                 }
             });
 
@@ -209,6 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (this.required && this.value.trim()) {
                     const group = this.closest('.form-group');
                     if (group) group.classList.remove('error');
+                    field.removeAttribute('aria-invalid');
                 }
             });
         });
@@ -245,7 +268,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Track form submission in Google Analytics
                 if (typeof gtag === 'function') {
-                    const eventType = document.getElementById('event-type')?.value || 'unknown';
+                    const eventType = document.getElementById('eventType')?.value || 'unknown';
                     gtag('event', 'generate_lead', {
                         event_category: 'Quote Form',
                         event_label: eventType,
@@ -259,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (formNote) formNote.style.display = 'none';
                 if (successState) {
                     successState.style.display = 'block';
-                    successState.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    successState.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
                 }
             };
 
