@@ -405,6 +405,19 @@ html { scroll-padding-top: 88px; }
 /* Preserve the original transparent homepage artwork without effects. */
 .site-refined.page-home .hero-image img { border: 0; border-radius: 0; outline: 0; box-shadow: none; filter: none; transform: none; }
 
+/* Let the portrait lead on mobile, with the refined copy close beneath it. */
+@media (max-width: 768px) {
+  .site-refined.page-home .hero { padding-top: 72px; padding-bottom: var(--space-5); }
+  .site-refined.page-home .hero-content { max-width: 440px; gap: 0; padding-inline: 0; }
+  .site-refined.page-home .hero-image { order: -1; max-width: none; }
+  .site-refined.page-home .hero-image img { width: 100%; max-width: 440px; height: auto; max-height: none; }
+  .site-refined.page-home .hero-tagline { font-size: var(--font-size-footnote); margin-bottom: var(--space-2); }
+  .site-refined.page-home .hero-title { font-size: var(--font-size-title1); margin-bottom: var(--space-3); }
+  .site-refined.page-home .hero-title br { display: none; }
+  .site-refined.page-home .hero-description { font-size: var(--font-size-callout); line-height: var(--line-height-normal); margin-bottom: 0; }
+  .site-refined.page-home .hero-buttons, .site-refined.page-home .social-links-hero { margin-top: var(--space-4); }
+}
+
 @media (max-width: 560px) {
   .site-refined .contact-card-options { grid-template-columns: minmax(0, 1fr); }
   .site-refined .contact-option { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 0 var(--space-3); min-height: 72px; padding: var(--space-3) var(--space-4); justify-content: start; text-align: left; }
