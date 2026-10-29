@@ -53,3 +53,8 @@ All new styles should use existing tokens:
 - Use existing type tokens by role. Mobile service titles scale from 28px to 32px at default text size, section headings are generally 24px, and nested headings remain smaller. Preserve rem-based text enlargement and 16px form inputs.
 - The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all nine public pages.
 - Keep static content stationary. Reserve motion and visual feedback for interactions, preserve focus visibility on light and dark surfaces, and respect reduced motion.
+
+## Service-page hierarchy
+- The four service pages use `page-service` for shared refinements. Heroes introduce the specific offer with three factual highlights, a quote action and a direct detail link. Keep optional MC, ceremony and party extras distinct from standard inclusions.
+- Weddings, birthdays and corporate pages put inclusions before the longer benefit or event-type lists. Their `#experience` anchor targets the inclusions heading. Preserve event-aware quote URLs.
+- Experience sections pair introductory copy and a supporting photo with inclusions on desktop. Container queries stack the content at narrow widths or enlarged text sizes. Check image framing, 200% text and direct anchor arrival when changing the layout.

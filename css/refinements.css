@@ -580,3 +580,73 @@ html { scroll-padding-top: 88px; }
 }
 /* The page container supplies the inset; avoid narrowing service copy twice. */
 .site-refined .service-hero .hero-content { padding: 0; }
+
+/* Service introductions explain the offer before asking visitors to explore. */
+.site-refined.page-service .service-location { margin: 0 0 var(--space-3); }
+.site-refined.page-service .hero-title { margin-bottom: var(--space-4); text-wrap: balance; }
+.site-refined.page-service .hero-subtitle { max-width: 48ch; margin: 0; font-size: var(--font-size-body); line-height: var(--line-height-relaxed); }
+.site-refined .service-highlights { display: grid; gap: var(--space-2); margin: var(--space-5) 0 0; padding: 0; list-style: none; }
+.site-refined .service-highlights li { display: grid; grid-template-columns: 1em minmax(0, 1fr); gap: var(--space-2); font-size: var(--font-size-subhead); line-height: var(--line-height-normal); color: var(--color-text-secondary); }
+.site-refined .service-highlights li::before { content: '✓'; color: var(--color-accent); }
+.site-refined .service-details-link { display: inline-flex; align-items: center; min-height: 48px; padding-inline: var(--space-2); font-size: var(--font-size-subhead); color: var(--color-text-primary); text-underline-offset: 4px; text-decoration-thickness: 1px; }
+.site-refined.page-service .hero-buttons { gap: var(--space-3); margin-top: var(--space-5); }
+.site-refined.page-service .hero-image { max-width: none; }
+.site-refined.page-service .hero-image img { width: 100%; max-width: 480px; max-height: 520px; object-fit: cover; }
+.site-refined.page-weddings .hero-image img { max-width: 520px; }
+.site-refined.page-service :is(.section-title, .section-subtitle) { text-align: left; padding-inline: 0; }
+.site-refined.page-service .section-title { text-wrap: balance; }
+.site-refined.page-service .section-title::after { left: 0; transform: none; }
+.site-refined.page-service .section-with-image { align-items: start; }
+.site-refined.page-service .section-with-image .benefits-grid { margin-top: 0; }
+.site-refined.page-service .benefit-card { display: grid; grid-template-columns: 1em minmax(0, 1fr); align-content: start; gap: 0 var(--space-3); }
+.site-refined.page-service .benefit-icon { grid-row: span 2; margin: 0; font-size: var(--font-size-headline); line-height: var(--line-height-snug); }
+.site-refined.page-service .benefit-card p { margin: 0; line-height: var(--line-height-normal); }
+.site-refined.page-service .section-image-accent { margin: 0; max-width: none; }
+.site-refined.page-service .experience-content { align-items: start; }
+.site-refined.page-service .experience-title { margin-bottom: var(--space-4); text-wrap: balance; }
+.site-refined.page-service .experience-lead { margin-bottom: var(--space-4); font-size: var(--font-size-body); }
+.site-refined.page-service .experience-note { margin: 0; }
+.site-refined.page-service .experience-card-with-image { gap: var(--space-4); }
+.site-refined.page-service .experience-features li { padding-block: var(--space-2); }
+.site-refined.page-service .venues-grid { justify-content: flex-start; }
+@media (max-width: 768px) {
+  .site-refined.page-service .service-hero { padding-top: calc(72px + var(--space-5)); padding-bottom: var(--space-5); }
+  .site-refined.page-service .hero-content { gap: var(--space-5); }
+  .site-refined.page-service .service-highlights { margin-top: var(--space-4); gap: 6px; }
+  .site-refined.page-service .hero-buttons { margin-top: var(--space-4); }
+  .site-refined.page-service .hero-image img { width: 100%; max-width: none; max-height: none; aspect-ratio: 4 / 3; object-fit: cover; object-position: center; }
+  .site-refined.page-weddings .hero-image img { aspect-ratio: 640 / 427; }
+  .site-refined.page-service .section-with-image { gap: var(--space-5); }
+  .site-refined.page-service .section-with-image .section-image-accent { max-width: none; margin: 0; }
+  .site-refined.page-service .section-with-image .section-image-accent img { display: block; width: 100%; max-height: none; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 30%; }
+  .site-refined.page-service .benefits-grid { gap: var(--space-3); }
+  .site-refined.page-service .experience-content { gap: var(--space-5); }
+  .site-refined.page-service .process-timeline { grid-template-columns: minmax(0, 1fr); gap: var(--space-3); }
+  .site-refined.page-service .process-step { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 0 var(--space-3); }
+  .site-refined.page-service .process-step .step-number { grid-row: span 2; width: 36px; height: 36px; margin: 0; font-size: var(--font-size-headline); }
+  .site-refined.page-service .process-step p { margin: 0; line-height: var(--line-height-normal); }
+}
+/* Content-driven columns also reflow when the reader enlarges text. */
+.site-refined.page-service .section-with-image { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); }
+.site-refined.page-service .section-with-image .benefits-grid { grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); }
+.site-refined.page-service .experience-features .feature-icon { flex: 0 0 1em; width: 1em; font-size: var(--font-size-headline); }
+@media (min-width: 769px) and (max-width: 1024px) {
+  .site-refined .nav-menu { gap: 4px; }
+  .site-refined .nav-menu a, .site-refined .nav-services { padding-inline: var(--space-2); }
+}
+/* Pair inclusions with the introduction, with the supporting photo beneath it. */
+.site-refined.page-service .experience-section > .container { container-type: inline-size; }
+.site-refined.page-service .experience-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: 'intro inclusions' 'photo inclusions'; gap: var(--space-5) var(--space-8); }
+.site-refined.page-service .experience-text { grid-area: intro; }
+.site-refined.page-service .experience-card-with-image { grid-area: inclusions; }
+.site-refined.page-service .experience-content > .experience-image { grid-area: photo; margin: 0; width: 100%; max-width: none; height: auto; border-radius: var(--radius-md); overflow: hidden; }
+.site-refined.page-service .experience-content > .experience-image img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 40%; border-radius: var(--radius-md); }
+@container (max-width: 47rem) {
+  .site-refined.page-service .experience-content { grid-template-columns: minmax(0, 1fr); grid-template-areas: 'intro' 'inclusions' 'photo'; }
+}
+@container (min-width: 47.01rem) {
+  .site-refined.page-service .experience-content > .experience-image img { aspect-ratio: 2 / 1; }
+}
+@media (min-width: 769px) {
+  .site-refined.page-service .section-image-accent img { display: block; max-height: 680px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 35%; }
+}
