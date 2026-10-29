@@ -1,0 +1,4 @@
+# Development helpers are not public website content.
+exclude:
+  - scripts
+  - CLAUDE.md

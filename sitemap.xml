@@ -1,57 +1,225 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://djwasabi.com.au/</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/dj-wasabi-stage-glow.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/headphone-1.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/dj-mixer_3233833.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/hierarchy_17052643.png</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-mc-at-event-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-event-portrait-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-with-wedding-couple-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-hosts-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-private-party-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-dj-performance-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-mc-microphone-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-couple-floral-backdrop-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dance-floor-celebration-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/embrace-kids-foundation-gala-dinner-2026-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/karate-50th-anniversary-event-sydney-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/weddings.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-couple-dj-wasabi-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-event-portrait-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dj-booth-sydney-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/birthdays.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-hosts-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-mixing-party-music-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-dj-booth-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/corporate.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-mc-microphone-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/corporate-conference-dj-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-announcements-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/embrace-kids-foundation-gala-dinner-2026-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/embrace-kids-foundation-gala-stage-2026-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/karate-50th-anniversary-event-sydney-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/other-events.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-dj-performance-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-private-event-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/my-story.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-dj-performance-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-mc-microphone-sydney-640.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-music-performance-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/gallery.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-dj-performance-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-mc-microphone-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/embrace-kids-foundation-gala-dinner-2026.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/embrace-kids-foundation-gala-stage-2026.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/karate-50th-anniversary-event-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/osama-noor-wedding-dj-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-with-wedding-couple.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-couple-dj-wasabi-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-announcements.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dj-booth-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-birthday-party-music.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/birthday-party-dj-booth-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/corporate-conference-dj-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-wedding-setup.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-speakers-lighting-setup.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-luna-park-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-performance.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-venue-booth.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-music-performance.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-laptop-controller.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-event-sound-equipment.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-dj-booth.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-mixing-party-music.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-couple-floral-backdrop.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-hosts.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-booth.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dance-floor-celebration.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/contact.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-mc-microphone-sydney-640.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://djwasabi.com.au/privacy-policy.html</loc>
-    <lastmod>2026-10-07</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.3</priority>
+    <lastmod>2026-10-30</lastmod>
   </url>
 </urlset>

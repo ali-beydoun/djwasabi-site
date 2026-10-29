@@ -90,6 +90,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const totalSteps = 3;
         let currentStep = 1;
+        let formStarted = false;
+        const trackQuote = (event, details = {}) => {
+            if (typeof gtag === 'function') {
+                gtag('event', event, {
+                    form_id: 'quoteForm',
+                    page_path: window.location.pathname,
+                    event_type: quoteForm.elements.eventType.value || 'unspecified',
+                    ...details
+                });
+            }
+        };
+        quoteForm.addEventListener('input', () => {
+            if (!formStarted) {
+                formStarted = true;
+                trackQuote('quote_form_start');
+            }
+        });
+
 
         // ===========================================
         // URL PARAMETER HANDLING (Context-Aware)
@@ -157,6 +175,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             currentStep = step;
+            trackQuote('quote_form_step', { step_number: step });
 
             // Announce the new step without opening a mobile keyboard or date picker.
             const intro = targetStep?.querySelector('.step-intro');
@@ -353,6 +372,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     gtag('event', 'generate_lead', {
                         event_category: 'Quote Form',
                         event_label: eventType,
+                        event_type: eventType,
+                        form_id: 'quoteForm',
+                        page_path: window.location.pathname,
                         value: 1
                     });
                 }
@@ -391,6 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 showSuccess();
             } catch (error) {
+                trackQuote('quote_form_error', { reason: navigator.onLine ? 'unconfirmed' : 'offline' });
                 console.error('Form submission error:', error);
 
                 if (deliveryHelp) {
@@ -771,32 +794,20 @@ if ('IntersectionObserver' in window) {
     // GOOGLE ANALYTICS - CLICK TRACKING
     // ===========================================
     if (typeof gtag === 'function') {
-        // Track phone calls
-        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+        // Track intent without sending names, contact details or draft messages.
+        document.querySelectorAll('a[href]').forEach(link => {
+            const url = new URL(link.href);
+            const method = url.protocol === 'tel:' ? 'phone' :
+                url.protocol === 'mailto:' ? 'email' :
+                ['wa.me', 'api.whatsapp.com', 'web.whatsapp.com'].includes(url.hostname) ? 'whatsapp' : null;
+            const quoteLink = url.origin === window.location.origin &&
+                (url.pathname === '/contact.html' || url.hash === '#contact');
+            if (!method && !quoteLink) return;
             link.addEventListener('click', () => {
-                gtag('event', 'click', {
-                    event_category: 'Contact',
-                    event_label: 'Phone Call'
-                });
-            });
-        });
-
-        // Track WhatsApp clicks
-        document.querySelectorAll('a[href*="whatsapp"]').forEach(link => {
-            link.addEventListener('click', () => {
-                gtag('event', 'click', {
-                    event_category: 'Contact',
-                    event_label: 'WhatsApp'
-                });
-            });
-        });
-
-        // Track email clicks
-        document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
-            link.addEventListener('click', () => {
-                gtag('event', 'click', {
-                    event_category: 'Contact',
-                    event_label: 'Email'
+                gtag('event', method ? 'contact_click' : 'quote_cta_click', {
+                    contact_method: method || 'form',
+                    page_path: window.location.pathname,
+                    event_type: url.searchParams.get('event') || 'unspecified'
                 });
             });
         });

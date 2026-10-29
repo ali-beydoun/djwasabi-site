@@ -38,3 +38,12 @@ All new styles should use existing tokens:
 - FAQs, service options and complete reviews use native details/summary elements to keep pages easy to scan while retaining their content in HTML.
 - When changing shared navigation behaviour or gallery styles, update their versioned asset URLs across the public pages so cached files do not conflict with new markup.
 - Before publishing, check all public pages at narrow phone, phone, tablet and desktop sizes. Verify navigation, gallery filtering and viewing, keyboard focus, disclosure controls and enquiry steps. Use local preview data and stop before submitting an enquiry.
+
+## Search metadata and enquiries
+- Keep the shared JSON-LD business ID `https://djwasabi.com.au/#business`, Sydney service area, +61414441773 and djwasabi1@outlook.com consistent. Do not invent a street address, opening hours, prices, ratings or awards.
+- Each public page has unique metadata, a canonical HTTPS URL and a static JSON-LD graph. Service pages preserve their event selection on quote links. Keep the main navigation homepage links at `/`.
+- Update the page's `dateModified` and sitemap `lastmod` only for meaningful content, structured data or link changes. Sitemap images must exist and belong to their page.
+- Social cards in `images/social/` are opaque 1200x630 JPEGs, composed from the approved original DJ portrait on the brand's black background. Keep hero transparency on the website; do not expose transparent artwork as a share card.
+- Before release run `python3 scripts/check-seo.py`, check the form's event selection and delivery recovery, and compare public-page layout at phone and desktop widths.
+- After publication, notify participating search engines of the changed pages with `python3 scripts/notify-search.py index.html contact.html --submit` (replace the filenames with the actual changed pages). Without `--submit` this only previews the URLs. Google discovery continues through the sitemap and Search Console.
+- Analytics intent events contain only event type, page path, contact method and step numbers. Never add visitor names, email addresses, phone numbers or enquiry text. `generate_lead` fires only after the delivery provider confirms success.
