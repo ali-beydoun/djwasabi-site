@@ -5,6 +5,34 @@ document.addEventListener('DOMContentLoaded', function() {
     const servicesButton = document.querySelector('.nav-services');
     const dropdown = servicesButton?.closest('.dropdown');
     const mobileLayout = window.matchMedia('(max-width: 768px)');
+    const navbar = document.querySelector('.navbar');
+    const menuBackdrop = document.createElement('div');
+    menuBackdrop.className = 'mobile-nav-backdrop';
+    menuBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.append(menuBackdrop);
+    let menuScrollY = null;
+    const backgroundState = new Map();
+
+    function setMenuLayer(open) {
+        if (open && menuScrollY === null) {
+            menuScrollY = window.scrollY;
+            document.body.style.setProperty('--menu-scroll-top', `-${menuScrollY}px`);
+            document.body.classList.add('mobile-nav-open');
+            for (const element of document.body.children) {
+                if (element === navbar || element === menuBackdrop || /^(SCRIPT|STYLE)$/.test(element.tagName)) continue;
+                backgroundState.set(element, element.inert);
+                element.inert = true;
+            }
+        } else if (!open && menuScrollY !== null) {
+            const previousY = menuScrollY;
+            document.body.classList.remove('mobile-nav-open');
+            document.body.style.removeProperty('--menu-scroll-top');
+            backgroundState.forEach((inert, element) => { element.inert = inert; });
+            backgroundState.clear();
+            menuScrollY = null;
+            window.scrollTo({ top: previousY, behavior: 'instant' });
+        }
+    }
 
     function setServices(open) {
         dropdown?.classList.toggle('open', open);
@@ -12,6 +40,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     function setMenu(open) {
         if (!navMenu || !mobileToggle) return;
+        open = open && mobileLayout.matches;
+        setMenuLayer(open);
         navMenu.classList.toggle('active', open);
         mobileToggle.classList.toggle('active', open);
         mobileToggle.setAttribute('aria-expanded', String(open));
@@ -19,6 +49,10 @@ document.addEventListener('DOMContentLoaded', function() {
         navMenu.inert = mobileLayout.matches && !open;
         if (!open) setServices(false);
     }
+    menuBackdrop.addEventListener('click', () => {
+        setMenu(false);
+        mobileToggle?.focus({ preventScroll: true });
+    });
     mobileToggle?.addEventListener('click', () => setMenu(!navMenu.classList.contains('active')));
     servicesButton?.addEventListener('click', () => setServices(servicesButton.getAttribute('aria-expanded') !== 'true'));
     document.querySelectorAll('.navbar a').forEach(link => link.addEventListener('click', () => setMenu(false)));
@@ -27,6 +61,18 @@ document.addEventListener('DOMContentLoaded', function() {
         else if (dropdown && !dropdown.contains(event.target)) setServices(false);
     });
     document.addEventListener('keydown', event => {
+        if (event.key === 'Tab' && menuScrollY !== null) {
+            const controls = [...navbar.querySelectorAll('a[href], button')].filter(element => !element.disabled && element.getClientRects().length);
+            const first = controls[0];
+            const last = controls[controls.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last?.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first?.focus();
+            }
+        }
         if (event.key !== 'Escape') return;
         if (servicesButton?.getAttribute('aria-expanded') === 'true') {
             setServices(false);
@@ -729,7 +775,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add scroll effect to navbar
     let lastScroll = 0;
-    const navbar = document.querySelector('.navbar');
+
     
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;

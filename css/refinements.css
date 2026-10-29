@@ -512,3 +512,15 @@ html { scroll-padding-top: 88px; }
   /* The progress label already identifies this step. Retain its focus announcement. */
   .site-refined .quote-form .step-intro-details { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 }
+
+/* A single mobile navigation layer. The underlying page stays in place. */
+.mobile-nav-backdrop { display: none; }
+@media (max-width: 768px) {
+  body.mobile-nav-open { position: fixed; top: var(--menu-scroll-top); width: 100%; overflow: hidden; }
+  .site-refined .mobile-nav-backdrop { display: block; position: fixed; inset: 72px 0 0; z-index: 999; background: rgba(0, 0, 0, .7); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; visibility: hidden; pointer-events: none; transition: opacity .2s var(--ease-interactive), visibility .2s; }
+  .site-refined.mobile-nav-open .mobile-nav-backdrop { opacity: 1; visibility: visible; pointer-events: auto; }
+  .site-refined .nav-menu { width: 100%; border: 0; border-bottom: 1px solid var(--border-color); background: #101010; transform: translateY(-8px); opacity: 0; transition: transform .2s var(--ease-interactive), opacity .2s var(--ease-interactive), visibility .2s; }
+  .site-refined .nav-menu.active { transform: translateY(0); opacity: 1; }
+  .site-refined.mobile-nav-open .navbar { background: #101010; }
+  .site-refined.mobile-nav-open .mobile-quote-link { display: none; }
+}
