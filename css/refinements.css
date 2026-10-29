@@ -467,7 +467,8 @@ html { scroll-padding-top: 88px; }
 .site-refined .mobile-quote-link { display: none; }
 .site-refined .quote-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); max-width: 700px; margin: 0 auto var(--space-4); text-align: left; }
 .site-refined .quote-header .section-title { margin: 0; }
-.site-refined .quote-header:focus:not(:focus-visible) { outline: none; }
+/* This programmatic landing region is not a control; its links retain focus rings. */
+.site-refined .quote-header:focus { outline: none; }
 .site-refined .quote-contact-options { display: flex; gap: 4px; }
 .site-refined .quote-contact-options a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding-inline: var(--space-2); color: var(--color-accent); font-size: var(--font-size-footnote); border-radius: var(--radius-sm); text-decoration: none; }
 .site-refined .quote-contact-options a:hover { background: var(--color-surface-elevated); }
