@@ -724,3 +724,18 @@ html { scroll-padding-top: 88px; }
   .site-refined.page-my-story .hero-buttons { margin-top: var(--space-4); }
   .site-refined.page-my-story .hero-image img { max-width: none; }
 }
+
+/* Give readers a useful next step between the personal story and an enquiry. */
+.site-refined.page-my-story .story-services .section-title { text-align: left; text-wrap: balance; }
+.site-refined.page-my-story .story-services-intro { margin: 0 0 var(--space-5); font-size: var(--font-size-body); line-height: var(--line-height-relaxed); }
+.site-refined.page-my-story .story-services > .container { container-type: inline-size; }
+.site-refined.page-my-story .story-service-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-7); }
+@container (max-width: 47rem) {
+  .site-refined.page-my-story .story-service-links { grid-template-columns: minmax(0, 1fr); }
+}
+.site-refined.page-my-story .story-service-links a { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-4); min-width: 0; min-height: 48px; padding: var(--space-4) 0; border-top: 1px solid #d8ddd1; color: var(--color-text-dark); text-decoration: none; border-radius: 0; }
+.site-refined.page-my-story .story-service-links strong { display: block; margin-bottom: var(--space-2); font-size: var(--font-size-headline); line-height: var(--line-height-snug); }
+.site-refined.page-my-story .story-service-links a > span:first-child > span { display: block; font-size: var(--font-size-subhead); line-height: var(--line-height-normal); color: var(--color-text-muted-dark); }
+.site-refined.page-my-story .story-service-links a > span:last-child { align-self: center; flex: 0 0 1em; font-size: var(--font-size-title3); }
+.site-refined.page-my-story .story-service-links a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
+.site-refined.page-my-story .story-service-links a:active { background: #e8eddf; }

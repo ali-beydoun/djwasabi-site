@@ -70,3 +70,4 @@ All new styles should use existing tokens:
 - Introduce Wassim with direct eye contact and a visible microphone, then show his personal approach and a real dance-floor moment. Keep concise first-person copy and existing factual claims.
 - Use existing photographs without retouching. The hero uses a 4:3 browser crop at 35% vertical position to retain his face, microphone and hand. Supporting photographs retain their full landscape frames.
 - Keep the two editorial sections aligned in rows on desktop and stacked at narrow widths or enlarged text. The complete music range remains in a native disclosure. Preserve the generated shared contact surface.
+- The My Story hero prioritises reading and exploring services. Keep Wassim's original conversational voice, a visible sample of his music range, and four service links before the shared contact surface. Service links form two balanced desktop columns and one column on narrow screens.
