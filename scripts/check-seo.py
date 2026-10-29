@@ -76,4 +76,6 @@ for url in urls:
   assert local_path(image.find('{*}loc').text).is_file();images+=1
 for name,event in [('weddings','wedding'),('birthdays','birthday'),('corporate','corporate'),('other-events','other')]:
  assert all(('?event='+event+'#contact') in href for href in parsed[name].links if '/contact.html' in href)
+ source=(ROOT/(name+'.html')).read_text()
+ assert 'data-event="'+event+'"' in source and 'value="'+event+'" selected' in source,(name,'service form context')
 print(json.dumps({'publicPages':len(NAMES),'sitemapImages':images,'checks':'metadata, entities, canonical URLs, contact consistency, assets, internal links and event-aware quote links','result':'passed'}))

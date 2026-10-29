@@ -160,7 +160,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // URL PARAMETER HANDLING (Context-Aware)
         // ===========================================
         const urlParams = new URLSearchParams(window.location.search);
-        const eventParam = urlParams.get('event');
+        const requestedEvent = urlParams.get('event') || quoteForm.dataset.event;
+        const eventParam = ['wedding', 'birthday', 'corporate', 'school', 'other'].includes(requestedEvent) ? requestedEvent : quoteForm.dataset.event;
 
         // Pre-fill event type from URL
         if (eventParam) {
@@ -833,7 +834,7 @@ if ('IntersectionObserver' in window) {
                 gtag('event', method ? 'contact_click' : 'quote_cta_click', {
                     contact_method: method || 'form',
                     page_path: window.location.pathname,
-                    event_type: url.searchParams.get('event') || 'unspecified'
+                    event_type: url.searchParams.get('event') || document.getElementById('eventType')?.value || 'unspecified'
                 });
             });
         });

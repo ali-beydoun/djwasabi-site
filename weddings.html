@@ -40,11 +40,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://d18jakcjgoan9.cloudfront.net https://*.google-analytics.com https://www.googletagmanager.com data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://formsubmit.co; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://d18jakcjgoan9.cloudfront.net https://*.google-analytics.com https://www.googletagmanager.com data:; connect-src 'self' https://*.google-analytics.com https://www.googletagmanager.com https://formsubmit.co https://api.web3forms.com; frame-ancestors 'none';">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/refinements.css?v=20261030-services">
+    <link rel="stylesheet" href="css/refinements.css?v=20261030-contact">
     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -191,7 +191,7 @@
                         <img src="images/Logo-3.png" alt="DJ WASABI" width="382" height="60">
                     </a>
                 </div>
-                <a href="/contact.html?event=wedding#contact" class="mobile-quote-link">Get quote</a>
+                <a href="#contact" class="mobile-quote-link">Get quote</a>
                 <button type="button" class="mobile-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
                     <span></span>
                     <span></span>
@@ -211,7 +211,7 @@
                     </li>
                     <li><a href="/gallery.html"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span><span class="nav-label">Gallery</span></a></li>
                     <li><a href="/#reviews"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="nav-label">Reviews</span></a></li>
-                    <li><a href="/contact.html?event=wedding#contact" class="get-quote-btn"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="nav-label">Get a Quote</span></a></li>
+                    <li><a href="#contact" class="get-quote-btn"><span class="nav-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span><span class="nav-label">Get a Quote</span></a></li>
                 </ul>
             </div>
         </div>
@@ -236,7 +236,7 @@
                         <li>MC &amp; ceremony options available</li>
                     </ul>
                     <div class="hero-buttons">
-                        <a href="/contact.html?event=wedding#contact" class="btn btn-primary">Get a Quote</a>
+                        <a href="#contact" class="btn btn-primary">Get a Quote</a>
                         <a href="#experience" class="service-details-link">What's Included</a>
                     </div>
                 </div>
@@ -254,7 +254,7 @@
                     <h2 class="experience-title">Your Wedding DJ Experience</h2>
                     <p class="experience-lead">Your reception essentials are included. Add MC hosting, ceremony music or special effects to suit the celebration you have in mind.</p>
                     <p class="experience-note">I take on a limited number of weddings each year, giving every couple my full attention from the first conversation to the last dance.</p>
-                    <a href="/contact.html?event=wedding#contact" class="btn btn-primary">Let's Chat About Your Day</a>
+                    <a href="#contact" class="btn btn-primary">Let's Chat About Your Day</a>
                 </div>
                 <div class="experience-card-with-image">
                     <div class="experience-card">
@@ -360,7 +360,7 @@
             </div>
             <div class="enhancements-cta">
                 <p>Not sure what you need? That's exactly what our consultation is for.</p>
-                <a href="/contact.html?event=wedding#contact" class="btn btn-secondary">Let's Figure It Out Together</a>
+                <a href="#contact" class="btn btn-secondary">Let's Figure It Out Together</a>
             </div>
         </div>
     </section>
@@ -444,46 +444,221 @@
     </section>
 
     <!-- Contact Card Section -->
-    <section id="quote" class="contact-card-section">
+    <!-- CONTACT_SURFACE:START -->
+    <section id="quote" class="quote-section contact-surface" aria-labelledby="quote-title">
         <div class="container">
-            <div class="contact-card">
-                <div class="contact-card-header">
-                    <h2>Ready to discuss your wedding?</h2>
-                    <p>Let's make your wedding sound exactly the way you imagined it</p>
+            <div id="contact" class="quote-header" tabindex="-1" role="region" aria-labelledby="quote-title">
+                <div class="contact-heading-row">
+                    <div><h2 id="quote-title" class="section-title">Get a quote</h2><p class="contact-reassurance">Free &amp; no obligation</p></div>
+                    <a class="contact-email" href="mailto:djwasabi1@outlook.com" aria-label="Email Wassim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg><span>Email</span></a>
                 </div>
+                <nav class="contact-actions" aria-label="Call or message Wassim">
+                    <a class="contact-action" href="tel:+61414441773" aria-label="Call Wassim on 0414 441 773"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg><span><strong>Call Wassim</strong><span>0414 441 773</span></span></a>
+                    <a class="contact-action" href="https://wa.me/61414441773" aria-label="WhatsApp Wassim"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.7 7.4L3 20l1.1-4.8A8.5 8.5 0 1 1 20.5 11.5Z"/><path d="M8 7.5h2l.7 2-1.1 1.1a9 9 0 0 0 3.8 3.8l1.1-1.1 2 .7v2c-4.6.6-9.1-3.9-8.5-8.5Z"/></svg><span><strong>WhatsApp</strong><span>Chat directly</span></span></a>
+                </nav>
+            </div>
+            <div class="quote-form-container">
+                <form id="quoteForm" action="https://formsubmit.co/ajax/alibeydoun@me.com" data-backup-key="3be0736d-740c-4975-b4d1-07d23cbcc645" method="POST" class="quote-form" data-event="wedding">
 
-                <!-- Primary CTA - Links to central form -->
-                <a href="/contact.html?event=wedding#contact" class="btn btn-primary btn-large contact-card-cta">
-                    Get Your Free Quote
-                </a>
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_subject" value="New Quote Request - DJ Wasabi (weddings)">
+                    <input type="hidden" name="_cc" value="djwasabi1@outlook.com">
+                    <input type="hidden" name="_captcha" value="true">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_autoresponse" value="Thanks for reaching out! I've received your message and will get back to you within 24 hours. - Wassim (DJ Wasabi)">
 
-                <div class="contact-card-divider">
-                    <span>or reach out directly</span>
-                </div>
+                    <!-- Analytics fields -->
+                    <input type="hidden" name="_source" id="formSource" value="weddings">
+                    <input type="hidden" name="_eventContext" id="eventContext" value="wedding">
 
-                <!-- Direct Contact Options -->
-                <div class="contact-card-options">
-                    <a href="tel:+61414441773" class="contact-option">
-                        <span class="contact-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z"/></svg></span>
-                        <span class="contact-option-label">Call</span>
-                        <span class="contact-option-value">0414&nbsp;441&nbsp;773</span>
-                    </a>
-                    <a href="https://wa.me/61414441773?text=Hi%20Wassim%2C%20I%27m%20interested%20in%20DJ%20services%20for%20my%20wedding" class="contact-option">
-                        <span class="contact-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-                        <span class="contact-option-label">WhatsApp</span>
-                        <span class="contact-option-value">Chat now</span>
-                    </a>
-                    <a href="mailto:djwasabi1@outlook.com?subject=Wedding%20DJ%20Inquiry" class="contact-option">
-                        <span class="contact-option-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span>
-                        <span class="contact-option-label">Email</span>
-                        <span class="contact-option-value">Send message</span>
-                    </a>
-                </div>
+                    <!-- Progress Indicator -->
+                    <div class="form-progress">
+                        <div class="progress-step active" data-step="1" aria-current="step">
+                            <span class="step-dot"></span>
+                            <span class="step-label">You</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="2">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Event</span>
+                        </div>
+                        <div class="progress-line"></div>
+                        <div class="progress-step" data-step="3">
+                            <span class="step-dot"></span>
+                            <span class="step-label">Details</span>
+                        </div>
+                    </div>
 
-                <p class="contact-card-note">Free consultation • Response within 24 hours • No obligation</p>
+                    <!-- STEP 1: About You -->
+                    <div class="form-step active" data-step="1">
+                        <p class="step-intro step-intro-details">Your details</p>
+
+                        <div class="form-group">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" required
+                                   autocomplete="name"
+                                   inputmode="text"
+                                   placeholder="Your first name">
+                            <span class="field-hint"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" required
+                                   autocomplete="email"
+                                   inputmode="email"
+                                   placeholder="you@email.com">
+                            <span class="field-hint"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone number</label>
+                            <input type="tel" id="phone" name="phone" required
+                                   autocomplete="tel"
+                                   inputmode="tel"
+                                   placeholder="0400 000 000">
+
+                        </div>
+
+                        <button type="button" class="btn btn-secondary btn-next">
+                            Next <span class="btn-arrow">→</span>
+                        </button>
+                    </div>
+
+                    <!-- STEP 2: About the Event -->
+                    <div class="form-step" data-step="2">
+                        <p class="step-intro">Tell me about your event</p>
+
+                        <div class="form-group">
+                            <label for="eventType">What are we celebrating?</label>
+                            <select id="eventType" name="eventType" required>
+                                <option value="" disabled>Choose one...</option>
+                                <option value="wedding" selected>Wedding</option>
+                                <option value="birthday">Birthday Party</option>
+                                <option value="corporate">Corporate Event</option>
+                                <option value="school">School Formal / Disco</option>
+                                <option value="other">Something Else</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDate">When's the big day?</label>
+                            <input type="date" id="eventDate" name="eventDate">
+                            <span class="field-hint">Rough date is fine if you're not sure yet</span>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-ghost btn-back">
+                                <span class="btn-arrow">←</span> Back
+                            </button>
+                            <button type="button" class="btn btn-secondary btn-next">
+                                Next <span class="btn-arrow">→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: Event Details -->
+                    <div class="form-step" data-step="3">
+                        <p class="step-intro">A few more details</p>
+
+                        <!-- Venue -->
+                        <div class="form-group venue-group">
+                            <label for="venue">Where's the party at?</label>
+                            <div class="venue-input-wrapper">
+                                <input type="text" id="venue" name="venue"
+                                       placeholder="Venue name or suburb"
+                                       autocomplete="off">
+                                <ul class="suburb-suggestions" id="suburbSuggestions"></ul>
+                            </div>
+                            <span class="field-hint">We can sort out the exact address later</span>
+                        </div>
+
+                        <!-- Times Row -->
+                        <div class="form-row form-row-times">
+                            <div class="form-group">
+                                <label for="startTime">Start time</label>
+                                <input type="time" id="startTime" name="startTime" value="18:00">
+                            </div>
+                            <div class="form-group">
+                                <label for="endTime">Finish time</label>
+                                <input type="time" id="endTime" name="endTime" value="23:00">
+                            </div>
+                        </div>
+                        <span class="field-hint field-hint-centered">Rough times are fine</span>
+
+                        <!-- Guest Count Chips -->
+                        <div class="form-group">
+                            <label>How big is the crowd?</label>
+                            <div class="guest-chips">
+                                <input type="radio" name="guestCount" id="gc-intimate" value="Under 50">
+                                <label for="gc-intimate" class="guest-chip">
+                                    <strong>Intimate</strong>
+                                    <span>&lt;50 guests</span>
+                                </label>
+
+                                <input type="radio" name="guestCount" id="gc-medium" value="50-100">
+                                <label for="gc-medium" class="guest-chip">
+                                    <strong>Medium</strong>
+                                    <span>50–100 guests</span>
+                                </label>
+
+                                <input type="radio" name="guestCount" id="gc-large" value="100-200">
+                                <label for="gc-large" class="guest-chip">
+                                    <strong>Large</strong>
+                                    <span>100–200 guests</span>
+                                </label>
+
+                                <input type="radio" name="guestCount" id="gc-massive" value="200+">
+                                <label for="gc-massive" class="guest-chip">
+                                    <strong>Massive</strong>
+                                    <span>200+ guests</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Message (moved from Step 2) -->
+                        <div class="form-group">
+                            <label for="message">Anything else I should know?</label>
+                            <textarea id="message" name="message" rows="3"
+                                      placeholder="Music style, special moments, the vibe..."></textarea>
+                            <span class="field-hint">No pressure - we can figure out details later</span>
+                        </div>
+
+                        <!-- Navigation -->
+                        <div class="form-buttons">
+                            <button type="button" class="btn btn-ghost btn-back">
+                                <span class="btn-arrow">←</span> Back
+                            </button>
+                            <button type="submit" class="btn btn-primary btn-submit">
+                                <span class="btn-text">Send enquiry</span>
+                                <span class="btn-loading">Sending...</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-delivery-help" hidden tabindex="-1" role="region" aria-labelledby="delivery-help-title">
+                        <h3 id="delivery-help-title">Let's get your enquiry through</h3>
+                        <p data-delivery-message>Your enquiry hasn't been confirmed. Your details are still here. Try again, or send them directly to Wassim.</p>
+                        <div class="form-delivery-actions">
+                            <button type="submit" class="btn btn-secondary">Try again</button>
+                            <a class="btn btn-primary" data-enquiry-email href="mailto:djwasabi1@outlook.com">Open email draft</a>
+                            <a class="btn btn-secondary" data-enquiry-whatsapp href="https://wa.me/61414441773" target="_blank" rel="noopener noreferrer">Open WhatsApp draft</a>
+                        </div>
+                        <p class="form-delivery-note">Your event details will be included. Review the draft and press Send in your chosen app.</p>
+                    </div>
+
+                    <!-- SUCCESS STATE (replaces form on submit) -->
+                    <div class="form-success" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h3>Thanks <span class="user-name"></span>!</h3>
+                        <p>I've got your message and will be in touch within 24 hours.</p>
+                        <p class="success-signature">Wassim</p>
+                    </div>
+                </form>
             </div>
         </div>
     </section>
+    <!-- CONTACT_SURFACE:END -->
 
     </main>
     <!-- Footer -->
@@ -499,7 +674,7 @@
                     <a href="/corporate.html">Corporate</a>
                     <a href="/other-events.html">Other events</a>
                     <a href="/gallery.html">Gallery</a>
-                    <a href="/contact.html?event=wedding#contact">Contact</a>
+                    <a href="#contact">Contact</a>
                 </nav>
 
                 <!-- Center: Logo, CTA, Social -->
@@ -507,7 +682,7 @@
                     <div class="footer-logo">
                         <img src="images/Logo-3.png" alt="DJ WASABI" loading="lazy" width="382" height="60">
                     </div>
-                    <a href="/contact.html?event=wedding#contact" class="footer-cta">Get a Quote</a>
+                    <a href="#contact" class="footer-cta">Get a Quote</a>
                     <div class="footer-social">
                         <a href="https://www.facebook.com/share/1FQnAkywGV" aria-label="Facebook">
                             <span class="sr-only">Facebook</span><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
@@ -537,6 +712,6 @@
         </div>
     </footer>
 
-    <script src="js/script.min.js?v=20261030-services"></script>
+    <script src="js/script.min.js?v=20261030-contact"></script>
 </body>
 </html>

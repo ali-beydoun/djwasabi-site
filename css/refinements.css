@@ -650,3 +650,50 @@ html { scroll-padding-top: 88px; }
 @media (min-width: 769px) {
   .site-refined.page-service .section-image-accent img { display: block; max-height: 680px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center 35%; }
 }
+
+/* One contact surface: immediate conversation or an already-open enquiry form. */
+.site-refined .contact-surface .quote-header { display: grid; grid-template-columns: minmax(0, 1fr); align-items: stretch; width: 100%; gap: var(--space-3); }
+.site-refined .contact-heading-row { display: flex; align-items: center; justify-content: space-between; gap: var(--space-3); }
+.site-refined .contact-reassurance { margin: 0; font-size: var(--font-size-footnote); color: var(--color-text-secondary); line-height: var(--line-height-normal); }
+.site-refined .contact-email { display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding-inline: var(--space-2); color: var(--color-accent); font-size: var(--font-size-subhead); text-decoration: none; border-radius: var(--radius-sm); }
+.site-refined .contact-email svg { width: 18px; height: 18px; }
+.site-refined .contact-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); gap: var(--space-3); }
+.site-refined .contact-action { display: grid; grid-template-columns: 28px minmax(0, 1fr); align-items: center; gap: var(--space-3); min-height: 64px; padding: var(--space-2) var(--space-5); color: var(--color-text-primary); background: #14200e; border: 1px solid #4e6a33; border-radius: var(--radius-md); text-decoration: none; transition: background .15s ease, border-color .15s ease; }
+.site-refined .contact-action > svg { flex: 0 0 28px; width: 28px; height: 28px; color: var(--color-accent); }
+.site-refined .contact-action > span { display: grid; gap: 2px; min-width: 0; }
+.site-refined .contact-action strong { font-size: var(--font-size-callout); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); }
+.site-refined .contact-action span span { font-size: var(--font-size-subhead); line-height: var(--line-height-normal); color: var(--color-text-secondary); }
+.site-refined :is(.contact-action, .contact-email) { touch-action: manipulation; }
+.site-refined :is(.contact-action, .contact-email):active { background: #25361a; }
+@media (hover: hover) {
+  .site-refined .contact-action:hover { border-color: var(--color-accent); background: #1e2b15; }
+  .site-refined .contact-email:hover { background: var(--color-surface-elevated); }
+}
+.site-refined.page-contact .contact-surface { padding-top: 88px; }
+@media (max-width: 768px) {
+  .site-refined .contact-surface .quote-header { gap: var(--space-2); margin-bottom: var(--space-3); }
+  .site-refined .contact-actions { gap: var(--space-2); }
+  .site-refined .contact-action { grid-template-columns: 24px minmax(0, 1fr); min-height: 60px; gap: var(--space-2); padding: var(--space-2) var(--space-3); }
+  .site-refined .contact-action > svg { flex-basis: 24px; width: 24px; height: 24px; }
+  .site-refined .contact-action strong { font-size: var(--font-size-subhead); }
+  .site-refined .contact-action span span { font-size: var(--font-size-footnote); }
+  .site-refined .contact-surface .form-progress { margin-bottom: var(--space-3); }
+  .site-refined .contact-surface .progress-step { flex-direction: row; gap: 6px; }
+  .site-refined .contact-surface .step-dot { width: 8px; height: 8px; }
+  .site-refined .contact-surface .progress-line { margin-block: 0; }
+}
+@media (max-width: 359px) {
+  .site-refined .contact-action > svg { flex-basis: 20px; width: 20px; height: 20px; }
+  .site-refined .contact-action { grid-template-columns: 20px minmax(0, 1fr); gap: 6px; }
+}
+
+.site-refined .contact-heading-row .section-title { text-align: left; }
+@media (max-width: 768px) {
+  .site-refined .contact-surface .quote-form .form-group { margin-bottom: var(--space-2); }
+}
+/* Short, wider phone windows can share a row without shrinking controls. */
+@media (min-width: 360px) and (max-width: 768px) and (max-height: 600px) {
+  .site-refined .contact-surface .form-step.active[data-step="1"] { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-3); }
+  .site-refined .contact-surface .form-step[data-step="1"] :is(.form-group:has(#name), .btn-next) { grid-column: 1 / -1; }
+  .site-refined .contact-surface .form-step[data-step="1"] .form-group { min-width: 0; }
+}
