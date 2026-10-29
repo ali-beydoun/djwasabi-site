@@ -335,6 +335,43 @@ html { scroll-padding-top: 88px; }
   .site-refined .section-with-image .section-image-accent img { width: 100%; height: auto; max-height: 300px; }
 }
 
+/* A stable form grid with compact labels and comfortable touch targets. */
+.site-refined .quote-form-container { padding-inline: 0; }
+.site-refined .quote-form .form-group { min-width: 0; margin-bottom: var(--space-5); }
+.site-refined .quote-form .form-group > label { margin-bottom: var(--space-2); padding: 0; font-size: var(--font-size-subhead); line-height: var(--line-height-normal); }
+.site-refined .quote-form .form-group :is(input, select, textarea) { min-width: 0; font-size: var(--font-size-body); transform: none; transition: border-color 150ms ease, background-color 150ms ease, box-shadow 150ms ease; }
+.site-refined .quote-form .form-group.error :is(input, select) { animation: none; }
+.site-refined .quote-form .form-row-times { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.site-refined .quote-form .form-row-times .form-group { margin: 0; }
+.site-refined .quote-form input[type="time"] { padding-inline: var(--space-3); text-align: center; }
+.site-refined .quote-form .guest-chips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
+.site-refined .quote-form .guest-chip { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; min-height: 72px; margin: 0; padding: var(--space-3) var(--space-2); transform: none; box-shadow: none; }
+.site-refined .quote-form .guest-chip strong { margin: 0; font-size: var(--font-size-callout); }
+.site-refined .quote-form .guest-chip span { font-size: var(--font-size-caption1); color: var(--color-text-secondary); }
+.site-refined .quote-form .guest-chips input:checked + .guest-chip span { color: var(--color-surface); }
+.site-refined .quote-form .form-buttons { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); align-items: stretch; gap: var(--space-3); margin-top: var(--space-5); }
+.site-refined .quote-form .btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2); min-height: 48px; min-width: 0; padding: var(--space-3) var(--space-4); font-size: var(--font-size-callout); line-height: var(--line-height-normal); border-radius: var(--radius-md); transform: none; transition: background-color 150ms ease, border-color 150ms ease, opacity 150ms ease; }
+.site-refined .quote-form .form-buttons .btn { width: 100%; margin: 0; }
+.site-refined .quote-form .btn-arrow { margin: 0; transform: none; }
+.site-refined .quote-form .btn:active { opacity: .8; }
+.site-refined .quote-form .btn:disabled { cursor: wait; opacity: .7; }
+.site-refined .quote-form .form-step { animation: none; scroll-margin-top: 96px; }
+.site-refined .quote-form .step-intro { font-size: var(--font-size-subhead); }
+.site-refined .quote-form .form-success { animation: none; }
+.site-refined .quote-form .field-hint { opacity: 1; }
+
+.site-refined .quote-form .field-error { margin: var(--space-2) 0 0; color: #ffb4ab; font-size: var(--font-size-footnote); line-height: var(--line-height-normal); }
+.site-refined .quote-form .field-error[hidden] { display: none; }
+
+/* Keep a failed enquiry recoverable without hiding the visitor's details. */
+.site-refined .form-delivery-help { margin-top: var(--space-5); padding: var(--space-4); border: 1px solid var(--color-accent); border-radius: var(--radius-md); background: var(--color-surface); text-align: left; }
+.site-refined .form-delivery-help[hidden] { display: none; }
+.site-refined .form-delivery-help h3 { margin: 0 0 var(--space-2); color: var(--color-text-primary); font-size: var(--font-size-body); }
+.site-refined .form-delivery-help p { margin: 0; color: var(--color-text-secondary); font-size: var(--font-size-callout); line-height: var(--line-height-normal); }
+.site-refined .form-delivery-actions { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3); margin: var(--space-4) 0 var(--space-3); }
+.site-refined .form-delivery-actions .btn { min-height: 44px; white-space: normal; text-align: center; }
+.site-refined .form-delivery-help .form-delivery-note { font-size: var(--font-size-footnote); }
+
 /* Navigation labels keep the same reading size as their tap targets. */
 .site-refined .nav-menu .nav-label { font-size: inherit; font-weight: inherit; }
 .site-refined .nav-menu a { box-shadow: none; text-shadow: none; }

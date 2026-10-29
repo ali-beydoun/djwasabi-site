@@ -37,7 +37,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
 
     <!-- Security -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://d18jakcjgoan9.cloudfront.net data:; connect-src 'self' https://www.google-analytics.com https://formsubmit.co; frame-ancestors 'none';">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' https://d18jakcjgoan9.cloudfront.net data:; connect-src 'self' https://www.google-analytics.com https://formsubmit.co https://api.web3forms.com; frame-ancestors 'none';">
 
     <!-- Schema -->
     <script type="application/ld+json">
@@ -74,7 +74,7 @@
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/services.css">
-    <link rel="stylesheet" href="css/refinements.css?v=20261007-2">
+    <link rel="stylesheet" href="css/refinements.css?v=20261030-form">
 </head>
 <body class="site-refined page-contact">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -185,7 +185,7 @@
             </div>
 
             <div class="quote-form-container">
-                <form id="quoteForm" action="https://formsubmit.co/ajax/alibeydoun@me.com" method="POST" class="quote-form">
+                <form id="quoteForm" action="https://formsubmit.co/ajax/alibeydoun@me.com" data-backup-key="3be0736d-740c-4975-b4d1-07d23cbcc645" method="POST" class="quote-form">
 
                     <!-- FormSubmit configuration -->
                     <input type="hidden" name="_subject" value="New Quote Request - DJ Wasabi (Contact Page)">
@@ -200,7 +200,7 @@
 
                     <!-- Progress Indicator -->
                     <div class="form-progress">
-                        <div class="progress-step active" data-step="1">
+                        <div class="progress-step active" data-step="1" aria-current="step">
                             <span class="step-dot"></span>
                             <span class="step-label">You</span>
                         </div>
@@ -301,11 +301,11 @@
 
                         <div class="form-row form-row-times">
                             <div class="form-group">
-                                <label for="startTime">What time do we kick off?</label>
+                                <label for="startTime">Start time</label>
                                 <input type="time" id="startTime" name="startTime" value="18:00">
                             </div>
                             <div class="form-group">
-                                <label for="endTime">When do we wrap up?</label>
+                                <label for="endTime">Finish time</label>
                                 <input type="time" id="endTime" name="endTime" value="23:00">
                             </div>
                         </div>
@@ -352,10 +352,21 @@
                                 <span class="btn-arrow">&larr;</span> Back
                             </button>
                             <button type="submit" class="btn btn-primary btn-submit">
-                                <span class="btn-text">Let's Talk</span>
+                                <span class="btn-text">Send enquiry</span>
                                 <span class="btn-loading">Sending...</span>
                             </button>
                         </div>
+                    </div>
+
+                    <div class="form-delivery-help" hidden tabindex="-1" role="region" aria-labelledby="delivery-help-title">
+                        <h3 id="delivery-help-title">Let's get your enquiry through</h3>
+                        <p data-delivery-message>Your enquiry hasn't been confirmed. Your details are still here. Try again, or send them directly to Wassim.</p>
+                        <div class="form-delivery-actions">
+                            <button type="submit" class="btn btn-secondary">Try again</button>
+                            <a class="btn btn-primary" data-enquiry-email href="mailto:djwasabi1@outlook.com">Open email draft</a>
+                            <a class="btn btn-secondary" data-enquiry-whatsapp href="https://wa.me/61414441773" target="_blank" rel="noopener noreferrer">Open WhatsApp draft</a>
+                        </div>
+                        <p class="form-delivery-note">Your event details will be included. Review the draft and press Send in your chosen app.</p>
                     </div>
 
                     <!-- SUCCESS STATE -->
@@ -443,6 +454,6 @@
         </div>
     </footer>
 
-    <script src="js/script.min.js?v=20261007"></script>
+    <script src="js/script.min.js?v=20261030-form"></script>
 </body>
 </html>

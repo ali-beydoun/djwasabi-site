@@ -80,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===========================================
     const quoteForm = document.getElementById('quoteForm');
     if (quoteForm) {
+        // Validate each visible step ourselves so hidden fields never trap focus.
+        quoteForm.noValidate = true;
         const steps = quoteForm.querySelectorAll('.form-step');
         const progressSteps = quoteForm.querySelectorAll('.progress-step');
         const progressContainer = quoteForm.querySelector('.form-progress');
@@ -117,7 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set date input minimum to today
         const eventDateInput = document.getElementById('eventDate');
         if (eventDateInput) {
-            const today = new Date().toISOString().split('T')[0];
+            const now = new Date();
+            const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
             eventDateInput.min = today;
         }
 
@@ -142,6 +145,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 ps.classList.remove('active', 'completed');
                 if (index + 1 < step) ps.classList.add('completed');
                 if (index + 1 === step) ps.classList.add('active');
+                if (index + 1 === step) ps.setAttribute('aria-current', 'step');
+                else ps.removeAttribute('aria-current');
             });
 
             // Update progress line
@@ -153,9 +158,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             currentStep = step;
 
-            // Focus first input of new step (accessibility)
-            const firstInput = quoteForm.querySelector(`.form-step[data-step="${step}"] input`);
-            if (firstInput) setTimeout(() => firstInput.focus(), 300);
+            // Announce the new step without opening a mobile keyboard or date picker.
+            const intro = targetStep?.querySelector('.step-intro');
+            if (intro) {
+                intro.tabIndex = -1;
+                intro.focus({ preventScroll: true });
+                targetStep.scrollIntoView({ behavior: 'auto', block: 'start' });
+            }
         }
 
         // Next buttons (multiple now for 3 steps)
@@ -179,72 +188,142 @@ document.addEventListener('DOMContentLoaded', function() {
         // ===========================================
         // VALIDATION
         // ===========================================
-        function validateStep(step) {
-            const stepEl = quoteForm.querySelector(`.form-step[data-step="${step}"]`);
-            if (!stepEl) return true;
-
-            const requiredFields = stepEl.querySelectorAll('[required]');
-            let isValid = true;
-            let firstInvalidField = null;
-
-            requiredFields.forEach(field => {
-                const group = field.closest('.form-group');
-                const value = field.value.trim();
-
-                // Simple validation: just check if required fields have values
-                // Avoid strict checkValidity() which can fail with iOS autofill
-                let fieldValid = value.length > 0;
-
-                // Basic email format check (loose - just needs @ and .)
-                if (fieldValid && field.type === 'email') {
-                    fieldValid = value.includes('@') && value.includes('.');
-                }
-
-                if (!fieldValid) {
-                    if (group) group.classList.add('error');
-                    field.setAttribute('aria-invalid', 'true');
-                    isValid = false;
-                    if (!firstInvalidField) firstInvalidField = field;
-
-                    // Remove error after user starts typing
-                    field.addEventListener('input', () => {
-                        if (group) group.classList.remove('error');
-                        field.removeAttribute('aria-invalid');
-                    }, { once: true });
-                } else {
-                    if (group) group.classList.remove('error');
-                    field.removeAttribute('aria-invalid');
-                }
-            });
-
-            // Focus first invalid field for better UX
-            if (firstInvalidField) {
-                firstInvalidField.focus();
+        function fieldError(field) {
+            if (field.required && !field.value.trim()) {
+                return {
+                    name: 'Please enter your name.',
+                    email: 'Please enter your email address.',
+                    phone: 'Please enter your phone number.',
+                    eventType: 'Please choose an event type.'
+                }[field.name] || 'Please complete this field.';
             }
-
-            return isValid;
+            if (field.validity.typeMismatch) return 'Enter an email address, such as you@example.com.';
+            if (field.validity.rangeUnderflow && field.type === 'date') return 'Choose today or a future date, or leave this blank.';
+            if (!field.validity.valid) return 'Please check this value.';
+            return '';
         }
 
-        // Real-time validation feedback
-        quoteForm.querySelectorAll('input, select').forEach(field => {
-            field.addEventListener('blur', function() {
-                if (this.required && this.value.trim()) {
-                    const group = this.closest('.form-group');
-                    if (group) group.classList.remove('error');
-                    field.removeAttribute('aria-invalid');
-                }
+        function showFieldError(field, message) {
+            const group = field.closest('.form-group');
+            if (!group) return;
+            const errorId = `${field.id}-error`;
+            let error = group.querySelector('.field-error');
+            if (message && !error) {
+                error = document.createElement('p');
+                error.className = 'field-error';
+                error.id = errorId;
+                group.append(error);
+            }
+            if (error) { error.textContent = message; error.hidden = !message; }
+            group.classList.toggle('error', Boolean(message));
+            if (message) field.setAttribute('aria-invalid', 'true');
+            else field.removeAttribute('aria-invalid');
+            const descriptions = (field.getAttribute('aria-describedby') || '').split(' ').filter(id => id && id !== errorId);
+            if (message) descriptions.push(errorId);
+            if (descriptions.length) field.setAttribute('aria-describedby', descriptions.join(' '));
+            else field.removeAttribute('aria-describedby');
+        }
+
+        function validateStep(step, focus = true) {
+            const stepEl = quoteForm.querySelector(`.form-step[data-step="${step}"]`);
+            if (!stepEl) return true;
+            let firstInvalidField;
+            stepEl.querySelectorAll('input, select, textarea').forEach(field => {
+                if (!field.willValidate) return;
+                const message = fieldError(field);
+                showFieldError(field, message);
+                if (message && !firstInvalidField) firstInvalidField = field;
             });
+            if (firstInvalidField && focus) firstInvalidField.focus();
+            return !firstInvalidField;
+        }
+
+        quoteForm.querySelectorAll('input, select, textarea').forEach(field => {
+            const hint = field.closest('.form-group')?.querySelector('.field-hint');
+            if (field.id && hint?.textContent.trim()) {
+                hint.id ||= `${field.id}-hint`;
+                field.setAttribute('aria-describedby', hint.id);
+            }
+            // Show errors after an attempted step, then update them as corrected.
+            for (const event of ['input', 'change']) {
+                field.addEventListener(event, () => {
+                    if (field.hasAttribute('aria-invalid')) showFieldError(field, fieldError(field));
+                });
+            }
         });
 
         // ===========================================
-        // FORM SUBMISSION (FormSubmit.co)
+        // FORM SUBMISSION WITH BACKUP DELIVERY
         // ===========================================
+        const deliveryHelp = quoteForm.querySelector('.form-delivery-help');
+        let submitting = false;
+        let enquiryReference;
+
+        const sendEnquiry = async (url, data) => {
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 15000);
+            try {
+                const response = await fetch(url, {
+                    method: 'POST', body: data,
+                    headers: { Accept: 'application/json' }, signal: controller.signal
+                });
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                if (!response.headers.get('content-type')?.includes('application/json')) {
+                    throw new Error('Unexpected response from the enquiry service');
+                }
+                const result = await response.json();
+                if (result.success !== true && result.success !== 'true') {
+                    throw new Error('Enquiry service did not confirm delivery');
+                }
+            } finally {
+                clearTimeout(timeoutId);
+            }
+        };
+
+        // Prepare a draft in the visitor's chosen app. They still review and send it.
+        const updateDeliveryLinks = () => {
+            if (!deliveryHelp) return;
+            const data = new FormData(quoteForm);
+            const fields = [
+                ['name', 'Name'], ['email', 'Email'], ['phone', 'Phone'],
+                ['eventType', 'Event'], ['eventDate', 'Date'], ['venue', 'Venue / suburb'],
+                ['startTime', 'Start'], ['endTime', 'Finish'], ['guestCount', 'Guests'],
+                ['message', 'Details']
+            ];
+            const lines = fields.flatMap(([key, label]) => {
+                const value = String(data.get(key) || '').trim();
+                return value ? [`${label}: ${value}`] : [];
+            });
+            const message = `Hi Wassim, I'd like a quote for my event. The website couldn't confirm delivery.\n\n${lines.join('\n')}`;
+            deliveryHelp.querySelector('[data-enquiry-email]').href =
+                `mailto:djwasabi1@outlook.com?subject=${encodeURIComponent('DJ Wasabi quote enquiry')}&body=${encodeURIComponent(message)}`;
+            deliveryHelp.querySelector('[data-enquiry-whatsapp]').href =
+                `https://wa.me/61414441773?text=${encodeURIComponent(message)}`;
+        };
+        quoteForm.addEventListener('input', () => {
+            if (deliveryHelp && !deliveryHelp.hidden) updateDeliveryLinks();
+        });
+        quoteForm.addEventListener('change', () => {
+            if (deliveryHelp && !deliveryHelp.hidden) updateDeliveryLinks();
+        });
+
         quoteForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Validate final step
-            if (!validateStep(currentStep)) return;
+            if (submitting) return;
+            for (let step = 1; step <= totalSteps; step++) {
+                if (!validateStep(step, false)) {
+                    goToStep(step);
+                    quoteForm.querySelector(`.form-step[data-step="${step}"] [aria-invalid="true"]`)?.focus();
+                    return;
+                }
+            }
+            submitting = true;
+            if (deliveryHelp) deliveryHelp.hidden = true;
 
+            const submitButtons = this.querySelectorAll('button[type="submit"]');
+            submitButtons.forEach(button => button.disabled = true);
+            this.setAttribute('aria-busy', 'true');
             const submitBtn = this.querySelector('.btn-submit');
             if (submitBtn) {
                 submitBtn.classList.add('loading');
@@ -253,6 +332,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Helper to reset button state
             const resetButton = () => {
+                submitButtons.forEach(button => button.disabled = false);
+                this.removeAttribute('aria-busy');
                 if (submitBtn) {
                     submitBtn.classList.remove('loading');
                     submitBtn.disabled = false;
@@ -282,63 +363,47 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (formNote) formNote.style.display = 'none';
                 if (successState) {
                     successState.style.display = 'block';
+                    successState.tabIndex = -1;
+                    successState.focus({ preventScroll: true });
                     successState.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'center' });
                 }
             };
 
             try {
                 const formData = new FormData(this);
-
-                // Add timeout to prevent hanging
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 15000);
-
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    },
-                    signal: controller.signal
-                });
-
-                clearTimeout(timeoutId);
-
-                // Check HTTP status first
-                if (!response.ok) {
-                    throw new Error(`HTTP ${response.status}`);
-                }
-
-                // Try to parse JSON, but handle non-JSON responses
-                const contentType = response.headers.get('content-type');
-                if (contentType && contentType.includes('application/json')) {
-                    const result = await response.json();
-                    // FormSubmit returns { success: "true" } or { success: true }
-                    if (result.success === 'true' || result.success === true) {
-                        showSuccess();
-                    } else {
-                        throw new Error(result.message || 'Submission failed');
+                // A stable reference identifies the same enquiry if a timed-out
+                // provider eventually delivers it after the backup succeeds.
+                enquiryReference ||= crypto.randomUUID();
+                formData.set('enquiryReference', enquiryReference);
+                try {
+                    await sendEnquiry(this.action, formData);
+                } catch (primaryError) {
+                    const backupKey = this.dataset.backupKey;
+                    if (!backupKey || !navigator.onLine) throw primaryError;
+                    const backupData = new FormData();
+                    for (const [key, value] of formData) {
+                        if (!key.startsWith('_')) backupData.append(key, value);
                     }
-                } else {
-                    // Non-JSON response (likely HTML activation page or success page)
-                    // FormSubmit may return HTML on first-time use - treat 200 as success
-                    console.warn('FormSubmit returned non-JSON response');
-                    showSuccess();
+                    backupData.set('access_key', backupKey);
+                    backupData.set('subject', formData.get('_subject') || 'New Quote Request - DJ Wasabi');
+                    backupData.set('from_name', 'DJ Wasabi website');
+                    await sendEnquiry('https://api.web3forms.com/submit', backupData);
                 }
+                showSuccess();
             } catch (error) {
                 console.error('Form submission error:', error);
 
-                // Different messages based on error type
-                let message = "Something went wrong. ";
-                if (error.name === 'AbortError') {
-                    message += "The request timed out. Please try again.";
-                } else if (!navigator.onLine) {
-                    message += "Check your internet connection.";
-                } else {
-                    message += "Give me a call or WhatsApp instead!";
+                if (deliveryHelp) {
+                    updateDeliveryLinks();
+                    deliveryHelp.hidden = false;
+                    deliveryHelp.querySelector('[data-delivery-message]').textContent = !navigator.onLine
+                        ? "You appear to be offline. Your details are still here. Reconnect and try again, or use email or WhatsApp once you're online."
+                        : "Your enquiry hasn't been confirmed. Your details are still here. Try again, or send them directly to Wassim.";
+                    deliveryHelp.focus();
+                    deliveryHelp.scrollIntoView({ behavior: 'auto', block: 'center' });
                 }
-
-                alert(message);
+            } finally {
+                submitting = false;
                 resetButton();
             }
         });
@@ -347,7 +412,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // KEYBOARD NAVIGATION (Accessibility)
         // ===========================================
         quoteForm.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
+            if (e.key === 'Enter' && ['INPUT', 'SELECT'].includes(e.target.tagName)) {
                 e.preventDefault();
                 if (currentStep < totalSteps) {
                     goToStep(currentStep + 1);
