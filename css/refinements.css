@@ -524,3 +524,59 @@ html { scroll-padding-top: 88px; }
   .site-refined.mobile-nav-open .navbar { background: #101010; }
   .site-refined.mobile-nav-open .mobile-quote-link { display: none; }
 }
+
+/* Keep supporting surfaces quieter than the content and primary actions. */
+.site-refined .footer { border-top: 1px solid var(--border-color); }
+.site-refined .footer::before { display: none; }
+.site-refined .footer-content { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-6); margin-bottom: var(--space-6); }
+.site-refined .footer-nav { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-content: start; gap: 0 var(--space-4); text-align: left; }
+.site-refined .footer-nav a { font-size: var(--font-size-subhead); }
+.site-refined .footer-center { gap: var(--space-4); min-width: 0; }
+.site-refined .footer-logo { display: block; max-width: 100%; }
+.site-refined .footer-logo img { display: block; width: 190px; max-width: 100%; height: auto; margin: 0; }
+.site-refined .footer-cta { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: var(--space-3) var(--space-5); border-radius: var(--radius-full); border-color: var(--border-color); color: var(--color-text-primary); font-size: var(--font-size-callout); font-weight: var(--font-weight-semibold); letter-spacing: normal; line-height: var(--line-height-normal); transition: color .15s ease, border-color .15s ease, background-color .15s ease; }
+.site-refined .footer-cta:hover { border-color: var(--color-accent); box-shadow: none; }
+.site-refined .footer-social { gap: var(--space-2); }
+.site-refined .footer-social a, .site-refined .footer-social a:hover { transform: none; }
+.site-refined .footer-trust { margin: 0; font-size: var(--font-size-footnote); color: var(--color-text-secondary); }
+.site-refined .footer-contact { align-items: stretch; gap: 0; }
+.site-refined .footer-contact p { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-2); text-align: left; font-size: var(--font-size-subhead); }
+.site-refined .footer-contact span { flex: 0 0 3.45em; margin: 0; font-size: var(--font-size-footnote); font-weight: var(--font-weight-medium); color: var(--color-text-secondary); }
+.site-refined .footer-contact a { flex: 1 1 13em; min-width: 0; display: flex; align-items: center; min-height: 44px; color: var(--color-text-primary); overflow-wrap: anywhere; }
+.site-refined .footer-bottom { padding-top: var(--space-4); }
+.site-refined .footer-bottom p { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0 4px; opacity: 1; color: var(--color-text-secondary); font-size: var(--font-size-footnote); }
+.site-refined .footer-privacy { display: inline-flex; align-items: center; min-height: 44px; text-underline-offset: 3px; }
+.site-refined .footer a { touch-action: manipulation; }
+.site-refined :is(.venue-logo, .venue-item, .faq-item):is(:hover, :active) { transform: none; box-shadow: none; }
+.site-refined :is(.expertise, .services, .gallery, .why-wedding, .enhancements-section, .process-section, .venues-section, .faq-section) :focus-visible { outline-color: #426b1f; }
+@media (hover: hover) {
+  .site-refined .footer-contact a:hover { color: var(--color-accent); }
+  .site-refined :is(.faq-item, .enhancement-item, .event-option) > summary:hover { color: #426b1f; }
+}
+@media (max-width: 768px) {
+  .site-refined .footer-content { grid-template-columns: minmax(0, 1fr); gap: var(--space-5); }
+  .site-refined .footer-center { order: 0; }
+  .site-refined .footer-contact { order: 1; width: 100%; max-width: 320px; margin-inline: auto; }
+  .site-refined .footer-nav { order: 2; width: 100%; max-width: 320px; margin-inline: auto; }
+  .site-refined .footer-logo img { width: 174px; }
+}
+
+/* A consistent section rhythm, with boundaries where adjacent tones match. */
+.site-refined .section-subtitle--label { margin: 0 0 var(--space-3); font-size: var(--font-size-footnote); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-caps); }
+.site-refined main > :is(.hero, .service-hero, .why-choose, .experience-section, .reviews, .quote-section, .contact-methods-section, .contact-card-section, .contact-social-section) + :is(.why-choose, .experience-section, .reviews, .quote-section, .contact-methods-section, .contact-card-section, .contact-social-section) { border-top: 1px solid var(--border-color); }
+.site-refined main > :is(.expertise, .services, .gallery, .why-wedding, .enhancements-section, .process-section, .venues-section, .faq-section) + :is(.expertise, .services, .gallery, .why-wedding, .enhancements-section, .process-section, .venues-section, .faq-section) { border-top: 1px solid #d8ddd1; }
+@media (max-width: 768px) {
+  .site-refined .process-timeline { grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr)); }
+}
+
+/* Type roles keep the same hierarchy as the viewport narrows. */
+.site-refined :is(.experience-title, .contact-methods-section h2, .contact-social-section h2, .policy-heading, .gallery-cta h2, .experience-card h3) { line-height: var(--line-height-snug); }
+.site-refined .policy-title { line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); }
+.site-refined .experience-section + .corporate-photos { border-top: 1px solid var(--border-color); }
+@media (max-width: 768px) {
+  .site-refined .service-hero .hero-title, .site-refined .gallery-heading h1, .site-refined .policy-title { font-size: clamp(var(--font-size-title1), calc(1rem + 4vw), var(--font-size-large-title)); }
+  .site-refined .contact-card-header h2, .site-refined .gallery-cta h2 { font-size: var(--font-size-title2); line-height: var(--line-height-snug); }
+  .site-refined .experience-card h3 { font-size: var(--font-size-headline); }
+}
+/* The page container supplies the inset; avoid narrowing service copy twice. */
+.site-refined .service-hero .hero-content { padding: 0; }

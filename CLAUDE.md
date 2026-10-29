@@ -47,3 +47,9 @@ All new styles should use existing tokens:
 - Before release run `python3 scripts/check-seo.py`, check the form's event selection and delivery recovery, and compare public-page layout at phone and desktop widths.
 - After publication, notify participating search engines of the changed pages with `python3 scripts/notify-search.py index.html contact.html --submit` (replace the filenames with the actual changed pages). Without `--submit` this only previews the URLs. Google discovery continues through the sitemap and Search Console.
 - Analytics intent events contain only event type, page path, contact method and step numbers. Never add visitor names, email addresses, phone numbers or enquiry text. `generate_lead` fires only after the delivery provider confirms success.
+
+## Shared visual hierarchy
+- Keep the approved homepage hero dominant. Header and mobile footer logos use a 174px maximum width; the desktop footer logo is capped at 190px with its original aspect ratio.
+- Use existing type tokens by role. Mobile service titles scale from 28px to 32px at default text size, section headings are generally 24px, and nested headings remain smaller. Preserve rem-based text enlargement and 16px form inputs.
+- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all nine public pages.
+- Keep static content stationary. Reserve motion and visual feedback for interactions, preserve focus visibility on light and dark surfaces, and respect reduced motion.

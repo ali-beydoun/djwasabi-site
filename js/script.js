@@ -816,27 +816,6 @@ if ('IntersectionObserver' in window) {
         imageObserver.observe(img);
     });
 
-    // Scroll-triggered animations for various elements
-    const scrollAnimObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('scroll-animate');
-                // Remove class after animation to allow re-trigger
-                setTimeout(() => {
-                    entry.target.classList.remove('scroll-animate');
-                }, 1500);
-            }
-        });
-    }, {
-        threshold: 0.5,
-        rootMargin: '0px'
-    });
-
-    // Apply to trust items and expertise items only
-    document.querySelectorAll('.trust-item, .expertise-item').forEach(item => {
-        scrollAnimObserver.observe(item);
-    });
-
     // ===========================================
     // GOOGLE ANALYTICS - CLICK TRACKING
     // ===========================================
