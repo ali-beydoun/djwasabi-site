@@ -65,3 +65,8 @@ All new styles should use existing tokens:
 - Marketing-page enquiry links target their local `#contact` surface. Service forms carry a static event default; a valid `?event=` parameter overrides it. Existing `/contact.html?event=...#contact` links remain supported. The `#quote` section anchor is retained for older links.
 - Preserve 16px inputs and comfortable touch targets. At default text size, verify the contact actions, first form step and Next button within 320x568, 390x520 and 466x500 CSS viewports. Short, wider phone windows place email and phone fields together. Enlarged text, validation messages, later steps and the keyboard may need scrolling; never clip them or shrink text to force a fit.
 - Every page hosting the form must allow both configured delivery providers in its content security policy. Verify service context, analytics without personal data, validation and mocked primary/backup recovery on all eight mounts. Do not send live test enquiries unless requested.
+
+## My Story editorial layout
+- Introduce Wassim with direct eye contact and a visible microphone, then show his personal approach and a real dance-floor moment. Keep concise first-person copy and existing factual claims.
+- Use existing photographs without retouching. The hero uses a 4:3 browser crop at 35% vertical position to retain his face, microphone and hand. Supporting photographs retain their full landscape frames.
+- Keep the two editorial sections aligned in rows on desktop and stacked at narrow widths or enlarged text. The complete music range remains in a native disclosure. Preserve the generated shared contact surface.

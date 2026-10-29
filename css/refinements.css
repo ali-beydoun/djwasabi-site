@@ -697,3 +697,30 @@ html { scroll-padding-top: 88px; }
   .site-refined .contact-surface .form-step[data-step="1"] :is(.form-group:has(#name), .btn-next) { grid-column: 1 / -1; }
   .site-refined .contact-surface .form-step[data-step="1"] .form-group { min-width: 0; }
 }
+
+/* A personal introduction, followed by approach and the people on the floor. */
+.site-refined.page-my-story .hero-content { grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--space-7); }
+.site-refined.page-my-story .hero-image { max-width: none; }
+.site-refined.page-my-story .hero-title { margin-bottom: var(--space-4); }
+.site-refined.page-my-story .hero-subtitle { margin: 0; font-size: var(--font-size-body); max-width: 48ch; }
+.site-refined.page-my-story .story-credential { margin: var(--space-4) 0 0; font-size: var(--font-size-footnote); color: var(--color-text-secondary); line-height: var(--line-height-normal); }
+.site-refined.page-my-story .hero-image img { width: 100%; height: auto; max-width: none; max-height: none; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; }
+.site-refined.page-my-story .story-layout { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); align-items: start; gap: var(--space-7); }
+.site-refined.page-my-story .story-copy { min-width: 0; }
+.site-refined.page-my-story .story-copy .section-title { text-align: left; text-wrap: balance; }
+.site-refined.page-my-story .experience-section .section-title { color: var(--color-text-primary); }
+.site-refined.page-my-story .story-copy p { margin: 0 0 var(--space-4); font-size: var(--font-size-body); line-height: var(--line-height-relaxed); }
+.site-refined.page-my-story .story-review-link { display: inline-flex; align-items: center; min-height: 48px; color: var(--color-text-dark); font-size: var(--font-size-subhead); text-decoration: underline; text-underline-offset: 4px; }
+.site-refined.page-my-story .story-photo { margin: 0; min-width: 0; }
+.site-refined.page-my-story .story-photo img { display: block; width: 100%; height: auto; border-radius: var(--radius-md); }
+.site-refined.page-my-story .story-photo figcaption { margin-top: var(--space-2); font-size: var(--font-size-footnote); color: var(--color-text-secondary); }
+.site-refined.page-my-story .story-genres { margin-top: var(--space-5); border-block: 1px solid var(--border-color); }
+.site-refined.page-my-story .story-genres summary { padding-block: var(--space-3); min-height: 48px; font-size: var(--font-size-body); color: var(--color-accent); cursor: pointer; }
+.site-refined.page-my-story .story-genres ul { display: grid; gap: var(--space-2); padding: 0 0 var(--space-4) 1.25em; margin: 0; font-size: var(--font-size-subhead); line-height: var(--line-height-normal); }
+.site-refined.page-my-story .story-genres li::marker { color: var(--color-accent); }
+@media (max-width: 768px) {
+  .site-refined.page-my-story .service-hero { padding-top: calc(72px + var(--space-5)); padding-bottom: var(--space-5); }
+  .site-refined.page-my-story .hero-content, .site-refined.page-my-story .story-layout { gap: var(--space-5); }
+  .site-refined.page-my-story .hero-buttons { margin-top: var(--space-4); }
+  .site-refined.page-my-story .hero-image img { max-width: none; }
+}
