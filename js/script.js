@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     mobileToggle?.addEventListener('click', () => setMenu(!navMenu.classList.contains('active')));
     servicesButton?.addEventListener('click', () => setServices(servicesButton.getAttribute('aria-expanded') !== 'true'));
-    navMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+    document.querySelectorAll('.navbar a').forEach(link => link.addEventListener('click', () => setMenu(false)));
     document.addEventListener('click', event => {
         if (!event.target.closest('.navbar')) setMenu(false);
         else if (dropdown && !dropdown.contains(event.target)) setServices(false);
@@ -55,6 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
                 e.preventDefault();
+                if (targetId === '#contact') targetSection.focus({ preventScroll: true });
                 targetSection.scrollIntoView({
                     behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
                     block: 'start'

@@ -462,3 +462,52 @@ html { scroll-padding-top: 88px; }
   .site-refined .contact-option-label { font-size: var(--font-size-footnote); letter-spacing: normal; text-transform: none; margin: 0; }
   .site-refined .contact-option-value { font-size: var(--font-size-callout); }
 }
+
+/* Direct quote access and consistent contact choices without oversized controls. */
+.site-refined .mobile-quote-link { display: none; }
+.site-refined .quote-header { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2); max-width: 700px; margin: 0 auto var(--space-4); text-align: left; }
+.site-refined .quote-header .section-title { margin: 0; }
+.site-refined .quote-header:focus:not(:focus-visible) { outline: none; }
+.site-refined .quote-contact-options { display: flex; gap: 4px; }
+.site-refined .quote-contact-options a { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding-inline: var(--space-2); color: var(--color-accent); font-size: var(--font-size-footnote); border-radius: var(--radius-sm); text-decoration: none; }
+.site-refined .quote-contact-options a:hover { background: var(--color-surface-elevated); }
+.site-refined .quote-form .field-hint:empty { display: none; }
+.site-refined .quote-form .form-step { scroll-margin-top: var(--space-2); }
+.site-refined .quote-form .guest-chips input:focus-visible + .guest-chip { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+.site-refined summary::after { flex: 0 0 20px; text-align: center; }
+.site-refined .process-step { padding: var(--space-5); background: #fff; border: 1px solid #e1e4dc; border-radius: var(--radius-md); box-shadow: none; }
+.site-refined .process-step:active { transform: none; }
+.site-refined .process-step .step-number { margin: 0 0 var(--space-4); box-shadow: none; }
+.site-refined .process-step h3 { margin-bottom: var(--space-2); line-height: var(--line-height-snug); }
+.site-refined .process-step p { color: var(--color-text-muted-dark); }
+.site-refined :is(.mobile-quote-link, .quote-contact-options a, .mobile-toggle, .nav-menu a) { touch-action: manipulation; }
+.site-refined :is(.mobile-quote-link, .quote-contact-options a):active { opacity: .8; }
+@media (max-width: 768px) {
+  .site-refined .nav-wrapper { gap: var(--space-2); }
+  .site-refined .logo { margin-right: auto; min-width: 0; }
+  .site-refined .logo img { width: min(174px, calc(100vw - 176px)); max-width: 100%; }
+  .site-refined .mobile-quote-link { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 44px; padding-inline: var(--space-3); border-radius: var(--radius-full); color: var(--color-surface); background: var(--color-accent); font-size: var(--font-size-footnote); font-weight: var(--font-weight-semibold); text-decoration: none; }
+  .site-refined .mobile-toggle { flex-shrink: 0; }
+  .site-refined .nav-menu { right: 0; transform: translateX(100%); visibility: hidden; transition: transform .2s var(--ease-interactive), visibility .2s; overscroll-behavior: contain; padding-bottom: max(var(--space-4), env(safe-area-inset-bottom)); }
+  .site-refined .nav-menu.active { transform: translateX(0); visibility: visible; }
+  .site-refined .nav-menu .get-quote-btn { justify-content: center; }
+  .site-refined .quote-header .section-title { font-size: var(--font-size-title3); }
+  .site-refined .quote-contact-options a { font-size: var(--font-size-caption1); padding-inline: 4px; }
+  .site-refined .quote-form { padding: var(--space-4); }
+  .site-refined .quote-form .form-progress { margin-bottom: var(--space-4); }
+  .site-refined .quote-form .step-intro { margin-bottom: var(--space-3); }
+  .site-refined .quote-form .form-group :is(input, select, textarea) { min-height: 48px; padding: 11px 14px; }
+  .site-refined .quote-form .btn-next { margin-top: 0; }
+  .site-refined .quote-form .form-note { margin-top: var(--space-2); }
+  .site-refined .process-step { padding: var(--space-4); }
+  .site-refined .contact-methods-grid { gap: var(--space-3); }
+  .site-refined .contact-method-card { padding: var(--space-3) var(--space-4); grid-template-columns: 28px minmax(0, 1fr); gap: 2px var(--space-3); }
+  .site-refined .contact-method-card .method-icon { grid-row: span 2; align-self: center; margin: 0; }
+  .site-refined .contact-method-card .method-label, .site-refined .contact-method-card .method-value { margin: 0; font-size: var(--font-size-subhead); }
+  .site-refined .contact-method-card .method-hint { display: none; }
+  .site-refined .quote-header { margin-bottom: var(--space-3); }
+  .site-refined .quote-form .form-group { margin-bottom: var(--space-3); }
+  .site-refined .quote-form .form-group > label { margin-bottom: 6px; }
+  /* The progress label already identifies this step. Retain its focus announcement. */
+  .site-refined .quote-form .step-intro-details { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+}
