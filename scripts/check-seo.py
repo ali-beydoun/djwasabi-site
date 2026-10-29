@@ -5,7 +5,7 @@ from urllib.parse import urlsplit,unquote
 import json,re,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parent.parent
 BASE='https://djwasabi.com.au'
-NAMES=['index','weddings','birthdays','corporate','other-events','my-story','gallery','contact','privacy-policy']
+NAMES=['index','weddings','birthdays','corporate','other-events','my-story','gallery','contact','privacy-policy','choosing-your-first-dance-song']
 class Page(HTMLParser):
  def __init__(self,source):
   super().__init__();self.meta={};self.links=[];self.assets=[];self.ids=set();self.canonical=[];self.lang=None;self.h1=0;self.feed(source)
@@ -78,4 +78,14 @@ for name,event in [('weddings','wedding'),('birthdays','birthday'),('corporate',
  assert all(('?event='+event+'#contact') in href for href in parsed[name].links if '/contact.html' in href)
  source=(ROOT/(name+'.html')).read_text()
  assert 'data-event="'+event+'"' in source and 'value="'+event+'" selected' in source,(name,'service form context')
+article_source=(ROOT/'choosing-your-first-dance-song.html').read_text()
+article_graph=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',article_source,re.S)[1])['@graph']
+article=next(n for n in article_graph if n['@type']=='Article')
+assert article['headline']==re.search(r'<h1[^>]*>(.*?)</h1>',article_source).group(1)
+assert article['author']['@id']==BASE+'/#wassim'
+assert article['datePublished']=='2026-10-30' and 'datetime="2026-10-30"' in article_source
+assert local_path(article['image']).is_file()
+assert '/choosing-your-first-dance-song.html' in parsed['weddings'].links
+assert '/choosing-your-first-dance-song.html' in parsed['my-story'].links
+assert '/contact.html?event=wedding#contact' in parsed['choosing-your-first-dance-song'].links
 print(json.dumps({'publicPages':len(NAMES),'sitemapImages':images,'checks':'metadata, entities, canonical URLs, contact consistency, assets, internal links and event-aware quote links','result':'passed'}))

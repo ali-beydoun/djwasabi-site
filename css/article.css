@@ -1,0 +1,47 @@
+/* Wedding advice uses the site's shell and a quiet, readable editorial column. */
+.site-refined.page-guide .guide-header { padding: calc(72px + var(--space-5)) 0 var(--space-7); background: var(--color-surface); }
+.site-refined.page-guide .guide-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-bottom: var(--space-5); color: var(--color-text-secondary); font-size: var(--font-size-footnote); }
+.site-refined.page-guide .guide-breadcrumb a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-text-primary); text-underline-offset: 4px; }
+.site-refined.page-guide .guide-intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--space-7); align-items: center; }
+.site-refined.page-guide .guide-header .eyebrow { margin: 0 0 var(--space-3); }
+.site-refined.page-guide h1 { margin: 0 0 var(--space-4); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); color: var(--color-text-primary); text-wrap: balance; }
+.site-refined.page-guide .guide-deck { margin: 0 0 var(--space-5); font-size: var(--font-size-headline); line-height: var(--line-height-relaxed); color: var(--color-text-secondary); max-width: 42ch; }
+.site-refined.page-guide .guide-byline { margin: 0; font-size: var(--font-size-footnote); line-height: var(--line-height-relaxed); color: var(--color-text-secondary); }
+.site-refined.page-guide .guide-byline a, .site-refined.page-guide .guide-photo a { color: var(--color-text-primary); text-decoration: underline; text-underline-offset: 4px; }
+.site-refined.page-guide .guide-photo { margin: 0; }
+.site-refined.page-guide .guide-photo img { display: block; width: 100%; height: auto; border-radius: var(--radius-md); }
+.site-refined.page-guide .guide-photo figcaption { margin-top: var(--space-2); font-size: var(--font-size-footnote); line-height: var(--line-height-normal); color: var(--color-text-secondary); }
+.site-refined.page-guide .guide-reading { padding-block: var(--space-8); background: var(--color-surface-light); color: var(--color-text-dark); }
+.site-refined.page-guide .guide-reading-grid { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 42rem); gap: var(--space-8); justify-content: center; align-items: start; }
+.site-refined.page-guide .guide-contents { position: sticky; top: 96px; border-top: 2px solid #426b1f; padding-top: var(--space-3); }
+.site-refined.page-guide .guide-contents p { margin: 0 0 var(--space-2); font-weight: var(--font-weight-semibold); }
+.site-refined.page-guide .guide-contents a { display: flex; align-items: center; min-height: 44px; color: var(--color-text-muted-dark); font-size: var(--font-size-subhead); line-height: var(--line-height-normal); text-decoration: underline; text-underline-offset: 4px; }
+.site-refined.page-guide .guide-copy { min-width: 0; font-size: var(--font-size-headline); line-height: var(--line-height-relaxed); }
+.site-refined.page-guide .guide-copy section { margin: 0 0 var(--space-7); }
+.site-refined.page-guide .guide-copy h2 { margin: 0 0 var(--space-4); color: var(--color-text-dark); font-size: clamp(var(--font-size-title3), 2.2vw, var(--font-size-title1)); font-weight: var(--font-weight-bold); line-height: var(--line-height-snug); letter-spacing: var(--tracking-tight); text-wrap: balance; }
+.site-refined.page-guide .guide-copy p { margin: 0 0 var(--space-4); }
+.site-refined.page-guide .guide-copy a { color: var(--color-text-dark); text-decoration: underline; text-underline-offset: 4px; }
+.site-refined.page-guide .guide-reading :focus-visible { outline-color: #426b1f; }
+.site-refined.page-guide .guide-checklist { padding: var(--space-5); background: #e8eddf; border-radius: var(--radius-md); margin-bottom: var(--space-5); }
+.site-refined.page-guide .guide-checklist ul { margin: 0 0 var(--space-4); padding-left: 1.2em; }
+.site-refined.page-guide .guide-checklist li { padding-block: 4px; }
+.site-refined.page-guide .guide-checklist p:last-child { margin-bottom: 0; }
+.site-refined.page-guide .guide-sources { font-size: var(--font-size-subhead); border-bottom: 1px solid #d8ddd1; padding-bottom: var(--space-4); }
+.site-refined.page-guide .guide-sources summary { min-height: 48px; padding-block: var(--space-3); cursor: pointer; }
+.site-refined.page-guide .guide-next { margin-top: var(--space-7); }
+.site-refined.page-guide .guide-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); }
+.site-refined.page-guide .guide-actions .btn { text-decoration: none; }
+.site-refined.page-guide .guide-contact-link, .site-refined.page-guide .guide-back-link { display: inline-flex; align-items: center; min-height: 48px; font-size: var(--font-size-subhead); }
+.site-refined.page-guide .guide-back-link { margin-top: var(--space-4); color: var(--color-text-muted-dark); }
+@media (max-width: 60rem) {
+  .site-refined.page-guide .guide-reading-grid { grid-template-columns: minmax(0, 42rem); gap: var(--space-6); }
+  .site-refined.page-guide .guide-contents { position: static; display: flex; flex-wrap: wrap; gap: 0 var(--space-4); }
+  .site-refined.page-guide .guide-contents p { width: 100%; }
+}
+@media (max-width: 768px) {
+  .site-refined.page-guide .guide-header { padding-top: calc(72px + var(--space-2)); padding-bottom: var(--space-5); }
+  .site-refined.page-guide .guide-breadcrumb { margin-bottom: var(--space-3); }
+  .site-refined.page-guide .guide-intro-grid { gap: var(--space-5); }
+  .site-refined.page-guide .guide-deck { font-size: var(--font-size-body); }
+  .site-refined.page-guide .guide-reading { padding-block: var(--space-6); }
+}

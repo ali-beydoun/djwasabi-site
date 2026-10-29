@@ -739,3 +739,6 @@ html { scroll-padding-top: 88px; }
 .site-refined.page-my-story .story-service-links a > span:last-child { align-self: center; flex: 0 0 1em; font-size: var(--font-size-title3); }
 .site-refined.page-my-story .story-service-links a:hover strong { text-decoration: underline; text-underline-offset: 4px; }
 .site-refined.page-my-story .story-service-links a:active { background: #e8eddf; }
+
+.site-refined .faq-guide-link { color: var(--color-text-dark); text-decoration: underline; text-underline-offset: 4px; }
+.site-refined.page-my-story .story-guide-link { display: inline-flex; align-items: center; min-height: 48px; margin-top: var(--space-3); color: var(--color-accent); font-size: var(--font-size-subhead); line-height: var(--line-height-normal); text-decoration: underline; text-underline-offset: 4px; }
