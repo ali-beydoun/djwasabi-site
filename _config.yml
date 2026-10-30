@@ -3,3 +3,4 @@ exclude:
   - scripts
   - CLAUDE.md
   - partials
+  - content

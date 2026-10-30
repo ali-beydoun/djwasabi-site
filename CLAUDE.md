@@ -4,7 +4,7 @@
 Static HTML/CSS website for DJ Wasabi (Sydney-based DJ/MC service). No build tools or frameworks: plain HTML, CSS, and vanilla JS.
 
 ## Structure
-- HTML pages in root: `index.html`, `contact.html`, `weddings.html`, `birthdays.html`, `corporate.html`, `other-events.html`, `my-story.html`, `gallery.html`, `privacy-policy.html`, `choosing-your-first-dance-song.html`
+- HTML pages in root: `index.html`, `contact.html`, `weddings.html`, `birthdays.html`, `corporate.html`, `other-events.html`, `my-story.html`, `gallery.html`, `privacy-policy.html`, `choosing-your-first-dance-song.html`, `blog.html`, `wedding-mc-professional-or-friend.html`, `should-i-give-my-dj-a-playlist.html`
 - Stylesheets: `css/style.css` (main + tokens), `css/services.css`, `css/gallery.css`, `css/refinements.css` (shared public-page refinements, loaded last)
 - Design tokens defined in `:root` in `css/style.css`: spacing, radius, color, typography
 
@@ -30,7 +30,7 @@ All new styles should use existing tokens:
 ## Public-Page Design and Gallery
 - Preserve the original transparent WebP used for the homepage portrait with its signature green graphic. Keep its transparency intact. Professional photos can support the homepage story section and suitable heroes on other pages.
 - Keep the established black, white and lime identity, existing system font stack and design tokens. Use shared content widths, aligned text, restrained decoration and proportionate images.
-- `css/refinements.css` is the shared final layer for the ten public pages. The Instagram templates do not load it.
+- `css/refinements.css` is the shared final layer for the thirteen public pages. The Instagram templates do not load it.
 - The homepage gallery preview shows six photographs on desktop and four on mobile, linking to the complete gallery.
 - `gallery.html` contains ordinary full-image links enhanced by `js/gallery.js`: category filters, native modal viewing, previous/next controls, arrow keys, swipe and focus restoration. Photos remain accessible as links without JavaScript.
 - Gallery thumbnails use responsive WebP variants at 320, 640 and 960 pixels wide, capped at the source width. Full photographs preserve their framing and are capped at 1800 pixels on the long edge. Keep width/height, srcset, factual alt text, captions and ImageGallery metadata in sync.
@@ -51,7 +51,7 @@ All new styles should use existing tokens:
 ## Shared visual hierarchy
 - Keep the approved homepage hero dominant. Header and mobile footer logos use a 174px maximum width; the desktop footer logo is capped at 190px with its original aspect ratio.
 - Use existing type tokens by role. Mobile service titles scale from 28px to 32px at default text size, section headings are generally 24px, and nested headings remain smaller. Preserve rem-based text enlargement and 16px form inputs.
-- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all ten public pages.
+- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all thirteen public pages.
 - Keep static content stationary. Reserve motion and visual feedback for interactions, preserve focus visibility on light and dark surfaces, and respect reduced motion.
 
 ## Service-page hierarchy
@@ -72,8 +72,15 @@ All new styles should use existing tokens:
 - Keep the two editorial sections aligned in rows on desktop and stacked at narrow widths or enlarged text. The complete music range remains in a native disclosure. Preserve the generated shared contact surface.
 - The My Story hero prioritises reading and exploring services. Keep Wassim's original conversational voice, a visible sample of his music range, and four service links before the shared contact surface. Service links form two balanced desktop columns and one column on narrow screens.
 
-## Wedding advice
-- `choosing-your-first-dance-song.html` expands a genuine question from the Weddings FAQ and has a secondary link from My Story. Keep advice within the service journey, with no separate Blog menu or magazine-style feed.
+## Blog and service-linked articles
+- `choosing-your-first-dance-song.html` expands a genuine question from the Weddings FAQ and has a secondary link from My Story. The Blog is linked from the global menu and footer. Keep advice connected to relevant services and use FAQ links only where they help the reader.
 - `css/article.css` provides the article header, readable light-background column, contents links and understated service follow-through. Preserve the global navigation and footer. Article enquiries lead to `/contact.html?event=wedding#contact`, the existing shared contact surface.
 - Use the original gallery photograph with a factual caption. Do not label the pictured celebration as a first dance. Article metadata, visible author/date, canonical URL, social image and sitemap must agree.
 - Keep advice conversational and specific. Do not invent personal anecdotes or promise music editing or choreography. Sources and editorial research are retained in the task outputs.
+
+- `content/articles.json` is the article catalogue. It controls titles, summaries, dates, original images, sharing images, section navigation and optional service/FAQ relationships. `partials/articles/` contains the approved HTML bodies. `partials/editorial-page.html` is the shared page template.
+- Run `python3 scripts/render-articles.py` to generate Blog, all article pages and their sitemap entries. It reads the current homepage navigation/footer and shared business entities so new editorial pages inherit the same shell. Generated pages stay plain HTML, with no client-side content loader. Do not edit them directly.
+- The visible breadcrumb is stable: Home / relevant service / article. If there is no service, use Home / Blog / article. Keep All articles links near the heading and at the end. Service context carries into the existing contact form; general articles use the unselected contact form.
+- To add an article, create its body in `partials/articles/`, add a catalogue entry (copy an existing entry, retain its field structure), provide original image dimensions and available responsive variants, and create an opaque 1200x630 share image. `service`, `faq` and `contents` are optional. Each section-navigation ID must exist in the body. Dates are ISO dates, and articles sort newest first; catalogue order breaks same-day ties.
+- Run `python3 scripts/render-articles.py --check`, `python3 scripts/render-contact.py --check` and `python3 scripts/check-seo.py`. New article URLs are discovered from the catalogue by SEO checks. Review the Blog and article on phone, tablet, desktop and enlarged text, including service/FAQ returns and enquiry context. Check a one-article collection and general articles when changing the renderer.
+- Article titles should address a real planning question or concern. Use Wassim's direct first-person advice, without invented anecdotes or new service guarantees. Give balanced choices before linking to services. Apply Humanizer editorial guidance and an independent adversarial content review when requested. Research and review evidence remains in the task outputs.

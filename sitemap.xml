@@ -219,6 +219,35 @@
   <url>
     <loc>https://djwasabi.com.au/choosing-your-first-dance-song.html</loc>
     <lastmod>2026-10-30</lastmod>
-    <image:image><image:loc>https://djwasabi.com.au/images/gallery/wedding-dance-floor-celebration.webp</image:loc></image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dance-floor-celebration.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/blog.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-booth.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-laptop-controller.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dance-floor-celebration.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/wedding-mc-professional-or-friend.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-booth.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/should-i-give-my-dj-a-playlist.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-laptop-controller.webp</image:loc>
+    </image:image>
   </url>
 </urlset>

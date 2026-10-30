@@ -5,7 +5,9 @@ from urllib.parse import urlsplit,unquote
 import json,re,xml.etree.ElementTree as ET
 ROOT=Path(__file__).resolve().parent.parent
 BASE='https://djwasabi.com.au'
-NAMES=['index','weddings','birthdays','corporate','other-events','my-story','gallery','contact','privacy-policy','choosing-your-first-dance-song']
+NAMES=['index','weddings','birthdays','corporate','other-events','my-story','gallery','contact','privacy-policy','blog']
+CATALOGUE=json.loads((ROOT/'content/articles.json').read_text())
+NAMES += [a['slug'] for a in CATALOGUE['articles']]
 class Page(HTMLParser):
  def __init__(self,source):
   super().__init__();self.meta={};self.links=[];self.assets=[];self.ids=set();self.canonical=[];self.lang=None;self.h1=0;self.feed(source)
@@ -78,14 +80,24 @@ for name,event in [('weddings','wedding'),('birthdays','birthday'),('corporate',
  assert all(('?event='+event+'#contact') in href for href in parsed[name].links if '/contact.html' in href)
  source=(ROOT/(name+'.html')).read_text()
  assert 'data-event="'+event+'"' in source and 'value="'+event+'" selected' in source,(name,'service form context')
-article_source=(ROOT/'choosing-your-first-dance-song.html').read_text()
-article_graph=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',article_source,re.S)[1])['@graph']
-article=next(n for n in article_graph if n['@type']=='Article')
-assert article['headline']==re.search(r'<h1[^>]*>(.*?)</h1>',article_source).group(1)
-assert article['author']['@id']==BASE+'/#wassim'
-assert article['datePublished']=='2026-10-30' and 'datetime="2026-10-30"' in article_source
-assert local_path(article['image']).is_file()
+for entry in CATALOGUE['articles']:
+ name=entry['slug'];article_source=(ROOT/(name+'.html')).read_text()
+ article_graph=json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>',article_source,re.S)[1])['@graph']
+ article=next(n for n in article_graph if n['@type']=='Article')
+ from html import unescape
+ assert article['headline']==unescape(re.search(r'<h1[^>]*>(.*?)</h1>',article_source).group(1))
+ assert article['author']['@id']==BASE+'/#wassim'
+ assert article['datePublished']==entry['published'] and 'datetime="'+entry['published']+'"' in article_source
+ assert local_path(article['image']).is_file()
+ assert '/'+name+'.html' in parsed['blog'].links
+ assert '/blog.html' in parsed[name].links
+ service=entry.get('service')
+ expected='/contact.html'+('?event='+service['event'] if service and service.get('event') else '')+'#contact'
+ assert expected in parsed[name].links
+for name in NAMES:
+ source=(ROOT/(name+'.html')).read_text()
+ assert 'href="/blog.html"' in re.search(r'<nav class="navbar".*?</nav>',source,re.S)[0]
+ assert 'href="/blog.html"' in re.search(r'<nav class="footer-nav".*?</nav>',source,re.S)[0]
 assert '/choosing-your-first-dance-song.html' in parsed['weddings'].links
 assert '/choosing-your-first-dance-song.html' in parsed['my-story'].links
-assert '/contact.html?event=wedding#contact' in parsed['choosing-your-first-dance-song'].links
 print(json.dumps({'publicPages':len(NAMES),'sitemapImages':images,'checks':'metadata, entities, canonical URLs, contact consistency, assets, internal links and event-aware quote links','result':'passed'}))

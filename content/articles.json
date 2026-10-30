@@ -1,0 +1,218 @@
+{
+  "author": {
+    "@type": "Person",
+    "@id": "https://djwasabi.com.au/#wassim",
+    "name": "Wassim",
+    "alternateName": "DJ Wasabi",
+    "jobTitle": "DJ and MC",
+    "url": "https://djwasabi.com.au/my-story.html",
+    "worksFor": {
+      "@id": "https://djwasabi.com.au/#business"
+    }
+  },
+  "blog": {
+    "title": "Music & event planning advice | DJ Wasabi Blog",
+    "heading": "Music, parties and planning",
+    "description": "Music and event planning advice from Wassim, DJ Wasabi. Explore his articles, from choosing your first dance song to planning your celebration.",
+    "intro": "I'm Wassim. These are a few things I'd talk through with you when we're planning your music.",
+    "modified": "2026-10-30",
+    "socialImage": "images/social/blog.jpg",
+    "socialAlt": "DJ Wasabi blog: music, parties and planning, with Wassim"
+  },
+  "articles": [
+    {
+      "slug": "wedding-mc-professional-or-friend",
+      "title": "Should we hire a wedding MC or ask a friend?",
+      "breadcrumbLabel": "Choosing your MC",
+      "description": "Should you hire a professional wedding MC or ask a friend? Weigh the cost, their enjoyment of the day and what would help you both relax.",
+      "summary": "I'd think about who you would both feel comfortable having on the microphone, and what the job would ask of them.",
+      "topic": "Wedding planning",
+      "published": "2026-10-30",
+      "modified": "2026-10-30",
+      "body": "partials/articles/friend-mc.html",
+      "image": {
+        "src": "images/gallery/dj-wasabi-wedding-mc-booth.webp",
+        "width": 1025,
+        "height": 1536,
+        "alt": "Wassim smiling with a microphone behind his DJ booth",
+        "portrait": true,
+        "caption": "On the microphone. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          960,
+          1025
+        ]
+      },
+      "socialImage": "images/social/wedding-mc.jpg",
+      "socialAlt": "DJ Wasabi: should we hire a wedding MC or ask a friend?",
+      "service": {
+        "url": "/weddings.html",
+        "label": "Weddings",
+        "cta": "Explore wedding DJ & MC",
+        "event": "wedding"
+      },
+      "faq": {
+        "url": "/weddings.html#wedding-questions",
+        "label": "Wedding questions"
+      },
+      "next": {
+        "title": "Still deciding who should host?",
+        "text": "Tell me what you're comfortable with and what you're considering. We can talk about the DJ and MC options for your wedding.",
+        "contactLabel": "Talk to me about your wedding"
+      },
+      "contents": [
+        {
+          "id": "asking-a-friend",
+          "label": "Asking a friend"
+        },
+        {
+          "id": "hiring-a-professional",
+          "label": "Hiring a professional"
+        },
+        {
+          "id": "feeling-comfortable",
+          "label": "Feeling comfortable"
+        },
+        {
+          "id": "once-you-choose",
+          "label": "Once you choose"
+        }
+      ]
+    },
+    {
+      "slug": "should-i-give-my-dj-a-playlist",
+      "title": "Should I give my DJ a playlist?",
+      "breadcrumbLabel": "Planning your playlist",
+      "description": "Wondering how to make different music tastes work at your party? Wassim explains what to send your DJ and how to discuss favourites and requests.",
+      "summary": "You want your guests to enjoy the music. That doesn't mean you need to choose every song for the night.",
+      "topic": "Party music",
+      "published": "2026-10-30",
+      "modified": "2026-10-30",
+      "body": "partials/articles/guest-playlist.html",
+      "image": {
+        "src": "images/gallery/dj-wasabi-party-laptop-controller.webp",
+        "width": 768,
+        "height": 960,
+        "alt": "Wassim at his laptop and DJ controller, with headphones around his neck",
+        "portrait": true,
+        "caption": "Behind the decks. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          768
+        ]
+      },
+      "socialImage": "images/social/dj-playlist.jpg",
+      "socialAlt": "DJ Wasabi: should I give my DJ a playlist?",
+      "service": {
+        "url": "/birthdays.html",
+        "label": "Birthdays",
+        "cta": "Explore birthday DJ services",
+        "event": "birthday"
+      },
+      "faq": {
+        "url": "/birthdays.html#birthday-questions",
+        "label": "Birthday questions"
+      },
+      "next": {
+        "title": "Planning a party?",
+        "text": "Bring your ideas, even if they're still a bit of a mix. We can talk about your guests and the music you'd like to hear.",
+        "contactLabel": "Talk to me about your party"
+      },
+      "contents": [
+        {
+          "id": "mark-your-must-plays",
+          "label": "Songs that matter"
+        },
+        {
+          "id": "give-your-other-choices-context",
+          "label": "Different tastes"
+        },
+        {
+          "id": "say-what-to-avoid",
+          "label": "What to leave out"
+        },
+        {
+          "id": "agree-on-requests",
+          "label": "Guest requests"
+        }
+      ]
+    },
+    {
+      "slug": "choosing-your-first-dance-song",
+      "title": "How to choose your first dance song",
+      "breadcrumbLabel": "First dance",
+      "description": "Choosing your wedding first dance song? Wassim shares a practical way to narrow it down, try it together and plan the moment with your DJ.",
+      "summary": "If you're stuck between a few favourites, or haven't found your song yet, here's where I'd start.",
+      "topic": "Wedding music",
+      "published": "2026-10-30",
+      "modified": "2026-10-30",
+      "body": "partials/articles/first-dance.html",
+      "image": {
+        "src": "images/gallery/wedding-dance-floor-celebration.webp",
+        "width": 1200,
+        "height": 800,
+        "alt": "A bride celebrating with guests and live percussionists on a wedding dance floor",
+        "caption": "A wedding celebration from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          960,
+          1200
+        ]
+      },
+      "socialImage": "images/social/first-dance.jpg",
+      "socialAlt": "DJ Wasabi wedding music advice: choosing your first dance song",
+      "service": {
+        "url": "/weddings.html",
+        "label": "Weddings",
+        "cta": "Explore wedding DJ & MC",
+        "event": "wedding"
+      },
+      "faq": {
+        "url": "/weddings.html#wedding-questions",
+        "label": "Wedding questions"
+      },
+      "next": {
+        "title": "Planning your wedding music?",
+        "text": "Tell me what you're thinking for the rest of the night too. The music you love, who's coming, and what you'd like everyone dancing to.",
+        "contactLabel": "Talk to me about your wedding"
+      },
+      "contents": [
+        {
+          "id": "your-music",
+          "label": "Start with your music"
+        },
+        {
+          "id": "try-it",
+          "label": "Try it together"
+        },
+        {
+          "id": "recording",
+          "label": "Choose the recording"
+        },
+        {
+          "id": "ending",
+          "label": "Plan the ending"
+        },
+        {
+          "id": "shortlist",
+          "label": "Before you decide"
+        }
+      ]
+    }
+  ]
+}
