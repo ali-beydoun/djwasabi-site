@@ -54,7 +54,7 @@
   </url>
   <url>
     <loc>https://djwasabi.com.au/weddings.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/wedding-couple-dj-wasabi-sydney-640.webp</image:loc>
     </image:image>
@@ -67,7 +67,7 @@
   </url>
   <url>
     <loc>https://djwasabi.com.au/birthdays.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-hosts-640.webp</image:loc>
     </image:image>
@@ -80,7 +80,7 @@
   </url>
   <url>
     <loc>https://djwasabi.com.au/corporate.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-mc-microphone-sydney-640.webp</image:loc>
     </image:image>
@@ -225,9 +225,15 @@
   </url>
   <url>
     <loc>https://djwasabi.com.au/blog.html</loc>
-    <lastmod>2026-10-30</lastmod>
+    <lastmod>2026-10-31</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-birthday-party-music.webp</image:loc>
+    </image:image>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/wedding-dj-booth-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-announcements.webp</image:loc>
     </image:image>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney.webp</image:loc>
@@ -240,6 +246,9 @@
     </image:image>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-booth.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-wedding-setup.webp</image:loc>
     </image:image>
   </url>
   <url>
@@ -268,6 +277,27 @@
     <lastmod>2026-10-30</lastmod>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/wedding-dj-booth-sydney.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/can-we-have-a-dj-at-a-party-at-home.html</loc>
+    <lastmod>2026-10-31</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-birthday-party-music.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/planning-music-for-your-wedding-ceremony.html</loc>
+    <lastmod>2026-10-31</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-announcements.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/what-to-check-with-your-venue-before-booking-a-dj.html</loc>
+    <lastmod>2026-10-31</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-professional-wedding-setup.webp</image:loc>
     </image:image>
   </url>
 </urlset>

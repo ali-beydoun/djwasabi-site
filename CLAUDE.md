@@ -4,7 +4,7 @@
 Static HTML/CSS website for DJ Wasabi (Sydney-based DJ/MC service). No build tools or frameworks: plain HTML, CSS, and vanilla JS.
 
 ## Structure
-- HTML pages in root: `index.html`, `contact.html`, `weddings.html`, `birthdays.html`, `corporate.html`, `other-events.html`, `my-story.html`, `gallery.html`, `privacy-policy.html`, `choosing-your-first-dance-song.html`, `blog.html`, `wedding-mc-professional-or-friend.html`, `should-i-give-my-dj-a-playlist.html`, `help-people-relax-at-a-work-party.html`, `choosing-music-for-a-multicultural-wedding.html`
+- HTML pages in root: `index.html`, `contact.html`, `weddings.html`, `birthdays.html`, `corporate.html`, `other-events.html`, `my-story.html`, `gallery.html`, `privacy-policy.html`, `choosing-your-first-dance-song.html`, `blog.html`, `wedding-mc-professional-or-friend.html`, `should-i-give-my-dj-a-playlist.html`, `help-people-relax-at-a-work-party.html`, `choosing-music-for-a-multicultural-wedding.html`, `what-to-check-with-your-venue-before-booking-a-dj.html`, `can-we-have-a-dj-at-a-party-at-home.html`, `planning-music-for-your-wedding-ceremony.html`
 - Stylesheets: `css/style.css` (main + tokens), `css/services.css`, `css/gallery.css`, `css/refinements.css` (shared public-page refinements, loaded last)
 - Design tokens defined in `:root` in `css/style.css`: spacing, radius, color, typography
 
@@ -30,7 +30,7 @@ All new styles should use existing tokens:
 ## Public-Page Design and Gallery
 - Preserve the original transparent WebP used for the homepage portrait with its signature green graphic. Keep its transparency intact. Professional photos can support the homepage story section and suitable heroes on other pages.
 - Keep the established black, white and lime identity, existing system font stack and design tokens. Use shared content widths, aligned text, restrained decoration and proportionate images.
-- `css/refinements.css` is the shared final layer for the fifteen public pages. The Instagram templates do not load it.
+- `css/refinements.css` is the shared final layer for the eighteen public pages. The Instagram templates do not load it.
 - The homepage gallery preview shows six photographs on desktop and four on mobile, linking to the complete gallery.
 - `gallery.html` contains ordinary full-image links enhanced by `js/gallery.js`: category filters, native modal viewing, previous/next controls, arrow keys, swipe and focus restoration. Photos remain accessible as links without JavaScript.
 - Gallery thumbnails use responsive WebP variants at 320, 640 and 960 pixels wide, capped at the source width. Full photographs preserve their framing and are capped at 1800 pixels on the long edge. Keep width/height, srcset, factual alt text, captions and ImageGallery metadata in sync.
@@ -51,7 +51,7 @@ All new styles should use existing tokens:
 ## Shared visual hierarchy
 - Keep the approved homepage hero dominant. Header and mobile footer logos use a 174px maximum width; the desktop footer logo is capped at 190px with its original aspect ratio.
 - Use existing type tokens by role. Mobile service titles scale from 28px to 32px at default text size, section headings are generally 24px, and nested headings remain smaller. Preserve rem-based text enlargement and 16px form inputs.
-- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all fifteen public pages.
+- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all eighteen public pages.
 - Keep static content stationary. Reserve motion and visual feedback for interactions, preserve focus visibility on light and dark surfaces, and respect reduced motion.
 - Menus and disclosures share one mask-based chevron glyph defined in `css/refinements.css` (24px in summaries, 18px in the Services control), rotated for state. Do not reintroduce text glyphs such as `⌄`, `+` or native list markers. Hover and pressed states change colour or opacity, never geometry.
 

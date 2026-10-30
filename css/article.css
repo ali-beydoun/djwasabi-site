@@ -100,3 +100,6 @@
 @media (hover: hover) {
   .site-refined.page-blog .blog-filters button:not([aria-pressed="true"]):hover { background: #fff; border-color: #8a9480; }
 }
+
+/* This portrait has no headroom; anchor its crops to the top to keep the face, microphone and hands. */
+.site-refined.page-guide .guide-photo img[src*="wedding-mc-announcements"], .site-refined.page-blog .blog-card-photo img[src*="wedding-mc-announcements"] { object-position: center top; }

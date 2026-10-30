@@ -15,7 +15,7 @@
     "heading": "Music, parties and planning",
     "description": "Music and event planning advice from Wassim, DJ Wasabi. Explore his articles, from choosing your first dance song to planning your celebration.",
     "intro": "I'm Wassim. These are a few things I'd talk through with you when we're planning your music.",
-    "modified": "2026-10-30",
+    "modified": "2026-10-31",
     "socialImage": "images/social/blog.jpg",
     "socialAlt": "DJ Wasabi blog: music, parties and planning, with Wassim",
     "categories": {
@@ -357,6 +357,220 @@
         {
           "id": "helping-guests-follow",
           "label": "Introductions"
+        }
+      ],
+      "category": "weddings"
+    },
+    {
+      "slug": "what-to-check-with-your-venue-before-booking-a-dj",
+      "title": "What should we check with our venue before booking a DJ?",
+      "breadcrumbLabel": "Checking your venue",
+      "description": "Booking a wedding or party venue in Sydney? Wassim shares the questions to ask about music finish times, sound limiters, access, power and outdoor areas before you sign.",
+      "summary": "Before you sign, I'd ask the venue when the music stops, when everyone leaves, where the DJ would set up and what happens if it rains.",
+      "topic": "Wedding planning",
+      "published": "2026-10-31",
+      "modified": "2026-10-31",
+      "body": "partials/articles/venue-checks.html",
+      "image": {
+        "src": "images/gallery/dj-wasabi-professional-wedding-setup.webp",
+        "width": 1000,
+        "height": 1400,
+        "alt": "DJ Wasabi at his DJ booth with speakers and event lighting",
+        "portrait": true,
+        "caption": "A complete setup at an event. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          960,
+          1000
+        ]
+      },
+      "socialImage": "images/social/venue-checks.jpg",
+      "socialAlt": "DJ Wasabi: what should we check with our venue before booking a DJ?",
+      "service": {
+        "url": "/weddings.html",
+        "label": "Weddings",
+        "cta": "Explore wedding DJ & MC",
+        "event": "wedding"
+      },
+      "faq": {
+        "url": "/weddings.html#wedding-questions",
+        "label": "Wedding questions"
+      },
+      "next": {
+        "title": "Found your venue?",
+        "text": "Tell me what they said about finish times, sound and set-up, even if some answers are still coming. We can plan the music around your room.",
+        "contactLabel": "Talk to me about your wedding"
+      },
+      "contents": [
+        {
+          "id": "two-times",
+          "label": "Two times"
+        },
+        {
+          "id": "sound-limits",
+          "label": "Sound limits"
+        },
+        {
+          "id": "access",
+          "label": "Access"
+        },
+        {
+          "id": "power-and-space",
+          "label": "Power and space"
+        },
+        {
+          "id": "outside",
+          "label": "Outside"
+        },
+        {
+          "id": "before-you-sign",
+          "label": "Before you sign"
+        }
+      ],
+      "category": "weddings"
+    },
+    {
+      "slug": "can-we-have-a-dj-at-a-party-at-home",
+      "title": "Can we have a DJ at a party at home?",
+      "breadcrumbLabel": "Parties at home",
+      "description": "Planning an 18th, 21st or milestone party at home in Sydney? Wassim talks through neighbours, finish times, the NSW hours for music at home, layout and weather.",
+      "summary": "Yes, and I'd start with your neighbours and your finish time. Then we can work back to the music and the layout.",
+      "topic": "Party planning",
+      "published": "2026-10-31",
+      "modified": "2026-10-31",
+      "body": "partials/articles/party-at-home.html",
+      "image": {
+        "src": "images/gallery/dj-wasabi-birthday-party-music.webp",
+        "width": 1200,
+        "height": 1600,
+        "alt": "Wassim mixing music on his DJ controller at a birthday party",
+        "portrait": true,
+        "caption": "At a birthday party. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          960,
+          1200
+        ]
+      },
+      "socialImage": "images/social/party-at-home.jpg",
+      "socialAlt": "DJ Wasabi: can we have a DJ at a party at home?",
+      "service": {
+        "url": "/birthdays.html",
+        "label": "Birthdays",
+        "cta": "Explore birthday DJ services",
+        "event": "birthday"
+      },
+      "faq": {
+        "url": "/birthdays.html#birthday-questions",
+        "label": "Birthday questions"
+      },
+      "next": {
+        "title": "Planning a party at home?",
+        "text": "Tell me about the space, your neighbours and when you'd like the night to end. We can talk through the music and the layout together.",
+        "contactLabel": "Talk to me about your party"
+      },
+      "contents": [
+        {
+          "id": "finish-time",
+          "label": "Finish time"
+        },
+        {
+          "id": "hours-at-home",
+          "label": "Hours at home"
+        },
+        {
+          "id": "layout",
+          "label": "Layout"
+        },
+        {
+          "id": "weather",
+          "label": "Weather"
+        },
+        {
+          "id": "home-or-venue",
+          "label": "Home or venue"
+        }
+      ],
+      "category": "parties"
+    },
+    {
+      "slug": "planning-music-for-your-wedding-ceremony",
+      "title": "How do we plan the music for our ceremony?",
+      "breadcrumbLabel": "Ceremony music",
+      "description": "Planning your wedding ceremony music? Wassim talks through guests arriving, timing the walk in, the signing, walking out and checking everyone can hear.",
+      "summary": "Four moments to talk through: your guests arriving, walking in, signing, and walking out. Songs can come later.",
+      "topic": "Wedding music",
+      "published": "2026-10-31",
+      "modified": "2026-10-31",
+      "body": "partials/articles/ceremony-music.html",
+      "image": {
+        "src": "images/gallery/dj-wasabi-wedding-mc-announcements.webp",
+        "width": 768,
+        "height": 1116,
+        "alt": "Wassim making wedding announcements with a wireless microphone",
+        "portrait": true,
+        "caption": "On the microphone at a wedding reception. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          768
+        ]
+      },
+      "socialImage": "images/social/ceremony-music.jpg",
+      "socialAlt": "DJ Wasabi: how do we plan the music for our ceremony?",
+      "service": {
+        "url": "/weddings.html",
+        "label": "Weddings",
+        "cta": "Explore wedding DJ & MC",
+        "event": "wedding"
+      },
+      "faq": {
+        "url": "/weddings.html#wedding-questions",
+        "label": "Wedding questions"
+      },
+      "next": {
+        "title": "Planning your ceremony music?",
+        "text": "Tell me where the ceremony is, how far you'll walk and who's involved. Songs can come later. We can talk through the reception music at the same time.",
+        "contactLabel": "Talk to me about your wedding"
+      },
+      "contents": [
+        {
+          "id": "arriving",
+          "label": "Arriving"
+        },
+        {
+          "id": "walking-in",
+          "label": "Walking in"
+        },
+        {
+          "id": "signing",
+          "label": "Signing"
+        },
+        {
+          "id": "walking-out",
+          "label": "Walking out"
+        },
+        {
+          "id": "being-heard",
+          "label": "Being heard"
+        },
+        {
+          "id": "before-our-chat",
+          "label": "Before our chat"
         }
       ],
       "category": "weddings"
