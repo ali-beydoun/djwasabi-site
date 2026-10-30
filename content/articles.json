@@ -21,6 +21,74 @@
   },
   "articles": [
     {
+      "slug": "help-people-relax-at-a-work-party",
+      "title": "How do you help people relax at a work party?",
+      "breadcrumbLabel": "Planning your work party",
+      "description": "Planning a staff dinner or work party? Wassim shares practical advice on music, MC introductions and helping colleagues join in at their own pace.",
+      "summary": "If you're worried the team will stay a little guarded, I'd start with how well they know each other and what would help them feel comfortable.",
+      "topic": "Work parties",
+      "published": "2026-10-30",
+      "modified": "2026-10-30",
+      "body": "partials/articles/work-party.html",
+      "image": {
+        "src": "images/gallery/jaycar-corporate-event-dj-sydney.webp",
+        "width": 1000,
+        "height": 1333,
+        "alt": "Wassim beside a Jaycar banner at a corporate event",
+        "portrait": true,
+        "caption": "At a Jaycar event. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          960,
+          1000
+        ]
+      },
+      "socialImage": "images/social/work-party.jpg",
+      "socialAlt": "DJ Wasabi: helping people relax at a work party, with Wassim at a Jaycar event",
+      "service": {
+        "url": "/corporate.html",
+        "label": "Corporate",
+        "cta": "Explore corporate DJ & MC",
+        "event": "corporate"
+      },
+      "faq": {
+        "url": "/corporate.html#corporate-questions",
+        "label": "Corporate questions"
+      },
+      "next": {
+        "title": "Planning a work party?",
+        "text": "Tell me who's coming and what you're hoping the evening will feel like. We can talk through the music and any MC hosting you'd like.",
+        "contactLabel": "Talk to me about your work party"
+      },
+      "contents": [
+        {
+          "id": "who-is-coming",
+          "label": "Who's coming"
+        },
+        {
+          "id": "settling-in",
+          "label": "Settling in"
+        },
+        {
+          "id": "microphone-brief",
+          "label": "On the microphone"
+        },
+        {
+          "id": "after-the-speeches",
+          "label": "After the speeches"
+        },
+        {
+          "id": "a-quiet-dance-floor",
+          "label": "A quiet dance floor"
+        }
+      ]
+    },
+    {
       "slug": "wedding-mc-professional-or-friend",
       "title": "Should we hire a wedding MC or ask a friend?",
       "breadcrumbLabel": "Choosing your MC",

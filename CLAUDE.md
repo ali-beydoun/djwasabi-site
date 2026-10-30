@@ -4,7 +4,7 @@
 Static HTML/CSS website for DJ Wasabi (Sydney-based DJ/MC service). No build tools or frameworks: plain HTML, CSS, and vanilla JS.
 
 ## Structure
-- HTML pages in root: `index.html`, `contact.html`, `weddings.html`, `birthdays.html`, `corporate.html`, `other-events.html`, `my-story.html`, `gallery.html`, `privacy-policy.html`, `choosing-your-first-dance-song.html`, `blog.html`, `wedding-mc-professional-or-friend.html`, `should-i-give-my-dj-a-playlist.html`
+- HTML pages in root: `index.html`, `contact.html`, `weddings.html`, `birthdays.html`, `corporate.html`, `other-events.html`, `my-story.html`, `gallery.html`, `privacy-policy.html`, `choosing-your-first-dance-song.html`, `blog.html`, `wedding-mc-professional-or-friend.html`, `should-i-give-my-dj-a-playlist.html`, `help-people-relax-at-a-work-party.html`
 - Stylesheets: `css/style.css` (main + tokens), `css/services.css`, `css/gallery.css`, `css/refinements.css` (shared public-page refinements, loaded last)
 - Design tokens defined in `:root` in `css/style.css`: spacing, radius, color, typography
 
@@ -30,7 +30,7 @@ All new styles should use existing tokens:
 ## Public-Page Design and Gallery
 - Preserve the original transparent WebP used for the homepage portrait with its signature green graphic. Keep its transparency intact. Professional photos can support the homepage story section and suitable heroes on other pages.
 - Keep the established black, white and lime identity, existing system font stack and design tokens. Use shared content widths, aligned text, restrained decoration and proportionate images.
-- `css/refinements.css` is the shared final layer for the thirteen public pages. The Instagram templates do not load it.
+- `css/refinements.css` is the shared final layer for the fourteen public pages. The Instagram templates do not load it.
 - The homepage gallery preview shows six photographs on desktop and four on mobile, linking to the complete gallery.
 - `gallery.html` contains ordinary full-image links enhanced by `js/gallery.js`: category filters, native modal viewing, previous/next controls, arrow keys, swipe and focus restoration. Photos remain accessible as links without JavaScript.
 - Gallery thumbnails use responsive WebP variants at 320, 640 and 960 pixels wide, capped at the source width. Full photographs preserve their framing and are capped at 1800 pixels on the long edge. Keep width/height, srcset, factual alt text, captions and ImageGallery metadata in sync.
@@ -43,7 +43,7 @@ All new styles should use existing tokens:
 - Keep the shared JSON-LD business ID `https://djwasabi.com.au/#business`, Sydney service area, +61414441773 and djwasabi1@outlook.com consistent. Do not invent a street address, opening hours, prices, ratings or awards.
 - Each public page has unique metadata, a canonical HTTPS URL and a static JSON-LD graph. Service pages preserve their event selection on quote links. Keep the main navigation homepage links at `/`.
 - Update the page's `dateModified` and sitemap `lastmod` only for meaningful content, structured data or link changes. Sitemap images must exist and belong to their page.
-- Social cards in `images/social/` are opaque 1200x630 JPEGs, composed from the approved original DJ portrait on the brand's black background. Keep hero transparency on the website; do not expose transparent artwork as a share card.
+- Social cards in `images/social/` are opaque 1200x630 JPEGs, composed from approved original photographs on the brand's black background. Keep hero transparency on the website; do not expose transparent artwork as a share card.
 - Before release run `python3 scripts/check-seo.py`, check the form's event selection and delivery recovery, and compare public-page layout at phone and desktop widths.
 - After publication, notify participating search engines of the changed pages with `python3 scripts/notify-search.py index.html contact.html --submit` (replace the filenames with the actual changed pages). Without `--submit` this only previews the URLs. Google discovery continues through the sitemap and Search Console.
 - Analytics intent events contain only event type, page path, contact method and step numbers. Never add visitor names, email addresses, phone numbers or enquiry text. `generate_lead` fires only after the delivery provider confirms success.
@@ -51,7 +51,7 @@ All new styles should use existing tokens:
 ## Shared visual hierarchy
 - Keep the approved homepage hero dominant. Header and mobile footer logos use a 174px maximum width; the desktop footer logo is capped at 190px with its original aspect ratio.
 - Use existing type tokens by role. Mobile service titles scale from 28px to 32px at default text size, section headings are generally 24px, and nested headings remain smaller. Preserve rem-based text enlargement and 16px form inputs.
-- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all thirteen public pages.
+- The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all fourteen public pages.
 - Keep static content stationary. Reserve motion and visual feedback for interactions, preserve focus visibility on light and dark surfaces, and respect reduced motion.
 
 ## Service-page hierarchy
@@ -74,7 +74,7 @@ All new styles should use existing tokens:
 
 ## Blog and service-linked articles
 - `choosing-your-first-dance-song.html` expands a genuine question from the Weddings FAQ and has a secondary link from My Story. The Blog is linked from the global menu and footer. Keep advice connected to relevant services and use FAQ links only where they help the reader.
-- `css/article.css` provides the article header, readable light-background column, contents links and understated service follow-through. Preserve the global navigation and footer. Article enquiries lead to `/contact.html?event=wedding#contact`, the existing shared contact surface.
+- `css/article.css` provides the article header, readable light-background column, contents links and understated service follow-through. Preserve the global navigation and footer. Article enquiries lead to the existing shared contact surface, preserving their service event context.
 - Use the original gallery photograph with a factual caption. Do not label the pictured celebration as a first dance. Article metadata, visible author/date, canonical URL, social image and sitemap must agree.
 - Keep advice conversational and specific. Do not invent personal anecdotes or promise music editing or choreography. Sources and editorial research are retained in the task outputs.
 

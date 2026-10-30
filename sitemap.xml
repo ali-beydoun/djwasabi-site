@@ -227,6 +227,9 @@
     <loc>https://djwasabi.com.au/blog.html</loc>
     <lastmod>2026-10-30</lastmod>
     <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-wedding-mc-booth.webp</image:loc>
     </image:image>
     <image:image>
@@ -248,6 +251,13 @@
     <lastmod>2026-10-30</lastmod>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/dj-wasabi-party-laptop-controller.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/help-people-relax-at-a-work-party.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney.webp</image:loc>
     </image:image>
   </url>
 </urlset>
