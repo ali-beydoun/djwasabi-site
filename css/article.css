@@ -4,7 +4,7 @@
 .site-refined.page-guide .guide-breadcrumb a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-text-primary); text-underline-offset: 4px; }
 .site-refined.page-guide .guide-intro-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--space-7); align-items: center; }
 .site-refined.page-guide .guide-header .eyebrow { margin: 0 0 var(--space-3); }
-.site-refined.page-guide h1 { margin: 0 0 var(--space-4); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); color: var(--color-text-primary); text-wrap: balance; }
+.site-refined.page-guide h1 { margin: 0 0 var(--space-4); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); color: var(--color-text-primary); text-wrap: balance; overflow-wrap: anywhere; hyphens: auto; }
 .site-refined.page-guide .guide-deck { margin: 0 0 var(--space-5); font-size: var(--font-size-headline); line-height: var(--line-height-relaxed); color: var(--color-text-secondary); max-width: 42ch; }
 .site-refined.page-guide .guide-byline { margin: 0; font-size: var(--font-size-footnote); line-height: var(--line-height-relaxed); color: var(--color-text-secondary); }
 .site-refined.page-guide .guide-byline a, .site-refined.page-guide .guide-photo a { color: var(--color-text-primary); text-decoration: underline; text-underline-offset: 4px; }

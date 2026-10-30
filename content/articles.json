@@ -291,6 +291,75 @@
         }
       ],
       "category": "weddings"
+    },
+    {
+      "slug": "choosing-music-for-a-multicultural-wedding",
+      "title": "How do we choose music for a multicultural wedding?",
+      "breadcrumbLabel": "Multicultural wedding music",
+      "description": "Planning music for a multicultural wedding? Wassim discusses dabke, Greek dances, family requests and coordinating entrances with your DJ and MC.",
+      "summary": "I'd start with the traditions that matter to each of you, then plan how they fit alongside the music you both love.",
+      "topic": "Wedding music",
+      "published": "2026-10-30",
+      "modified": "2026-10-30",
+      "body": "partials/articles/multicultural-music.html",
+      "image": {
+        "src": "images/gallery/wedding-dj-booth-sydney.webp",
+        "width": 1000,
+        "height": 1400,
+        "alt": "Wassim smiling behind his DJ controller, with headphones, a laptop and lighting",
+        "portrait": true,
+        "caption": "Behind the decks. More from",
+        "captionLink": {
+          "url": "/gallery.html",
+          "label": "my gallery"
+        },
+        "widths": [
+          320,
+          640,
+          960,
+          1000
+        ]
+      },
+      "socialImage": "images/social/multicultural-wedding.jpg",
+      "socialAlt": "DJ Wasabi: choosing music for a multicultural wedding, with Wassim behind the decks",
+      "service": {
+        "url": "/weddings.html",
+        "label": "Weddings",
+        "cta": "Explore wedding DJ & MC",
+        "event": "wedding"
+      },
+      "faq": {
+        "url": "/weddings.html#wedding-questions",
+        "label": "Wedding questions"
+      },
+      "next": {
+        "title": "Planning your wedding music?",
+        "text": "Tell me which traditions and songs you'd like included, even if you're still working out the details. We can talk through the music and any MC hosting you need.",
+        "contactLabel": "Talk to me about your wedding"
+      },
+      "contents": [
+        {
+          "id": "your-family-traditions",
+          "label": "Your traditions"
+        },
+        {
+          "id": "the-dance-and-recording",
+          "label": "Dances and recordings"
+        },
+        {
+          "id": "family-song-requests",
+          "label": "Family requests"
+        },
+        {
+          "id": "entrances-and-performers",
+          "label": "Entrances and performers"
+        },
+        {
+          "id": "helping-guests-follow",
+          "label": "Introductions"
+        }
+      ],
+      "category": "weddings"
     }
   ]
 }

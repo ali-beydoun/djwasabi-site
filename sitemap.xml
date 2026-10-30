@@ -227,6 +227,9 @@
     <loc>https://djwasabi.com.au/blog.html</loc>
     <lastmod>2026-10-30</lastmod>
     <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dj-booth-sydney.webp</image:loc>
+    </image:image>
+    <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney.webp</image:loc>
     </image:image>
     <image:image>
@@ -258,6 +261,13 @@
     <lastmod>2026-10-30</lastmod>
     <image:image>
       <image:loc>https://djwasabi.com.au/images/gallery/jaycar-corporate-event-dj-sydney.webp</image:loc>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://djwasabi.com.au/choosing-music-for-a-multicultural-wedding.html</loc>
+    <lastmod>2026-10-30</lastmod>
+    <image:image>
+      <image:loc>https://djwasabi.com.au/images/gallery/wedding-dj-booth-sydney.webp</image:loc>
     </image:image>
   </url>
 </urlset>
