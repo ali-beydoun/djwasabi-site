@@ -53,28 +53,29 @@
 .site-refined.page-guide .guide-return-links { display: flex; flex-wrap: wrap; column-gap: var(--space-5); }
 .site-refined.page-guide .guide-reading-simple { grid-template-columns: minmax(0, 42rem); }
 
-/* The collection uses the article's type, colour and photo treatment. */
-.site-refined.page-blog .blog-header { padding: calc(72px + var(--space-5)) 0 var(--space-7); background: var(--color-surface); }
-.site-refined.page-blog .guide-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-bottom: var(--space-5); color: var(--color-text-secondary); font-size: var(--font-size-footnote); }
+/* Evergreen advice stays equally weighted and easy to scan. */
+.site-refined.page-blog .blog-header { padding: calc(72px + var(--space-3)) 0 var(--space-5); background: var(--color-surface); }
+.site-refined.page-blog .guide-breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3); color: var(--color-text-secondary); font-size: var(--font-size-footnote); }
 .site-refined.page-blog .guide-breadcrumb a { display: inline-flex; align-items: center; min-height: 44px; color: var(--color-text-primary); text-underline-offset: 4px; }
-.site-refined.page-blog .blog-header .eyebrow { margin-bottom: var(--space-3); }
-.site-refined.page-blog h1 { max-width: 24ch; margin: 0 0 var(--space-4); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); text-wrap: balance; }
-.site-refined.page-blog .blog-intro { max-width: 52ch; color: var(--color-text-secondary); font-size: var(--font-size-headline); line-height: var(--line-height-relaxed); }
-.site-refined.page-blog .blog-library { padding-block: var(--space-8); background: var(--color-surface-light); color: var(--color-text-dark); }
-.site-refined.page-blog .blog-grid { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr)); gap: var(--space-8) var(--space-6); }
-.site-refined.page-blog .blog-grid > li:first-child { grid-column: 1 / -1; }
-.site-refined.page-blog .blog-card { display: grid; gap: var(--space-5); color: inherit; text-decoration: none; }
-.site-refined.page-blog .blog-grid > li:first-child .blog-card { grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); align-items: center; gap: var(--space-7); padding-bottom: var(--space-7); border-bottom: 1px solid #d8ddd1; }
-.site-refined.page-blog .blog-grid > li:only-child .blog-card { border: 0; padding-bottom: 0; }
-.site-refined.page-blog .blog-card-photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-md); }
+.site-refined.page-blog h1 { max-width: 28ch; margin: 0 0 var(--space-3); font-size: clamp(1.75rem, 3.2vw, 2.5rem); font-weight: var(--font-weight-bold); line-height: var(--line-height-tight); letter-spacing: var(--tracking-tight); text-wrap: balance; }
+.site-refined.page-blog .blog-intro { margin: 0; max-width: 52ch; color: var(--color-text-secondary); font-size: var(--font-size-body); line-height: var(--line-height-normal); }
+.site-refined.page-blog .blog-library { padding-block: var(--space-5) var(--space-6); background: var(--color-surface-light); color: var(--color-text-dark); }
+.site-refined.page-blog .blog-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+.site-refined.page-blog .blog-filters[hidden], .site-refined.page-blog .blog-grid > li[hidden] { display: none; }
+.site-refined.page-blog .blog-filters button { min-height: 44px; padding: var(--space-2) var(--space-3); border: 1px solid #c6cdbf; border-radius: var(--radius-full); background: transparent; color: var(--color-text-dark); font: inherit; font-size: var(--font-size-subhead); font-weight: var(--font-weight-medium); line-height: var(--line-height-normal); cursor: pointer; }
+.site-refined.page-blog .blog-filters button[aria-pressed="true"] { background: #25371d; border-color: #25371d; color: #fff; }
+.site-refined.page-blog .blog-library :focus-visible { outline-color: #426b1f; }
+.site-refined.page-blog .blog-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr)); gap: 0 var(--space-7); }
+.site-refined.page-blog .blog-grid > li { min-width: 0; border-bottom: 1px solid #d8ddd1; }
+.site-refined.page-blog .blog-entry { height: 100%; }
+.site-refined.page-blog .blog-card { height: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 96px; align-items: center; gap: var(--space-5); padding-block: var(--space-5); color: inherit; text-decoration: none; }
+.site-refined.page-blog .blog-card-photo img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-sm); }
 .site-refined.page-blog .blog-card-copy { min-width: 0; }
-.site-refined.page-blog .blog-card .eyebrow { margin-bottom: var(--space-3); color: #426b1f; }
-.site-refined.page-blog .blog-card h2 { margin: 0 0 var(--space-3); font-size: clamp(var(--font-size-title2), 2.4vw, var(--font-size-large-title)); font-weight: var(--font-weight-bold); line-height: var(--line-height-snug); letter-spacing: var(--tracking-tight); text-wrap: balance; }
-.site-refined.page-blog .blog-card-summary { margin-bottom: var(--space-4); font-size: var(--font-size-body); line-height: var(--line-height-relaxed); }
-.site-refined.page-blog .blog-card-meta { display: flex; flex-wrap: wrap; gap: 0 var(--space-2); color: var(--color-text-muted-dark); font-size: var(--font-size-footnote); }
-.site-refined.page-blog .blog-read { display: inline-flex; gap: var(--space-3); align-items: center; min-height: 44px; margin-top: var(--space-3); font-size: var(--font-size-subhead); font-weight: var(--font-weight-semibold); text-decoration: underline; text-underline-offset: 4px; }
-.site-refined.page-blog .blog-card:focus-visible { outline-color: #426b1f; border-radius: var(--radius-sm); }
-.site-refined.page-blog .blog-card:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 5px; }
+.site-refined.page-blog .blog-card .eyebrow { margin: 0 0 var(--space-2); color: #426b1f; font-size: var(--font-size-caption1); }
+.site-refined.page-blog .blog-card h2 { margin: 0; font-size: var(--font-size-title3); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); letter-spacing: var(--tracking-tight); }
+.site-refined.page-blog .blog-card:focus-visible { border-radius: var(--radius-sm); }
+.site-refined.page-blog .blog-card:hover h2 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.site-refined.page-blog .blog-card:active { background: #e8eddf; }
 .site-refined.page-blog .blog-services { padding-block: var(--space-7); }
 .site-refined.page-blog .blog-services > .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--space-6); align-items: start; }
 .site-refined.page-blog .blog-services h2 { margin-bottom: var(--space-3); font-size: var(--font-size-title2); line-height: var(--line-height-snug); }
@@ -87,8 +88,9 @@
   .site-refined.page-blog .blog-header { padding-top: calc(72px + var(--space-2)); padding-bottom: var(--space-5); }
   .site-refined.page-blog .guide-breadcrumb { margin-bottom: var(--space-3); }
   .site-refined.page-blog .blog-intro { font-size: var(--font-size-body); }
-  .site-refined.page-blog .blog-library { padding-block: var(--space-6); }
-  .site-refined.page-blog .blog-grid > li:first-child .blog-card { gap: var(--space-5); padding-bottom: var(--space-6); }
+  .site-refined.page-blog .blog-library { padding-block: var(--space-4) var(--space-5); }
+  .site-refined.page-blog .blog-card { grid-template-columns: minmax(0, 1fr) 76px; gap: var(--space-4); padding-block: var(--space-4); }
+  .site-refined.page-blog .blog-card h2 { font-size: var(--font-size-headline); }
 }
 .site-refined.page-guide .guide-photo .guide-portrait { aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; }
 .site-refined.page-blog .blog-card-photo .guide-portrait { object-position: center 35%; }

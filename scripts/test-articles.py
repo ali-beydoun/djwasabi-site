@@ -1,4 +1,4 @@
-"""Check publishing paths that the current three service articles don't exercise."""
+"""Check general advice, collection filtering and static article discovery."""
 import copy
 import importlib.util
 import json
@@ -15,7 +15,7 @@ class ArticlePublishing(unittest.TestCase):
         catalogue = copy.deepcopy(renderer.read_catalogue())
         article = catalogue['articles'][0]
         article['slug'] = 'general-article-fixture'
-        for optional in ['service', 'faq', 'contents']:
+        for optional in ['service', 'faq', 'contents', 'category']:
             article.pop(optional, None)
         catalogue['articles'] = [article]
         pages = renderer.render_pages(catalogue)
@@ -29,6 +29,23 @@ class ArticlePublishing(unittest.TestCase):
         self.assertNotIn('Wedding questions', html)
         self.assertNotIn('{{', html)
         self.assertIn('/general-article-fixture.html', pages['blog.html'])
+        self.assertNotIn('class="blog-filters"', pages['blog.html'])
+        self.assertIn('data-category="general"', pages['blog.html'])
+
+    def test_filters_only_offer_topics_with_articles(self):
+        catalogue = copy.deepcopy(renderer.read_catalogue())
+        wedding = next(a for a in catalogue['articles'] if a['category'] == 'weddings')
+        general = copy.deepcopy(wedding)
+        general['slug'] = 'general-advice-fixture'
+        general.pop('category')
+        catalogue['articles'] = [wedding, general]
+        listing = renderer.render_pages(catalogue)['blog.html']
+        self.assertIn('data-topic="all"', listing)
+        self.assertIn('data-topic="weddings"', listing)
+        self.assertIn('data-topic="general"', listing)
+        self.assertNotIn('data-topic="work-events"', listing)
+        self.assertNotIn('data-topic="parties"', listing)
+        self.assertIn('aria-label="Filter articles by topic" hidden', listing)
 
     def test_all_catalogue_articles_are_discoverable_without_javascript(self):
         catalogue = renderer.read_catalogue()

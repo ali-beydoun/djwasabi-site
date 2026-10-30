@@ -742,3 +742,13 @@ html { scroll-padding-top: 88px; }
 
 .site-refined .faq-guide-link { color: var(--color-text-dark); text-decoration: underline; text-underline-offset: 4px; }
 .site-refined.page-my-story .story-guide-link { display: inline-flex; align-items: center; min-height: 48px; margin-top: var(--space-3); color: var(--color-accent); font-size: var(--font-size-subhead); line-height: var(--line-height-normal); text-decoration: underline; text-underline-offset: 4px; }
+
+/* Supporting advice within the homepage story, below the service choices. */
+.site-refined.page-home .home-advice { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); gap: var(--space-3) var(--space-8); margin-top: var(--space-6); padding-top: var(--space-5); border-top: 1px solid var(--border-color); }
+.site-refined.page-home .home-advice-heading { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; align-content: start; gap: 0 var(--space-4); }
+.site-refined.page-home .home-advice h3 { margin: 0; font-size: var(--font-size-title3); font-weight: var(--font-weight-semibold); line-height: var(--line-height-snug); }
+.site-refined.page-home .home-advice-all { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 48px; color: var(--color-accent); font-size: var(--font-size-subhead); text-underline-offset: 4px; }
+.site-refined.page-home .home-advice-links { list-style: none; padding: 0; margin: 0; }
+.site-refined.page-home .home-advice-links a { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 48px; padding-block: var(--space-3); border-bottom: 1px solid var(--border-color); color: var(--color-text-primary); font-size: var(--font-size-body); line-height: var(--line-height-normal); text-decoration: none; }
+.site-refined.page-home .home-advice-links a > span:last-child { flex: none; color: var(--color-text-secondary); }
+.site-refined.page-home .home-advice-links a:hover > span:first-child { text-decoration: underline; text-underline-offset: 4px; }

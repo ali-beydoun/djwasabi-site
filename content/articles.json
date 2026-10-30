@@ -17,7 +17,13 @@
     "intro": "I'm Wassim. These are a few things I'd talk through with you when we're planning your music.",
     "modified": "2026-10-30",
     "socialImage": "images/social/blog.jpg",
-    "socialAlt": "DJ Wasabi blog: music, parties and planning, with Wassim"
+    "socialAlt": "DJ Wasabi blog: music, parties and planning, with Wassim",
+    "categories": {
+      "weddings": "Weddings",
+      "parties": "Parties",
+      "work-events": "Work events",
+      "general": "Other advice"
+    }
   },
   "articles": [
     {
@@ -86,7 +92,8 @@
           "id": "a-quiet-dance-floor",
           "label": "A quiet dance floor"
         }
-      ]
+      ],
+      "category": "work-events"
     },
     {
       "slug": "wedding-mc-professional-or-friend",
@@ -150,7 +157,8 @@
           "id": "once-you-choose",
           "label": "Once you choose"
         }
-      ]
+      ],
+      "category": "weddings"
     },
     {
       "slug": "should-i-give-my-dj-a-playlist",
@@ -213,7 +221,8 @@
           "id": "agree-on-requests",
           "label": "Guest requests"
         }
-      ]
+      ],
+      "category": "parties"
     },
     {
       "slug": "choosing-your-first-dance-song",
@@ -280,7 +289,8 @@
           "id": "shortlist",
           "label": "Before you decide"
         }
-      ]
+      ],
+      "category": "weddings"
     }
   ]
 }

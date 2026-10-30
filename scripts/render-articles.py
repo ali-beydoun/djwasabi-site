@@ -24,7 +24,7 @@ def readable_date(value):
     return f'{d.day} {d.strftime("%B %Y")}'
 
 
-def image_markup(image, priority=False):
+def image_markup(image, priority=False, thumbnail=False):
     src = image['src']
     stem, extension = src.rsplit('.', 1)
     variants = [(w, src if w == image['width'] else f'{stem}-{w}.{extension}')
@@ -34,8 +34,9 @@ def image_markup(image, priority=False):
     srcset = ', '.join(f'{path} {w}w' for w, path in variants)
     loading = 'fetchpriority="high"' if priority else 'loading="lazy"'
     framing = ' class="guide-portrait"' if image.get('portrait') else ''
+    sizes = '96px' if thumbnail else '(max-width: 768px) calc(100vw - 32px), 560px'
     return (f'<img src="/{escape(src)}" srcset="{escape(srcset)}" '
-            f'sizes="(max-width: 768px) calc(100vw - 32px), 560px" '
+            f'sizes="{sizes}" '
             f'width="{image["width"]}" height="{image["height"]}" '
             f'alt="{escape(image["alt"])}"{framing} {loading} decoding="async">')
 
@@ -55,19 +56,21 @@ def breadcrumb(items, url):
 def read_catalogue():
     catalogue = json.loads(CATALOGUE.read_text())
     articles = catalogue['articles']
+    categories = catalogue['blog'].get('categories', {})
     assert articles, 'Publish at least one article before the Blog'
     assert len({a['slug'] for a in articles}) == len(articles), 'Duplicate article URL'
     for article in articles:
         assert re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', article['slug'])
         assert date.fromisoformat(article['published']) <= date.fromisoformat(article['modified'])
         assert (ROOT / article['body']).is_file()
+        assert article.get('category', 'general') in categories, 'Unknown article category'
         service = article.get('service')
         if service:
             assert (ROOT / service['url'].lstrip('/')).is_file()
             assert service.get('event', '') in ['', 'wedding', 'birthday', 'corporate', 'other']
         for item in article.get('contents', []):
             assert f'id="{item["id"]}"' in (ROOT / article['body']).read_text()
-    catalogue['articles'] = sorted(articles, key=lambda a: a['published'], reverse=True)
+    catalogue['articles'] = sorted(articles, key=lambda a: a['title'].casefold())
     return catalogue
 
 
@@ -90,7 +93,7 @@ def render_pages(catalogue):
                 'dateModified': modified, 'isPartOf': {'@id': BASE + '/#website'},
                 'publisher': {'@id': BASE + '/#business'},
                 'breadcrumb': {'@id': url + '#breadcrumb'},
-                'primaryImageOfPage': {'@type': 'ImageObject', 'url': extra[0]['image'] if article else BASE + '/' + catalogue['articles'][0]['image']['src']},
+                'primaryImageOfPage': {'@type': 'ImageObject', 'url': extra[0]['image'] if article else BASE + '/' + blog['socialImage']},
                 'mainEntity': {'@id': extra[0]['@id']}, 'significantLink': BASE + contact}
         nav = navigation.replace('href="/blog.html"', 'href="/blog.html" class="active"' + ('' if article else ' aria-current="page"'))
         nav = nav.replace('href="#contact"', f'href="{contact}"')
@@ -103,7 +106,8 @@ def render_pages(catalogue):
             'og_type': 'article' if article else 'website',
             'body_class': 'page-guide' if article else 'page-blog'}.items()}
         values.update(schema=json.dumps(graph, indent=2, ensure_ascii=False).replace('<', '\\u003c'),
-                      navigation=nav, footer=foot, main=main)
+                      navigation=nav, footer=foot, main=main,
+                      page_scripts='' if article else '    <script src="js/blog.js?v=20261030-browse" defer></script>')
         return fill(template, values)
 
     outputs = {}
@@ -156,24 +160,27 @@ def render_pages(catalogue):
         outputs[path.lstrip('/')] = page(path.lstrip('/'), a['title'] + ' | DJ Wasabi', a['description'],
                                         a['socialImage'], a['socialAlt'], a['modified'], main, crumbs,
                                         [article_node], contact, article=True)
-        cards.append(f'''<li><article class="blog-entry"><a class="blog-card" href="{path}" aria-labelledby="article-{a['slug']}">
-            <div class="blog-card-photo">{image_markup(a['image'], index == 0)}</div>
+        cards.append(f'''<li data-category="{escape(a.get('category', 'general'))}"><article class="blog-entry"><a class="blog-card" href="{path}" aria-labelledby="article-{a['slug']}">
             <div class="blog-card-copy"><p class="eyebrow">{escape(a['topic'])}</p>
                 <h2 id="article-{a['slug']}">{escape(a['title'])}</h2>
-                <p class="blog-card-summary">{escape(a['summary'])}</p>
-                <p class="blog-card-meta">Wassim <span aria-hidden="true">·</span> <time datetime="{a['published']}">{readable_date(a['published'])}</time></p>
-                <span class="blog-read">Read article <span aria-hidden="true">→</span></span>
-            </div></a></article></li>''')
+            </div><div class="blog-card-photo">{image_markup(a['image'], index < 4, thumbnail=True)}</div>
+            </a></article></li>''')
         list_items.append({'@type': 'ListItem', 'position': index + 1, 'url': url, 'name': a['title']})
 
     blog_url = BASE + '/blog.html'
     trail, crumbs = breadcrumb([('Home', '/'), ('Blog', '/blog.html')], blog_url)
+    present = {a.get('category', 'general') for a in catalogue['articles']}
+    filters = ''
+    if len(present) > 1:
+        options = {'all': 'All', **{k: v for k, v in blog.get('categories', {}).items() if k in present}}
+        buttons = ''.join(f'<button type="button" data-topic="{escape(key)}" aria-pressed="{str(key == "all").lower()}" aria-controls="blog-articles">{escape(label)}</button>' for key, label in options.items())
+        filters = f'<div class="blog-filters" role="group" aria-label="Filter articles by topic" hidden>{buttons}</div><p class="blog-status sr-only" role="status" aria-live="polite" aria-atomic="true"></p>'
     main = f'''        <header class="blog-header"><div class="container">
-            {trail}<p class="eyebrow">From Wassim</p><h1>{escape(blog['heading'])}</h1>
+            {trail}<h1>{escape(blog['heading'])}</h1>
             <p class="blog-intro">{escape(blog['intro'])}</p>
         </div></header>
         <section class="blog-library" aria-label="Articles"><div class="container">
-            <ul class="blog-grid">{''.join(cards)}</ul>
+            {filters}<ul class="blog-grid" id="blog-articles">{''.join(cards)}</ul>
         </div></section>
         <section class="blog-services" aria-labelledby="planning-title"><div class="container">
             <div><h2 id="planning-title">What are you planning?</h2><p>Find out how I can help with the music on your day.</p></div>
