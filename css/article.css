@@ -94,3 +94,9 @@
 }
 .site-refined.page-guide .guide-photo .guide-portrait { aspect-ratio: 4 / 3; object-fit: cover; object-position: center 35%; }
 .site-refined.page-blog .blog-card-photo .guide-portrait { object-position: center 35%; }
+
+/* Topic filters acknowledge the pointer without changing size. */
+.site-refined.page-blog .blog-filters button { transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+@media (hover: hover) {
+  .site-refined.page-blog .blog-filters button:not([aria-pressed="true"]):hover { background: #fff; border-color: #8a9480; }
+}

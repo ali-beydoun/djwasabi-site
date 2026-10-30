@@ -53,6 +53,7 @@ All new styles should use existing tokens:
 - Use existing type tokens by role. Mobile service titles scale from 28px to 32px at default text size, section headings are generally 24px, and nested headings remain smaller. Preserve rem-based text enlargement and 16px form inputs.
 - The container owns horizontal page insets. Adjacent sections with the same background need a subtle boundary; section labels stay close to their heading. The footer uses the same structure on all fifteen public pages.
 - Keep static content stationary. Reserve motion and visual feedback for interactions, preserve focus visibility on light and dark surfaces, and respect reduced motion.
+- Menus and disclosures share one mask-based chevron glyph defined in `css/refinements.css` (24px in summaries, 18px in the Services control), rotated for state. Do not reintroduce text glyphs such as `⌄`, `+` or native list markers. Hover and pressed states change colour or opacity, never geometry.
 
 ## Service-page hierarchy
 - The four service pages use `page-service` for shared refinements. Heroes introduce the specific offer with three factual highlights, a quote action and a direct detail link. Keep optional MC, ceremony and party extras distinct from standard inclusions.

@@ -174,3 +174,9 @@
 .event-photo[data-photo="dj-wasabi-party-hosts"] { --photo-ratio: 0.800000; }
 .event-photo[data-photo="dj-wasabi-wedding-mc-booth"] { --photo-ratio: 0.667318; }
 .event-photo[data-photo="wedding-dance-floor-celebration"] { --photo-ratio: 1.500000; }
+
+/* Filter chips acknowledge the pointer without changing size. */
+.gallery-filters button { transition: background-color .15s ease, border-color .15s ease, color .15s ease; }
+@media (hover: hover) {
+  .gallery-filters button:not([aria-pressed="true"]):hover { border-color: var(--color-text-secondary); color: var(--color-text-primary); }
+}

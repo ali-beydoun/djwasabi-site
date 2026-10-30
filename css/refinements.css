@@ -752,3 +752,112 @@ html { scroll-padding-top: 88px; }
 .site-refined.page-home .home-advice-links a { display: flex; align-items: center; justify-content: space-between; gap: var(--space-4); min-height: 48px; padding-block: var(--space-3); border-bottom: 1px solid var(--border-color); color: var(--color-text-primary); font-size: var(--font-size-body); line-height: var(--line-height-normal); text-decoration: none; }
 .site-refined.page-home .home-advice-links a > span:last-child { flex: none; color: var(--color-text-secondary); }
 .site-refined.page-home .home-advice-links a:hover > span:first-child { text-decoration: underline; text-underline-offset: 4px; }
+
+/* ============================================================
+   Micropolish, 31 October 2026. One chevron glyph for anything
+   that reveals in place, calmer hover physics, button harmony
+   and matching glyph stroke weights. Static content stays still.
+   ============================================================ */
+
+/* Glyph strokes render close to 1.75px whatever the icon's box size. */
+.site-refined .trust-number svg { stroke-width: 1.75; }
+.site-refined .nav-menu .nav-icon svg { stroke-width: 1.85; }
+.site-refined .contact-action > svg { stroke-width: 1.5; }
+.site-refined .contact-email svg { stroke-width: 2.3; }
+.site-refined .nav-menu a.active .nav-icon svg { filter: none; }
+@media (max-width: 768px) {
+  .site-refined .contact-action > svg { stroke-width: 1.75; }
+}
+@media (max-width: 359px) {
+  .site-refined .contact-action > svg { stroke-width: 2.1; }
+}
+
+/* Decorative icons do not react to the pointer. */
+.site-refined .trust-item:hover .trust-number svg { transform: none; filter: none; }
+.site-refined .expertise-item:hover .expertise-icon { transform: none; background: none; box-shadow: none; }
+
+/* The homepage gallery preview uses the same quiet hover as the Gallery page. */
+.site-refined .gallery .gallery-item::after { display: none; }
+.site-refined .gallery .gallery-item:hover { box-shadow: none; }
+.site-refined .gallery .gallery-item img { transition: transform .25s var(--ease-interactive); }
+.site-refined .gallery .gallery-item:hover img { transform: none; filter: none; }
+@media (hover: hover) {
+  .site-refined .gallery .gallery-item:hover img { transform: scale(1.025); }
+}
+
+/* Section labels share their heading's alignment and width. */
+.site-refined .section-subtitle--label { max-width: none; margin-inline: 0; }
+.site-refined .why-text .section-subtitle--label { text-align: left; }
+.site-refined .enhancements-cta p { font-style: normal; }
+
+/* Navigation: the Services control behaves like its neighbours, and its
+   menu aligns to the label without moving on hover. */
+.site-refined .nav-services { transition: background-color .15s ease, color .15s ease; }
+.site-refined .nav-services:hover, .site-refined .dropdown.open .nav-services { color: var(--color-accent); background: rgba(139, 195, 74, .1); }
+.site-refined .dropdown-menu { left: calc(-1 * var(--space-2)); }
+.site-refined .dropdown-menu::before { display: none; }
+.site-refined .dropdown-menu li { margin: 0; }
+.site-refined .dropdown-menu li a { border: 0; box-shadow: none; transition: background-color .15s ease, color .15s ease; }
+.site-refined .dropdown-menu li a:hover { color: var(--color-accent); background: rgba(139, 195, 74, .1); border: 0; box-shadow: none; }
+@keyframes dropdown-reveal { from { opacity: 0; transform: translateY(-4px); } }
+.site-refined .dropdown.open .dropdown-menu { animation: dropdown-reveal .16s var(--ease-interactive); }
+.site-refined .nav-menu .get-quote-btn { font-weight: var(--font-weight-semibold); transition: background-color .2s var(--ease-interactive), opacity .15s ease; }
+.site-refined .nav-menu .get-quote-btn:hover { background: var(--lime-hover); transform: none; box-shadow: none; }
+@media (max-width: 768px) {
+  .site-refined .nav-services:hover, .site-refined .dropdown.open .nav-services { color: var(--color-text-primary); background: var(--color-surface-elevated); }
+  .site-refined .dropdown-menu li a:hover { color: var(--color-text-primary); background: var(--color-surface-elevated); }
+}
+
+/* The menu glyph shares the 2px line weight and morphs about its own centre. */
+.site-refined .mobile-toggle { justify-content: center; align-items: center; gap: 5px; padding: 0; transition: background-color .15s ease, border-color .15s ease, opacity .15s ease; }
+.site-refined .mobile-toggle::before { display: none; }
+.site-refined .mobile-toggle span { flex: none; width: 18px; height: 2px; margin: 0; border-radius: 1px; background: var(--color-text-primary); box-shadow: none; transition: transform .2s var(--ease-interactive), opacity .2s var(--ease-interactive); }
+.site-refined .mobile-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-refined .mobile-toggle.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.site-refined .mobile-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* One pressed state for buttons, chips and controls. Geometry is preserved. */
+.site-refined :is(.btn, .footer-cta, .nav-menu .get-quote-btn, .mobile-toggle, .gallery-filters button, .blog-filters button, .viewer-button):active { opacity: .8; transform: none; }
+
+/* Guest chips use the brand lime for hover, selection and touch feedback. */
+.site-refined .quote-form .guest-chip { transition: background-color .15s ease, border-color .15s ease; }
+.site-refined .quote-form .guest-chip:hover { background: rgba(139, 195, 74, .1); border-color: rgba(139, 195, 74, .45); }
+.site-refined .quote-form .guest-chips input:checked + .guest-chip,
+.site-refined .quote-form .guest-chips input:checked + .guest-chip:hover { background: var(--color-accent); border-color: var(--color-accent); box-shadow: none; }
+@media (hover: none) {
+  .site-refined .quote-form .guest-chip:hover { background: rgba(255, 255, 255, .04); border-color: rgba(255, 255, 255, .15); }
+  .site-refined .quote-form .guest-chip:active { background: rgba(139, 195, 74, .15); border-color: rgba(139, 195, 74, .5); transform: none; }
+}
+
+/* One chevron glyph for every control that reveals content in place.
+   Browsers without mask support keep the earlier text glyphs. */
+@supports (mask-image: url("data:,")) or (-webkit-mask-image: url("data:,")) {
+  .site-refined .nav-services::after,
+  .site-refined :is(.faq-item, .enhancement-item, .event-option) > summary::after,
+  .site-refined :is(.reviews-more, .story-genres, .guide-sources) > summary::before {
+    content: '';
+    flex: none;
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") center / 100% 100% no-repeat;
+    transition: transform .2s var(--ease-interactive);
+  }
+  .site-refined :is(.faq-item, .enhancement-item, .event-option) > summary::after { margin-left: auto; }
+  .site-refined :is(.faq-item, .enhancement-item, .event-option)[open] > summary::after { content: ''; transform: rotate(180deg); }
+  .site-refined .nav-services::after {
+    width: 18px;
+    height: 18px;
+    margin-left: auto;
+    color: var(--color-text-secondary);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.33' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='2.33' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  }
+  .site-refined .nav-services:hover::after, .site-refined .dropdown.open .nav-services::after { color: inherit; }
+  .site-refined .dropdown.open .nav-services::after { transform: rotate(180deg); }
+  .site-refined :is(.reviews-more, .story-genres, .guide-sources) > summary { display: flex; align-items: center; gap: var(--space-2); list-style: none; }
+  .site-refined :is(.reviews-more, .story-genres, .guide-sources) > summary::before { transform: rotate(-90deg); }
+  .site-refined :is(.reviews-more, .story-genres, .guide-sources)[open] > summary::before { transform: none; }
+}
